@@ -1,690 +1,948 @@
 [
   {
-    "int": "10000",
-    "string": "일반 마법사",
+    "ID": 10000,
+    "Name": "일반 마법사",
     "HeroClassType": "Magician",
     "HeroGradeType": "Normal",
     "HeroClassGradeType": "B",
-    "float": "0"
+    "AttackPower": 0.0,
+    "AttackSpeed": 2.0,
+    "AttackRange": 200.0,
+    "SplashRange": 0.0
   },
   {
-    "int": "10001",
-    "string": "일반 마법사",
+    "ID": 10001,
+    "Name": "일반 마법사",
     "HeroClassType": "Magician",
     "HeroGradeType": "Normal",
     "HeroClassGradeType": "A",
-    "float": "0"
+    "AttackPower": null,
+    "AttackSpeed": 1.67,
+    "AttackRange": 200.0,
+    "SplashRange": 0.0
   },
   {
-    "int": "10002",
-    "string": "일반 마법사",
+    "ID": 10002,
+    "Name": "일반 마법사",
     "HeroClassType": "Magician",
     "HeroGradeType": "Normal",
     "HeroClassGradeType": "S",
-    "float": "0"
+    "AttackPower": null,
+    "AttackSpeed": 2.0,
+    "AttackRange": 200.0,
+    "SplashRange": 0.0
   },
   {
-    "int": "10010",
-    "string": "고급 마법사",
+    "ID": 10010,
+    "Name": "고급 마법사",
     "HeroClassType": "Magician",
     "HeroGradeType": "Superior",
     "HeroClassGradeType": "B",
-    "float": "0"
+    "AttackPower": null,
+    "AttackSpeed": 2.0,
+    "AttackRange": 250.0,
+    "SplashRange": 0.0
   },
   {
-    "int": "10011",
-    "string": "고급 마법사",
+    "ID": 10011,
+    "Name": "고급 마법사",
     "HeroClassType": "Magician",
     "HeroGradeType": "Superior",
     "HeroClassGradeType": "A",
-    "float": "0"
+    "AttackPower": null,
+    "AttackSpeed": 1.67,
+    "AttackRange": 250.0,
+    "SplashRange": 0.0
   },
   {
-    "int": "10012",
-    "string": "고급 마법사",
+    "ID": 10012,
+    "Name": "고급 마법사",
     "HeroClassType": "Magician",
     "HeroGradeType": "Superior",
     "HeroClassGradeType": "S",
-    "float": "0"
+    "AttackPower": null,
+    "AttackSpeed": 2.0,
+    "AttackRange": 250.0,
+    "SplashRange": 0.0
   },
   {
-    "int": "10020",
-    "string": "희귀 마법사",
+    "ID": 10020,
+    "Name": "희귀 마법사",
     "HeroClassType": "Magician",
     "HeroGradeType": "Rare",
     "HeroClassGradeType": "B",
-    "float": "0"
+    "AttackPower": null,
+    "AttackSpeed": 2.0,
+    "AttackRange": 300.0,
+    "SplashRange": 0.0
   },
   {
-    "int": "10021",
-    "string": "희귀 마법사",
+    "ID": 10021,
+    "Name": "희귀 마법사",
     "HeroClassType": "Magician",
     "HeroGradeType": "Rare",
     "HeroClassGradeType": "A",
-    "float": "0"
+    "AttackPower": null,
+    "AttackSpeed": 1.67,
+    "AttackRange": 300.0,
+    "SplashRange": 0.0
   },
   {
-    "int": "10022",
-    "string": "희귀 마법사",
+    "ID": 10022,
+    "Name": "희귀 마법사",
     "HeroClassType": "Magician",
     "HeroGradeType": "Rare",
     "HeroClassGradeType": "S",
-    "float": "0"
+    "AttackPower": null,
+    "AttackSpeed": 2.0,
+    "AttackRange": 300.0,
+    "SplashRange": 0.0
   },
   {
-    "int": "10030",
-    "string": "고대 마법사",
+    "ID": 10030,
+    "Name": "고대 마법사",
     "HeroClassType": "Magician",
     "HeroGradeType": "Ancient",
     "HeroClassGradeType": "B",
-    "float": "50"
+    "AttackPower": null,
+    "AttackSpeed": 3.03,
+    "AttackRange": 350.0,
+    "SplashRange": 50.0
   },
   {
-    "int": "10031",
-    "string": "고대 마법사",
+    "ID": 10031,
+    "Name": "고대 마법사",
     "HeroClassType": "Magician",
     "HeroGradeType": "Ancient",
     "HeroClassGradeType": "A",
-    "float": "50"
+    "AttackPower": null,
+    "AttackSpeed": 2.53,
+    "AttackRange": 350.0,
+    "SplashRange": 50.0
   },
   {
-    "int": "10032",
-    "string": "고대 마법사",
+    "ID": 10032,
+    "Name": "고대 마법사",
     "HeroClassType": "Magician",
     "HeroGradeType": "Ancient",
     "HeroClassGradeType": "S",
-    "float": "50"
+    "AttackPower": null,
+    "AttackSpeed": 3.03,
+    "AttackRange": 350.0,
+    "SplashRange": 50.0
   },
   {
-    "int": "10040",
-    "string": "유물 마법사",
+    "ID": 10040,
+    "Name": "유물 마법사",
     "HeroClassType": "Magician",
     "HeroGradeType": "Relic",
     "HeroClassGradeType": "B",
-    "float": "80"
+    "AttackPower": null,
+    "AttackSpeed": 3.03,
+    "AttackRange": 400.0,
+    "SplashRange": 80.0
   },
   {
-    "int": "10041",
-    "string": "유물 마법사",
+    "ID": 10041,
+    "Name": "유물 마법사",
     "HeroClassType": "Magician",
     "HeroGradeType": "Relic",
     "HeroClassGradeType": "A",
-    "float": "80"
+    "AttackPower": null,
+    "AttackSpeed": 2.53,
+    "AttackRange": 400.0,
+    "SplashRange": 80.0
   },
   {
-    "int": "10042",
-    "string": "유물 마법사",
+    "ID": 10042,
+    "Name": "유물 마법사",
     "HeroClassType": "Magician",
     "HeroGradeType": "Relic",
     "HeroClassGradeType": "S",
-    "float": "80"
+    "AttackPower": null,
+    "AttackSpeed": 3.03,
+    "AttackRange": 400.0,
+    "SplashRange": 80.0
   },
   {
-    "int": "10043",
-    "string": "둠브레이크 유물 마법사",
+    "ID": 10043,
+    "Name": "둠브레이크 유물 마법사",
     "HeroClassType": "Magician",
     "HeroGradeType": "Relic",
     "HeroClassGradeType": "S",
-    "float": "80"
+    "AttackPower": null,
+    "AttackSpeed": 3.03,
+    "AttackRange": 400.0,
+    "SplashRange": 80.0
   },
   {
-    "int": "10050",
-    "string": "전설 마법사",
+    "ID": 10050,
+    "Name": "전설 마법사",
     "HeroClassType": "Magician",
     "HeroGradeType": "Legend",
     "HeroClassGradeType": "B",
-    "float": "100"
+    "AttackPower": null,
+    "AttackSpeed": 3.03,
+    "AttackRange": 600.0,
+    "SplashRange": 100.0
   },
   {
-    "int": "10051",
-    "string": "전설 마법사",
+    "ID": 10051,
+    "Name": "전설 마법사",
     "HeroClassType": "Magician",
     "HeroGradeType": "Legend",
     "HeroClassGradeType": "A",
-    "float": "100"
+    "AttackPower": null,
+    "AttackSpeed": 2.53,
+    "AttackRange": 600.0,
+    "SplashRange": 100.0
   },
   {
-    "int": "10052",
-    "string": "전설 마법사",
+    "ID": 10052,
+    "Name": "전설 마법사",
     "HeroClassType": "Magician",
     "HeroGradeType": "Legend",
     "HeroClassGradeType": "S",
-    "float": "100"
+    "AttackPower": null,
+    "AttackSpeed": 3.03,
+    "AttackRange": 600.0,
+    "SplashRange": 100.0
   },
   {
-    "int": "10053",
-    "string": "화염폭발 전설 마법사",
+    "ID": 10053,
+    "Name": "화염폭발 전설 마법사",
     "HeroClassType": "Magician",
     "HeroGradeType": "Legend",
     "HeroClassGradeType": "S",
-    "float": "100"
+    "AttackPower": null,
+    "AttackSpeed": 3.03,
+    "AttackRange": 600.0,
+    "SplashRange": 100.0
   },
   {
-    "int": "10060",
-    "string": "에픽 마법사",
+    "ID": 10060,
+    "Name": "에픽 마법사",
     "HeroClassType": "Magician",
     "HeroGradeType": "Epic",
     "HeroClassGradeType": "B",
-    "float": "150"
+    "AttackPower": null,
+    "AttackSpeed": 3.57,
+    "AttackRange": 600.0,
+    "SplashRange": 150.0
   },
   {
-    "int": "10061",
-    "string": "에픽 마법사",
+    "ID": 10061,
+    "Name": "에픽 마법사",
     "HeroClassType": "Magician",
     "HeroGradeType": "Epic",
     "HeroClassGradeType": "A",
-    "float": "150"
+    "AttackPower": null,
+    "AttackSpeed": 2.98,
+    "AttackRange": 600.0,
+    "SplashRange": 150.0
   },
   {
-    "int": "10062",
-    "string": "에픽 마법사",
+    "ID": 10062,
+    "Name": "에픽 마법사",
     "HeroClassType": "Magician",
     "HeroGradeType": "Epic",
     "HeroClassGradeType": "S",
-    "float": "150"
+    "AttackPower": null,
+    "AttackSpeed": 3.57,
+    "AttackRange": 600.0,
+    "SplashRange": 150.0
   },
   {
-    "int": "10070",
-    "string": "신화 마법사",
+    "ID": 10070,
+    "Name": "신화 마법사",
     "HeroClassType": "Magician",
     "HeroGradeType": "Myth",
     "HeroClassGradeType": "B",
-    "float": "150"
+    "AttackPower": null,
+    "AttackSpeed": 4.0,
+    "AttackRange": 600.0,
+    "SplashRange": 150.0
   },
   {
-    "int": "10071",
-    "string": "신화 마법사",
+    "ID": 10071,
+    "Name": "신화 마법사",
     "HeroClassType": "Magician",
     "HeroGradeType": "Myth",
     "HeroClassGradeType": "A",
-    "float": "150"
+    "AttackPower": null,
+    "AttackSpeed": 3.33,
+    "AttackRange": 600.0,
+    "SplashRange": 150.0
   },
   {
-    "int": "10072",
-    "string": "신화 마법사",
+    "ID": 10072,
+    "Name": "신화 마법사",
     "HeroClassType": "Magician",
     "HeroGradeType": "Myth",
     "HeroClassGradeType": "S",
-    "float": "150"
+    "AttackPower": null,
+    "AttackSpeed": 4.0,
+    "AttackRange": 600.0,
+    "SplashRange": 150.0
   },
   {
-    "int": "10080",
-    "string": "태초 마법사",
+    "ID": 10080,
+    "Name": "태초 마법사",
     "HeroClassType": "Magician",
     "HeroGradeType": "God",
     "HeroClassGradeType": "B",
-    "float": "155"
+    "AttackPower": null,
+    "AttackSpeed": 4.0,
+    "AttackRange": 600.0,
+    "SplashRange": 155.0
   },
   {
-    "int": "10081",
-    "string": "태초 마법사",
+    "ID": 10081,
+    "Name": "태초 마법사",
     "HeroClassType": "Magician",
     "HeroGradeType": "God",
     "HeroClassGradeType": "A",
-    "float": "155"
+    "AttackPower": null,
+    "AttackSpeed": 3.33,
+    "AttackRange": 600.0,
+    "SplashRange": 155.0
   },
   {
-    "int": "10082",
-    "string": "태초 마법사",
+    "ID": 10082,
+    "Name": "태초 마법사",
     "HeroClassType": "Magician",
     "HeroGradeType": "God",
     "HeroClassGradeType": "S",
-    "float": "155"
+    "AttackPower": null,
+    "AttackSpeed": 4.0,
+    "AttackRange": 600.0,
+    "SplashRange": 155.0
   },
   {
-    "int": "10100",
-    "string": "일반 궁수",
+    "ID": 10100,
+    "Name": "일반 궁수",
     "HeroClassType": "Archor",
     "HeroGradeType": "Normal",
     "HeroClassGradeType": "B",
-    "float": "0"
+    "AttackPower": null,
+    "AttackSpeed": 2.0,
+    "AttackRange": 200.0,
+    "SplashRange": 0.0
   },
   {
-    "int": "10101",
-    "string": "일반 궁수",
+    "ID": 10101,
+    "Name": "일반 궁수",
     "HeroClassType": "Archor",
     "HeroGradeType": "Normal",
     "HeroClassGradeType": "A",
-    "float": "0"
+    "AttackPower": null,
+    "AttackSpeed": 1.67,
+    "AttackRange": 200.0,
+    "SplashRange": 0.0
   },
   {
-    "int": "10102",
-    "string": "일반 궁수",
+    "ID": 10102,
+    "Name": "일반 궁수",
     "HeroClassType": "Archor",
     "HeroGradeType": "Normal",
     "HeroClassGradeType": "S",
-    "float": "0"
+    "AttackPower": null,
+    "AttackSpeed": 2.0,
+    "AttackRange": 200.0,
+    "SplashRange": 0.0
   },
   {
-    "int": "10110",
-    "string": "고급 궁수",
+    "ID": 10110,
+    "Name": "고급 궁수",
     "HeroClassType": "Archor",
     "HeroGradeType": "Superior",
     "HeroClassGradeType": "B",
-    "float": "0"
+    "AttackPower": null,
+    "AttackSpeed": 2.0,
+    "AttackRange": 250.0,
+    "SplashRange": 0.0
   },
   {
-    "int": "10111",
-    "string": "고급 궁수",
+    "ID": 10111,
+    "Name": "고급 궁수",
     "HeroClassType": "Archor",
     "HeroGradeType": "Superior",
     "HeroClassGradeType": "A",
-    "float": "0"
+    "AttackPower": null,
+    "AttackSpeed": 1.76,
+    "AttackRange": 250.0,
+    "SplashRange": 0.0
   },
   {
-    "int": "10112",
-    "string": "고급 궁수",
+    "ID": 10112,
+    "Name": "고급 궁수",
     "HeroClassType": "Archor",
     "HeroGradeType": "Superior",
     "HeroClassGradeType": "S",
-    "float": "0"
+    "AttackPower": null,
+    "AttackSpeed": 2.0,
+    "AttackRange": 250.0,
+    "SplashRange": 0.0
   },
   {
-    "int": "10120",
-    "string": "희귀 궁수",
+    "ID": 10120,
+    "Name": "희귀 궁수",
     "HeroClassType": "Archor",
     "HeroGradeType": "Rare",
     "HeroClassGradeType": "B",
-    "float": "0"
+    "AttackPower": null,
+    "AttackSpeed": 2.0,
+    "AttackRange": 300.0,
+    "SplashRange": 0.0
   },
   {
-    "int": "10121",
-    "string": "희귀 궁수",
+    "ID": 10121,
+    "Name": "희귀 궁수",
     "HeroClassType": "Archor",
     "HeroGradeType": "Rare",
     "HeroClassGradeType": "A",
-    "float": "0"
+    "AttackPower": null,
+    "AttackSpeed": 1.67,
+    "AttackRange": 300.0,
+    "SplashRange": 0.0
   },
   {
-    "int": "10122",
-    "string": "희귀 궁수",
+    "ID": 10122,
+    "Name": "희귀 궁수",
     "HeroClassType": "Archor",
     "HeroGradeType": "Rare",
     "HeroClassGradeType": "S",
-    "float": "0"
+    "AttackPower": null,
+    "AttackSpeed": 2.0,
+    "AttackRange": 300.0,
+    "SplashRange": 0.0
   },
   {
-    "int": "10130",
-    "string": "고대 궁수",
+    "ID": 10130,
+    "Name": "고대 궁수",
     "HeroClassType": "Archor",
     "HeroGradeType": "Ancient",
     "HeroClassGradeType": "B",
-    "float": "50"
+    "AttackPower": null,
+    "AttackSpeed": 3.03,
+    "AttackRange": 350.0,
+    "SplashRange": 50.0
   },
   {
-    "int": "10131",
-    "string": "고대 궁수",
+    "ID": 10131,
+    "Name": "고대 궁수",
     "HeroClassType": "Archor",
     "HeroGradeType": "Ancient",
     "HeroClassGradeType": "A",
-    "float": "50"
+    "AttackPower": null,
+    "AttackSpeed": 2.53,
+    "AttackRange": 350.0,
+    "SplashRange": 50.0
   },
   {
-    "int": "10132",
-    "string": "고대 궁수",
+    "ID": 10132,
+    "Name": "고대 궁수",
     "HeroClassType": "Archor",
     "HeroGradeType": "Ancient",
     "HeroClassGradeType": "S",
-    "float": "50"
+    "AttackPower": null,
+    "AttackSpeed": 3.03,
+    "AttackRange": 350.0,
+    "SplashRange": 50.0
   },
   {
-    "int": "10133",
-    "string": "슬로우 고대 궁수",
+    "ID": 10133,
+    "Name": "슬로우 고대 궁수",
     "HeroClassType": "Archor",
     "HeroGradeType": "Ancient",
     "HeroClassGradeType": "S",
-    "float": "50"
+    "AttackPower": null,
+    "AttackSpeed": 3.13,
+    "AttackRange": 350.0,
+    "SplashRange": 50.0
   },
   {
-    "int": "10140",
-    "string": "유물 궁수",
+    "ID": 10140,
+    "Name": "유물 궁수",
     "HeroClassType": "Archor",
     "HeroGradeType": "Relic",
     "HeroClassGradeType": "B",
-    "float": "80"
+    "AttackPower": null,
+    "AttackSpeed": 3.03,
+    "AttackRange": 400.0,
+    "SplashRange": 80.0
   },
   {
-    "int": "10141",
-    "string": "유물 궁수",
+    "ID": 10141,
+    "Name": "유물 궁수",
     "HeroClassType": "Archor",
     "HeroGradeType": "Relic",
     "HeroClassGradeType": "A",
-    "float": "80"
+    "AttackPower": null,
+    "AttackSpeed": 2.53,
+    "AttackRange": 400.0,
+    "SplashRange": 80.0
   },
   {
-    "int": "10142",
-    "string": "유물 궁수",
+    "ID": 10142,
+    "Name": "유물 궁수",
     "HeroClassType": "Archor",
     "HeroGradeType": "Relic",
     "HeroClassGradeType": "S",
-    "float": "80"
+    "AttackPower": null,
+    "AttackSpeed": 3.03,
+    "AttackRange": 400.0,
+    "SplashRange": 80.0
   },
   {
-    "int": "10150",
-    "string": "전설 궁수",
+    "ID": 10150,
+    "Name": "전설 궁수",
     "HeroClassType": "Archor",
     "HeroGradeType": "Legend",
     "HeroClassGradeType": "B",
-    "float": "100"
+    "AttackPower": null,
+    "AttackSpeed": 4.0,
+    "AttackRange": 600.0,
+    "SplashRange": 100.0
   },
   {
-    "int": "10151",
-    "string": "전설 궁수",
+    "ID": 10151,
+    "Name": "전설 궁수",
     "HeroClassType": "Archor",
     "HeroGradeType": "Legend",
     "HeroClassGradeType": "A",
-    "float": "100"
+    "AttackPower": null,
+    "AttackSpeed": 3.33,
+    "AttackRange": 600.0,
+    "SplashRange": 100.0
   },
   {
-    "int": "10152",
-    "string": "전설 궁수",
+    "ID": 10152,
+    "Name": "전설 궁수",
     "HeroClassType": "Archor",
     "HeroGradeType": "Legend",
     "HeroClassGradeType": "S",
-    "float": "100"
+    "AttackPower": null,
+    "AttackSpeed": 4.0,
+    "AttackRange": 600.0,
+    "SplashRange": 100.0
   },
   {
-    "int": "10160",
-    "string": "에픽 궁수",
+    "ID": 10160,
+    "Name": "에픽 궁수",
     "HeroClassType": "Archor",
     "HeroGradeType": "Epic",
     "HeroClassGradeType": "B",
-    "float": "150"
+    "AttackPower": null,
+    "AttackSpeed": 4.0,
+    "AttackRange": 600.0,
+    "SplashRange": 150.0
   },
   {
-    "int": "10161",
-    "string": "에픽 궁수",
+    "ID": 10161,
+    "Name": "에픽 궁수",
     "HeroClassType": "Archor",
     "HeroGradeType": "Epic",
     "HeroClassGradeType": "A",
-    "float": "150"
+    "AttackPower": null,
+    "AttackSpeed": 3.33,
+    "AttackRange": 600.0,
+    "SplashRange": 150.0
   },
   {
-    "int": "10162",
-    "string": "에픽 궁수",
+    "ID": 10162,
+    "Name": "에픽 궁수",
     "HeroClassType": "Archor",
     "HeroGradeType": "Epic",
     "HeroClassGradeType": "S",
-    "float": "150"
+    "AttackPower": null,
+    "AttackSpeed": 4.0,
+    "AttackRange": 600.0,
+    "SplashRange": 150.0
   },
   {
-    "int": "10170",
-    "string": "신화 궁수",
+    "ID": 10170,
+    "Name": "신화 궁수",
     "HeroClassType": "Archor",
     "HeroGradeType": "Myth",
     "HeroClassGradeType": "B",
-    "float": "150"
+    "AttackPower": null,
+    "AttackSpeed": 4.0,
+    "AttackRange": 600.0,
+    "SplashRange": 150.0
   },
   {
-    "int": "10171",
-    "string": "신화 궁수",
+    "ID": 10171,
+    "Name": "신화 궁수",
     "HeroClassType": "Archor",
     "HeroGradeType": "Myth",
     "HeroClassGradeType": "A",
-    "float": "150"
+    "AttackPower": null,
+    "AttackSpeed": 3.33,
+    "AttackRange": 600.0,
+    "SplashRange": 150.0
   },
   {
-    "int": "10172",
-    "string": "신화 궁수",
+    "ID": 10172,
+    "Name": "신화 궁수",
     "HeroClassType": "Archor",
     "HeroGradeType": "Myth",
     "HeroClassGradeType": "S",
-    "float": "150"
+    "AttackPower": null,
+    "AttackSpeed": 4.0,
+    "AttackRange": 600.0,
+    "SplashRange": 150.0
   },
   {
-    "int": "10180",
-    "string": "태초 궁수",
+    "ID": 10180,
+    "Name": "태초 궁수",
     "HeroClassType": "Archor",
     "HeroGradeType": "God",
     "HeroClassGradeType": "B",
-    "float": "150"
+    "AttackPower": null,
+    "AttackSpeed": 4.0,
+    "AttackRange": 600.0,
+    "SplashRange": 150.0
   },
   {
-    "int": "10181",
-    "string": "태초 궁수",
+    "ID": 10181,
+    "Name": "태초 궁수",
     "HeroClassType": "Archor",
     "HeroGradeType": "God",
     "HeroClassGradeType": "A",
-    "float": "150"
+    "AttackPower": null,
+    "AttackSpeed": 3.33,
+    "AttackRange": 600.0,
+    "SplashRange": 150.0
   },
   {
-    "int": "10182",
-    "string": "태초 궁수",
+    "ID": 10182,
+    "Name": "태초 궁수",
     "HeroClassType": "Archor",
     "HeroGradeType": "God",
     "HeroClassGradeType": "S",
-    "float": "150"
+    "AttackPower": null,
+    "AttackSpeed": 4.0,
+    "AttackRange": 600.0,
+    "SplashRange": 150.0
   },
   {
-    "int": "10200",
-    "string": "일반 전사",
+    "ID": 10200,
+    "Name": "일반 전사",
     "HeroClassType": "Warrior",
     "HeroGradeType": "Normal",
     "HeroClassGradeType": "B",
-    "float": "0"
+    "AttackPower": null,
+    "AttackSpeed": 1.75,
+    "AttackRange": 200.0,
+    "SplashRange": 0.0
   },
   {
-    "int": "10201",
-    "string": "일반 전사",
+    "ID": 10201,
+    "Name": "일반 전사",
     "HeroClassType": "Warrior",
     "HeroGradeType": "Normal",
     "HeroClassGradeType": "A",
-    "float": "0"
+    "AttackPower": null,
+    "AttackSpeed": 1.46,
+    "AttackRange": 200.0,
+    "SplashRange": 0.0
   },
   {
-    "int": "10202",
-    "string": "일반 전사",
+    "ID": 10202,
+    "Name": "일반 전사",
     "HeroClassType": "Warrior",
     "HeroGradeType": "Normal",
     "HeroClassGradeType": "S",
-    "float": "0"
+    "AttackPower": null,
+    "AttackSpeed": 1.75,
+    "AttackRange": 200.0,
+    "SplashRange": 0.0
   },
   {
-    "int": "10210",
-    "string": "고급 전사",
+    "ID": 10210,
+    "Name": "고급 전사",
     "HeroClassType": "Warrior",
     "HeroGradeType": "Superior",
     "HeroClassGradeType": "B",
-    "float": "0"
+    "AttackPower": null,
+    "AttackSpeed": 1.75,
+    "AttackRange": 250.0,
+    "SplashRange": 0.0
   },
   {
-    "int": "10211",
-    "string": "고급 전사",
+    "ID": 10211,
+    "Name": "고급 전사",
     "HeroClassType": "Warrior",
     "HeroGradeType": "Superior",
     "HeroClassGradeType": "A",
-    "float": "0"
+    "AttackPower": null,
+    "AttackSpeed": 1.46,
+    "AttackRange": 250.0,
+    "SplashRange": 0.0
   },
   {
-    "int": "10212",
-    "string": "고급 전사",
+    "ID": 10212,
+    "Name": "고급 전사",
     "HeroClassType": "Warrior",
     "HeroGradeType": "Superior",
     "HeroClassGradeType": "S",
-    "float": "0"
+    "AttackPower": null,
+    "AttackSpeed": 1.75,
+    "AttackRange": 250.0,
+    "SplashRange": 0.0
   },
   {
-    "int": "10220",
-    "string": "희귀 전사",
+    "ID": 10220,
+    "Name": "희귀 전사",
     "HeroClassType": "Warrior",
     "HeroGradeType": "Rare",
     "HeroClassGradeType": "B",
-    "float": "0"
+    "AttackPower": null,
+    "AttackSpeed": 1.75,
+    "AttackRange": 300.0,
+    "SplashRange": 0.0
   },
   {
-    "int": "10221",
-    "string": "희귀 전사",
+    "ID": 10221,
+    "Name": "희귀 전사",
     "HeroClassType": "Warrior",
     "HeroGradeType": "Rare",
     "HeroClassGradeType": "A",
-    "float": "0"
+    "AttackPower": null,
+    "AttackSpeed": 1.46,
+    "AttackRange": 300.0,
+    "SplashRange": 0.0
   },
   {
-    "int": "10222",
-    "string": "희귀 전사",
+    "ID": 10222,
+    "Name": "희귀 전사",
     "HeroClassType": "Warrior",
     "HeroGradeType": "Rare",
     "HeroClassGradeType": "S",
-    "float": "0"
+    "AttackPower": null,
+    "AttackSpeed": 1.75,
+    "AttackRange": 300.0,
+    "SplashRange": 0.0
   },
   {
-    "int": "10230",
-    "string": "고대 전사",
+    "ID": 10230,
+    "Name": "고대 전사",
     "HeroClassType": "Warrior",
     "HeroGradeType": "Ancient",
     "HeroClassGradeType": "B",
-    "float": "50"
+    "AttackPower": null,
+    "AttackSpeed": 2.5,
+    "AttackRange": 350.0,
+    "SplashRange": 50.0
   },
   {
-    "int": "10231",
-    "string": "고대 전사",
+    "ID": 10231,
+    "Name": "고대 전사",
     "HeroClassType": "Warrior",
     "HeroGradeType": "Ancient",
     "HeroClassGradeType": "A",
-    "float": "50"
+    "AttackPower": null,
+    "AttackSpeed": 2.08,
+    "AttackRange": 350.0,
+    "SplashRange": 50.0
   },
   {
-    "int": "10232",
-    "string": "고대 전사",
+    "ID": 10232,
+    "Name": "고대 전사",
     "HeroClassType": "Warrior",
     "HeroGradeType": "Ancient",
     "HeroClassGradeType": "S",
-    "float": "50"
+    "AttackPower": null,
+    "AttackSpeed": 2.5,
+    "AttackRange": 350.0,
+    "SplashRange": 50.0
   },
   {
-    "int": "10233",
-    "string": "치명적 상처 고대 전사",
+    "ID": 10233,
+    "Name": "치명적 상처 고대 전사",
     "HeroClassType": "Warrior",
     "HeroGradeType": "Ancient",
     "HeroClassGradeType": "S",
-    "float": "50"
+    "AttackPower": null,
+    "AttackSpeed": 2.5,
+    "AttackRange": 350.0,
+    "SplashRange": 50.0
   },
   {
-    "int": "10240",
-    "string": "유물 전사",
+    "ID": 10240,
+    "Name": "유물 전사",
     "HeroClassType": "Warrior",
     "HeroGradeType": "Relic",
     "HeroClassGradeType": "B",
-    "float": "80"
+    "AttackPower": null,
+    "AttackSpeed": 2.5,
+    "AttackRange": 400.0,
+    "SplashRange": 80.0
   },
   {
-    "int": "10241",
-    "string": "유물 전사",
+    "ID": 10241,
+    "Name": "유물 전사",
     "HeroClassType": "Warrior",
     "HeroGradeType": "Relic",
     "HeroClassGradeType": "A",
-    "float": "80"
+    "AttackPower": null,
+    "AttackSpeed": 2.08,
+    "AttackRange": 400.0,
+    "SplashRange": 80.0
   },
   {
-    "int": "10242",
-    "string": "유물 전사",
+    "ID": 10242,
+    "Name": "유물 전사",
     "HeroClassType": "Warrior",
     "HeroGradeType": "Relic",
     "HeroClassGradeType": "S",
-    "float": "80"
+    "AttackPower": null,
+    "AttackSpeed": 2.5,
+    "AttackRange": 400.0,
+    "SplashRange": 80.0
   },
   {
-    "int": "10250",
-    "string": "전설 전사",
+    "ID": 10250,
+    "Name": "전설 전사",
     "HeroClassType": "Warrior",
     "HeroGradeType": "Legend",
     "HeroClassGradeType": "B",
-    "float": "100"
+    "AttackPower": null,
+    "AttackSpeed": 3.03,
+    "AttackRange": 600.0,
+    "SplashRange": 100.0
   },
   {
-    "int": "10251",
-    "string": "전설 전사",
+    "ID": 10251,
+    "Name": "전설 전사",
     "HeroClassType": "Warrior",
     "HeroGradeType": "Legend",
     "HeroClassGradeType": "A",
-    "float": "100"
+    "AttackPower": null,
+    "AttackSpeed": 2.53,
+    "AttackRange": 600.0,
+    "SplashRange": 100.0
   },
   {
-    "int": "10252",
-    "string": "전설 전사",
+    "ID": 10252,
+    "Name": "전설 전사",
     "HeroClassType": "Warrior",
     "HeroGradeType": "Legend",
     "HeroClassGradeType": "S",
-    "float": "100"
+    "AttackPower": null,
+    "AttackSpeed": 3.03,
+    "AttackRange": 600.0,
+    "SplashRange": 100.0
   },
   {
-    "int": "10253",
-    "string": "버서커 전설 전사",
+    "ID": 10253,
+    "Name": "버서커 전설 전사",
     "HeroClassType": "Warrior",
     "HeroGradeType": "Legend",
     "HeroClassGradeType": "S",
-    "float": "100"
+    "AttackPower": null,
+    "AttackSpeed": 2.5,
+    "AttackRange": 600.0,
+    "SplashRange": 100.0
   },
   {
-    "int": "10260",
-    "string": "에픽 전사",
+    "ID": 10260,
+    "Name": "에픽 전사",
     "HeroClassType": "Warrior",
     "HeroGradeType": "Epic",
     "HeroClassGradeType": "B",
-    "float": "150"
+    "AttackPower": null,
+    "AttackSpeed": 3.1,
+    "AttackRange": 600.0,
+    "SplashRange": 150.0
   },
   {
-    "int": "10261",
-    "string": "에픽 전사",
+    "ID": 10261,
+    "Name": "에픽 전사",
     "HeroClassType": "Warrior",
     "HeroGradeType": "Epic",
     "HeroClassGradeType": "A",
-    "float": "150"
+    "AttackPower": null,
+    "AttackSpeed": 2.6,
+    "AttackRange": 600.0,
+    "SplashRange": 150.0
   },
   {
-    "int": "10262",
-    "string": "에픽 전사",
+    "ID": 10262,
+    "Name": "에픽 전사",
     "HeroClassType": "Warrior",
     "HeroGradeType": "Epic",
     "HeroClassGradeType": "S",
-    "float": "150"
+    "AttackPower": null,
+    "AttackSpeed": 3.1,
+    "AttackRange": 600.0,
+    "SplashRange": 150.0
   },
   {
-    "int": "10270",
-    "string": "신화 전사",
+    "ID": 10270,
+    "Name": "신화 전사",
     "HeroClassType": "Warrior",
     "HeroGradeType": "Myth",
     "HeroClassGradeType": "B",
-    "float": "150"
+    "AttackPower": null,
+    "AttackSpeed": 3.33,
+    "AttackRange": 600.0,
+    "SplashRange": 150.0
   },
   {
-    "int": "10271",
-    "string": "신화 전사",
+    "ID": 10271,
+    "Name": "신화 전사",
     "HeroClassType": "Warrior",
     "HeroGradeType": "Myth",
     "HeroClassGradeType": "A",
-    "float": "150"
+    "AttackPower": null,
+    "AttackSpeed": 2.78,
+    "AttackRange": 600.0,
+    "SplashRange": 150.0
   },
   {
-    "int": "10272",
-    "string": "신화 전사",
+    "ID": 10272,
+    "Name": "신화 전사",
     "HeroClassType": "Warrior",
     "HeroGradeType": "Myth",
     "HeroClassGradeType": "S",
-    "float": "150"
+    "AttackPower": null,
+    "AttackSpeed": 3.33,
+    "AttackRange": 600.0,
+    "SplashRange": 150.0
   },
   {
-    "int": "10280",
-    "string": "태초 전사",
+    "ID": 10280,
+    "Name": "태초 전사",
     "HeroClassType": "Warrior",
     "HeroGradeType": "God",
     "HeroClassGradeType": "B",
-    "float": "155"
+    "AttackPower": null,
+    "AttackSpeed": 4.0,
+    "AttackRange": 600.0,
+    "SplashRange": 155.0
   },
   {
-    "int": "10281",
-    "string": "태초 전사",
+    "ID": 10281,
+    "Name": "태초 전사",
     "HeroClassType": "Warrior",
     "HeroGradeType": "God",
     "HeroClassGradeType": "A",
-    "float": "155"
+    "AttackPower": null,
+    "AttackSpeed": 3.33,
+    "AttackRange": 600.0,
+    "SplashRange": 155.0
   },
   {
-    "int": "10282",
-    "string": "태초 전사",
+    "ID": 10282,
+    "Name": "태초 전사",
     "HeroClassType": "Warrior",
     "HeroGradeType": "God",
     "HeroClassGradeType": "S",
-    "float": "155"
+    "AttackPower": null,
+    "AttackSpeed": 4.0,
+    "AttackRange": 600.0,
+    "SplashRange": 155.0
   }
 ]
