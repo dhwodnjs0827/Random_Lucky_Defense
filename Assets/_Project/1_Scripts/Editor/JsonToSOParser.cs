@@ -12,7 +12,7 @@ public static class JsonToSOParser
     private const string JSON_PATH = "Assets/_Project/Resources/Data/JSON";
     private const string SO_PATH = "Assets/_Project/Resources/Data/SO";
 
-    [MenuItem("Tools/Data/Parse All")]
+    [MenuItem("Tools/Data/Parse JSON To SO All")]
     public static void ParseAll()
     {
         // JSON 폴더의 모든 .json 파일 가져오기
