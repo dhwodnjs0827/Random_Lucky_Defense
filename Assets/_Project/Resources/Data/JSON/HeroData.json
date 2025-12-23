@@ -321,7 +321,7 @@
   {
     "ID": 10100,
     "Name": "일반 궁수",
-    "ClassType": "Archor",
+    "ClassType": "Archer",
     "GradeType": "Normal",
     "RankType": "B",
     "AttackPower": 0.0,
@@ -332,7 +332,7 @@
   {
     "ID": 10101,
     "Name": "일반 궁수",
-    "ClassType": "Archor",
+    "ClassType": "Archer",
     "GradeType": "Normal",
     "RankType": "A",
     "AttackPower": 0.0,
@@ -343,7 +343,7 @@
   {
     "ID": 10102,
     "Name": "일반 궁수",
-    "ClassType": "Archor",
+    "ClassType": "Archer",
     "GradeType": "Normal",
     "RankType": "S",
     "AttackPower": 0.0,
@@ -354,7 +354,7 @@
   {
     "ID": 10110,
     "Name": "고급 궁수",
-    "ClassType": "Archor",
+    "ClassType": "Archer",
     "GradeType": "Superior",
     "RankType": "B",
     "AttackPower": 0.0,
@@ -365,7 +365,7 @@
   {
     "ID": 10111,
     "Name": "고급 궁수",
-    "ClassType": "Archor",
+    "ClassType": "Archer",
     "GradeType": "Superior",
     "RankType": "A",
     "AttackPower": 0.0,
@@ -376,7 +376,7 @@
   {
     "ID": 10112,
     "Name": "고급 궁수",
-    "ClassType": "Archor",
+    "ClassType": "Archer",
     "GradeType": "Superior",
     "RankType": "S",
     "AttackPower": 0.0,
@@ -387,7 +387,7 @@
   {
     "ID": 10120,
     "Name": "희귀 궁수",
-    "ClassType": "Archor",
+    "ClassType": "Archer",
     "GradeType": "Rare",
     "RankType": "B",
     "AttackPower": 0.0,
@@ -398,7 +398,7 @@
   {
     "ID": 10121,
     "Name": "희귀 궁수",
-    "ClassType": "Archor",
+    "ClassType": "Archer",
     "GradeType": "Rare",
     "RankType": "A",
     "AttackPower": 0.0,
@@ -409,7 +409,7 @@
   {
     "ID": 10122,
     "Name": "희귀 궁수",
-    "ClassType": "Archor",
+    "ClassType": "Archer",
     "GradeType": "Rare",
     "RankType": "S",
     "AttackPower": 0.0,
@@ -420,7 +420,7 @@
   {
     "ID": 10130,
     "Name": "고대 궁수",
-    "ClassType": "Archor",
+    "ClassType": "Archer",
     "GradeType": "Ancient",
     "RankType": "B",
     "AttackPower": 0.0,
@@ -431,7 +431,7 @@
   {
     "ID": 10131,
     "Name": "고대 궁수",
-    "ClassType": "Archor",
+    "ClassType": "Archer",
     "GradeType": "Ancient",
     "RankType": "A",
     "AttackPower": 0.0,
@@ -442,7 +442,7 @@
   {
     "ID": 10132,
     "Name": "고대 궁수",
-    "ClassType": "Archor",
+    "ClassType": "Archer",
     "GradeType": "Ancient",
     "RankType": "S",
     "AttackPower": 0.0,
@@ -453,7 +453,7 @@
   {
     "ID": 10133,
     "Name": "슬로우 고대 궁수",
-    "ClassType": "Archor",
+    "ClassType": "Archer",
     "GradeType": "Ancient",
     "RankType": "S",
     "AttackPower": 0.0,
@@ -464,7 +464,7 @@
   {
     "ID": 10140,
     "Name": "유물 궁수",
-    "ClassType": "Archor",
+    "ClassType": "Archer",
     "GradeType": "Relic",
     "RankType": "B",
     "AttackPower": 0.0,
@@ -475,7 +475,7 @@
   {
     "ID": 10141,
     "Name": "유물 궁수",
-    "ClassType": "Archor",
+    "ClassType": "Archer",
     "GradeType": "Relic",
     "RankType": "A",
     "AttackPower": 0.0,
@@ -486,7 +486,7 @@
   {
     "ID": 10142,
     "Name": "유물 궁수",
-    "ClassType": "Archor",
+    "ClassType": "Archer",
     "GradeType": "Relic",
     "RankType": "S",
     "AttackPower": 0.0,
@@ -497,7 +497,7 @@
   {
     "ID": 10150,
     "Name": "전설 궁수",
-    "ClassType": "Archor",
+    "ClassType": "Archer",
     "GradeType": "Legend",
     "RankType": "B",
     "AttackPower": 0.0,
@@ -508,7 +508,7 @@
   {
     "ID": 10151,
     "Name": "전설 궁수",
-    "ClassType": "Archor",
+    "ClassType": "Archer",
     "GradeType": "Legend",
     "RankType": "A",
     "AttackPower": 0.0,
@@ -519,7 +519,7 @@
   {
     "ID": 10152,
     "Name": "전설 궁수",
-    "ClassType": "Archor",
+    "ClassType": "Archer",
     "GradeType": "Legend",
     "RankType": "S",
     "AttackPower": 0.0,
@@ -530,7 +530,7 @@
   {
     "ID": 10160,
     "Name": "에픽 궁수",
-    "ClassType": "Archor",
+    "ClassType": "Archer",
     "GradeType": "Epic",
     "RankType": "B",
     "AttackPower": 0.0,
@@ -541,7 +541,7 @@
   {
     "ID": 10161,
     "Name": "에픽 궁수",
-    "ClassType": "Archor",
+    "ClassType": "Archer",
     "GradeType": "Epic",
     "RankType": "A",
     "AttackPower": 0.0,
@@ -552,7 +552,7 @@
   {
     "ID": 10162,
     "Name": "에픽 궁수",
-    "ClassType": "Archor",
+    "ClassType": "Archer",
     "GradeType": "Epic",
     "RankType": "S",
     "AttackPower": 0.0,
@@ -563,7 +563,7 @@
   {
     "ID": 10170,
     "Name": "신화 궁수",
-    "ClassType": "Archor",
+    "ClassType": "Archer",
     "GradeType": "Myth",
     "RankType": "B",
     "AttackPower": 0.0,
@@ -574,7 +574,7 @@
   {
     "ID": 10171,
     "Name": "신화 궁수",
-    "ClassType": "Archor",
+    "ClassType": "Archer",
     "GradeType": "Myth",
     "RankType": "A",
     "AttackPower": 0.0,
@@ -585,7 +585,7 @@
   {
     "ID": 10172,
     "Name": "신화 궁수",
-    "ClassType": "Archor",
+    "ClassType": "Archer",
     "GradeType": "Myth",
     "RankType": "S",
     "AttackPower": 0.0,
@@ -596,7 +596,7 @@
   {
     "ID": 10180,
     "Name": "태초 궁수",
-    "ClassType": "Archor",
+    "ClassType": "Archer",
     "GradeType": "God",
     "RankType": "B",
     "AttackPower": 0.0,
@@ -607,7 +607,7 @@
   {
     "ID": 10181,
     "Name": "태초 궁수",
-    "ClassType": "Archor",
+    "ClassType": "Archer",
     "GradeType": "God",
     "RankType": "A",
     "AttackPower": 0.0,
@@ -618,7 +618,7 @@
   {
     "ID": 10182,
     "Name": "태초 궁수",
-    "ClassType": "Archor",
+    "ClassType": "Archer",
     "GradeType": "God",
     "RankType": "S",
     "AttackPower": 0.0,
