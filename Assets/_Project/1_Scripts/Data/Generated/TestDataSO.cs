@@ -6,9 +6,9 @@ namespace Generated
     [CreateAssetMenu(fileName = "TestDataSO", menuName = "Data/TestDataSO")]
     public class TestDataSO : ScriptableObject
     {
-        public int 1; // 아이디
-        public string 오재원; // 이름
-        public string 나; // 설명
+        public int id; // 아이디
+        public string name; // 이름
+        public string desc; // 설명
     }
 }
   
