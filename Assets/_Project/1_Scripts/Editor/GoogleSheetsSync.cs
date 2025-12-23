@@ -58,7 +58,7 @@ public class GoogleSheetsSync : EditorWindow
         jenkinsUrl = EditorPrefs.GetString(JenkinsUrlKey, "http://localhost:8080");
         jenkinsUser = EditorPrefs.GetString(JenkinsUserKey, "dhwodnjs0827");
         jenkinsToken = EditorPrefs.GetString(JenkinsTokenKey, "1124e901afb2c126bc595908d101e6d891");
-        jenkinsJobName = EditorPrefs.GetString(JenkinsJobNameKey, "google-sheets-sync");
+        jenkinsJobName = EditorPrefs.GetString(JenkinsJobNameKey, "Random Lucky Defense");
     }
 
     /// <summary>

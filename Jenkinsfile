@@ -2,8 +2,8 @@ pipeline {
       agent any
 
       environment {
-          SPREADSHEET_ID = credentials('spreadsheet-id')
-          GOOGLE_CREDENTIALS = credentials('google-sheets-credentials')
+          SPREADSHEET_ID = credentials('random-lucky-defense-spreadsheet-id')
+          GOOGLE_CREDENTIALS = credentials('random-lucky-defense-google-sheets-credentials')
       }
 
       stages {
