@@ -56,9 +56,9 @@ public class GoogleSheetsSync : EditorWindow
     {
         // GetString(key, defaultValue): 저장된 값이 없으면 기본값 사용
         jenkinsUrl = EditorPrefs.GetString(JenkinsUrlKey, "http://localhost:8080");
-        jenkinsUser = EditorPrefs.GetString(JenkinsUserKey, "dhwodnjs0827");
-        jenkinsToken = EditorPrefs.GetString(JenkinsTokenKey, "1124e901afb2c126bc595908d101e6d891");
-        jenkinsJobName = EditorPrefs.GetString(JenkinsJobNameKey, "Random Lucky Defense");
+        jenkinsUser = EditorPrefs.GetString(JenkinsUserKey, "Jenkins User ID");
+        jenkinsToken = EditorPrefs.GetString(JenkinsTokenKey, "Jenkins API Token");
+        jenkinsJobName = EditorPrefs.GetString(JenkinsJobNameKey, "Jenkins Job Name");
     }
 
     /// <summary>
