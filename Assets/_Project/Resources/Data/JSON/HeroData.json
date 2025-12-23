@@ -16,7 +16,7 @@
     "ClassType": "Magician",
     "GradeType": "Normal",
     "RankType": "A",
-    "AttackPower": null,
+    "AttackPower": 0.0,
     "AttackSpeed": 1.67,
     "AttackRange": 200.0,
     "SplashRange": 0.0
@@ -27,7 +27,7 @@
     "ClassType": "Magician",
     "GradeType": "Normal",
     "RankType": "S",
-    "AttackPower": null,
+    "AttackPower": 0.0,
     "AttackSpeed": 2.0,
     "AttackRange": 200.0,
     "SplashRange": 0.0
@@ -38,7 +38,7 @@
     "ClassType": "Magician",
     "GradeType": "Superior",
     "RankType": "B",
-    "AttackPower": null,
+    "AttackPower": 0.0,
     "AttackSpeed": 2.0,
     "AttackRange": 250.0,
     "SplashRange": 0.0
@@ -49,7 +49,7 @@
     "ClassType": "Magician",
     "GradeType": "Superior",
     "RankType": "A",
-    "AttackPower": null,
+    "AttackPower": 0.0,
     "AttackSpeed": 1.67,
     "AttackRange": 250.0,
     "SplashRange": 0.0
@@ -60,7 +60,7 @@
     "ClassType": "Magician",
     "GradeType": "Superior",
     "RankType": "S",
-    "AttackPower": null,
+    "AttackPower": 0.0,
     "AttackSpeed": 2.0,
     "AttackRange": 250.0,
     "SplashRange": 0.0
@@ -71,7 +71,7 @@
     "ClassType": "Magician",
     "GradeType": "Rare",
     "RankType": "B",
-    "AttackPower": null,
+    "AttackPower": 0.0,
     "AttackSpeed": 2.0,
     "AttackRange": 300.0,
     "SplashRange": 0.0
@@ -82,7 +82,7 @@
     "ClassType": "Magician",
     "GradeType": "Rare",
     "RankType": "A",
-    "AttackPower": null,
+    "AttackPower": 0.0,
     "AttackSpeed": 1.67,
     "AttackRange": 300.0,
     "SplashRange": 0.0
@@ -93,7 +93,7 @@
     "ClassType": "Magician",
     "GradeType": "Rare",
     "RankType": "S",
-    "AttackPower": null,
+    "AttackPower": 0.0,
     "AttackSpeed": 2.0,
     "AttackRange": 300.0,
     "SplashRange": 0.0
@@ -104,7 +104,7 @@
     "ClassType": "Magician",
     "GradeType": "Ancient",
     "RankType": "B",
-    "AttackPower": null,
+    "AttackPower": 0.0,
     "AttackSpeed": 3.03,
     "AttackRange": 350.0,
     "SplashRange": 50.0
@@ -115,7 +115,7 @@
     "ClassType": "Magician",
     "GradeType": "Ancient",
     "RankType": "A",
-    "AttackPower": null,
+    "AttackPower": 0.0,
     "AttackSpeed": 2.53,
     "AttackRange": 350.0,
     "SplashRange": 50.0
@@ -126,7 +126,7 @@
     "ClassType": "Magician",
     "GradeType": "Ancient",
     "RankType": "S",
-    "AttackPower": null,
+    "AttackPower": 0.0,
     "AttackSpeed": 3.03,
     "AttackRange": 350.0,
     "SplashRange": 50.0
@@ -137,7 +137,7 @@
     "ClassType": "Magician",
     "GradeType": "Relic",
     "RankType": "B",
-    "AttackPower": null,
+    "AttackPower": 0.0,
     "AttackSpeed": 3.03,
     "AttackRange": 400.0,
     "SplashRange": 80.0
@@ -148,7 +148,7 @@
     "ClassType": "Magician",
     "GradeType": "Relic",
     "RankType": "A",
-    "AttackPower": null,
+    "AttackPower": 0.0,
     "AttackSpeed": 2.53,
     "AttackRange": 400.0,
     "SplashRange": 80.0
@@ -159,7 +159,7 @@
     "ClassType": "Magician",
     "GradeType": "Relic",
     "RankType": "S",
-    "AttackPower": null,
+    "AttackPower": 0.0,
     "AttackSpeed": 3.03,
     "AttackRange": 400.0,
     "SplashRange": 80.0
@@ -170,7 +170,7 @@
     "ClassType": "Magician",
     "GradeType": "Relic",
     "RankType": "S",
-    "AttackPower": null,
+    "AttackPower": 0.0,
     "AttackSpeed": 3.03,
     "AttackRange": 400.0,
     "SplashRange": 80.0
@@ -181,7 +181,7 @@
     "ClassType": "Magician",
     "GradeType": "Legend",
     "RankType": "B",
-    "AttackPower": null,
+    "AttackPower": 0.0,
     "AttackSpeed": 3.03,
     "AttackRange": 600.0,
     "SplashRange": 100.0
@@ -192,7 +192,7 @@
     "ClassType": "Magician",
     "GradeType": "Legend",
     "RankType": "A",
-    "AttackPower": null,
+    "AttackPower": 0.0,
     "AttackSpeed": 2.53,
     "AttackRange": 600.0,
     "SplashRange": 100.0
@@ -203,7 +203,7 @@
     "ClassType": "Magician",
     "GradeType": "Legend",
     "RankType": "S",
-    "AttackPower": null,
+    "AttackPower": 0.0,
     "AttackSpeed": 3.03,
     "AttackRange": 600.0,
     "SplashRange": 100.0
@@ -214,7 +214,7 @@
     "ClassType": "Magician",
     "GradeType": "Legend",
     "RankType": "S",
-    "AttackPower": null,
+    "AttackPower": 0.0,
     "AttackSpeed": 3.03,
     "AttackRange": 600.0,
     "SplashRange": 100.0
@@ -225,7 +225,7 @@
     "ClassType": "Magician",
     "GradeType": "Epic",
     "RankType": "B",
-    "AttackPower": null,
+    "AttackPower": 0.0,
     "AttackSpeed": 3.57,
     "AttackRange": 600.0,
     "SplashRange": 150.0
@@ -236,7 +236,7 @@
     "ClassType": "Magician",
     "GradeType": "Epic",
     "RankType": "A",
-    "AttackPower": null,
+    "AttackPower": 0.0,
     "AttackSpeed": 2.98,
     "AttackRange": 600.0,
     "SplashRange": 150.0
@@ -247,7 +247,7 @@
     "ClassType": "Magician",
     "GradeType": "Epic",
     "RankType": "S",
-    "AttackPower": null,
+    "AttackPower": 0.0,
     "AttackSpeed": 3.57,
     "AttackRange": 600.0,
     "SplashRange": 150.0
@@ -258,7 +258,7 @@
     "ClassType": "Magician",
     "GradeType": "Myth",
     "RankType": "B",
-    "AttackPower": null,
+    "AttackPower": 0.0,
     "AttackSpeed": 4.0,
     "AttackRange": 600.0,
     "SplashRange": 150.0
@@ -269,7 +269,7 @@
     "ClassType": "Magician",
     "GradeType": "Myth",
     "RankType": "A",
-    "AttackPower": null,
+    "AttackPower": 0.0,
     "AttackSpeed": 3.33,
     "AttackRange": 600.0,
     "SplashRange": 150.0
@@ -280,7 +280,7 @@
     "ClassType": "Magician",
     "GradeType": "Myth",
     "RankType": "S",
-    "AttackPower": null,
+    "AttackPower": 0.0,
     "AttackSpeed": 4.0,
     "AttackRange": 600.0,
     "SplashRange": 150.0
@@ -291,7 +291,7 @@
     "ClassType": "Magician",
     "GradeType": "God",
     "RankType": "B",
-    "AttackPower": null,
+    "AttackPower": 0.0,
     "AttackSpeed": 4.0,
     "AttackRange": 600.0,
     "SplashRange": 155.0
@@ -302,7 +302,7 @@
     "ClassType": "Magician",
     "GradeType": "God",
     "RankType": "A",
-    "AttackPower": null,
+    "AttackPower": 0.0,
     "AttackSpeed": 3.33,
     "AttackRange": 600.0,
     "SplashRange": 155.0
@@ -313,7 +313,7 @@
     "ClassType": "Magician",
     "GradeType": "God",
     "RankType": "S",
-    "AttackPower": null,
+    "AttackPower": 0.0,
     "AttackSpeed": 4.0,
     "AttackRange": 600.0,
     "SplashRange": 155.0
@@ -324,7 +324,7 @@
     "ClassType": "Archor",
     "GradeType": "Normal",
     "RankType": "B",
-    "AttackPower": null,
+    "AttackPower": 0.0,
     "AttackSpeed": 2.0,
     "AttackRange": 200.0,
     "SplashRange": 0.0
@@ -335,7 +335,7 @@
     "ClassType": "Archor",
     "GradeType": "Normal",
     "RankType": "A",
-    "AttackPower": null,
+    "AttackPower": 0.0,
     "AttackSpeed": 1.67,
     "AttackRange": 200.0,
     "SplashRange": 0.0
@@ -346,7 +346,7 @@
     "ClassType": "Archor",
     "GradeType": "Normal",
     "RankType": "S",
-    "AttackPower": null,
+    "AttackPower": 0.0,
     "AttackSpeed": 2.0,
     "AttackRange": 200.0,
     "SplashRange": 0.0
@@ -357,7 +357,7 @@
     "ClassType": "Archor",
     "GradeType": "Superior",
     "RankType": "B",
-    "AttackPower": null,
+    "AttackPower": 0.0,
     "AttackSpeed": 2.0,
     "AttackRange": 250.0,
     "SplashRange": 0.0
@@ -368,7 +368,7 @@
     "ClassType": "Archor",
     "GradeType": "Superior",
     "RankType": "A",
-    "AttackPower": null,
+    "AttackPower": 0.0,
     "AttackSpeed": 1.76,
     "AttackRange": 250.0,
     "SplashRange": 0.0
@@ -379,7 +379,7 @@
     "ClassType": "Archor",
     "GradeType": "Superior",
     "RankType": "S",
-    "AttackPower": null,
+    "AttackPower": 0.0,
     "AttackSpeed": 2.0,
     "AttackRange": 250.0,
     "SplashRange": 0.0
@@ -390,7 +390,7 @@
     "ClassType": "Archor",
     "GradeType": "Rare",
     "RankType": "B",
-    "AttackPower": null,
+    "AttackPower": 0.0,
     "AttackSpeed": 2.0,
     "AttackRange": 300.0,
     "SplashRange": 0.0
@@ -401,7 +401,7 @@
     "ClassType": "Archor",
     "GradeType": "Rare",
     "RankType": "A",
-    "AttackPower": null,
+    "AttackPower": 0.0,
     "AttackSpeed": 1.67,
     "AttackRange": 300.0,
     "SplashRange": 0.0
@@ -412,7 +412,7 @@
     "ClassType": "Archor",
     "GradeType": "Rare",
     "RankType": "S",
-    "AttackPower": null,
+    "AttackPower": 0.0,
     "AttackSpeed": 2.0,
     "AttackRange": 300.0,
     "SplashRange": 0.0
@@ -423,7 +423,7 @@
     "ClassType": "Archor",
     "GradeType": "Ancient",
     "RankType": "B",
-    "AttackPower": null,
+    "AttackPower": 0.0,
     "AttackSpeed": 3.03,
     "AttackRange": 350.0,
     "SplashRange": 50.0
@@ -434,7 +434,7 @@
     "ClassType": "Archor",
     "GradeType": "Ancient",
     "RankType": "A",
-    "AttackPower": null,
+    "AttackPower": 0.0,
     "AttackSpeed": 2.53,
     "AttackRange": 350.0,
     "SplashRange": 50.0
@@ -445,7 +445,7 @@
     "ClassType": "Archor",
     "GradeType": "Ancient",
     "RankType": "S",
-    "AttackPower": null,
+    "AttackPower": 0.0,
     "AttackSpeed": 3.03,
     "AttackRange": 350.0,
     "SplashRange": 50.0
@@ -456,7 +456,7 @@
     "ClassType": "Archor",
     "GradeType": "Ancient",
     "RankType": "S",
-    "AttackPower": null,
+    "AttackPower": 0.0,
     "AttackSpeed": 3.13,
     "AttackRange": 350.0,
     "SplashRange": 50.0
@@ -467,7 +467,7 @@
     "ClassType": "Archor",
     "GradeType": "Relic",
     "RankType": "B",
-    "AttackPower": null,
+    "AttackPower": 0.0,
     "AttackSpeed": 3.03,
     "AttackRange": 400.0,
     "SplashRange": 80.0
@@ -478,7 +478,7 @@
     "ClassType": "Archor",
     "GradeType": "Relic",
     "RankType": "A",
-    "AttackPower": null,
+    "AttackPower": 0.0,
     "AttackSpeed": 2.53,
     "AttackRange": 400.0,
     "SplashRange": 80.0
@@ -489,7 +489,7 @@
     "ClassType": "Archor",
     "GradeType": "Relic",
     "RankType": "S",
-    "AttackPower": null,
+    "AttackPower": 0.0,
     "AttackSpeed": 3.03,
     "AttackRange": 400.0,
     "SplashRange": 80.0
@@ -500,7 +500,7 @@
     "ClassType": "Archor",
     "GradeType": "Legend",
     "RankType": "B",
-    "AttackPower": null,
+    "AttackPower": 0.0,
     "AttackSpeed": 4.0,
     "AttackRange": 600.0,
     "SplashRange": 100.0
@@ -511,7 +511,7 @@
     "ClassType": "Archor",
     "GradeType": "Legend",
     "RankType": "A",
-    "AttackPower": null,
+    "AttackPower": 0.0,
     "AttackSpeed": 3.33,
     "AttackRange": 600.0,
     "SplashRange": 100.0
@@ -522,7 +522,7 @@
     "ClassType": "Archor",
     "GradeType": "Legend",
     "RankType": "S",
-    "AttackPower": null,
+    "AttackPower": 0.0,
     "AttackSpeed": 4.0,
     "AttackRange": 600.0,
     "SplashRange": 100.0
@@ -533,7 +533,7 @@
     "ClassType": "Archor",
     "GradeType": "Epic",
     "RankType": "B",
-    "AttackPower": null,
+    "AttackPower": 0.0,
     "AttackSpeed": 4.0,
     "AttackRange": 600.0,
     "SplashRange": 150.0
@@ -544,7 +544,7 @@
     "ClassType": "Archor",
     "GradeType": "Epic",
     "RankType": "A",
-    "AttackPower": null,
+    "AttackPower": 0.0,
     "AttackSpeed": 3.33,
     "AttackRange": 600.0,
     "SplashRange": 150.0
@@ -555,7 +555,7 @@
     "ClassType": "Archor",
     "GradeType": "Epic",
     "RankType": "S",
-    "AttackPower": null,
+    "AttackPower": 0.0,
     "AttackSpeed": 4.0,
     "AttackRange": 600.0,
     "SplashRange": 150.0
@@ -566,7 +566,7 @@
     "ClassType": "Archor",
     "GradeType": "Myth",
     "RankType": "B",
-    "AttackPower": null,
+    "AttackPower": 0.0,
     "AttackSpeed": 4.0,
     "AttackRange": 600.0,
     "SplashRange": 150.0
@@ -577,7 +577,7 @@
     "ClassType": "Archor",
     "GradeType": "Myth",
     "RankType": "A",
-    "AttackPower": null,
+    "AttackPower": 0.0,
     "AttackSpeed": 3.33,
     "AttackRange": 600.0,
     "SplashRange": 150.0
@@ -588,7 +588,7 @@
     "ClassType": "Archor",
     "GradeType": "Myth",
     "RankType": "S",
-    "AttackPower": null,
+    "AttackPower": 0.0,
     "AttackSpeed": 4.0,
     "AttackRange": 600.0,
     "SplashRange": 150.0
@@ -599,7 +599,7 @@
     "ClassType": "Archor",
     "GradeType": "God",
     "RankType": "B",
-    "AttackPower": null,
+    "AttackPower": 0.0,
     "AttackSpeed": 4.0,
     "AttackRange": 600.0,
     "SplashRange": 150.0
@@ -610,7 +610,7 @@
     "ClassType": "Archor",
     "GradeType": "God",
     "RankType": "A",
-    "AttackPower": null,
+    "AttackPower": 0.0,
     "AttackSpeed": 3.33,
     "AttackRange": 600.0,
     "SplashRange": 150.0
@@ -621,7 +621,7 @@
     "ClassType": "Archor",
     "GradeType": "God",
     "RankType": "S",
-    "AttackPower": null,
+    "AttackPower": 0.0,
     "AttackSpeed": 4.0,
     "AttackRange": 600.0,
     "SplashRange": 150.0
@@ -632,7 +632,7 @@
     "ClassType": "Warrior",
     "GradeType": "Normal",
     "RankType": "B",
-    "AttackPower": null,
+    "AttackPower": 0.0,
     "AttackSpeed": 1.75,
     "AttackRange": 200.0,
     "SplashRange": 0.0
@@ -643,7 +643,7 @@
     "ClassType": "Warrior",
     "GradeType": "Normal",
     "RankType": "A",
-    "AttackPower": null,
+    "AttackPower": 0.0,
     "AttackSpeed": 1.46,
     "AttackRange": 200.0,
     "SplashRange": 0.0
@@ -654,7 +654,7 @@
     "ClassType": "Warrior",
     "GradeType": "Normal",
     "RankType": "S",
-    "AttackPower": null,
+    "AttackPower": 0.0,
     "AttackSpeed": 1.75,
     "AttackRange": 200.0,
     "SplashRange": 0.0
@@ -665,7 +665,7 @@
     "ClassType": "Warrior",
     "GradeType": "Superior",
     "RankType": "B",
-    "AttackPower": null,
+    "AttackPower": 0.0,
     "AttackSpeed": 1.75,
     "AttackRange": 250.0,
     "SplashRange": 0.0
@@ -676,7 +676,7 @@
     "ClassType": "Warrior",
     "GradeType": "Superior",
     "RankType": "A",
-    "AttackPower": null,
+    "AttackPower": 0.0,
     "AttackSpeed": 1.46,
     "AttackRange": 250.0,
     "SplashRange": 0.0
@@ -687,7 +687,7 @@
     "ClassType": "Warrior",
     "GradeType": "Superior",
     "RankType": "S",
-    "AttackPower": null,
+    "AttackPower": 0.0,
     "AttackSpeed": 1.75,
     "AttackRange": 250.0,
     "SplashRange": 0.0
@@ -698,7 +698,7 @@
     "ClassType": "Warrior",
     "GradeType": "Rare",
     "RankType": "B",
-    "AttackPower": null,
+    "AttackPower": 0.0,
     "AttackSpeed": 1.75,
     "AttackRange": 300.0,
     "SplashRange": 0.0
@@ -709,7 +709,7 @@
     "ClassType": "Warrior",
     "GradeType": "Rare",
     "RankType": "A",
-    "AttackPower": null,
+    "AttackPower": 0.0,
     "AttackSpeed": 1.46,
     "AttackRange": 300.0,
     "SplashRange": 0.0
@@ -720,7 +720,7 @@
     "ClassType": "Warrior",
     "GradeType": "Rare",
     "RankType": "S",
-    "AttackPower": null,
+    "AttackPower": 0.0,
     "AttackSpeed": 1.75,
     "AttackRange": 300.0,
     "SplashRange": 0.0
@@ -731,7 +731,7 @@
     "ClassType": "Warrior",
     "GradeType": "Ancient",
     "RankType": "B",
-    "AttackPower": null,
+    "AttackPower": 0.0,
     "AttackSpeed": 2.5,
     "AttackRange": 350.0,
     "SplashRange": 50.0
@@ -742,7 +742,7 @@
     "ClassType": "Warrior",
     "GradeType": "Ancient",
     "RankType": "A",
-    "AttackPower": null,
+    "AttackPower": 0.0,
     "AttackSpeed": 2.08,
     "AttackRange": 350.0,
     "SplashRange": 50.0
@@ -753,7 +753,7 @@
     "ClassType": "Warrior",
     "GradeType": "Ancient",
     "RankType": "S",
-    "AttackPower": null,
+    "AttackPower": 0.0,
     "AttackSpeed": 2.5,
     "AttackRange": 350.0,
     "SplashRange": 50.0
@@ -764,7 +764,7 @@
     "ClassType": "Warrior",
     "GradeType": "Ancient",
     "RankType": "S",
-    "AttackPower": null,
+    "AttackPower": 0.0,
     "AttackSpeed": 2.5,
     "AttackRange": 350.0,
     "SplashRange": 50.0
@@ -775,7 +775,7 @@
     "ClassType": "Warrior",
     "GradeType": "Relic",
     "RankType": "B",
-    "AttackPower": null,
+    "AttackPower": 0.0,
     "AttackSpeed": 2.5,
     "AttackRange": 400.0,
     "SplashRange": 80.0
@@ -786,7 +786,7 @@
     "ClassType": "Warrior",
     "GradeType": "Relic",
     "RankType": "A",
-    "AttackPower": null,
+    "AttackPower": 0.0,
     "AttackSpeed": 2.08,
     "AttackRange": 400.0,
     "SplashRange": 80.0
@@ -797,7 +797,7 @@
     "ClassType": "Warrior",
     "GradeType": "Relic",
     "RankType": "S",
-    "AttackPower": null,
+    "AttackPower": 0.0,
     "AttackSpeed": 2.5,
     "AttackRange": 400.0,
     "SplashRange": 80.0
@@ -808,7 +808,7 @@
     "ClassType": "Warrior",
     "GradeType": "Legend",
     "RankType": "B",
-    "AttackPower": null,
+    "AttackPower": 0.0,
     "AttackSpeed": 3.03,
     "AttackRange": 600.0,
     "SplashRange": 100.0
@@ -819,7 +819,7 @@
     "ClassType": "Warrior",
     "GradeType": "Legend",
     "RankType": "A",
-    "AttackPower": null,
+    "AttackPower": 0.0,
     "AttackSpeed": 2.53,
     "AttackRange": 600.0,
     "SplashRange": 100.0
@@ -830,7 +830,7 @@
     "ClassType": "Warrior",
     "GradeType": "Legend",
     "RankType": "S",
-    "AttackPower": null,
+    "AttackPower": 0.0,
     "AttackSpeed": 3.03,
     "AttackRange": 600.0,
     "SplashRange": 100.0
@@ -841,7 +841,7 @@
     "ClassType": "Warrior",
     "GradeType": "Legend",
     "RankType": "S",
-    "AttackPower": null,
+    "AttackPower": 0.0,
     "AttackSpeed": 2.5,
     "AttackRange": 600.0,
     "SplashRange": 100.0
@@ -852,7 +852,7 @@
     "ClassType": "Warrior",
     "GradeType": "Epic",
     "RankType": "B",
-    "AttackPower": null,
+    "AttackPower": 0.0,
     "AttackSpeed": 3.1,
     "AttackRange": 600.0,
     "SplashRange": 150.0
@@ -863,7 +863,7 @@
     "ClassType": "Warrior",
     "GradeType": "Epic",
     "RankType": "A",
-    "AttackPower": null,
+    "AttackPower": 0.0,
     "AttackSpeed": 2.6,
     "AttackRange": 600.0,
     "SplashRange": 150.0
@@ -874,7 +874,7 @@
     "ClassType": "Warrior",
     "GradeType": "Epic",
     "RankType": "S",
-    "AttackPower": null,
+    "AttackPower": 0.0,
     "AttackSpeed": 3.1,
     "AttackRange": 600.0,
     "SplashRange": 150.0
@@ -885,7 +885,7 @@
     "ClassType": "Warrior",
     "GradeType": "Myth",
     "RankType": "B",
-    "AttackPower": null,
+    "AttackPower": 0.0,
     "AttackSpeed": 3.33,
     "AttackRange": 600.0,
     "SplashRange": 150.0
@@ -896,7 +896,7 @@
     "ClassType": "Warrior",
     "GradeType": "Myth",
     "RankType": "A",
-    "AttackPower": null,
+    "AttackPower": 0.0,
     "AttackSpeed": 2.78,
     "AttackRange": 600.0,
     "SplashRange": 150.0
@@ -907,7 +907,7 @@
     "ClassType": "Warrior",
     "GradeType": "Myth",
     "RankType": "S",
-    "AttackPower": null,
+    "AttackPower": 0.0,
     "AttackSpeed": 3.33,
     "AttackRange": 600.0,
     "SplashRange": 150.0
@@ -918,7 +918,7 @@
     "ClassType": "Warrior",
     "GradeType": "God",
     "RankType": "B",
-    "AttackPower": null,
+    "AttackPower": 0.0,
     "AttackSpeed": 4.0,
     "AttackRange": 600.0,
     "SplashRange": 155.0
@@ -929,7 +929,7 @@
     "ClassType": "Warrior",
     "GradeType": "God",
     "RankType": "A",
-    "AttackPower": null,
+    "AttackPower": 0.0,
     "AttackSpeed": 3.33,
     "AttackRange": 600.0,
     "SplashRange": 155.0
@@ -940,7 +940,7 @@
     "ClassType": "Warrior",
     "GradeType": "God",
     "RankType": "S",
-    "AttackPower": null,
+    "AttackPower": 0.0,
     "AttackSpeed": 4.0,
     "AttackRange": 600.0,
     "SplashRange": 155.0
