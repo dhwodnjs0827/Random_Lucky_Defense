@@ -191,7 +191,7 @@ public class UIManager : MonoSingleton<UIManager>
     {
         foreach (var kvp in openedUI)
         {
-            if (kvp.Value != null)
+            if (kvp.Value == null)
             {
                 continue;
             }
@@ -201,7 +201,7 @@ public class UIManager : MonoSingleton<UIManager>
 
         foreach (var kvp in closedUI)
         {
-            if (kvp.Value != null)
+            if (kvp.Value == null)
             {
                 continue;
             }
