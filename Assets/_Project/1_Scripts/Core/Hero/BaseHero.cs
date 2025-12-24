@@ -12,6 +12,8 @@ public abstract class BaseHero : MonoBehaviour, IPoolable
     protected HeroDataSO heroData; // 영웅 데이터
     protected IHeroSkill skill;
 
+    public abstract HeroClassType ClassType { get; }
+
     /// <summary>
     /// 영웅 초기화
     /// </summary>
@@ -21,11 +23,14 @@ public abstract class BaseHero : MonoBehaviour, IPoolable
     /// 기본 공격
     /// </summary>
     public abstract void Attack(BaseEnemy target);
-    
+
     /// <summary>
     /// 기본 이동
     /// </summary>
-    public abstract void Move();
+    public void Move(Vector3 position)
+    {
+        transform.position = position;
+    }
     
     public abstract void OnGet();
 

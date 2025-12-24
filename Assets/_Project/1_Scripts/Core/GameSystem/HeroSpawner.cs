@@ -2,9 +2,9 @@ using UnityEngine;
 
 public class HeroSpawner : MonoBehaviour, IEventListener
 {
-    [SerializeField] private Transform spawnPoint;
     [SerializeField] private BaseHero heroPrefab;
-    
+    [SerializeField] private HeroAreaController areaController;
+
     private void Awake()
     {
         SubscribeEvents();
@@ -27,8 +27,14 @@ public class HeroSpawner : MonoBehaviour, IEventListener
 
     private void SpawnHero()
     {
-        var baseHero = ObjectPoolManager.Instance.Get(heroPrefab);
-        baseHero.transform.position = spawnPoint.position;
+        // 중앙에서 스폰
+        var spawnPosition = areaController.GetSpawnPosition();
+        var hero = ObjectPoolManager.Instance.Get(heroPrefab);
+        hero.transform.position = spawnPosition;
+
+        // 클래스에 맞는 영역으로 배치
+        areaController.PlaceHero(hero);
+
         CDebug.Log("[HeroSpawner] 영웅 소환!");
     }
 }
