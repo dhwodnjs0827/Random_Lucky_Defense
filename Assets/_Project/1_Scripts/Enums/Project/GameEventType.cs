@@ -3,8 +3,10 @@
 /// </summary>
 public enum GameEventType
 {
-    ApplicationStart,
-    GameStart,
-    GameOver,
-    ApplicationQuit,
+    ApplicationStart, // 앱 시작
+    GameStart, // 게임 시작
+    GameOver, // 게임 종료
+    ApplicationQuit, // 앱 종료
+    
+    SpawnHero, // 영웅 소환
 }
