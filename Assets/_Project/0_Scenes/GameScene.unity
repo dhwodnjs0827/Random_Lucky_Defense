@@ -13326,6 +13326,11 @@ Transform:
   - {fileID: 106528195}
   m_Father: {fileID: 2136538511}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &611011557 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7947911505737750455, guid: c5bdca1933fde624698bb8c6d6daa44b, type: 3}
+  m_PrefabInstance: {fileID: 1246576698}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &630709543
 GameObject:
   m_ObjectHideFlags: 0
@@ -14226,6 +14231,37 @@ Transform:
   - {fileID: 739482188}
   - {fileID: 1947393536}
   m_Father: {fileID: 2136538511}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &706584169
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 706584170}
+  m_Layer: 20
+  m_Name: SpawnPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &706584170
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 706584169}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1246576699}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &710026027
 GameObject:
@@ -40927,18 +40963,38 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7947911505737750455, guid: c5bdca1933fde624698bb8c6d6daa44b, type: 3}
       propertyPath: m_Name
-      value: HeroSpawnPoint
+      value: HeroSpawner
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 7947911505737750448, guid: c5bdca1933fde624698bb8c6d6daa44b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 706584170}
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7947911505737750455, guid: c5bdca1933fde624698bb8c6d6daa44b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1246576703}
   m_SourcePrefab: {fileID: 100100000, guid: c5bdca1933fde624698bb8c6d6daa44b, type: 3}
 --- !u!4 &1246576699 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7947911505737750448, guid: c5bdca1933fde624698bb8c6d6daa44b, type: 3}
   m_PrefabInstance: {fileID: 1246576698}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1246576703
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 611011557}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e748ceb02b0d940e9aea2f3529b18141, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HeroSpawner
+  spawnPoint: {fileID: 706584170}
+  heroPrefab: {fileID: 8106965552027448187, guid: 51c1fb44c19cc497fa807fe1fa303dd6, type: 3}
 --- !u!1 &1251923549
 GameObject:
   m_ObjectHideFlags: 0

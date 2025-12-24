@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class HUDUI : UIBase
+public class HUDUI : UIBase, IEventListener
 {
     [Header("Buttons")]
     [SerializeField] private Button spawnButton;
@@ -21,16 +21,6 @@ public class HUDUI : UIBase
     {
         ClearButtons();
         UnsubscribeEvents();
-    }
-
-    private void SubscribeEvents()
-    {
-        
-    }
-
-    private void UnsubscribeEvents()
-    {
-        
     }
 
     private void InitializeButtons()
@@ -101,6 +91,7 @@ public class HUDUI : UIBase
     
     private void OnClickSpawnButton()
     {
+        EventManager.Dispatch(GameEventType.SpawnHero);
         CDebug.Log("[HUDUI] 영웅 소환 버튼 클릭");
     }
 
@@ -127,5 +118,13 @@ public class HUDUI : UIBase
     private void OnClickSellButton()
     {
         CDebug.Log("[HUDUI] 영웅 판매 버튼 클릭");
+    }
+
+    public void SubscribeEvents()
+    {
+    }
+
+    public void UnsubscribeEvents()
+    {
     }
 }
