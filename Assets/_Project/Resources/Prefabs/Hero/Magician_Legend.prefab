@@ -45,8 +45,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59f0abf6134ec4ea2bab493209a4433a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MagicianHero
-  prefab: {fileID: 0}
-  animator: {fileID: 0}
+  prefab: {fileID: 4302163714434021617}
+  animator: {fileID: 4042680524121106573}
 --- !u!1001 &3521025428211454915
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -144,8 +144,24 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a1f81d89cf18a4888acecdfd37216d5e, type: 3}
+--- !u!95 &4042680524121106573 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 632559468731284302, guid: a1f81d89cf18a4888acecdfd37216d5e, type: 3}
+  m_PrefabInstance: {fileID: 3521025428211454915}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &4227927058995223184 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 752572530598168915, guid: a1f81d89cf18a4888acecdfd37216d5e, type: 3}
   m_PrefabInstance: {fileID: 3521025428211454915}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &4302163714434021617 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 822305927909829426, guid: a1f81d89cf18a4888acecdfd37216d5e, type: 3}
+  m_PrefabInstance: {fileID: 3521025428211454915}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28ac21711b0ec40a0812d33a586eb7ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

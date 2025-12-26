@@ -34,6 +34,7 @@ public class HeroArea : MonoBehaviour
         if (heroes.Contains(hero)) return;
 
         heroes.Add(hero);
+        hero.transform.SetParent(transform);
         SetHeroPosition(hero);
     }
 

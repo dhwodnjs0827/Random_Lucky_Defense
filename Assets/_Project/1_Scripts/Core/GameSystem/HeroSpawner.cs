@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class HeroSpawner : MonoBehaviour, IEventListener
 {
-    [SerializeField] private BaseHero heroPrefab;
+    [SerializeField] private HeroSpawnPool heroSpawnPool;
     [SerializeField] private HeroAreaController areaController;
 
     private void Awake()
@@ -35,7 +35,7 @@ public class HeroSpawner : MonoBehaviour, IEventListener
 
         // 중앙에서 스폰
         var spawnPosition = areaController.SpawnPoint;
-        var hero = ObjectPoolManager.Instance.Get(heroPrefab);
+        var hero = heroSpawnPool.GetHero();
         if (hero == null)
         {
             CDebug.LogWarning("[HeroSpawner] hero가 없습니다.");
