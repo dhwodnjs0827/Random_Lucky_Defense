@@ -60,28 +60,32 @@ public class HeroSpawnPool : MonoBehaviour
     /// </summary>
     public BaseHero GetHero()
     {
-        var heroInfo = CalculateChance();
-        var classPrefabDict = heroPrefabs[heroInfo.Item1];
-        return ObjectPoolManager.Instance.Get(classPrefabDict[heroInfo.Item2]);
+        var randomClass = GetRandomClass();
+        var randomGrade = GetRandomGrade();
+        var classPrefabDict = heroPrefabs[randomClass];
+        return ObjectPoolManager.Instance.Get(classPrefabDict[randomGrade]);
     }
 
+    /// <summary>
+    /// 마법사 영웅 초기화
+    /// </summary>
     private void InitializeMagician()
     {
         var magicianDict = new Dictionary<HeroGradeType, BaseHero>
         {
             { HeroGradeType.Normal, normalMagicianPrefab },
-            { HeroGradeType.Superior, normalMagicianPrefab },
-            { HeroGradeType.Rare, normalMagicianPrefab },
-            { HeroGradeType.Ancient, normalMagicianPrefab },
-            { HeroGradeType.Relic, normalMagicianPrefab },
-            { HeroGradeType.Legend, normalMagicianPrefab },
-            { HeroGradeType.Epic, normalMagicianPrefab },
-            { HeroGradeType.Myth, normalMagicianPrefab },
-            { HeroGradeType.God, normalMagicianPrefab }
+            { HeroGradeType.Superior, superiorMagicianPrefab },
+            { HeroGradeType.Rare, rareMagicianPrefab },
+            { HeroGradeType.Ancient, ancientMagicianPrefab },
+            { HeroGradeType.Relic, relicMagicianPrefab },
+            { HeroGradeType.Legend, legendMagicianPrefab },
+            { HeroGradeType.Epic, epicMagicianPrefab },
+            { HeroGradeType.Myth, mythMagicianPrefab },
+            { HeroGradeType.God, godMagicianPrefab }
         };
 
         heroPrefabs.Add(HeroClassType.Magician, magicianDict);
-        
+
         ObjectPoolManager.Instance.Preload(normalMagicianPrefab, 10, 50);
         ObjectPoolManager.Instance.Preload(superiorMagicianPrefab, 10, 50);
         ObjectPoolManager.Instance.Preload(rareMagicianPrefab, 10, 50);
@@ -93,23 +97,26 @@ public class HeroSpawnPool : MonoBehaviour
         ObjectPoolManager.Instance.Preload(godMagicianPrefab, 1, 5);
     }
 
+    /// <summary>
+    /// 궁수 영웅 초기화
+    /// </summary>
     private void InitializeArcher()
     {
         var archerDict = new Dictionary<HeroGradeType, BaseHero>
         {
             { HeroGradeType.Normal, normalArcherPrefab },
-            { HeroGradeType.Superior, normalArcherPrefab },
-            { HeroGradeType.Rare, normalArcherPrefab },
-            { HeroGradeType.Ancient, normalArcherPrefab },
-            { HeroGradeType.Relic, normalArcherPrefab },
-            { HeroGradeType.Legend, normalArcherPrefab },
-            { HeroGradeType.Epic, normalArcherPrefab },
-            { HeroGradeType.Myth, normalArcherPrefab },
-            { HeroGradeType.God, normalArcherPrefab }
+            { HeroGradeType.Superior, superiorArcherPrefab },
+            { HeroGradeType.Rare, rareArcherPrefab },
+            { HeroGradeType.Ancient, ancientArcherPrefab },
+            { HeroGradeType.Relic, relicArcherPrefab },
+            { HeroGradeType.Legend, legendArcherPrefab },
+            { HeroGradeType.Epic, epicArcherPrefab },
+            { HeroGradeType.Myth, mythArcherPrefab },
+            { HeroGradeType.God, godArcherPrefab }
         };
 
         heroPrefabs.Add(HeroClassType.Archer, archerDict);
-        
+
         ObjectPoolManager.Instance.Preload(normalArcherPrefab, 10, 50);
         ObjectPoolManager.Instance.Preload(superiorArcherPrefab, 10, 50);
         ObjectPoolManager.Instance.Preload(rareArcherPrefab, 10, 50);
@@ -121,23 +128,26 @@ public class HeroSpawnPool : MonoBehaviour
         ObjectPoolManager.Instance.Preload(godArcherPrefab, 1, 5);
     }
 
+    /// <summary>
+    /// 전사 영웅 초기화
+    /// </summary>
     private void InitializeWarrior()
     {
         var warriorDict = new Dictionary<HeroGradeType, BaseHero>
         {
             { HeroGradeType.Normal, normalWarriorPrefab },
-            { HeroGradeType.Superior, normalWarriorPrefab },
-            { HeroGradeType.Rare, normalWarriorPrefab },
-            { HeroGradeType.Ancient, normalWarriorPrefab },
-            { HeroGradeType.Relic, normalWarriorPrefab },
-            { HeroGradeType.Legend, normalWarriorPrefab },
-            { HeroGradeType.Epic, normalWarriorPrefab },
-            { HeroGradeType.Myth, normalWarriorPrefab },
-            { HeroGradeType.God, normalWarriorPrefab }
+            { HeroGradeType.Superior, superiorWarriorPrefab },
+            { HeroGradeType.Rare, rareWarriorPrefab },
+            { HeroGradeType.Ancient, ancientWarriorPrefab },
+            { HeroGradeType.Relic, relicWarriorPrefab },
+            { HeroGradeType.Legend, legendWarriorPrefab },
+            { HeroGradeType.Epic, epicWarriorPrefab },
+            { HeroGradeType.Myth, mythWarriorPrefab },
+            { HeroGradeType.God, godWarriorPrefab }
         };
 
         heroPrefabs.Add(HeroClassType.Warrior, warriorDict);
-        
+
         ObjectPoolManager.Instance.Preload(normalWarriorPrefab, 10, 50);
         ObjectPoolManager.Instance.Preload(superiorWarriorPrefab, 10, 50);
         ObjectPoolManager.Instance.Preload(rareWarriorPrefab, 10, 50);
@@ -169,13 +179,23 @@ public class HeroSpawnPool : MonoBehaviour
     }
 
     /// <summary>
-    /// 확률 계산
+    /// 영웅 클래스 확률
     /// </summary>
-    private (HeroClassType, HeroGradeType) CalculateChance()
+    private HeroClassType GetRandomClass()
     {
+        // 영웅 클래스 확률 계산
         var classTypes = Enum.GetValues(typeof(HeroClassType));
         var randomClass = Random.Range(1, classTypes.Length);
 
+        return (HeroClassType)classTypes.GetValue(randomClass);
+    }
+
+    /// <summary>
+    /// 영웅 등급 확률
+    /// </summary>
+    private HeroGradeType GetRandomGrade()
+    {
+        // 영웅 등급 확률 계산
         int totalChance = 0;
         foreach (var pair in heroSpawnChance)
         {
@@ -183,17 +203,16 @@ public class HeroSpawnPool : MonoBehaviour
         }
 
         int rand = Random.Range(0, totalChance);
-        int acc = 0;
-
+        int accumulation = 0;
         foreach (var pair in heroSpawnChance)
         {
-            acc += pair.Item2;
-            if (rand < acc)
+            accumulation += pair.Item2;
+            if (rand < accumulation)
             {
-                return ((HeroClassType)classTypes.GetValue(randomClass), pair.Item1);
+                return pair.Item1;
             }
         }
 
-        return (HeroClassType.Magician, HeroGradeType.Normal);
+        return HeroGradeType.Normal;
     }
 }
