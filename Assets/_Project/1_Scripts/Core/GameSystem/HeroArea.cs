@@ -8,22 +8,32 @@ public class HeroArea : MonoBehaviour
 {
     [SerializeField] private HeroAreaType areaType;
     private SpriteRenderer highlightRenderer;
+
+    [SerializeField] private Transform[] triAreaPoints;
+    [SerializeField] private Transform[] rectAreaPoints;
+
     [SerializeField] private Transform centerPoint;
 
     private List<BaseHero> heroes = new();
     private bool isHighlighted = false;
 
     public HeroAreaType AreaType => areaType;
-    
-    public IReadOnlyList<BaseHero> Heroes => heroes;
-    
-    public bool HasHeroes => heroes.Count > 0;
-    
-    public HeroClassType CurrentHeroClass { get; private set; }
 
-    private void Awake()
+    public IReadOnlyList<BaseHero> Heroes => heroes;
+
+    public bool HasHeroes => heroes.Count > 0;
+
+    public HeroClassType CurrentHeroClass
     {
-        SetInitialClassType();
+        get
+        {
+            if (heroes.Count != 0)
+            {
+                return heroes[0].ClassType;
+            }
+
+            return HeroClassType.None;
+        }
     }
 
     /// <summary>
@@ -58,6 +68,50 @@ public class HeroArea : MonoBehaviour
         return removedHeroes;
     }
 
+    public bool ContainsPointInArea(Vector2 worldPoint)
+    {
+        // 삼각형 검사
+        if (IsPointInTriangle(worldPoint))
+        {
+            return true;
+        }
+
+        // 직사각형 검사
+        if (IsPointInRectangle(worldPoint))
+        {
+            return true;
+        }
+
+        return false;
+    }
+
+    private bool IsPointInTriangle(Vector2 worldPoint)
+    {
+        if (triAreaPoints == null || triAreaPoints.Length < 3) return false;
+
+        Vector2 p0 = triAreaPoints[0].position;
+        Vector2 p1 = triAreaPoints[1].position;
+        Vector2 p2 = triAreaPoints[2].position;
+
+        return IsPointInArea(worldPoint, p0, p1, p2);
+    }
+
+    private bool IsPointInRectangle(Vector2 worldPoint)
+    {
+        if (triAreaPoints == null || triAreaPoints.Length < 3) return false;
+        if (rectAreaPoints == null || rectAreaPoints.Length < 2) return false;
+
+        // 직사각형 4개 점: 삼각형 밑변(1,2) + 하단 점(rect 0,1)
+        Vector2 topLeft = triAreaPoints[1].position;
+        Vector2 topRight = triAreaPoints[2].position;
+        Vector2 bottomLeft = rectAreaPoints[0].position;
+        Vector2 bottomRight = rectAreaPoints[1].position;
+
+        // 두 개의 삼각형으로 분할하여 검사
+        return IsPointInArea(worldPoint, topLeft, bottomLeft, bottomRight) ||
+               IsPointInArea(worldPoint, topLeft, bottomRight, topRight);
+    }
+
     /// <summary>
     /// 영역 하이라이트 설정
     /// </summary>
@@ -71,25 +125,63 @@ public class HeroArea : MonoBehaviour
     }
 
     /// <summary>
-    /// 초기 클래스 타입 지정
-    /// </summary>
-    private void SetInitialClassType()
-    {
-        CurrentHeroClass = areaType switch
-        {
-            HeroAreaType.Top => HeroClassType.Warrior,
-            HeroAreaType.Left => HeroClassType.Archer,
-            HeroAreaType.Right => HeroClassType.None,
-            HeroAreaType.Bottom => HeroClassType.Magician,
-            _ => HeroClassType.None
-        };
-    }
-
-    /// <summary>
     /// 영웅 이동
     /// </summary>
     private void SetHeroPosition(BaseHero hero)
     {
         hero.Move(centerPoint.position);
+    }
+
+    private bool IsPointInArea(Vector2 worldPoint, Vector2 point1, Vector2 point2, Vector2 point3)
+    {
+        var distance1 = Sign(worldPoint, point1, point2);
+        var distance2 = Sign(worldPoint, point2, point3);
+        var distance3 = Sign(worldPoint, point3, point1);
+
+        bool hasNeg = (distance1 < 0) || (distance2 < 0) || (distance3 < 0);
+        bool hasPos = (distance1 > 0) || (distance2 > 0) || (distance3 > 0);
+
+        return !(hasNeg && hasPos);
+    }
+
+    private float Sign(Vector2 point1, Vector2 point2, Vector2 point3)
+    {
+        return (point1.x - point3.x) * (point2.y - point3.y) - (point2.x - point3.x) * (point1.y - point3.y);
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = isHighlighted ? Color.yellow : Color.green;
+
+        // 삼각형
+        if (triAreaPoints != null && triAreaPoints.Length >= 3)
+        {
+            // 삼각형 외곽선 (밑변 제외 - 직사각형과 공유)
+            Gizmos.DrawLine(triAreaPoints[0].position, triAreaPoints[1].position);
+            Gizmos.DrawLine(triAreaPoints[0].position, triAreaPoints[2].position);
+
+            foreach (var point in triAreaPoints)
+            {
+                Gizmos.DrawSphere(point.position, 0.1f);
+            }
+        }
+
+        // 직사각형 (삼각형 밑변 + 하단 점)
+        if (triAreaPoints != null && triAreaPoints.Length >= 3 &&
+            rectAreaPoints != null && rectAreaPoints.Length >= 2)
+        {
+            // 삼각형 밑변 (직사각형 윗변)
+            Gizmos.DrawLine(triAreaPoints[1].position, triAreaPoints[2].position);
+            // 직사각형 양쪽 변
+            Gizmos.DrawLine(triAreaPoints[1].position, rectAreaPoints[0].position);
+            Gizmos.DrawLine(triAreaPoints[2].position, rectAreaPoints[1].position);
+            // 직사각형 밑변
+            Gizmos.DrawLine(rectAreaPoints[0].position, rectAreaPoints[1].position);
+
+            foreach (var point in rectAreaPoints)
+            {
+                Gizmos.DrawSphere(point.position, 0.1f);
+            }
+        }
     }
 }

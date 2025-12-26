@@ -65,6 +65,33 @@ public class HeroAreaController : MonoBehaviour
                 return;
             }
         }
+        
+        // Fallback
+        PlaceHeroFallback(hero);
+    }
+
+    /// <summary>
+    /// 일치하는 타입 없을 경우, 우선순위로 배치 
+    /// </summary>
+    /// <remarks>좌 -> 상 -> 하 -> 우 순서로 배치</remarks>
+    private void PlaceHeroFallback(BaseHero hero)
+    {
+        if (areas[HeroAreaType.Left].CurrentHeroClass == HeroClassType.None)
+        {
+            areas[HeroAreaType.Left].AddSingleHero(hero);
+        }
+        else if (areas[HeroAreaType.Top].CurrentHeroClass == HeroClassType.None)
+        {
+            areas[HeroAreaType.Top].AddSingleHero(hero);
+        }
+        else if (areas[HeroAreaType.Bottom].CurrentHeroClass == HeroClassType.None)
+        {
+            areas[HeroAreaType.Bottom].AddSingleHero(hero);
+        }
+        else if (areas[HeroAreaType.Right].CurrentHeroClass == HeroClassType.None)
+        {
+            areas[HeroAreaType.Right].AddSingleHero(hero);
+        }
     }
 
     /// <summary>
@@ -80,7 +107,13 @@ public class HeroAreaController : MonoBehaviour
 
         if (pointer.press.wasPressedThisFrame)
         {
-            OnPointerDown(pointer.position.ReadValue());
+            var worldPos = GetWorldPosition(pointer.position.ReadValue());
+            var hitArea = GetAreaAtPosition(worldPos);
+
+            if (hitArea != null)
+            {
+                OnPointerDown(hitArea);
+            }
         }
         else if (pointer.press.isPressed && isDragging)
         {
@@ -88,17 +121,20 @@ public class HeroAreaController : MonoBehaviour
         }
         else if (pointer.press.wasReleasedThisFrame && isDragging)
         {
-            OnPointerUp(pointer.position.ReadValue());
+            var worldPos = GetWorldPosition(pointer.position.ReadValue());
+            OnPointerUp(worldPos);
         }
     }
 
     /// <summary>
     /// 터치/클릭 시작
     /// </summary>
-    private void OnPointerDown(Vector2 screenPosition)
+    private void OnPointerDown(HeroArea hitArea)
     {
-        var hitArea = GetAreaAtPosition(screenPosition);
-        if (hitArea == null || !hitArea.HasHeroes) return;
+        if (!hitArea.HasHeroes)
+        {
+            return;
+        }
 
         selectedArea = hitArea;
         selectedArea.SetHighlight(true);
@@ -116,7 +152,7 @@ public class HeroAreaController : MonoBehaviour
     /// <summary>
     /// 터치/클릭 종료
     /// </summary>
-    private void OnPointerUp(Vector2 screenPosition)
+    private void OnPointerUp(Vector2 worldPosition)
     {
         if (selectedArea == null)
         {
@@ -124,7 +160,7 @@ public class HeroAreaController : MonoBehaviour
             return;
         }
 
-        var targetArea = GetAreaAtPosition(screenPosition);
+        var targetArea = GetAreaAtPosition(worldPosition);
 
         // 다른 영역에 드롭했을 경우 스왑
         if (targetArea != null && targetArea != selectedArea)
@@ -158,46 +194,24 @@ public class HeroAreaController : MonoBehaviour
         CDebug.Log($"[HeroAreaController] {fromArea.AreaType} ↔ {toArea.AreaType} 스왑 완료");
     }
 
-    /// <summary>
-    /// 화면 위치에서 영역 찾기
-    /// </summary>
-    private HeroArea GetAreaAtPosition(Vector2 screenPosition)
+    private Vector2 GetWorldPosition(Vector2 screenPosition)
     {
         var worldPos = mainCamera.ScreenToWorldPoint(screenPosition);
-        worldPos.z = 0;
+        return new Vector2(worldPos.x, worldPos.y);
+    }
 
-        // 중앙 기준으로 어느 삼각형 영역인지 판별
-        var center = spawnPoint.position;
-        var direction = worldPos - center;
-
-        // 대각선 기준으로 4개 영역 판별
-        // 위쪽: y > |x|
-        // 아래쪽: y < -|x|
-        // 왼쪽: x < -|y|
-        // 오른쪽: x > |y|
-
-        float absX = Mathf.Abs(direction.x);
-        float absY = Mathf.Abs(direction.y);
-
-        HeroAreaType areaType;
-
-        if (direction.y > absX)
+    /// <summary>
+    /// 월드 좌표에서 해당 영역 찾기
+    /// </summary>
+    private HeroArea GetAreaAtPosition(Vector2 worldPosition)
+    {
+        foreach (var kvp in areas)
         {
-            areaType = HeroAreaType.Top;
+            if (kvp.Value.ContainsPointInArea(worldPosition))
+            {
+                return kvp.Value;
+            }
         }
-        else if (direction.y < -absX)
-        {
-            areaType = HeroAreaType.Bottom;
-        }
-        else if (direction.x < -absY)
-        {
-            areaType = HeroAreaType.Left;
-        }
-        else
-        {
-            areaType = HeroAreaType.Right;
-        }
-
-        return areas[areaType];
+        return null;
     }
 }
