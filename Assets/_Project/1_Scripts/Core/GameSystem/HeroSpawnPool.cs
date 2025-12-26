@@ -42,6 +42,9 @@ public class HeroSpawnPool : MonoBehaviour
         ObjectPoolManager.Instance.Preload(godHeroPrefab, 1, 5);
     }
 
+    /// <summary>
+    /// 스폰 확률 계산된 영웅 가져오기
+    /// </summary>
     public BaseHero GetHero()
     {
         var grade = CalculateChance();
@@ -71,6 +74,9 @@ public class HeroSpawnPool : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// 스폰 확률 초기화
+    /// </summary>
     private void InitializeSpawnChance()
     {
         heroSpawnChance = new List<(HeroGradeType, int)>()
@@ -87,6 +93,9 @@ public class HeroSpawnPool : MonoBehaviour
         };
     }
 
+    /// <summary>
+    /// 확률 계산
+    /// </summary>
     private HeroGradeType CalculateChance()
     {
         int totalChance = 0;
