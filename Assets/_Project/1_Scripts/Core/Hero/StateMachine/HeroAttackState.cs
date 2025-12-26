@@ -1,12 +1,12 @@
 using UnityEngine;
 
-public class AttackState : BaseHeroState
+public class HeroAttackState : BaseHeroState
 {
     private static readonly int AttackAnimParam = Animator.StringToHash("2_Attack");
 
     private BaseEnemy targetEnemy;
 
-    public AttackState(BaseHero hero, HeroStateMachine heroStateMachine) : base(hero, heroStateMachine)
+    public HeroAttackState(BaseHero hero, HeroStateMachine heroStateMachine) : base(hero, heroStateMachine)
     {
     }
 
@@ -17,7 +17,6 @@ public class AttackState : BaseHeroState
 
     public override void Execute()
     {
-        base.Execute();
         Attack();
     }
 

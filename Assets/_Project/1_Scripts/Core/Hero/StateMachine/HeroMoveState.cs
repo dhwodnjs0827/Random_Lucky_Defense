@@ -1,12 +1,12 @@
 using UnityEngine;
 
-public class MoveState : BaseHeroState
+public class HeroMoveState : BaseHeroState
 {
     private static readonly int MoveAnimParam = Animator.StringToHash("1_Move");
     
     private Vector3 targetPosition;
     
-    public MoveState(BaseHero hero, HeroStateMachine heroStateMachine) : base(hero,  heroStateMachine)
+    public HeroMoveState(BaseHero hero, HeroStateMachine heroStateMachine) : base(hero,  heroStateMachine)
     {
     }
 
@@ -17,7 +17,6 @@ public class MoveState : BaseHeroState
 
     public override void Execute()
     {
-        base.Execute();
         Move();
     }
 

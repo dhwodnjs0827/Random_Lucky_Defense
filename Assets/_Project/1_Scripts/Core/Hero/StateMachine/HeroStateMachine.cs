@@ -1,14 +1,14 @@
 public class HeroStateMachine
 {
-    private IdleState idleState;
-    private MoveState moveState;
-    private AttackState attackState;
+    private HeroIdleState idleState;
+    private HeroMoveState moveState;
+    private HeroAttackState attackState;
     
     private BaseHeroState currentState;
     
-    public IdleState IdleState => idleState;
-    public MoveState MoveState => moveState;
-    public AttackState AttackState => attackState;
+    public HeroIdleState IdleState => idleState;
+    public HeroMoveState MoveState => moveState;
+    public HeroAttackState AttackState => attackState;
 
     public HeroStateMachine(BaseHero hero)
     {
@@ -31,8 +31,8 @@ public class HeroStateMachine
     
     private void InitializeState(BaseHero hero)
     {
-        idleState = new IdleState(hero, this);
-        moveState = new MoveState(hero, this);
-        attackState = new AttackState(hero, this);
+        idleState = new HeroIdleState(hero, this);
+        moveState = new HeroMoveState(hero, this);
+        attackState = new HeroAttackState(hero, this);
     }
 }

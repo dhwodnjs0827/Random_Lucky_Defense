@@ -1,7 +1,7 @@
 public abstract class BaseHeroState
 {
-    protected BaseHero hero;
-    protected HeroStateMachine stateMachine;
+    protected readonly BaseHero hero;
+    protected readonly HeroStateMachine stateMachine;
 
     protected BaseHeroState(BaseHero baseHero, HeroStateMachine heroStateMachine)
     {
@@ -12,10 +12,7 @@ public abstract class BaseHeroState
 
     public abstract void Enter();
 
-    public virtual void Execute()
-    {
-        
-    }
+    public abstract void Execute();
 
     public abstract void Exit();
 }
