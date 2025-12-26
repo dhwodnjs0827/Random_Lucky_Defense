@@ -19,6 +19,8 @@ public class HeroAreaController : MonoBehaviour
 
     private HeroArea selectedArea;
     private bool isDragging;
+    
+    public Transform SpawnPoint => spawnPoint;
 
     private void Awake()
     {
@@ -190,13 +192,5 @@ public class HeroAreaController : MonoBehaviour
         }
 
         return areas[areaType];
-    }
-
-    /// <summary>
-    /// 중앙 스폰 위치 반환
-    /// </summary>
-    public Vector3 GetSpawnPosition()
-    {
-        return spawnPoint.position;
     }
 }
