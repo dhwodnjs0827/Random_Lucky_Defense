@@ -8,11 +8,24 @@ public abstract class BaseHero : MonoBehaviour, IPoolable
 {
     [SerializeField] protected SPUM_Prefabs prefab;
     [SerializeField] protected Animator animator;
+    protected HeroStateMachine stateMachine;
     
     protected HeroDataSO heroData; // 영웅 데이터
     protected IHeroSkill skill;
 
     public abstract HeroClassType ClassType { get; }
+    public Animator Animator => animator;
+
+    private void Awake()
+    {
+        stateMachine = new HeroStateMachine(this);
+        stateMachine?.ChangeState(stateMachine?.IdleState);
+    }
+
+    private void Update()
+    {
+        stateMachine?.Execute();
+    }
 
     /// <summary>
     /// 영웅 초기화
@@ -29,7 +42,8 @@ public abstract class BaseHero : MonoBehaviour, IPoolable
     /// </summary>
     public void Move(Vector3 position)
     {
-        transform.position = position;
+        stateMachine?.MoveState?.SetTargetPosition(position);
+        stateMachine?.ChangeState(stateMachine?.MoveState);
     }
     
     public abstract void OnGet();
