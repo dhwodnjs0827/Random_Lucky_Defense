@@ -50,8 +50,7 @@ public class HeroSpawnPool : MonoBehaviour
     {
         InitializeMagician();
         InitializeArcher();
-        //TODO: 전사 프리팹 추가 후 주석 해제
-        //InitializeWarrior();
+        InitializeWarrior();
 
         InitializeSpawnChance();
     }

@@ -291,15 +291,15 @@ MonoBehaviour:
   epicArcherPrefab: {fileID: 7035300982534174273, guid: 43db003a5f149428e92b41e210ef8ef7, type: 3}
   mythArcherPrefab: {fileID: -5672620525513715724, guid: 4dbcf05a1c852409e90244ca2d80d230, type: 3}
   godArcherPrefab: {fileID: 3884020325573410561, guid: b9524b257e02a479a83e168f600216ff, type: 3}
-  normalWarriorPrefab: {fileID: 0}
-  superiorWarriorPrefab: {fileID: 0}
-  rareWarriorPrefab: {fileID: 0}
-  ancientWarriorPrefab: {fileID: 0}
-  relicWarriorPrefab: {fileID: 0}
-  legendWarriorPrefab: {fileID: 0}
-  epicWarriorPrefab: {fileID: 0}
-  mythWarriorPrefab: {fileID: 0}
-  godWarriorPrefab: {fileID: 0}
+  normalWarriorPrefab: {fileID: 4684743931367162950, guid: f7395688b11804e14b655e88af657a0a, type: 3}
+  superiorWarriorPrefab: {fileID: 291479024945699277, guid: 2ec8e00a19c814e6292a634abdd9dd15, type: 3}
+  rareWarriorPrefab: {fileID: 7427110715177724644, guid: 3ec10d58df5ec4a639f60ff1a0d67fd4, type: 3}
+  ancientWarriorPrefab: {fileID: 1286025631049846099, guid: 3cd25c5bf6871466fad8a8f5377753d5, type: 3}
+  relicWarriorPrefab: {fileID: 1761898556331865841, guid: 7936dc965b4e141f0a51ff8c4b3cc979, type: 3}
+  legendWarriorPrefab: {fileID: 4127351020269198837, guid: 71ba0adf31dec4c20a70c323590b0f55, type: 3}
+  epicWarriorPrefab: {fileID: 6166737786528202589, guid: 29c80f8e74a69455e915517b28343988, type: 3}
+  mythWarriorPrefab: {fileID: 892023354240745831, guid: 7f17f47f8d55e4c35a6f10902a8793a9, type: 3}
+  godWarriorPrefab: {fileID: 6159452399884068278, guid: 12805c69945fa4335b10759afd09ec4b, type: 3}
 --- !u!1 &1968387858
 GameObject:
   m_ObjectHideFlags: 0
