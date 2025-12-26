@@ -273,15 +273,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b84172e61b6174c188029400a9bd0edc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HeroSpawnPool
-  normalHeroPrefab: {fileID: 8106965552027448187, guid: 51c1fb44c19cc497fa807fe1fa303dd6, type: 3}
-  superiorHeroPrefab: {fileID: 3860942379024301429, guid: a8852421d120644bfb72bfca907a6fd5, type: 3}
-  rareHeroPrefab: {fileID: 9214823738248006126, guid: 3549f44096acc4fc396648bb3b407fd5, type: 3}
-  ancientHeroPrefab: {fileID: 3756633682213453477, guid: a8c3ef57428b5452293e461ee606ab94, type: 3}
-  relicHeroPrefab: {fileID: 1144165198988790923, guid: 23c15ee0daa7647818660f0d41c47ed5, type: 3}
-  legendHeroPrefab: {fileID: 1030695316187312645, guid: c520655b28e6a4b1780da053a79f12c7, type: 3}
-  epicHeroPrefab: {fileID: 8627413545606272622, guid: 975eaeabee3e2450e89ce9c911764f1c, type: 3}
-  mythHeroPrefab: {fileID: 3537669349346702708, guid: cf1adb8240b1348189c1a841c19ede8a, type: 3}
-  godHeroPrefab: {fileID: 3900408681529185951, guid: 574f91f0855144d7b848ba38daf00d0d, type: 3}
+  normalMagicianPrefab: {fileID: 8106965552027448187, guid: 51c1fb44c19cc497fa807fe1fa303dd6, type: 3}
+  superiorMagicianPrefab: {fileID: 3860942379024301429, guid: a8852421d120644bfb72bfca907a6fd5, type: 3}
+  rareMagicianPrefab: {fileID: 9214823738248006126, guid: 3549f44096acc4fc396648bb3b407fd5, type: 3}
+  ancientMagicianPrefab: {fileID: 3756633682213453477, guid: a8c3ef57428b5452293e461ee606ab94, type: 3}
+  relicMagicianPrefab: {fileID: 1144165198988790923, guid: 23c15ee0daa7647818660f0d41c47ed5, type: 3}
+  legendMagicianPrefab: {fileID: 1030695316187312645, guid: c520655b28e6a4b1780da053a79f12c7, type: 3}
+  epicMagicianPrefab: {fileID: 8627413545606272622, guid: 975eaeabee3e2450e89ce9c911764f1c, type: 3}
+  mythMagicianPrefab: {fileID: 3537669349346702708, guid: cf1adb8240b1348189c1a841c19ede8a, type: 3}
+  godMagicianPrefab: {fileID: 3900408681529185951, guid: 574f91f0855144d7b848ba38daf00d0d, type: 3}
+  normalArcherPrefab: {fileID: 7321946855909267069, guid: 7bdef0937ccaf4b908957936ff666e58, type: 3}
+  superiorArcherPrefab: {fileID: 5252901920670908428, guid: e71eea62559db4db3a7dc30449833e8a, type: 3}
+  rareArcherPrefab: {fileID: 8264269432570805173, guid: 5db4c71f4114f49b6820d27bd84517c0, type: 3}
+  ancientArcherPrefab: {fileID: 90400511463550085, guid: aecb6b13559f6477983afdc005a5374a, type: 3}
+  relicArcherPrefab: {fileID: 8902725437893215478, guid: 63b6fac1cbe6943c0b302b5f869bb39f, type: 3}
+  legendArcherPrefab: {fileID: 5271905397901959872, guid: 364d5fcbc00f047178f17387d25c718d, type: 3}
+  epicArcherPrefab: {fileID: 4125885557933894338, guid: 43db003a5f149428e92b41e210ef8ef7, type: 3}
+  mythArcherPrefab: {fileID: 1943806315918294154, guid: 4dbcf05a1c852409e90244ca2d80d230, type: 3}
+  godArcherPrefab: {fileID: 7907646424977283124, guid: b9524b257e02a479a83e168f600216ff, type: 3}
+  normalWarriorPrefab: {fileID: 0}
+  superiorWarriorPrefab: {fileID: 0}
+  rareWarriorPrefab: {fileID: 0}
+  ancientWarriorPrefab: {fileID: 0}
+  relicWarriorPrefab: {fileID: 0}
+  legendWarriorPrefab: {fileID: 0}
+  epicWarriorPrefab: {fileID: 0}
+  mythWarriorPrefab: {fileID: 0}
+  godWarriorPrefab: {fileID: 0}
 --- !u!1 &1968387858
 GameObject:
   m_ObjectHideFlags: 0
