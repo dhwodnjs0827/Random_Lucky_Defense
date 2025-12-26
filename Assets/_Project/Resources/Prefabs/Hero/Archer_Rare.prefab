@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7319413501283354185}
-  - component: {fileID: 8264269432570805173}
+  - component: {fileID: -246610293677681772}
   m_Layer: 0
   m_Name: Archer_Rare
   m_TagString: Untagged
@@ -33,7 +33,7 @@ Transform:
   - {fileID: 8112783786558371749}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8264269432570805173
+--- !u!114 &-246610293677681772
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -42,9 +42,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 4851416479280952002}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 59f0abf6134ec4ea2bab493209a4433a, type: 3}
+  m_Script: {fileID: 11500000, guid: 199db271d8b73403aaf40e79fd668b75, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::MagicianHero
+  m_EditorClassIdentifier: Assembly-CSharp::ArcherHero
   prefab: {fileID: 2570076464184950928}
   animator: {fileID: 6343215626397779615}
 --- !u!1001 &6779767992976396700

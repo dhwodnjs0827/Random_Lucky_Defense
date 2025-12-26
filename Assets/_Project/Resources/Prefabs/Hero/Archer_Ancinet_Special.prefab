@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6720991023837117618}
-  - component: {fileID: 130037050058863651}
+  - component: {fileID: 7321370437756128148}
   m_Layer: 0
   m_Name: Archer_Ancinet_Special
   m_TagString: Untagged
@@ -33,7 +33,7 @@ Transform:
   - {fileID: 5382856029221572717}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &130037050058863651
+--- !u!114 &7321370437756128148
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -42,9 +42,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 7200704702792923561}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 59f0abf6134ec4ea2bab493209a4433a, type: 3}
+  m_Script: {fileID: 11500000, guid: 199db271d8b73403aaf40e79fd668b75, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::MagicianHero
+  m_EditorClassIdentifier: Assembly-CSharp::ArcherHero
   prefab: {fileID: 2277138594350381771}
   animator: {fileID: 1617074209998634655}
 --- !u!1001 &7320802833116304041

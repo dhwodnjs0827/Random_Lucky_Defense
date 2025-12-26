@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3916087557252843231}
-  - component: {fileID: 7907646424977283124}
+  - component: {fileID: 3884020325573410561}
   m_Layer: 0
   m_Name: Archer_God
   m_TagString: Untagged
@@ -33,7 +33,7 @@ Transform:
   - {fileID: 4388796649352417527}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7907646424977283124
+--- !u!114 &3884020325573410561
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -42,9 +42,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 3060504385344687496}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 59f0abf6134ec4ea2bab493209a4433a, type: 3}
+  m_Script: {fileID: 11500000, guid: 199db271d8b73403aaf40e79fd668b75, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::MagicianHero
+  m_EditorClassIdentifier: Assembly-CSharp::ArcherHero
   prefab: {fileID: 7904456098185912370}
   animator: {fileID: 7887467427403192456}
 --- !u!1001 &9044412473124406365

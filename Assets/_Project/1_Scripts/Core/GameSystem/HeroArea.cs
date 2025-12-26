@@ -81,7 +81,7 @@ public class HeroArea : MonoBehaviour
             HeroAreaType.Left => HeroClassType.Archer,
             HeroAreaType.Right => HeroClassType.None,
             HeroAreaType.Bottom => HeroClassType.Magician,
-            _ => CurrentHeroClass
+            _ => HeroClassType.None
         };
     }
 

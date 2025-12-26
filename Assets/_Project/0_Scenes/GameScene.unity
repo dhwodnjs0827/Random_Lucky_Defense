@@ -282,15 +282,15 @@ MonoBehaviour:
   epicMagicianPrefab: {fileID: 8627413545606272622, guid: 975eaeabee3e2450e89ce9c911764f1c, type: 3}
   mythMagicianPrefab: {fileID: 3537669349346702708, guid: cf1adb8240b1348189c1a841c19ede8a, type: 3}
   godMagicianPrefab: {fileID: 3900408681529185951, guid: 574f91f0855144d7b848ba38daf00d0d, type: 3}
-  normalArcherPrefab: {fileID: 7321946855909267069, guid: 7bdef0937ccaf4b908957936ff666e58, type: 3}
-  superiorArcherPrefab: {fileID: 5252901920670908428, guid: e71eea62559db4db3a7dc30449833e8a, type: 3}
-  rareArcherPrefab: {fileID: 8264269432570805173, guid: 5db4c71f4114f49b6820d27bd84517c0, type: 3}
-  ancientArcherPrefab: {fileID: 90400511463550085, guid: aecb6b13559f6477983afdc005a5374a, type: 3}
-  relicArcherPrefab: {fileID: 8902725437893215478, guid: 63b6fac1cbe6943c0b302b5f869bb39f, type: 3}
-  legendArcherPrefab: {fileID: 5271905397901959872, guid: 364d5fcbc00f047178f17387d25c718d, type: 3}
-  epicArcherPrefab: {fileID: 4125885557933894338, guid: 43db003a5f149428e92b41e210ef8ef7, type: 3}
-  mythArcherPrefab: {fileID: 1943806315918294154, guid: 4dbcf05a1c852409e90244ca2d80d230, type: 3}
-  godArcherPrefab: {fileID: 7907646424977283124, guid: b9524b257e02a479a83e168f600216ff, type: 3}
+  normalArcherPrefab: {fileID: 3171596903035195733, guid: 7bdef0937ccaf4b908957936ff666e58, type: 3}
+  superiorArcherPrefab: {fileID: -6064396194129710070, guid: e71eea62559db4db3a7dc30449833e8a, type: 3}
+  rareArcherPrefab: {fileID: -246610293677681772, guid: 5db4c71f4114f49b6820d27bd84517c0, type: 3}
+  ancientArcherPrefab: {fileID: -7390404805036364602, guid: aecb6b13559f6477983afdc005a5374a, type: 3}
+  relicArcherPrefab: {fileID: -300502891652249336, guid: 63b6fac1cbe6943c0b302b5f869bb39f, type: 3}
+  legendArcherPrefab: {fileID: 5987389716456169814, guid: 364d5fcbc00f047178f17387d25c718d, type: 3}
+  epicArcherPrefab: {fileID: 7035300982534174273, guid: 43db003a5f149428e92b41e210ef8ef7, type: 3}
+  mythArcherPrefab: {fileID: -5672620525513715724, guid: 4dbcf05a1c852409e90244ca2d80d230, type: 3}
+  godArcherPrefab: {fileID: 3884020325573410561, guid: b9524b257e02a479a83e168f600216ff, type: 3}
   normalWarriorPrefab: {fileID: 0}
   superiorWarriorPrefab: {fileID: 0}
   rareWarriorPrefab: {fileID: 0}
