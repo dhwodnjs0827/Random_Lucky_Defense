@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 /// <summary>
 /// 4개 영역 관리, 클래스→영역 매핑, 드래그/스왑 처리
@@ -71,26 +72,32 @@ public class HeroAreaController : MonoBehaviour
     /// </summary>
     private void HandleInput()
     {
-        if (Input.GetMouseButtonDown(0))
+        var pointer = Pointer.current;
+        if (pointer == null)
         {
-            OnPointerDown();
+            return;
         }
-        else if (Input.GetMouseButton(0) && isDragging)
+
+        if (pointer.press.wasPressedThisFrame)
         {
-            OnPointerDrag();
+            OnPointerDown(pointer.position.ReadValue());
         }
-        else if (Input.GetMouseButtonUp(0) && isDragging)
+        else if (pointer.press.isPressed && isDragging)
         {
-            OnPointerUp();
+            OnPointerDrag(pointer.position.ReadValue());
+        }
+        else if (pointer.press.wasReleasedThisFrame && isDragging)
+        {
+            OnPointerUp(pointer.position.ReadValue());
         }
     }
 
     /// <summary>
     /// 터치/클릭 시작
     /// </summary>
-    private void OnPointerDown()
+    private void OnPointerDown(Vector2 screenPosition)
     {
-        var hitArea = GetAreaAtPosition(Input.mousePosition);
+        var hitArea = GetAreaAtPosition(screenPosition);
         if (hitArea == null || !hitArea.HasHeroes) return;
 
         selectedArea = hitArea;
@@ -101,7 +108,7 @@ public class HeroAreaController : MonoBehaviour
     /// <summary>
     /// 드래그 중
     /// </summary>
-    private void OnPointerDrag()
+    private void OnPointerDrag(Vector2 screenPosition)
     {
         //TODO: 드래그 중 시각적 피드백
     }
@@ -109,7 +116,7 @@ public class HeroAreaController : MonoBehaviour
     /// <summary>
     /// 터치/클릭 종료
     /// </summary>
-    private void OnPointerUp()
+    private void OnPointerUp(Vector2 screenPosition)
     {
         if (selectedArea == null)
         {
@@ -117,7 +124,7 @@ public class HeroAreaController : MonoBehaviour
             return;
         }
 
-        var targetArea = GetAreaAtPosition(Input.mousePosition);
+        var targetArea = GetAreaAtPosition(screenPosition);
 
         // 다른 영역에 드롭했을 경우 스왑
         if (targetArea != null && targetArea != selectedArea)
@@ -154,7 +161,7 @@ public class HeroAreaController : MonoBehaviour
     /// <summary>
     /// 화면 위치에서 영역 찾기
     /// </summary>
-    private HeroArea GetAreaAtPosition(Vector3 screenPosition)
+    private HeroArea GetAreaAtPosition(Vector2 screenPosition)
     {
         var worldPos = mainCamera.ScreenToWorldPoint(screenPosition);
         worldPos.z = 0;
