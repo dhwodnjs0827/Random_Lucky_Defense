@@ -19,6 +19,16 @@ public class AddressableHandler : IResourceHandler
         return resource;
     }
 
+    public T Load<T>(string path) where T : Object
+    {
+        var resource = Addressables.LoadAssetAsycn<T>(path).WaitForCompletion();
+        if (resource == null)
+        {
+            return null;
+        }
+        return resource;
+    }
+
     public async UniTask<T[]> LoadAllAsync<T>(string path) where T : Object
     {
         var resources = await Addressables.LoadAssetsAsync<T>(path);

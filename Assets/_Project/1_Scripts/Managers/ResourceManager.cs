@@ -51,6 +51,27 @@ public class ResourceManager : MonoSingleton<ResourceManager>, IResourceHandler
         return (T)resource;
     }
 
+    public T Load<T>(string path) where T : Object
+    {
+        // 캐싱된 리소스 검사
+        if (resourceCache.TryGetValue(path, out var resource))
+        {
+            return resource as T;
+        }
+
+        resource = handler.Load<T>(path);
+        if (resource != null)
+        {
+            resourceCache.Add(path, resource);
+        }
+        else
+        {
+            CDebug.LogError($"[ResourceManager] {path}에 리소스가 없습니다.");
+        }
+
+        return (T)resource;
+    }
+
     /// <summary>
     /// 디렉토리(라벨) 리소스들 로드
     /// </summary>
