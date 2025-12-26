@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -9,10 +10,12 @@ public class HeroArea : MonoBehaviour
     [SerializeField] private HeroAreaType areaType;
     private SpriteRenderer highlightRenderer;
 
+    [Header("영역 설정")]
     [SerializeField] private Transform[] triAreaPoints;
     [SerializeField] private Transform[] rectAreaPoints;
-
-    [SerializeField] private Transform centerPoint;
+    
+    [Header("등급별 위치 설정")]
+    [SerializeField] private GradePosition[] gradePositions;
 
     private List<BaseHero> heroes = new();
     private bool isHighlighted = false;
@@ -129,7 +132,28 @@ public class HeroArea : MonoBehaviour
     /// </summary>
     private void SetHeroPosition(BaseHero hero)
     {
-        hero.Move(centerPoint.position);
+        var targetPosition = GetRandomPosition(hero.GradeType);
+        
+        hero.Move(targetPosition);
+    }
+
+    /// <summary>
+    /// 등급별 랜덤 위치
+    /// </summary>
+    private Vector2 GetRandomPosition(HeroGradeType gradeType)
+    {
+        var gradePosition = gradePositions[(int)gradeType];
+
+        if (gradePosition.transforms == null || gradePosition.transforms.Length < 2)
+        {
+            return transform.position;
+        }
+
+        Vector2 pointA = gradePosition.transforms[0].position;
+        Vector2 pointB = gradePosition.transforms[1].position;
+
+        float t = UnityEngine.Random.Range(0f, 1f);
+        return Vector2.Lerp(pointA, pointB, t);
     }
 
     private bool IsPointInArea(Vector2 worldPoint, Vector2 point1, Vector2 point2, Vector2 point3)
@@ -183,5 +207,12 @@ public class HeroArea : MonoBehaviour
                 Gizmos.DrawSphere(point.position, 0.1f);
             }
         }
+    }
+    
+    [Serializable]
+    private struct GradePosition
+    {
+        public HeroGradeType grade;
+        public Transform[] transforms;
     }
 }

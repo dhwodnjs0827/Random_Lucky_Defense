@@ -14,6 +14,7 @@ public abstract class BaseHero : MonoBehaviour, IPoolable
     protected IHeroSkill skill;
 
     public abstract HeroClassType ClassType { get; }
+    public virtual HeroGradeType GradeType => HeroGradeType.Normal;
     public Animator Animator => animator;
 
     private void Awake()
