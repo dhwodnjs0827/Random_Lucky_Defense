@@ -261,17 +261,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 986298607275070201, guid: 3d277c2c1a8624e62a8d2a62c09395f4, type: 3}
   m_PrefabInstance: {fileID: 5340576225752514656}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1893644557 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2009313082086332933, guid: 3d277c2c1a8624e62a8d2a62c09395f4, type: 3}
-  m_PrefabInstance: {fileID: 5340576225752514656}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1893644555}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dab5c7d4c32e743048dfca98e2d5914f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.Splines::UnityEngine.Splines.SplineContainer
 --- !u!114 &1893644558
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -296,7 +285,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8dfd3ea2cf3c439ba799f96c988015d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemySpawner
-  enemySpawnPool: {fileID: 1893644558}
+  splineContainer: {fileID: 0}
 --- !u!114 &1893644560
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -310,7 +299,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyWaveController
   spawner: {fileID: 1893644559}
-  splineContainer: {fileID: 1893644557}
 --- !u!1 &1968387858
 GameObject:
   m_ObjectHideFlags: 0
