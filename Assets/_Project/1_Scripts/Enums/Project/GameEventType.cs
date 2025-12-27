@@ -9,4 +9,7 @@ public enum GameEventType
     ApplicationQuit, // 앱 종료
     
     SpawnHero, // 영웅 소환
+    
+    SpawnEnemy, // 적 소환
+    EnemyDie, // 적 사망
 }
