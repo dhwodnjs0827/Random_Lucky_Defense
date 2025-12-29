@@ -25,6 +25,62 @@ public class UIManager : MonoSingleton<UIManager>
         Cleanup();
     }
 
+    public T Open<T>(params object[] args) where T : UIBase
+    {
+        // UI가 열려있으면 해당 UI 반환
+        UIBase ui = GetUI<T>();
+        if (ui != null)
+        {
+            return (T)ui;
+        }
+
+        var uiName = typeof(T).Name;
+
+        // 닫힌 UI 풀에 있으면 해당 UI 반환
+        if (closedUI.TryGetValue(uiName, out ui))
+        {
+            closedUI.Remove(uiName);
+            openedUI.Add(uiName, ui);
+            ui.transform.SetAsLastSibling();
+            ui.Open(args);
+            return ui as T;
+        }
+
+        if (resourceManager == null)
+        {
+            CDebug.LogError("[UIManager] ResourceManager가 null입니다.");
+            return null;
+        }
+
+        // UI Prefab 리소스 불러오기
+        var resourcePath = $"{UI_RESOURCE_PATH}{uiName}";
+        var prefab = resourceManager.Load<T>(resourcePath);
+
+        if (prefab == null)
+        {
+            CDebug.LogError($"[UIManager] {resourcePath}에 리소스가 없습니다.");
+            return null;
+        }
+
+        // UI 종류에 맞게 부모 캔버스 설정
+        var targetCanvas = canvases[prefab.UIType];
+        ui = Instantiate(prefab, targetCanvas.transform);
+
+        if (ui.IsActiveOnLoad)
+        {
+            // 열린 UI 풀에 등록
+            openedUI.Add(uiName, ui);
+            ui.transform.SetAsLastSibling();
+            ui.Open(args);
+        }
+        else
+        {
+            closedUI.Add(uiName, ui);
+        }
+
+        return (T)ui;
+    }
+
     /// <summary>
     /// UI 열기
     /// </summary>

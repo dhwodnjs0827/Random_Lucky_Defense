@@ -1,4 +1,5 @@
 using Generated;
+using UniRx;
 using UnityEngine;
 
 public class EnemyWaveController : MonoBehaviour
@@ -8,14 +9,17 @@ public class EnemyWaveController : MonoBehaviour
 
     private ResourceManager resourceManager;
 
-    private WaveDataSO currentWaveData;
+    private readonly ReactiveProperty<WaveDataSO> currentWaveData = new();
+    private readonly ReactiveProperty<float> currentWaveTime = new();
     private BaseEnemy currentSpawnEnemyPrefab;
-    private float currentWaveTime;
     private int currentWaveDataIndex;
     private float spawnInterval;
     private float spawnTimer;
     
     private int spawnedEnemyCount;
+
+    public IReadOnlyReactiveProperty<WaveDataSO> CurrentWaveData => currentWaveData;
+    public IReadOnlyReactiveProperty<float> CurrentWaveTime => currentWaveTime;
 
     private delegate void SpawnMethod();
     private SpawnMethod spawn;
@@ -28,12 +32,13 @@ public class EnemyWaveController : MonoBehaviour
     private void Start()
     {
         SetWaveData();
+        UIManager.Instance.Open<WaveInfoUI>(this);
     }
 
     private void Update()
     {
-        currentWaveTime -= Time.deltaTime;
-        if (currentWaveTime <= 0)
+        currentWaveTime.Value -= Time.deltaTime;
+        if (currentWaveTime.Value <= 0)
         {
             SetWaveData();
         }
@@ -86,18 +91,18 @@ public class EnemyWaveController : MonoBehaviour
             return;
         }
         
-        currentWaveData =  waveDatas[currentWaveDataIndex];
+        currentWaveData.Value =  waveDatas[currentWaveDataIndex];
         
-        currentWaveTime = currentWaveData.WaveTime;
-        spawnInterval = currentWaveData.SpawnInterval;
+        currentWaveTime.Value = currentWaveData.Value.WaveTime;
+        spawnInterval = currentWaveData.Value.SpawnInterval;
         spawnTimer = 0f;
 
-        currentSpawnEnemyPrefab = resourceManager.Load<BaseEnemy>($"Prefabs/Enemy/{currentWaveData.SpawnEnemyID}");
+        currentSpawnEnemyPrefab = resourceManager.Load<BaseEnemy>($"Prefabs/Enemy/{currentWaveData.Value.SpawnEnemyID}");
 
-        spawn = currentWaveData.WaveType == WaveType.Normal ? SpawnNormalEnemy : SpawnBossEnemy;
+        spawn = currentWaveData.Value.WaveType == WaveType.Normal ? SpawnNormalEnemy : SpawnBossEnemy;
         
         currentWaveDataIndex++;
         EventManager.Dispatch(GameEventType.WaveStart);
-        CDebug.Log($"[EnemyWaveController] {currentWaveData.WaveIndex}번째 웨이브 시작");
+        CDebug.Log($"[EnemyWaveController] {currentWaveData.Value.WaveIndex}번째 웨이브 시작");
     }
 }
