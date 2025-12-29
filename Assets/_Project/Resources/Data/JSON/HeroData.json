@@ -1,7 +1,7 @@
 [
   {
     "ID": 10000,
-    "Name": "일반 마법사",
+    "Name": "Magician_Normal",
     "ClassType": "Magician",
     "GradeType": "Normal",
     "RankType": "B",
@@ -13,7 +13,7 @@
   },
   {
     "ID": 10001,
-    "Name": "일반 마법사",
+    "Name": "Magician_Normal",
     "ClassType": "Magician",
     "GradeType": "Normal",
     "RankType": "A",
@@ -25,7 +25,7 @@
   },
   {
     "ID": 10002,
-    "Name": "일반 마법사",
+    "Name": "Magician_Normal",
     "ClassType": "Magician",
     "GradeType": "Normal",
     "RankType": "S",
@@ -37,7 +37,7 @@
   },
   {
     "ID": 10010,
-    "Name": "고급 마법사",
+    "Name": "Magician_Superior",
     "ClassType": "Magician",
     "GradeType": "Superior",
     "RankType": "B",
@@ -49,7 +49,7 @@
   },
   {
     "ID": 10011,
-    "Name": "고급 마법사",
+    "Name": "Magician_Superior",
     "ClassType": "Magician",
     "GradeType": "Superior",
     "RankType": "A",
@@ -61,7 +61,7 @@
   },
   {
     "ID": 10012,
-    "Name": "고급 마법사",
+    "Name": "Magician_Superior",
     "ClassType": "Magician",
     "GradeType": "Superior",
     "RankType": "S",
@@ -73,7 +73,7 @@
   },
   {
     "ID": 10020,
-    "Name": "희귀 마법사",
+    "Name": "Magician_Rare",
     "ClassType": "Magician",
     "GradeType": "Rare",
     "RankType": "B",
@@ -85,7 +85,7 @@
   },
   {
     "ID": 10021,
-    "Name": "희귀 마법사",
+    "Name": "Magician_Rare",
     "ClassType": "Magician",
     "GradeType": "Rare",
     "RankType": "A",
@@ -97,7 +97,7 @@
   },
   {
     "ID": 10022,
-    "Name": "희귀 마법사",
+    "Name": "Magician_Rare",
     "ClassType": "Magician",
     "GradeType": "Rare",
     "RankType": "S",
@@ -109,7 +109,7 @@
   },
   {
     "ID": 10030,
-    "Name": "고대 마법사",
+    "Name": "Magician_Ancient",
     "ClassType": "Magician",
     "GradeType": "Ancient",
     "RankType": "B",
@@ -121,7 +121,7 @@
   },
   {
     "ID": 10031,
-    "Name": "고대 마법사",
+    "Name": "Magician_Ancient",
     "ClassType": "Magician",
     "GradeType": "Ancient",
     "RankType": "A",
@@ -133,7 +133,7 @@
   },
   {
     "ID": 10032,
-    "Name": "고대 마법사",
+    "Name": "Magician_Ancient",
     "ClassType": "Magician",
     "GradeType": "Ancient",
     "RankType": "S",
@@ -145,7 +145,7 @@
   },
   {
     "ID": 10040,
-    "Name": "유물 마법사",
+    "Name": "Magician_Relic",
     "ClassType": "Magician",
     "GradeType": "Relic",
     "RankType": "B",
@@ -157,7 +157,7 @@
   },
   {
     "ID": 10041,
-    "Name": "유물 마법사",
+    "Name": "Magician_Relic",
     "ClassType": "Magician",
     "GradeType": "Relic",
     "RankType": "A",
@@ -169,7 +169,7 @@
   },
   {
     "ID": 10042,
-    "Name": "유물 마법사",
+    "Name": "Magician_Relic",
     "ClassType": "Magician",
     "GradeType": "Relic",
     "RankType": "S",
@@ -181,7 +181,7 @@
   },
   {
     "ID": 10043,
-    "Name": "둠브레이크 유물 마법사",
+    "Name": "Magician_Relic_DoomBreak",
     "ClassType": "Magician",
     "GradeType": "Relic",
     "RankType": "S",
@@ -193,7 +193,7 @@
   },
   {
     "ID": 10050,
-    "Name": "전설 마법사",
+    "Name": "Magician_Legend",
     "ClassType": "Magician",
     "GradeType": "Legend",
     "RankType": "B",
@@ -205,7 +205,7 @@
   },
   {
     "ID": 10051,
-    "Name": "전설 마법사",
+    "Name": "Magician_Legend",
     "ClassType": "Magician",
     "GradeType": "Legend",
     "RankType": "A",
@@ -217,7 +217,7 @@
   },
   {
     "ID": 10052,
-    "Name": "전설 마법사",
+    "Name": "Magician_Legend",
     "ClassType": "Magician",
     "GradeType": "Legend",
     "RankType": "S",
@@ -229,7 +229,7 @@
   },
   {
     "ID": 10053,
-    "Name": "화염 폭발 전설 마법사",
+    "Name": "Magician_Legend_FlameExplosion",
     "ClassType": "Magician",
     "GradeType": "Legend",
     "RankType": "S",
@@ -241,7 +241,7 @@
   },
   {
     "ID": 10060,
-    "Name": "에픽 마법사",
+    "Name": "Magician_Epic",
     "ClassType": "Magician",
     "GradeType": "Epic",
     "RankType": "B",
@@ -253,7 +253,7 @@
   },
   {
     "ID": 10061,
-    "Name": "에픽 마법사",
+    "Name": "Magician_Epic",
     "ClassType": "Magician",
     "GradeType": "Epic",
     "RankType": "A",
@@ -265,7 +265,7 @@
   },
   {
     "ID": 10062,
-    "Name": "에픽 마법사",
+    "Name": "Magician_Epic",
     "ClassType": "Magician",
     "GradeType": "Epic",
     "RankType": "S",
@@ -277,7 +277,7 @@
   },
   {
     "ID": 10070,
-    "Name": "신화 마법사",
+    "Name": "Magician_Myth",
     "ClassType": "Magician",
     "GradeType": "Myth",
     "RankType": "B",
@@ -289,7 +289,7 @@
   },
   {
     "ID": 10071,
-    "Name": "신화 마법사",
+    "Name": "Magician_Myth",
     "ClassType": "Magician",
     "GradeType": "Myth",
     "RankType": "A",
@@ -301,7 +301,7 @@
   },
   {
     "ID": 10072,
-    "Name": "신화 마법사",
+    "Name": "Magician_Myth",
     "ClassType": "Magician",
     "GradeType": "Myth",
     "RankType": "S",
@@ -313,7 +313,7 @@
   },
   {
     "ID": 10080,
-    "Name": "태초 마법사",
+    "Name": "Magician_God",
     "ClassType": "Magician",
     "GradeType": "God",
     "RankType": "B",
@@ -325,7 +325,7 @@
   },
   {
     "ID": 10081,
-    "Name": "태초 마법사",
+    "Name": "Magician_God",
     "ClassType": "Magician",
     "GradeType": "God",
     "RankType": "A",
@@ -337,7 +337,7 @@
   },
   {
     "ID": 10082,
-    "Name": "태초 마법사",
+    "Name": "Magician_God",
     "ClassType": "Magician",
     "GradeType": "God",
     "RankType": "S",
@@ -349,7 +349,7 @@
   },
   {
     "ID": 10100,
-    "Name": "일반 궁수",
+    "Name": "Archer_Normal",
     "ClassType": "Archer",
     "GradeType": "Normal",
     "RankType": "B",
@@ -361,7 +361,7 @@
   },
   {
     "ID": 10101,
-    "Name": "일반 궁수",
+    "Name": "Archer_Normal",
     "ClassType": "Archer",
     "GradeType": "Normal",
     "RankType": "A",
@@ -373,7 +373,7 @@
   },
   {
     "ID": 10102,
-    "Name": "일반 궁수",
+    "Name": "Archer_Normal",
     "ClassType": "Archer",
     "GradeType": "Normal",
     "RankType": "S",
@@ -385,7 +385,7 @@
   },
   {
     "ID": 10110,
-    "Name": "고급 궁수",
+    "Name": "Archer_Superior",
     "ClassType": "Archer",
     "GradeType": "Superior",
     "RankType": "B",
@@ -397,7 +397,7 @@
   },
   {
     "ID": 10111,
-    "Name": "고급 궁수",
+    "Name": "Archer_Superior",
     "ClassType": "Archer",
     "GradeType": "Superior",
     "RankType": "A",
@@ -409,7 +409,7 @@
   },
   {
     "ID": 10112,
-    "Name": "고급 궁수",
+    "Name": "Archer_Superior",
     "ClassType": "Archer",
     "GradeType": "Superior",
     "RankType": "S",
@@ -421,7 +421,7 @@
   },
   {
     "ID": 10120,
-    "Name": "희귀 궁수",
+    "Name": "Archer_Rare",
     "ClassType": "Archer",
     "GradeType": "Rare",
     "RankType": "B",
@@ -433,7 +433,7 @@
   },
   {
     "ID": 10121,
-    "Name": "희귀 궁수",
+    "Name": "Archer_Rare",
     "ClassType": "Archer",
     "GradeType": "Rare",
     "RankType": "A",
@@ -445,7 +445,7 @@
   },
   {
     "ID": 10122,
-    "Name": "희귀 궁수",
+    "Name": "Archer_Rare",
     "ClassType": "Archer",
     "GradeType": "Rare",
     "RankType": "S",
@@ -457,7 +457,7 @@
   },
   {
     "ID": 10130,
-    "Name": "고대 궁수",
+    "Name": "Archer_Ancient",
     "ClassType": "Archer",
     "GradeType": "Ancient",
     "RankType": "B",
@@ -469,7 +469,7 @@
   },
   {
     "ID": 10131,
-    "Name": "고대 궁수",
+    "Name": "Archer_Ancient",
     "ClassType": "Archer",
     "GradeType": "Ancient",
     "RankType": "A",
@@ -481,7 +481,7 @@
   },
   {
     "ID": 10132,
-    "Name": "고대 궁수",
+    "Name": "Archer_Ancient",
     "ClassType": "Archer",
     "GradeType": "Ancient",
     "RankType": "S",
@@ -493,7 +493,7 @@
   },
   {
     "ID": 10133,
-    "Name": "슬로우 고대 궁수",
+    "Name": "Archer_Ancient_Slow",
     "ClassType": "Archer",
     "GradeType": "Ancient",
     "RankType": "S",
@@ -505,7 +505,7 @@
   },
   {
     "ID": 10140,
-    "Name": "유물 궁수",
+    "Name": "Archer_Relic",
     "ClassType": "Archer",
     "GradeType": "Relic",
     "RankType": "B",
@@ -517,7 +517,7 @@
   },
   {
     "ID": 10141,
-    "Name": "유물 궁수",
+    "Name": "Archer_Relic",
     "ClassType": "Archer",
     "GradeType": "Relic",
     "RankType": "A",
@@ -529,7 +529,7 @@
   },
   {
     "ID": 10142,
-    "Name": "유물 궁수",
+    "Name": "Archer_Relic",
     "ClassType": "Archer",
     "GradeType": "Relic",
     "RankType": "S",
@@ -541,7 +541,7 @@
   },
   {
     "ID": 10150,
-    "Name": "전설 궁수",
+    "Name": "Archer_Legend",
     "ClassType": "Archer",
     "GradeType": "Legend",
     "RankType": "B",
@@ -553,7 +553,7 @@
   },
   {
     "ID": 10151,
-    "Name": "전설 궁수",
+    "Name": "Archer_Legend",
     "ClassType": "Archer",
     "GradeType": "Legend",
     "RankType": "A",
@@ -565,7 +565,7 @@
   },
   {
     "ID": 10152,
-    "Name": "전설 궁수",
+    "Name": "Archer_Legend",
     "ClassType": "Archer",
     "GradeType": "Legend",
     "RankType": "S",
@@ -577,7 +577,7 @@
   },
   {
     "ID": 10160,
-    "Name": "에픽 궁수",
+    "Name": "Archer_Epic",
     "ClassType": "Archer",
     "GradeType": "Epic",
     "RankType": "B",
@@ -589,7 +589,7 @@
   },
   {
     "ID": 10161,
-    "Name": "에픽 궁수",
+    "Name": "Archer_Epic",
     "ClassType": "Archer",
     "GradeType": "Epic",
     "RankType": "A",
@@ -601,7 +601,7 @@
   },
   {
     "ID": 10162,
-    "Name": "에픽 궁수",
+    "Name": "Archer_Epic",
     "ClassType": "Archer",
     "GradeType": "Epic",
     "RankType": "S",
@@ -613,7 +613,7 @@
   },
   {
     "ID": 10170,
-    "Name": "신화 궁수",
+    "Name": "Archer_Myth",
     "ClassType": "Archer",
     "GradeType": "Myth",
     "RankType": "B",
@@ -625,7 +625,7 @@
   },
   {
     "ID": 10171,
-    "Name": "신화 궁수",
+    "Name": "Archer_Myth",
     "ClassType": "Archer",
     "GradeType": "Myth",
     "RankType": "A",
@@ -637,7 +637,7 @@
   },
   {
     "ID": 10172,
-    "Name": "신화 궁수",
+    "Name": "Archer_Myth",
     "ClassType": "Archer",
     "GradeType": "Myth",
     "RankType": "S",
@@ -649,7 +649,7 @@
   },
   {
     "ID": 10180,
-    "Name": "태초 궁수",
+    "Name": "Archer_God",
     "ClassType": "Archer",
     "GradeType": "God",
     "RankType": "B",
@@ -661,7 +661,7 @@
   },
   {
     "ID": 10181,
-    "Name": "태초 궁수",
+    "Name": "Archer_God",
     "ClassType": "Archer",
     "GradeType": "God",
     "RankType": "A",
@@ -673,7 +673,7 @@
   },
   {
     "ID": 10182,
-    "Name": "태초 궁수",
+    "Name": "Archer_God",
     "ClassType": "Archer",
     "GradeType": "God",
     "RankType": "S",
@@ -685,7 +685,7 @@
   },
   {
     "ID": 10200,
-    "Name": "일반 전사",
+    "Name": "Warrior_Normal",
     "ClassType": "Warrior",
     "GradeType": "Normal",
     "RankType": "B",
@@ -697,7 +697,7 @@
   },
   {
     "ID": 10201,
-    "Name": "일반 전사",
+    "Name": "Warrior_Normal",
     "ClassType": "Warrior",
     "GradeType": "Normal",
     "RankType": "A",
@@ -709,7 +709,7 @@
   },
   {
     "ID": 10202,
-    "Name": "일반 전사",
+    "Name": "Warrior_Normal",
     "ClassType": "Warrior",
     "GradeType": "Normal",
     "RankType": "S",
@@ -721,7 +721,7 @@
   },
   {
     "ID": 10210,
-    "Name": "고급 전사",
+    "Name": "Warrior_Superior",
     "ClassType": "Warrior",
     "GradeType": "Superior",
     "RankType": "B",
@@ -733,7 +733,7 @@
   },
   {
     "ID": 10211,
-    "Name": "고급 전사",
+    "Name": "Warrior_Superior",
     "ClassType": "Warrior",
     "GradeType": "Superior",
     "RankType": "A",
@@ -745,7 +745,7 @@
   },
   {
     "ID": 10212,
-    "Name": "고급 전사",
+    "Name": "Warrior_Superior",
     "ClassType": "Warrior",
     "GradeType": "Superior",
     "RankType": "S",
@@ -757,7 +757,7 @@
   },
   {
     "ID": 10220,
-    "Name": "희귀 전사",
+    "Name": "Warrior_Rare",
     "ClassType": "Warrior",
     "GradeType": "Rare",
     "RankType": "B",
@@ -769,7 +769,7 @@
   },
   {
     "ID": 10221,
-    "Name": "희귀 전사",
+    "Name": "Warrior_Rare",
     "ClassType": "Warrior",
     "GradeType": "Rare",
     "RankType": "A",
@@ -781,7 +781,7 @@
   },
   {
     "ID": 10222,
-    "Name": "희귀 전사",
+    "Name": "Warrior_Rare",
     "ClassType": "Warrior",
     "GradeType": "Rare",
     "RankType": "S",
@@ -793,7 +793,7 @@
   },
   {
     "ID": 10230,
-    "Name": "고대 전사",
+    "Name": "Warrior_Ancient",
     "ClassType": "Warrior",
     "GradeType": "Ancient",
     "RankType": "B",
@@ -805,7 +805,7 @@
   },
   {
     "ID": 10231,
-    "Name": "고대 전사",
+    "Name": "Warrior_Ancient",
     "ClassType": "Warrior",
     "GradeType": "Ancient",
     "RankType": "A",
@@ -817,7 +817,7 @@
   },
   {
     "ID": 10232,
-    "Name": "고대 전사",
+    "Name": "Warrior_Ancient",
     "ClassType": "Warrior",
     "GradeType": "Ancient",
     "RankType": "S",
@@ -829,7 +829,7 @@
   },
   {
     "ID": 10233,
-    "Name": "치명적 상처 고대 전사",
+    "Name": "Warrior_Ancient_FatalInjury",
     "ClassType": "Warrior",
     "GradeType": "Ancient",
     "RankType": "S",
@@ -841,7 +841,7 @@
   },
   {
     "ID": 10240,
-    "Name": "유물 전사",
+    "Name": "Warrior_Relic",
     "ClassType": "Warrior",
     "GradeType": "Relic",
     "RankType": "B",
@@ -853,7 +853,7 @@
   },
   {
     "ID": 10241,
-    "Name": "유물 전사",
+    "Name": "Warrior_Relic",
     "ClassType": "Warrior",
     "GradeType": "Relic",
     "RankType": "A",
@@ -865,7 +865,7 @@
   },
   {
     "ID": 10242,
-    "Name": "유물 전사",
+    "Name": "Warrior_Relic",
     "ClassType": "Warrior",
     "GradeType": "Relic",
     "RankType": "S",
@@ -877,7 +877,7 @@
   },
   {
     "ID": 10250,
-    "Name": "전설 전사",
+    "Name": "Warrior_Legend",
     "ClassType": "Warrior",
     "GradeType": "Legend",
     "RankType": "B",
@@ -889,7 +889,7 @@
   },
   {
     "ID": 10251,
-    "Name": "전설 전사",
+    "Name": "Warrior_Legend",
     "ClassType": "Warrior",
     "GradeType": "Legend",
     "RankType": "A",
@@ -901,7 +901,7 @@
   },
   {
     "ID": 10252,
-    "Name": "전설 전사",
+    "Name": "Warrior_Legend",
     "ClassType": "Warrior",
     "GradeType": "Legend",
     "RankType": "S",
@@ -913,7 +913,7 @@
   },
   {
     "ID": 10253,
-    "Name": "버서커 전설 전사",
+    "Name": "Warrior_Legend_Berserker",
     "ClassType": "Warrior",
     "GradeType": "Legend",
     "RankType": "S",
@@ -925,7 +925,7 @@
   },
   {
     "ID": 10260,
-    "Name": "에픽 전사",
+    "Name": "Warrior_Epic",
     "ClassType": "Warrior",
     "GradeType": "Epic",
     "RankType": "B",
@@ -937,7 +937,7 @@
   },
   {
     "ID": 10261,
-    "Name": "에픽 전사",
+    "Name": "Warrior_Epic",
     "ClassType": "Warrior",
     "GradeType": "Epic",
     "RankType": "A",
@@ -949,7 +949,7 @@
   },
   {
     "ID": 10262,
-    "Name": "에픽 전사",
+    "Name": "Warrior_Epic",
     "ClassType": "Warrior",
     "GradeType": "Epic",
     "RankType": "S",
@@ -961,7 +961,7 @@
   },
   {
     "ID": 10270,
-    "Name": "신화 전사",
+    "Name": "Warrior_Myth",
     "ClassType": "Warrior",
     "GradeType": "Myth",
     "RankType": "B",
@@ -973,7 +973,7 @@
   },
   {
     "ID": 10271,
-    "Name": "신화 전사",
+    "Name": "Warrior_Myth",
     "ClassType": "Warrior",
     "GradeType": "Myth",
     "RankType": "A",
@@ -985,7 +985,7 @@
   },
   {
     "ID": 10272,
-    "Name": "신화 전사",
+    "Name": "Warrior_Myth",
     "ClassType": "Warrior",
     "GradeType": "Myth",
     "RankType": "S",
@@ -997,7 +997,7 @@
   },
   {
     "ID": 10280,
-    "Name": "태초 전사",
+    "Name": "Warrior_God",
     "ClassType": "Warrior",
     "GradeType": "God",
     "RankType": "B",
@@ -1009,7 +1009,7 @@
   },
   {
     "ID": 10281,
-    "Name": "태초 전사",
+    "Name": "Warrior_God",
     "ClassType": "Warrior",
     "GradeType": "God",
     "RankType": "A",
@@ -1021,7 +1021,7 @@
   },
   {
     "ID": 10282,
-    "Name": "태초 전사",
+    "Name": "Warrior_God",
     "ClassType": "Warrior",
     "GradeType": "God",
     "RankType": "S",
