@@ -1,10 +1,17 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class HUDUI : UIBase, IEventListener
 {
-    [Header("Buttons")]
-    [SerializeField] private Button spawnButton;
+    private int spawnedEnemyCount;
+
+    [Header("UI Elements")] [SerializeField]
+    private Slider spawnedEnemyCountSlider;
+
+    [SerializeField] private TextMeshProUGUI spawnedEnemyCountText;
+
+    [Header("Buttons")] [SerializeField] private Button spawnButton;
     [SerializeField] private Button magicianLevelUpButton;
     [SerializeField] private Button archerLevelUpButton;
     [SerializeField] private Button warriorLevelUpButton;
@@ -88,7 +95,7 @@ public class HUDUI : UIBase, IEventListener
             sellButton.onClick.RemoveAllListeners();
         }
     }
-    
+
     private void OnClickSpawnButton()
     {
         EventManager.Dispatch(GameEventType.SpawnHero);
@@ -99,17 +106,17 @@ public class HUDUI : UIBase, IEventListener
     {
         CDebug.Log("[HUDUI] 마법사 레벨 업 버튼 클릭");
     }
-    
+
     private void OnClickArcherLevelUpButton()
     {
         CDebug.Log("[HUDUI] 궁수 레벨 업 버튼 클릭");
     }
-    
+
     private void OnClickWarriorLevelUpButton()
     {
         CDebug.Log("[HUDUI] 전사 레벨 업 버튼 클릭");
     }
-    
+
     private void OnClickExchangeButton()
     {
         CDebug.Log("[HUDUI] 영웅 교환 버튼 클릭");
@@ -122,9 +129,27 @@ public class HUDUI : UIBase, IEventListener
 
     public void SubscribeEvents()
     {
+        EventManager.Subscribe(GameEventType.SpawnEnemy, IncreaseEnemyCount);
+        EventManager.Subscribe(GameEventType.EnemyDie, DecreaseEnemyCount);
     }
 
     public void UnsubscribeEvents()
     {
+        EventManager.Unsubscribe(GameEventType.SpawnEnemy, IncreaseEnemyCount);
+        EventManager.Unsubscribe(GameEventType.EnemyDie, DecreaseEnemyCount);
+    }
+
+    private void IncreaseEnemyCount()
+    {
+        spawnedEnemyCount++;
+        spawnedEnemyCountText.text = $"{spawnedEnemyCount} / 100";
+        spawnedEnemyCountSlider.value = spawnedEnemyCount / 100f;
+    }
+
+    private void DecreaseEnemyCount()
+    {
+        spawnedEnemyCount--;
+        spawnedEnemyCountText.text = $"{spawnedEnemyCount} / 100";
+        spawnedEnemyCountSlider.value = spawnedEnemyCount / 100f;
     }
 }
