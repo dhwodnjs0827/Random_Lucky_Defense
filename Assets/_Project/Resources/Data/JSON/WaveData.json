@@ -1,0 +1,20 @@
+[
+  {
+    "WaveIndex": 1,
+    "WaveType": "Nomal",
+    "SpawnEnemyID": 20000,
+    "SpawnInterval": 0.5,
+    "WaveTime": 30.0,
+    "WaveHpCoefficients": 1.0,
+    "AttackSpeed": 1.0
+  },
+  {
+    "WaveIndex": 2,
+    "WaveType": "Boss",
+    "SpawnEnemyID": 20009,
+    "SpawnInterval": 0.0,
+    "WaveTime": 30.0,
+    "WaveHpCoefficients": 1.0,
+    "AttackSpeed": 1.0
+  }
+]

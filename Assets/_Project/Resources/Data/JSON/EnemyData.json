@@ -1,0 +1,92 @@
+[
+  {
+    "ID": 20000,
+    "Name": "언데드",
+    "EnemyType": "Nomal",
+    "MonsterType": "Undead",
+    "AttackPower": 9.0,
+    "AttackRange": 0.0,
+    "AttackSpeed": 5.0
+  },
+  {
+    "ID": 20001,
+    "Name": "언데드",
+    "EnemyType": "Nomal",
+    "MonsterType": "Undead",
+    "AttackPower": 14.0,
+    "AttackRange": 0.0,
+    "AttackSpeed": 5.0
+  },
+  {
+    "ID": 20002,
+    "Name": "트롤",
+    "EnemyType": "Normal",
+    "MonsterType": "Troll",
+    "AttackPower": 19.0,
+    "AttackRange": 0.0,
+    "AttackSpeed": 5.0
+  },
+  {
+    "ID": 20003,
+    "Name": "언데드",
+    "EnemyType": "Normal",
+    "MonsterType": "Undead",
+    "AttackPower": 40.0,
+    "AttackRange": 0.0,
+    "AttackSpeed": 5.0
+  },
+  {
+    "ID": 20004,
+    "Name": "오크",
+    "EnemyType": "Normal",
+    "MonsterType": "Orc",
+    "AttackPower": 49.0,
+    "AttackRange": 0.0,
+    "AttackSpeed": 5.0
+  },
+  {
+    "ID": 20005,
+    "Name": "오크",
+    "EnemyType": "Normal",
+    "MonsterType": "Orc",
+    "AttackPower": 49.0,
+    "AttackRange": 0.0,
+    "AttackSpeed": 5.0
+  },
+  {
+    "ID": 20006,
+    "Name": "오크",
+    "EnemyType": "Normal",
+    "MonsterType": "Orc",
+    "AttackPower": 49.0,
+    "AttackRange": 0.0,
+    "AttackSpeed": 5.0
+  },
+  {
+    "ID": 20007,
+    "Name": "언데드",
+    "EnemyType": "Normal",
+    "MonsterType": "Undead",
+    "AttackPower": 49.0,
+    "AttackRange": 0.0,
+    "AttackSpeed": 5.0
+  },
+  {
+    "ID": 20008,
+    "Name": "트롤",
+    "EnemyType": "Normal",
+    "MonsterType": "Troll",
+    "AttackPower": 49.0,
+    "AttackRange": 0.0,
+    "AttackSpeed": 5.0
+  },
+  {
+    "ID": 20009,
+    "Name": "트롤",
+    "EnemyType": "Boss",
+    "MonsterType": "Troll",
+    "AttackPower": 49.0,
+    "AttackRange": 0.0,
+    "AttackSpeed": 5.0
+  }
+]

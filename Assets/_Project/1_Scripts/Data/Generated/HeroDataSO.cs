@@ -11,6 +11,7 @@ namespace Generated
         public HeroClassType ClassType; // 영웅 클래스
         public HeroGradeType GradeType; // 영웅 등급
         public HeroRankType RankType; // 영웅 랭크 등급
+        public HeroSkillType SkillType; // 영웅 스킬
         public float AttackPower; // 공격력
         public float AttackSpeed; // 공격속도
         public float AttackRange; // 공격범위
