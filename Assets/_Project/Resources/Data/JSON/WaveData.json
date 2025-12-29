@@ -6,7 +6,8 @@
     "SpawnInterval": 0.5,
     "WaveTime": 30.0,
     "WaveHpCoefficients": 1.0,
-    "AttackSpeed": 1.0
+    "AttackSpeed": 1.0,
+    "WaveDefenseCoefficients": 1.0
   },
   {
     "WaveIndex": 2,
@@ -15,6 +16,7 @@
     "SpawnInterval": 0.0,
     "WaveTime": 30.0,
     "WaveHpCoefficients": 1.0,
-    "AttackSpeed": 1.0
+    "AttackSpeed": 1.0,
+    "WaveDefenseCoefficients": 1.0
   }
 ]
