@@ -1,7 +1,7 @@
 [
   {
     "WaveIndex": 1,
-    "WaveType": "Nomal",
+    "WaveType": "Normal",
     "SpawnEnemyID": 20000,
     "SpawnInterval": 0.5,
     "WaveTime": 30.0,

@@ -2,7 +2,7 @@
   {
     "ID": 20000,
     "Name": "언데드",
-    "EnemyType": "Nomal",
+    "EnemyType": "Normal",
     "MonsterType": "Undead",
     "AttackPower": 9.0,
     "AttackRange": 0.0,
@@ -11,7 +11,7 @@
   {
     "ID": 20001,
     "Name": "언데드",
-    "EnemyType": "Nomal",
+    "EnemyType": "Normal",
     "MonsterType": "Undead",
     "AttackPower": 14.0,
     "AttackRange": 0.0,
