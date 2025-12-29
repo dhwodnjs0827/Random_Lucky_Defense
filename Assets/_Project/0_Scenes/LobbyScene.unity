@@ -483,6 +483,77 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TempGameStartButton
   gameStartButton: {fileID: 1199919906}
+--- !u!1 &1260042539
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1260042541}
+  - component: {fileID: 1260042540}
+  m_Layer: 0
+  m_Name: TempHeroList
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1260042540
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1260042539}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 873eb7f67a79e47cfa9d95671dea52c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TempHeroList
+  normalMagician: {fileID: 11400000, guid: 4525b70837a894521bf523a24367ece5, type: 2}
+  superiorMagician: {fileID: 11400000, guid: 47ea30abcd66847ceab2de0792f42492, type: 2}
+  rareMagician: {fileID: 11400000, guid: 3e459144cdc47423a8ae0861fad7406d, type: 2}
+  ancientMagician: {fileID: 11400000, guid: 16b19f9222bc44e7bbe90391965115ab, type: 2}
+  relicMagician: {fileID: 11400000, guid: d7646a8424cf34aacbc084e261227bc8, type: 2}
+  legendMagician: {fileID: 11400000, guid: 3f49957b05cec42918c03247c87e3dfc, type: 2}
+  epicMagician: {fileID: 11400000, guid: c755354f66ca0496a83d9fbb3a0e49ec, type: 2}
+  mythMagician: {fileID: 11400000, guid: 0071944e241fb447d80cdd8774786ce2, type: 2}
+  godMagician: {fileID: 11400000, guid: 06d41cb92f2b04628b40160e1f243666, type: 2}
+  normalArcher: {fileID: 11400000, guid: c6dd08b61b1b3454fba6f01404ccf119, type: 2}
+  superiorArcher: {fileID: 11400000, guid: ead89a8b247bf4768ad8c9951765dee6, type: 2}
+  rareArcher: {fileID: 11400000, guid: ef58d26cbc39b47f0b1073ad7bf7b121, type: 2}
+  ancientArcher: {fileID: 11400000, guid: e32f90fb081714b518eedfc14c4f180c, type: 2}
+  relicArcher: {fileID: 11400000, guid: 5de3d3cfdbd374c53af3a2ff1c6759e1, type: 2}
+  legendArcher: {fileID: 11400000, guid: 58523cabf9c7a452d9b5b16308130034, type: 2}
+  epicArcher: {fileID: 11400000, guid: eee3887b18653449b99971f5cf1814cd, type: 2}
+  mythArcher: {fileID: 11400000, guid: 2990249e183784506ad9b270d743ded5, type: 2}
+  godArcher: {fileID: 11400000, guid: 8d93b08c5d47d451f9e76535733aa605, type: 2}
+  normalWarrior: {fileID: 11400000, guid: 75ccd6c31a55840e48d8bc9c2df9fc43, type: 2}
+  superiorWarrior: {fileID: 11400000, guid: 19e29175a6536463e99ad9a60269a7fc, type: 2}
+  rareWarrior: {fileID: 11400000, guid: c1c530b3697754971b1fe540c39f8278, type: 2}
+  ancientWarrior: {fileID: 11400000, guid: 2a847aadc26904005b3d76ce5d505688, type: 2}
+  relicWarrior: {fileID: 11400000, guid: f2b1a4036805e440581b8cd768790c73, type: 2}
+  legendWarrior: {fileID: 11400000, guid: 7a17f1d0df033465f95181035bc159a3, type: 2}
+  epicWarrior: {fileID: 11400000, guid: 14166d5c8803d4f7bb00c8c28ec8e2d4, type: 2}
+  mythWarrior: {fileID: 11400000, guid: 5bdf828893a8c45cc921fd0c37b36f07, type: 2}
+  godWarrior: {fileID: 11400000, guid: 7c1f56f69229743908818027bd28f954, type: 2}
+--- !u!4 &1260042541
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1260042539}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &5791704853571179337
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -591,3 +662,4 @@ SceneRoots:
   m_Roots:
   - {fileID: 8982341}
   - {fileID: 6676801008967255973}
+  - {fileID: 1260042541}
