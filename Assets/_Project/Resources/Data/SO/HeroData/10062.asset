@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 10062
   m_EditorClassIdentifier: Assembly-CSharp::Generated.HeroDataSO
   ID: 10062
-  Name: "\uC5D0\uD53D \uB9C8\uBC95\uC0AC"
+  Name: Magician_Epic
   ClassType: 1
   GradeType: 6
   RankType: 2

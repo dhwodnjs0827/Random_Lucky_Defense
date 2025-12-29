@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 10043
   m_EditorClassIdentifier: Assembly-CSharp::Generated.HeroDataSO
   ID: 10043
-  Name: "\uB460\uBE0C\uB808\uC774\uD06C \uC720\uBB3C \uB9C8\uBC95\uC0AC"
+  Name: Magician_Relic_DoomBreak
   ClassType: 1
   GradeType: 4
   RankType: 2

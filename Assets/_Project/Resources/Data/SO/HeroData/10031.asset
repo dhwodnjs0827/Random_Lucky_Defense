@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 10031
   m_EditorClassIdentifier: Assembly-CSharp::Generated.HeroDataSO
   ID: 10031
-  Name: "\uACE0\uB300 \uB9C8\uBC95\uC0AC"
+  Name: Magician_Ancient
   ClassType: 1
   GradeType: 3
   RankType: 1

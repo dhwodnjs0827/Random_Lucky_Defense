@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 10140
   m_EditorClassIdentifier: Assembly-CSharp::Generated.HeroDataSO
   ID: 10140
-  Name: "\uC720\uBB3C \uAD81\uC218"
+  Name: Archer_Relic
   ClassType: 2
   GradeType: 4
   RankType: 0

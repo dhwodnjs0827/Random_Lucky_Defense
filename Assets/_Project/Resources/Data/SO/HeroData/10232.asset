@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 10232
   m_EditorClassIdentifier: Assembly-CSharp::Generated.HeroDataSO
   ID: 10232
-  Name: "\uACE0\uB300 \uC804\uC0AC"
+  Name: Warrior_Ancient
   ClassType: 3
   GradeType: 3
   RankType: 2

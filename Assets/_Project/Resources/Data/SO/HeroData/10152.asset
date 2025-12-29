@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 10152
   m_EditorClassIdentifier: Assembly-CSharp::Generated.HeroDataSO
   ID: 10152
-  Name: "\uC804\uC124 \uAD81\uC218"
+  Name: Archer_Legend
   ClassType: 2
   GradeType: 5
   RankType: 2

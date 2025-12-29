@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 10221
   m_EditorClassIdentifier: Assembly-CSharp::Generated.HeroDataSO
   ID: 10221
-  Name: "\uD76C\uADC0 \uC804\uC0AC"
+  Name: Warrior_Rare
   ClassType: 3
   GradeType: 2
   RankType: 1

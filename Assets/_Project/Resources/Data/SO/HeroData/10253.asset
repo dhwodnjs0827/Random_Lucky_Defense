@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 10253
   m_EditorClassIdentifier: Assembly-CSharp::Generated.HeroDataSO
   ID: 10253
-  Name: "\uBC84\uC11C\uCEE4 \uC804\uC124 \uC804\uC0AC"
+  Name: Warrior_Legend_Berserker
   ClassType: 3
   GradeType: 5
   RankType: 2

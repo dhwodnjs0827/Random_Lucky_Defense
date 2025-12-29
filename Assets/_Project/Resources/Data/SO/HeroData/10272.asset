@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 10272
   m_EditorClassIdentifier: Assembly-CSharp::Generated.HeroDataSO
   ID: 10272
-  Name: "\uC2E0\uD654 \uC804\uC0AC"
+  Name: Warrior_Myth
   ClassType: 3
   GradeType: 7
   RankType: 2

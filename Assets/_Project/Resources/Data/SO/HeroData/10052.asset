@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 10052
   m_EditorClassIdentifier: Assembly-CSharp::Generated.HeroDataSO
   ID: 10052
-  Name: "\uC804\uC124 \uB9C8\uBC95\uC0AC"
+  Name: Magician_Legend
   ClassType: 1
   GradeType: 5
   RankType: 2

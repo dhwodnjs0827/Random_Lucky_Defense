@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 10241
   m_EditorClassIdentifier: Assembly-CSharp::Generated.HeroDataSO
   ID: 10241
-  Name: "\uC720\uBB3C \uC804\uC0AC"
+  Name: Warrior_Relic
   ClassType: 3
   GradeType: 4
   RankType: 1
