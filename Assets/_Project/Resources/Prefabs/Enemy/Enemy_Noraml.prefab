@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3432172236901669149}
   - component: {fileID: 5115346863929794912}
+  - component: {fileID: -5592938821451159748}
   m_Layer: 0
   m_Name: Enemy_Noraml
   m_TagString: Untagged
@@ -45,6 +46,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69512642313364c20a9282e1666da4a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NormalEnemy
+  splineAnimate: {fileID: -5592938821451159748}
+--- !u!114 &-5592938821451159748
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 975284974504222857}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29a074d529cf945029ef7cf40540c9df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.Splines::UnityEngine.Splines.SplineAnimate
+  m_Target: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_LoopMode: 1
+  m_Method: 0
+  m_Duration: 10
+  m_MaxSpeed: 4.531371
+  m_EasingMode: 0
+  m_AlignmentMode: 0
+  m_ObjectForwardAxis: 2
+  m_ObjectUpAxis: 1
+  m_StartOffset: 0
 --- !u!1001 &2575804808281800307
 PrefabInstance:
   m_ObjectHideFlags: 0
