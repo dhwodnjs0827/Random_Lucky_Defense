@@ -10,19 +10,37 @@ using Object = UnityEngine.Object;
 /// </summary>
 public class ResourceManager : MonoSingleton<ResourceManager>, IResourceHandler
 {
-    private IResourceHandler handler;
-    private readonly IDictionary<string, Object> resourceCache = new Dictionary<string, Object>();  // 리소스 캐시
+    private bool isInitialized = false;
 
-    protected override void Awake()
-    {
-        base.Awake();
-        InitResourceHandler();
-    }
+    private IResourceHandler handler;
+    private readonly IDictionary<string, Object> resourceCache = new Dictionary<string, Object>(); // 리소스 캐시
 
     protected override void OnDestroy()
     {
         base.OnDestroy();
         ReleaseAll();
+    }
+
+    /// <summary>
+    /// ResourceManager 초기화
+    /// </summary>
+    public async UniTask InitializeAsync()
+    {
+        if (isInitialized)
+        {
+            return;
+        }
+
+        // 리서스 핸들러 객체 생성
+#if ADDRESSABLE
+        handler = new AddressableHandler();
+#else
+        handler = new ResourcesHandler();
+#endif
+
+        isInitialized = true;
+
+        await UniTask.CompletedTask;
     }
 
     /// <summary>
@@ -104,18 +122,6 @@ public class ResourceManager : MonoSingleton<ResourceManager>, IResourceHandler
     }
 
     /// <summary>
-    /// 리소스 핸들러 객체 생성
-    /// </summary>
-    private void InitResourceHandler()
-    {
-#if ADDRESSABLE
-        handler = new AddressableHandler();
-#else
-        handler = new ResourcesHandler();
-#endif
-    }
-    
-    /// <summary>
     /// 모든 리소스 메모리 해제 및 캐시 정리
     /// </summary>
     private void ReleaseAll()
@@ -124,6 +130,7 @@ public class ResourceManager : MonoSingleton<ResourceManager>, IResourceHandler
         {
             handler.Release(resource);
         }
+
         resourceCache.Clear();
     }
 }

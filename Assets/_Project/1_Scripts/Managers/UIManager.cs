@@ -13,16 +13,26 @@ public class UIManager : MonoSingleton<UIManager>
 
     private bool isInitialized = false;
 
-    protected override void Awake()
-    {
-        base.Awake();
-        Initialize();
-    }
-
     protected override void OnDestroy()
     {
         base.OnDestroy();
         Cleanup();
+    }
+
+    /// <summary>
+    /// UIManager 초기화
+    /// </summary>
+    public async UniTask InitializeAsync()
+    {
+        if (isInitialized)
+        {
+            return;
+        }
+
+        resourceManager = ResourceManager.Instance;
+        await InitializeUICanvasAsync();
+
+        isInitialized = true;
     }
 
     public T Open<T>(params object[] args) where T : UIBase
@@ -82,16 +92,10 @@ public class UIManager : MonoSingleton<UIManager>
     }
 
     /// <summary>
-    /// UI 열기
+    /// UI 열기 (비동기)
     /// </summary>
     public async UniTask<T> OpenAsync<T>(params object[] args) where T : UIBase
     {
-        // 초기화가 완료될 때까지 대기
-        if (!isInitialized)
-        {
-            await UniTask.WaitUntil(() => isInitialized);
-        }
-
         // UI가 열려있으면 해당 UI 반환
         UIBase ui = GetUI<T>();
         if (ui != null)
@@ -181,19 +185,9 @@ public class UIManager : MonoSingleton<UIManager>
     }
 
     /// <summary>
-    /// UIManager 초기화
-    /// </summary>
-    private void Initialize()
-    {
-        resourceManager = ResourceManager.Instance;
-
-        InitializeUICanvas().Forget();
-    }
-
-    /// <summary>
     /// Canvas 초기화
     /// </summary>
-    private async UniTaskVoid InitializeUICanvas()
+    private async UniTask InitializeUICanvasAsync()
     {
         if (resourceManager == null)
         {
@@ -235,9 +229,6 @@ public class UIManager : MonoSingleton<UIManager>
             // 씬 전환 시, 유지
             DontDestroyOnLoad(kvp.Value.gameObject);
         }
-
-        // 초기화 완료
-        isInitialized = true;
     }
 
     /// <summary>
