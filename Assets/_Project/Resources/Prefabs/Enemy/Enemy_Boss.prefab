@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 428564572923500696}
   - component: {fileID: 5260817138432476631}
+  - component: {fileID: 8678669102888184078}
   m_Layer: 0
   m_Name: Enemy_Boss
   m_TagString: Untagged
@@ -45,6 +46,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ab87d7be31fc4a71a4b1da645b20135, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BossEnemy
+  splineAnimate: {fileID: 8678669102888184078}
+  animator: {fileID: 4338755256544215116}
+--- !u!114 &8678669102888184078
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1104302204077498431}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29a074d529cf945029ef7cf40540c9df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.Splines::UnityEngine.Splines.SplineAnimate
+  m_Target: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_LoopMode: 1
+  m_Method: 0
+  m_Duration: 1
+  m_MaxSpeed: 10
+  m_EasingMode: 0
+  m_AlignmentMode: 1
+  m_ObjectForwardAxis: 2
+  m_ObjectUpAxis: 1
+  m_StartOffset: 0
 --- !u!1001 &8601867003907747593
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -146,6 +172,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a91c832e138a54b38acbd3fd635beb82, type: 3}
+--- !u!95 &4338755256544215116 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 5434053217048489797, guid: a91c832e138a54b38acbd3fd635beb82, type: 3}
+  m_PrefabInstance: {fileID: 8601867003907747593}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &4767500449059120445 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3852380953649089076, guid: a91c832e138a54b38acbd3fd635beb82, type: 3}

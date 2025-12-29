@@ -47,6 +47,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NormalEnemy
   splineAnimate: {fileID: -5592938821451159748}
+  animator: {fileID: 620063064110228488}
 --- !u!114 &-5592938821451159748
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -62,9 +63,9 @@ MonoBehaviour:
   m_Target: {fileID: 0}
   m_PlayOnAwake: 0
   m_LoopMode: 1
-  m_Method: 0
+  m_Method: 1
   m_Duration: 10
-  m_MaxSpeed: 4.531371
+  m_MaxSpeed: 5
   m_EasingMode: 0
   m_AlignmentMode: 0
   m_ObjectForwardAxis: 2
@@ -170,5 +171,10 @@ PrefabInstance:
 --- !u!224 &222981376514714271 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2352894075743425772, guid: 4860fb53577ae4b15b1d7289d7fb4fc8, type: 3}
+  m_PrefabInstance: {fileID: 2575804808281800307}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &620063064110228488 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 3109155830071581307, guid: 4860fb53577ae4b15b1d7289d7fb4fc8, type: 3}
   m_PrefabInstance: {fileID: 2575804808281800307}
   m_PrefabAsset: {fileID: 0}
