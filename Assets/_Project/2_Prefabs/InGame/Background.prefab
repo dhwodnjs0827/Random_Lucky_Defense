@@ -671,6 +671,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyWaveController
   spawner: {fileID: 3550683302488154220}
+  waveDatas:
+  - {fileID: 11400000, guid: facafdb4b2f784ac3aba81e54c9efb16, type: 2}
+  - {fileID: 11400000, guid: 87d92355003cf4103a407c70a74b4fd8, type: 2}
 --- !u!114 &3550683302488154220
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -684,8 +687,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemySpawner
   splineContainer: {fileID: 2009313082086332933}
-  normalEnemy: {fileID: 5115346863929794912, guid: c9f378e74b2f64b1cbcef98c4afa2899, type: 3}
-  bossEnemy: {fileID: 5260817138432476631, guid: 0cd4080758b9b4e5c823214c9a4d7dfe, type: 3}
 --- !u!1 &1021088769023586420
 GameObject:
   m_ObjectHideFlags: 0
