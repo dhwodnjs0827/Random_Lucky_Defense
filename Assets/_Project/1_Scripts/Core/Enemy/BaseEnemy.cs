@@ -10,10 +10,11 @@ public abstract class BaseEnemy : MonoBehaviour, IPoolable
     private static readonly int EnemyMoveAnimParam = Animator.StringToHash("1_Move");
     
     [SerializeField] private SplineAnimate splineAnimate;
+    [SerializeField] private Collider2D enemyCollider;
     [SerializeField] private Animator animator;
 
     private Vector3 previousPosition;
-    private const float FlipThreshold = 0.01f;
+    private const float FLIP_THRESHOLD = 0.01f;
 
     private void Awake()
     {
@@ -66,11 +67,11 @@ public abstract class BaseEnemy : MonoBehaviour, IPoolable
         var currentPosition = transform.position;
         var directionX = currentPosition.x - previousPosition.x;
 
-        if (directionX > FlipThreshold)
+        if (directionX > FLIP_THRESHOLD)
         {
             transform.rotation = Quaternion.Euler(0f, 180f, 0f);
         }
-        else if (directionX < -FlipThreshold)
+        else if (directionX < -FLIP_THRESHOLD)
         {
             transform.rotation = Quaternion.Euler(0f, 0f, 0f);
         }
