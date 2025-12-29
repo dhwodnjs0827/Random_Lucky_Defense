@@ -14,7 +14,7 @@ public abstract class BaseHero : MonoBehaviour, IPoolable
     protected IHeroSkill skill;
 
     public abstract HeroClassType ClassType { get; }
-    public virtual HeroGradeType GradeType => HeroGradeType.Normal;
+    public virtual HeroGradeType GradeType => heroData.GradeType;
     public Animator Animator => animator;
 
     private void Awake()
@@ -33,6 +33,7 @@ public abstract class BaseHero : MonoBehaviour, IPoolable
     /// </summary>
     public virtual void Initialize(HeroDataSO data)
     {
+        heroData = data;
         CDebug.Log($"[BaseHero] {data.ID} 데이터 초기화");
     }
 
