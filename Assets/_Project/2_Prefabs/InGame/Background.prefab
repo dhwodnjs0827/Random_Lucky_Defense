@@ -389,8 +389,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1326775645767056066}
   - component: {fileID: 2009313082086332933}
+  - component: {fileID: 446197355894425923}
+  - component: {fileID: 3550683302488154220}
   m_Layer: 0
-  m_Name: Spline
+  m_Name: EnemySpline
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -656,6 +658,34 @@ MonoBehaviour:
         Knot: 0
       - Spline: 0
         Knot: 10
+--- !u!114 &446197355894425923
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 986298607275070201}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0bc1a034a4b44bdb89a7dd0259f7a7e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyWaveController
+  spawner: {fileID: 3550683302488154220}
+--- !u!114 &3550683302488154220
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 986298607275070201}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8dfd3ea2cf3c439ba799f96c988015d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemySpawner
+  splineContainer: {fileID: 2009313082086332933}
+  normalEnemy: {fileID: 5115346863929794912, guid: c9f378e74b2f64b1cbcef98c4afa2899, type: 3}
+  bossEnemy: {fileID: 5260817138432476631, guid: 0cd4080758b9b4e5c823214c9a4d7dfe, type: 3}
 --- !u!1 &1021088769023586420
 GameObject:
   m_ObjectHideFlags: 0
