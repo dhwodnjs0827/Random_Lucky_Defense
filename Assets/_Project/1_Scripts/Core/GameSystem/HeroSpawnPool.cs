@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Generated;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -8,11 +9,13 @@ using Random = UnityEngine.Random;
 /// </summary>
 public class HeroSpawnPool : MonoBehaviour
 {
+    private Dictionary<HeroClassType, Dictionary<HeroGradeType, HeroDataSO>> heroDatas = new();
     private Dictionary<HeroClassType, Dictionary<HeroGradeType, BaseHero>> heroPrefabs = new();
     private List<(HeroGradeType, int)> heroSpawnChance;
 
     private void Awake()
     {
+        heroDatas = PlayerDataManager.Instance.SelectedHeroes as Dictionary<HeroClassType, Dictionary<HeroGradeType, HeroDataSO>>;
         InitializeClass(HeroClassType.Magician);
         InitializeClass(HeroClassType.Archer);
         InitializeClass(HeroClassType.Warrior);
@@ -28,16 +31,16 @@ public class HeroSpawnPool : MonoBehaviour
         var randomClass = GetRandomClass();
         var randomGrade = GetRandomGrade();
         var classPrefabDict = heroPrefabs[randomClass];
-        return ObjectPoolManager.Instance.Get(classPrefabDict[randomGrade]);
+        var hero = ObjectPoolManager.Instance.Get(classPrefabDict[randomGrade]);
+        hero.Initialize(heroDatas[randomClass][randomGrade]);
+        return hero;
     }
 
     private void InitializeClass(HeroClassType classType)
     {
-        var selectedHeroes = PlayerDataManager.Instance.SelectedHeroes;
-        var heroDataDict = selectedHeroes[classType];
         var prefabDict = new Dictionary<HeroGradeType, BaseHero>();
 
-        foreach (var kvp in heroDataDict)
+        foreach (var kvp in heroDatas[classType])
         {
             var heroData = kvp.Value;
             var prefab = ResourceManager.Instance.Load<BaseHero>($"Prefabs/Hero/{heroData.Name}");

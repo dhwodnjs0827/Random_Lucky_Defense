@@ -31,7 +31,10 @@ public abstract class BaseHero : MonoBehaviour, IPoolable
     /// <summary>
     /// 영웅 초기화
     /// </summary>
-    public abstract void Initialize(HeroDataSO data);
+    public virtual void Initialize(HeroDataSO data)
+    {
+        CDebug.Log($"[BaseHero] {data.ID} 데이터 초기화");
+    }
 
     /// <summary>
     /// 기본 공격
