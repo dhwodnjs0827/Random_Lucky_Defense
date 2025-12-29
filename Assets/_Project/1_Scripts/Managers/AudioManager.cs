@@ -8,10 +8,12 @@ using UnityEngine.Audio;
 /// </summary>
 public class AudioManager : MonoSingleton<AudioManager>
 {
+    private bool isInitialized = false;
+
     private const string MASTER_VOLUME = "MasterVolume";
     private const string BGM_VOLUME = "BGMVolume";
     private const string SFX_VOLUME = "SFXVolume";
-    
+
     private bool isMasterMuted = false;
     private bool isBgmMuted = false;
     private bool isSfxMuted = false;
@@ -41,14 +43,16 @@ public class AudioManager : MonoSingleton<AudioManager>
     public bool IsBgmMuted => isBgmMuted;
     public bool IsSfxMuted => isSfxMuted;
 
-    protected override void Awake()
+    /// <summary>
+    /// AudioManager 초기화 
+    /// </summary>
+    public async UniTask InitializeAsync()
     {
-        base.Awake();
-        Initialize();
-    }
+        if (isInitialized)
+        {
+            return;
+        }
 
-    private void Initialize()
-    {
         if (bgmSource == null)
         {
             var bgmGo = new GameObject("BGM Source");
@@ -67,6 +71,10 @@ public class AudioManager : MonoSingleton<AudioManager>
             sfxSource.playOnAwake = false;
             if (sfxMixerGroup != null) sfxSource.outputAudioMixerGroup = sfxMixerGroup;
         }
+
+        isInitialized = true;
+
+        await UniTask.CompletedTask;
     }
 
     #region BGM
@@ -213,6 +221,7 @@ public class AudioManager : MonoSingleton<AudioManager>
             lastMasterVolume = volume;
             return;
         }
+
         SetMixerVolume(MASTER_VOLUME, volume);
     }
 
@@ -226,6 +235,7 @@ public class AudioManager : MonoSingleton<AudioManager>
             lastBgmVolume = volume;
             return;
         }
+
         SetMixerVolume(BGM_VOLUME, volume);
     }
 
@@ -239,6 +249,7 @@ public class AudioManager : MonoSingleton<AudioManager>
             lastSfxVolume = volume;
             return;
         }
+
         SetMixerVolume(SFX_VOLUME, volume);
     }
 
@@ -284,7 +295,7 @@ public class AudioManager : MonoSingleton<AudioManager>
     }
 
     #endregion
-    
+
     #region Mute
 
     /// <summary>

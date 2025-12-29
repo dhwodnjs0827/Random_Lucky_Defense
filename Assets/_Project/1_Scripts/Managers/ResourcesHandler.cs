@@ -20,6 +20,17 @@ public class ResourcesHandler : IResourceHandler
         return request.asset as T;
     }
 
+    public T Load<T>(string path) where T : Object
+    {
+        var resource = Resources.Load<T>(path);
+        if (resource == null)
+        {
+            return null;
+        }
+
+        return resource;
+    }
+
     public UniTask<T[]> LoadAllAsync<T>(string path) where T : Object
     {
         var resources = Resources.LoadAll<T>(path);
@@ -33,7 +44,7 @@ public class ResourcesHandler : IResourceHandler
             // GameObject/Component는 unloadAsset 불가
             return;
         }
-        
+
         Resources.UnloadAsset(obj);
     }
 }

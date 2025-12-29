@@ -40,7 +40,7 @@ public class GoogleSheetsSync : EditorWindow
     /// 에디터 메뉴에 "Tools/Google Sheets Sync" 항목 추가.
     /// MenuItem 속성은 Unity 에디터 메뉴에 항목을 등록함.
     /// </summary>
-    [MenuItem("Tools/Google Sheets Sync")]
+    [MenuItem("Tools/Data/Google Sheets Sync")]
     public static void ShowWindow()
     {
         // GetWindow: 이미 열려있으면 해당 윈도우 반환, 없으면 새로 생성

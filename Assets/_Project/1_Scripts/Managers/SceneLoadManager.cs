@@ -18,7 +18,7 @@ public class SceneLoadManager : MonoSingleton<SceneLoadManager>
     /// <summary>
     /// SceneLoadManager 초기화
     /// </summary>
-    public void Initialize()
+    public async UniTask InitializeAsync()
     {
         if (isInitialized)
         {
@@ -30,7 +30,7 @@ public class SceneLoadManager : MonoSingleton<SceneLoadManager>
         isInitialized = true;
         
         InitializeSceneList();
-        InitializeCurrentActiveScene().Forget();
+        await InitializeCurrentActiveScene();
     }
 
     /// <summary>
@@ -122,7 +122,7 @@ public class SceneLoadManager : MonoSingleton<SceneLoadManager>
     /// <summary>
     /// 게임 시작 시, 첫 Scene 초기화
     /// </summary>
-    private async UniTaskVoid InitializeCurrentActiveScene()
+    private async UniTask InitializeCurrentActiveScene()
     {
         var sceneIndex = SceneManager.GetActiveScene().buildIndex;
         if (scenes.TryGetValue((SceneType)sceneIndex, out var scene))

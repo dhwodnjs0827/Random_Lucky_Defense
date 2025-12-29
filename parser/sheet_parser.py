@@ -76,7 +76,7 @@ def parse_sheet(worksheet):
 
 def parse_value(value, value_type):
     """값을 타입에 맞게 변환"""
-    if value == '' or value == 'None':
+    if value == '':
         return None
 
     if value_type == 'int':

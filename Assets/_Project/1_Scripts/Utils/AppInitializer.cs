@@ -1,4 +1,7 @@
+using System;
+using Cysharp.Threading.Tasks;
 using UnityEngine;
+using Object = UnityEngine.Object;
 
 /// <summary>
 /// Application 초기화 클래스
@@ -34,6 +37,25 @@ public static class AppInitializer
     [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterSceneLoad)]
     private static void InitializeAfterSceneLoad()
     {
-        SceneLoadManager.Instance.Initialize();
+        InitializeAsync().Forget();
+    }
+
+    /// <summary>
+    /// 초기 필수 Manager 초기화
+    /// </summary>
+    private static async UniTask InitializeAsync()
+    {
+        try
+        {
+            await ResourceManager.Instance.InitializeAsync();
+            await AudioManager.Instance.InitializeAsync();
+            await UIManager.Instance.InitializeAsync();
+            await SceneLoadManager.Instance.InitializeAsync();
+        }
+        catch (Exception e)
+        {
+            CDebug.LogException(e);
+            Application.Quit();
+        }
     }
 }
