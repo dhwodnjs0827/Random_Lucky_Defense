@@ -88,5 +88,14 @@
     "AttackPower": 49.0,
     "AttackRange": 0.0,
     "AttackSpeed": 5.0
+  },
+  {
+    "ID": 20010,
+    "Name": "트롤",
+    "EnemyType": "Normal",
+    "MonsterType": "Troll",
+    "AttackPower": 49.0,
+    "AttackRange": 0.0,
+    "AttackSpeed": 5.0
   }
 ]
