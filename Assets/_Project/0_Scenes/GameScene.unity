@@ -348,6 +348,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 446197355894425923, guid: 3d277c2c1a8624e62a8d2a62c09395f4, type: 3}
+      propertyPath: waveDatas.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 446197355894425923, guid: 3d277c2c1a8624e62a8d2a62c09395f4, type: 3}
+      propertyPath: 'waveDatas.Array.data[0]'
+      value: 
+      objectReference: {fileID: 11400000, guid: facafdb4b2f784ac3aba81e54c9efb16, type: 2}
+    - target: {fileID: 446197355894425923, guid: 3d277c2c1a8624e62a8d2a62c09395f4, type: 3}
+      propertyPath: 'waveDatas.Array.data[1]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 87d92355003cf4103a407c70a74b4fd8, type: 2}
     - target: {fileID: 3487666206399944835, guid: 3d277c2c1a8624e62a8d2a62c09395f4, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

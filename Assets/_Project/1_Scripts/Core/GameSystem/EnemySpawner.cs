@@ -4,8 +4,6 @@ using UnityEngine.Splines;
 public class EnemySpawner : MonoBehaviour
 {
     [SerializeField] private SplineContainer splineContainer;
-    [SerializeField] private BaseEnemy normalEnemy;
-    [SerializeField] private BaseEnemy bossEnemy;
     
     private ObjectPoolManager objectPoolManager;
 
@@ -21,9 +19,9 @@ public class EnemySpawner : MonoBehaviour
         objectPoolManager = ObjectPoolManager.Instance;
     }
 
-    public void Spawn()
+    public void Spawn(BaseEnemy spawnEnemy)
     {
-        var enemy = objectPoolManager.Get(normalEnemy);
+        var enemy = objectPoolManager.Get(spawnEnemy);
         enemy.transform.SetParent(transform);
         enemy.transform.position = spawnPoint;
         enemy.InitializeSpline(splineContainer);
