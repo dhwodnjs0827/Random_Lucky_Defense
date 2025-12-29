@@ -13,7 +13,7 @@ namespace Generated
         public float WaveTime; // 웨이브 시간
         public float WaveHpCoefficients; // 웨이브 체력 계수
         public float AttackSpeed; // 웨이브 이동속도 계수
-        public float WaveHpCoefficients; // 웨이브 방어력 계수
+        public float WaveDefenseCoefficients; // 웨이브 방어력 계수
     }
 }
   
