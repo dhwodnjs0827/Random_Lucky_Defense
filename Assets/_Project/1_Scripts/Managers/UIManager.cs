@@ -156,9 +156,10 @@ public class UIManager : MonoSingleton<UIManager>
     /// <summary>
     /// UI 닫기
     /// </summary>
-    public void Close<T>(T uiBase, params object[] args) where T : UIBase
+    public void Close<T>(params object[] args) where T : UIBase
     {
         var uiName = typeof(T).Name;
+        var ui = GetUI<T>();
         if (!openedUI.ContainsKey(uiName))
         {
             CDebug.LogWarning("[UIManager] 존재하지 않는 UI를 닫을려고 했습니다.");
@@ -166,15 +167,15 @@ public class UIManager : MonoSingleton<UIManager>
         }
 
         openedUI.Remove(uiName);
-        uiBase.Close(args);
+        ui.Close(args);
 
-        if (uiBase.IsDestroyOnClose)
+        if (ui.IsDestroyOnClose)
         {
-            Destroy(uiBase.gameObject);
+            Destroy(ui.gameObject);
         }
         else
         {
-            closedUI.Add(uiName, uiBase);
+            closedUI.Add(uiName, ui);
         }
     }
 
