@@ -16,6 +16,7 @@ public class EnemyWaveController : MonoBehaviour
     private readonly ReactiveProperty<WaveDataSO> currentWaveData = new();
     private readonly ReactiveProperty<float> currentWaveTime = new();
     private BaseEnemy currentSpawnEnemyPrefab;
+    private EnemyDataSO currentSpawnEnemyData;
     private int currentWaveDataIndex;
     private float spawnInterval;
     private float spawnTimer;
@@ -55,7 +56,7 @@ public class EnemyWaveController : MonoBehaviour
         spawnTimer += Time.deltaTime;
         if (spawnTimer >= spawnInterval)
         {
-            spawner.Spawn(currentSpawnEnemyPrefab);
+            spawner.Spawn(currentSpawnEnemyPrefab, currentSpawnEnemyData);
             spawnTimer = 0f;
             spawnedEnemyCount++;
             EventManager.Dispatch(GameEventType.SpawnEnemy);
@@ -68,7 +69,7 @@ public class EnemyWaveController : MonoBehaviour
     /// </summary>
     private void SpawnBossEnemy()
     {
-        spawner.Spawn(currentSpawnEnemyPrefab);
+        spawner.Spawn(currentSpawnEnemyPrefab, currentSpawnEnemyData);
         spawnTimer = 0f;
         spawnedEnemyCount++;
         EventManager.Dispatch(GameEventType.SpawnEnemy);
@@ -100,8 +101,9 @@ public class EnemyWaveController : MonoBehaviour
         currentWaveTime.Value = currentWaveData.Value.WaveTime;
         spawnInterval = currentWaveData.Value.SpawnInterval;
         spawnTimer = 0f;
-
+        
         currentSpawnEnemyPrefab = resourceManager.Load<BaseEnemy>($"Prefabs/Enemy/{currentWaveData.Value.SpawnEnemyID}");
+        currentSpawnEnemyData = resourceManager.Load<EnemyDataSO>($"Data/SO/EnemyData/{currentWaveData.Value.SpawnEnemyID}");
 
         spawn = currentWaveData.Value.WaveType == WaveType.Normal ? SpawnNormalEnemy : SpawnBossEnemy;
         

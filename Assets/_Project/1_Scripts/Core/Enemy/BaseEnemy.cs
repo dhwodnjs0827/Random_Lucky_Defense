@@ -28,6 +28,8 @@ public abstract class BaseEnemy : MonoBehaviour, IPoolable, IDetectable, IDamage
     protected EnemyDataSO enemyData;
     protected float maxHealth;
     protected float currentHealth;
+    protected float defense;
+    protected float moveSpeed;
 
     public Transform Transform => transform;
     public float MaxHealth => maxHealth;
@@ -47,20 +49,10 @@ public abstract class BaseEnemy : MonoBehaviour, IPoolable, IDetectable, IDamage
     /// <summary>
     /// 적 초기화
     /// </summary>
-    public virtual void Initialize(EnemyDataSO data)
+    public virtual void Initialize(EnemyDataSO data, SplineContainer splineContainer)
     {
-        enemyData = data;
-    }
-
-    /// <summary>
-    /// 적이 이동할 Spline 경로 SplineAnimate에 할당
-    /// </summary>
-    public void InitializeSpline(SplineContainer splineContainer)
-    {
-        if (splineAnimate != null && splineAnimate.Container == null)
-        {
-            splineAnimate.Container = splineContainer;
-        }
+        InitializeSpline(splineContainer);
+        InitializeEnemyData(data);
     }
 
     /// <summary>
@@ -84,12 +76,14 @@ public abstract class BaseEnemy : MonoBehaviour, IPoolable, IDetectable, IDamage
 
         splineAnimate.Alignment = SplineAnimate.AlignmentMode.None;
         splineAnimate.AnimationMethod = SplineAnimate.Method.Speed; // Time과 Speed 중 Speed로 설정
-        //TODO: EnemyData 기반으로 이동속도 설정으로 변경
-        splineAnimate.MaxSpeed = 5f; // 이동속도 설정
+        splineAnimate.MaxSpeed = moveSpeed; // 이동속도 설정
         splineAnimate.Loop = SplineAnimate.LoopMode.Loop; // 경로 이동 Loop 설정
         splineAnimate.PlayOnAwake = false; // 생성 시, 바로 이동 안하게 설정
     }
 
+    /// <summary>
+    /// 자식의 SpriteRender 및 Color 저장
+    /// </summary>
     private void InitializeSpriteRenderer()
     {
         if (rootEnemyObject != null)
@@ -101,6 +95,30 @@ public abstract class BaseEnemy : MonoBehaviour, IPoolable, IDetectable, IDamage
                 originalColors[i] = spriteRenderers[i].color;
             }
         }
+    }
+    
+    /// <summary>
+    /// 적이 이동할 Spline 경로 SplineAnimate에 할당
+    /// </summary>
+    private void InitializeSpline(SplineContainer splineContainer)
+    {
+        if (splineAnimate != null && splineAnimate.Container == null)
+        {
+            splineAnimate.Container = splineContainer;
+        }
+    }
+
+    /// <summary>
+    /// 적 데이터 초기화
+    /// </summary>
+    private void InitializeEnemyData(EnemyDataSO data)
+    {
+        enemyData = data;
+        maxHealth = data.Health;
+        currentHealth = maxHealth;
+        moveSpeed = data.MoveSpeed;
+        splineAnimate.MaxSpeed = moveSpeed;
+        defense = data.Defense;
     }
 
     /// <summary>

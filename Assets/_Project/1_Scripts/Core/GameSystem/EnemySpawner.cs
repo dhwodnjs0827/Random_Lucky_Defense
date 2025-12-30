@@ -1,3 +1,4 @@
+using Generated;
 using UnityEngine;
 using UnityEngine.Splines;
 
@@ -23,12 +24,13 @@ public class EnemySpawner : MonoBehaviour
     /// 적 생성 및 초기화
     /// </summary>
     /// <param name="spawnEnemy">생성할 적 Prefab</param>
-    public void Spawn(BaseEnemy spawnEnemy)
+    /// <param name="spawnEnemyData">생성할 적 데이터</param>
+    public void Spawn(BaseEnemy spawnEnemy, EnemyDataSO spawnEnemyData)
     {
         var enemy = objectPoolManager.Get(spawnEnemy);
         enemy.transform.SetParent(transform);
         enemy.transform.position = spawnPoint;
-        enemy.InitializeSpline(splineContainer);
+        enemy.Initialize(spawnEnemyData, splineContainer);
         enemy.StartMove();
     }
 
