@@ -55,6 +55,10 @@ public class HeroAttackState : BaseHeroState
         {
             //TODO: 투사체 생성
             hero.Animator.SetTrigger(AttackAnimParam);
+            if (targetEnemy.TryGetComponent<IDamageable>(out var damageable))
+            {
+                damageable.TakeDamage();
+            }
             CDebug.Log($"[AttackState] {targetEnemy.GetInstanceID()} 타겟팅 공격!");
             attackCooldown = 0f;
         }

@@ -1,3 +1,6 @@
+using System;
+using System.Threading;
+using Cysharp.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.Splines;
 
@@ -9,9 +12,14 @@ public abstract class BaseEnemy : MonoBehaviour, IPoolable, IDetectable, IDamage
 {
     private static readonly int EnemyMoveAnimParam = Animator.StringToHash("1_Move");
 
+    [SerializeField] private GameObject rootEnemyObject;
     [SerializeField] private SplineAnimate splineAnimate;
     [SerializeField] private Collider2D enemyCollider;
     [SerializeField] private Animator animator;
+
+    private SpriteRenderer[] spriteRenderers;
+    private Color[] originalColors;
+    private CancellationTokenSource flashCts;
 
     private Vector3 previousPosition;
     private const float FLIP_THRESHOLD = 0.01f;
@@ -20,6 +28,7 @@ public abstract class BaseEnemy : MonoBehaviour, IPoolable, IDetectable, IDamage
 
     private void Awake()
     {
+        InitializeSpriteRenderer();
         SetSplineAnimateComponent();
     }
 
@@ -71,6 +80,19 @@ public abstract class BaseEnemy : MonoBehaviour, IPoolable, IDetectable, IDamage
         splineAnimate.PlayOnAwake = false; // 생성 시, 바로 이동 안하게 설정
     }
 
+    private void InitializeSpriteRenderer()
+    {
+        if (rootEnemyObject != null)
+        {
+            spriteRenderers = rootEnemyObject.GetComponentsInChildren<SpriteRenderer>();
+            originalColors = new Color[spriteRenderers.Length];
+            for (int i = 0; i < spriteRenderers.Length; i++)
+            {
+                originalColors[i] = spriteRenderers[i].color;
+            }
+        }
+    }
+
     /// <summary>
     /// 적 이동 방향에 맞게 Flip 설정
     /// </summary>
@@ -110,6 +132,36 @@ public abstract class BaseEnemy : MonoBehaviour, IPoolable, IDetectable, IDamage
 
     public void HitEffect()
     {
-        
+        HitFlash().Forget();
+    }
+
+    private async UniTask HitFlash()
+    {
+        // 기존 플래시 취소
+        flashCts?.Cancel();
+        flashCts?.Dispose();
+        flashCts = new CancellationTokenSource();
+        var token = flashCts.Token;
+
+        // 빨간색으로 변경
+        foreach (var spriteRenderer in spriteRenderers)
+        {
+            spriteRenderer.color = Color.red;
+        }
+
+        try
+        {
+            await UniTask.Delay(100, cancellationToken: token);
+        }
+        catch (OperationCanceledException)
+        {
+            return; // 취소되면 복구하지 않음 (새 플래시가 처리)
+        }
+
+        // 원래 색상으로 복구
+        for (int i = 0; i < spriteRenderers.Length; i++)
+        {
+            spriteRenderers[i].color = originalColors[i];
+        }
     }
 }

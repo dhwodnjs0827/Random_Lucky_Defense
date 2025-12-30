@@ -47,6 +47,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69512642313364c20a9282e1666da4a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NormalEnemy
+  rootEnemyObject: {fileID: 3037978967858453893}
   splineAnimate: {fileID: -5592938821451159748}
   enemyCollider: {fileID: 8919460850337081436}
   animator: {fileID: 620063064110228488}
@@ -224,5 +225,10 @@ RectTransform:
 --- !u!95 &620063064110228488 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 3109155830071581307, guid: 4860fb53577ae4b15b1d7289d7fb4fc8, type: 3}
+  m_PrefabInstance: {fileID: 2575804808281800307}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &3037978967858453893 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 690749578884850678, guid: 4860fb53577ae4b15b1d7289d7fb4fc8, type: 3}
   m_PrefabInstance: {fileID: 2575804808281800307}
   m_PrefabAsset: {fileID: 0}

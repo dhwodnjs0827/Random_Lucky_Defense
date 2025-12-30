@@ -47,6 +47,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ab87d7be31fc4a71a4b1da645b20135, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BossEnemy
+  rootEnemyObject: {fileID: 4620428161402243227}
   splineAnimate: {fileID: 8678669102888184078}
   enemyCollider: {fileID: 7722003596406119402}
   animator: {fileID: 4338755256544215116}
@@ -223,6 +224,11 @@ PrefabInstance:
 --- !u!95 &4338755256544215116 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 5434053217048489797, guid: a91c832e138a54b38acbd3fd635beb82, type: 3}
+  m_PrefabInstance: {fileID: 8601867003907747593}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &4620428161402243227 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3981453211403069330, guid: a91c832e138a54b38acbd3fd635beb82, type: 3}
   m_PrefabInstance: {fileID: 8601867003907747593}
   m_PrefabAsset: {fileID: 0}
 --- !u!224 &4767500449059120445 stripped
