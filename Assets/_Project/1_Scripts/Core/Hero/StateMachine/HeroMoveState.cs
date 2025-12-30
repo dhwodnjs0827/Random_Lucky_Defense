@@ -19,7 +19,6 @@ public class HeroMoveState : BaseHeroState
 
     public override void Execute()
     {
-        CDebug.Log("[HeroMoveState] 이동 상태");
         Move();
         Flip();
     }

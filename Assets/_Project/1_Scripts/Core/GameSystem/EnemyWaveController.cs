@@ -102,6 +102,5 @@ public class EnemyWaveController : MonoBehaviour
         
         currentWaveDataIndex++;
         EventManager.Dispatch(GameEventType.WaveStart);
-        CDebug.Log($"[EnemyWaveController] {currentWaveData.Value.WaveIndex}번째 웨이브 시작");
     }
 }

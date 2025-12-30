@@ -15,7 +15,6 @@ public class HeroIdleState : BaseHeroState
 
     public override void Execute()
     {
-        CDebug.Log("[HeroIdleState] 기본 상태");
         FindTarget();
     }
 

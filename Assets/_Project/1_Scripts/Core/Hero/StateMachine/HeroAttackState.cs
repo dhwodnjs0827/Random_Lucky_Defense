@@ -18,10 +18,10 @@ public class HeroAttackState : BaseHeroState
 
     public override void Execute()
     {
-        CDebug.Log("[HeroAttackState] 공격 상태");
         attackCooldown += Time.deltaTime;
         if (IsTargetValidity())
         {
+            LookAtTarget();
             Attack();
         }
     }
@@ -45,7 +45,7 @@ public class HeroAttackState : BaseHeroState
         {
             //TODO: 투사체 생성
             hero.Animator.SetTrigger(AttackAnimParam);
-            CDebug.Log("[AttackState] 투사체 공격");
+            CDebug.Log($"[AttackState] {targetEnemy.GetInstanceID()} 타겟팅 공격!");
             attackCooldown = 0f;
         }
     }
@@ -66,5 +66,18 @@ public class HeroAttackState : BaseHeroState
         }
 
         return true;
+    }
+
+    private void LookAtTarget()
+    {
+        var direction = (targetEnemy.transform.position - hero.transform.position).normalized;
+        if (direction.x < 0)
+        {
+            hero.transform.rotation = Quaternion.Euler(0f, 0f, 0f);
+        }
+        else if(direction.x > 0)
+        {
+            hero.transform.rotation = Quaternion.Euler(0f, 180f, 0f);
+        }
     }
 }
