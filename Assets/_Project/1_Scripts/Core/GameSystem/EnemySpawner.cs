@@ -26,7 +26,6 @@ public class EnemySpawner : MonoBehaviour
         enemy.transform.position = spawnPoint;
         enemy.InitializeSpline(splineContainer);
         enemy.StartMove();
-        CDebug.Log("[EnemySpawner] 몬스터 스폰!");
     }
 
     private void Initialize()

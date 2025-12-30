@@ -87,7 +87,6 @@ public class EnemyWaveController : MonoBehaviour
 
         if (currentWaveDataIndex >= waveDatas.Length)
         {
-            CDebug.Log("[EnemyWaveController] 더 이상 다음 WaveData가 없습니다!");
             return;
         }
         

@@ -26,6 +26,8 @@ public static class AppInitializer
             var audioManager = Object.Instantiate(audioManagerPrefab);
             audioManager.name = "AudioManager";
         }
+        
+        InitializeAsync().Forget();
     }
     
     /// <summary>
@@ -37,7 +39,7 @@ public static class AppInitializer
     [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterSceneLoad)]
     private static void InitializeAfterSceneLoad()
     {
-        InitializeAsync().Forget();
+        
     }
 
     /// <summary>

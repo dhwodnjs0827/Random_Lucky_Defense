@@ -99,7 +99,6 @@ public class HUDUI : UIBase, IEventListener
     private void OnClickSpawnButton()
     {
         EventManager.Dispatch(GameEventType.SpawnHero);
-        CDebug.Log("[HUDUI] 영웅 소환 버튼 클릭");
     }
 
     private void OnClickMagicianLevelUpButton()

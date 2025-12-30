@@ -46,7 +46,5 @@ public class HeroSpawner : MonoBehaviour, IEventListener
 
         // 클래스에 맞는 영역으로 배치
         areaController.PlaceHero(hero);
-
-        CDebug.Log("[HeroSpawner] 영웅 소환!");
     }
 }
