@@ -5,24 +5,24 @@ using UnityEngine.Splines;
 /// 모든 Enemy의 부모 클래스
 /// </summary>
 [RequireComponent(typeof(SplineAnimate))]
-public abstract class BaseEnemy : MonoBehaviour, IPoolable, IDetectable
+public abstract class BaseEnemy : MonoBehaviour, IPoolable, IDetectable, IDamageable
 {
     private static readonly int EnemyMoveAnimParam = Animator.StringToHash("1_Move");
-    
+
     [SerializeField] private SplineAnimate splineAnimate;
     [SerializeField] private Collider2D enemyCollider;
     [SerializeField] private Animator animator;
 
     private Vector3 previousPosition;
     private const float FLIP_THRESHOLD = 0.01f;
-    
+
     public Transform Transform => transform;
 
     private void Awake()
     {
         SetSplineAnimateComponent();
     }
-    
+
     private void Update()
     {
         UpdateFlip();
@@ -100,5 +100,16 @@ public abstract class BaseEnemy : MonoBehaviour, IPoolable, IDetectable
     public void OnRelease()
     {
         splineAnimate.Pause();
+    }
+
+    public void TakeDamage()
+    {
+        HitEffect();
+        CDebug.Log("[BaseEnemy] 피격 받음!");
+    }
+
+    public void HitEffect()
+    {
+        
     }
 }

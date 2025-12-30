@@ -1,0 +1,15 @@
+/// <summary>
+/// 데미지 처리 인터페이스
+/// </summary>
+public interface IDamageable
+{
+    /// <summary>
+    /// 데미지 처리
+    /// </summary>
+    public void TakeDamage();
+
+    /// <summary>
+    /// 피격 이펙트
+    /// </summary>
+    public void HitEffect();
+}
