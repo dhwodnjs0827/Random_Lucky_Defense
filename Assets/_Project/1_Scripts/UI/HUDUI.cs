@@ -2,6 +2,10 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// 인게임 UI
+/// <para>영웅 소환/판매/교환 등</para>>
+/// </summary>
 public class HUDUI : UIBase, IEventListener
 {
     private int spawnedEnemyCount;

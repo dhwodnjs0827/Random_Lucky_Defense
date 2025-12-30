@@ -32,13 +32,4 @@ public static class EnumExtensions
         int index = Array.IndexOf(values, value);
         return values[(index - 1 + values.Length) % values.Length];
     }
-
-    /// <summary>
-    /// 랜덤 Enum 값 반환
-    /// </summary>
-    public static T GetRandom<T>() where T : Enum
-    {
-        var values = (T[])Enum.GetValues(typeof(T));
-        return values[UnityEngine.Random.Range(0, values.Length)];
-    }
 }

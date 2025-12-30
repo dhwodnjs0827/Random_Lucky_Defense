@@ -2,6 +2,9 @@ using System.Collections.Generic;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
 
+/// <summary>
+/// UI 관리 매니저 클래스
+/// </summary>
 public class UIManager : MonoSingleton<UIManager>
 {
     private ResourceManager resourceManager;

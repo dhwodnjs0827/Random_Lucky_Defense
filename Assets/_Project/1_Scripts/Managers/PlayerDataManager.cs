@@ -17,6 +17,9 @@ public class PlayerDataManager : Singleton<PlayerDataManager>
         InitializeSelectedHeroes();
     }
 
+    /// <summary>
+    /// 선택 영웅 데이터 저장
+    /// </summary>
     public void SaveSelectedHeroData(SelectedHeroData selectedHeroData)
     {
         if (selectedHeroes.TryGetValue(selectedHeroData.HeroClassType,
@@ -26,6 +29,9 @@ public class PlayerDataManager : Singleton<PlayerDataManager>
         }
     }
 
+    /// <summary>
+    /// 초기 선택 영웅 데이터 초기화
+    /// </summary>
     private void InitializeSelectedHeroes()
     {
         var initialGameConfig = Resources.Load<InitialGameConfig>("Data/SO/InitialGameConfig");

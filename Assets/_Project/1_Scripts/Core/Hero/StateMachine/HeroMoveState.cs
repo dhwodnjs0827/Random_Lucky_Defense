@@ -1,5 +1,8 @@
 using UnityEngine;
 
+/// <summary>
+/// 영웅의 이동 상태
+/// </summary>
 public class HeroMoveState : BaseHeroState
 {
     private static readonly int MoveAnimParam = Animator.StringToHash("1_Move");
@@ -33,6 +36,9 @@ public class HeroMoveState : BaseHeroState
         targetPosition = position;
     }
 
+    /// <summary>
+    /// 영웅 이동
+    /// </summary>
     private void Move()
     {
         //TODO: 임시 이동속도 5
@@ -44,6 +50,9 @@ public class HeroMoveState : BaseHeroState
         }
     }
 
+    /// <summary>
+    /// 이동 방향으로 Flip
+    /// </summary>
     private void Flip()
     {
         var currentPosition = hero.transform.position;

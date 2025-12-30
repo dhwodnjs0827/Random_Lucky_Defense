@@ -2,9 +2,13 @@ using Generated;
 using UniRx;
 using UnityEngine;
 
+/// <summary>
+/// WaveData 기반 적 웨이브 관리
+/// </summary>
 public class EnemyWaveController : MonoBehaviour
 {
     [SerializeField] private EnemySpawner spawner;
+    //TODO: 나중에 외부에서 WaveData 할당으로 변경
     [SerializeField] private WaveDataSO[] waveDatas;
 
     private ResourceManager resourceManager;
@@ -17,20 +21,17 @@ public class EnemyWaveController : MonoBehaviour
     private float spawnTimer;
     
     private int spawnedEnemyCount;
+    
+    private delegate void SpawnMethod();
+    private SpawnMethod spawn;
 
     public IReadOnlyReactiveProperty<WaveDataSO> CurrentWaveData => currentWaveData;
     public IReadOnlyReactiveProperty<float> CurrentWaveTime => currentWaveTime;
 
-    private delegate void SpawnMethod();
-    private SpawnMethod spawn;
-
-    private void Awake()
-    {
-        resourceManager = ResourceManager.Instance;
-    }
-
     private void Start()
     {
+        resourceManager = ResourceManager.Instance;
+        // 첫 웨이브 설정
         SetWaveData();
         UIManager.Instance.Open<WaveInfoUI>(this);
     }
@@ -40,6 +41,7 @@ public class EnemyWaveController : MonoBehaviour
         currentWaveTime.Value -= Time.deltaTime;
         if (currentWaveTime.Value <= 0)
         {
+            // 다음 웨이브 설정
             SetWaveData();
         }
         spawn?.Invoke();
@@ -71,6 +73,8 @@ public class EnemyWaveController : MonoBehaviour
         spawnedEnemyCount++;
         EventManager.Dispatch(GameEventType.SpawnEnemy);
         EventManager.Dispatch(GameEventType.SpawnBossEnemy);
+        
+        // 한 번만 스폰되게 null처리
         spawn = null;
     }
 
@@ -85,6 +89,7 @@ public class EnemyWaveController : MonoBehaviour
             return;
         }
 
+        // 마지막 웨이브일 경우
         if (currentWaveDataIndex >= waveDatas.Length)
         {
             return;

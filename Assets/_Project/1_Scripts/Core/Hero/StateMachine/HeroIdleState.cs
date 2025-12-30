@@ -1,5 +1,8 @@
 using UnityEngine;
 
+/// <summary>
+/// 영웅의 기본 상태
+/// </summary>
 public class HeroIdleState : BaseHeroState
 {
     private readonly int enemyLayerMask;
@@ -22,6 +25,9 @@ public class HeroIdleState : BaseHeroState
     {
     }
 
+    /// <summary>
+    /// 공격 범위 내 타겟 찾기
+    /// </summary>
     private void FindTarget()
     {
         var hits = Physics2D.OverlapCircleAll(hero.transform.position, hero.AttackRange, enemyLayerMask);

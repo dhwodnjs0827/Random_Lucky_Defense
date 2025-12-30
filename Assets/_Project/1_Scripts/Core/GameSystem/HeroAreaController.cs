@@ -65,7 +65,7 @@ public class HeroAreaController : MonoBehaviour
             }
         }
         
-        // Fallback
+        // 모든 영역에 영웅 존재하지 않으면 Fallback
         PlaceHeroFallback(hero);
     }
 
@@ -104,6 +104,7 @@ public class HeroAreaController : MonoBehaviour
             return;
         }
 
+        // 터치/클릭 시작
         if (pointer.press.wasPressedThisFrame)
         {
             var worldPos = GetWorldPosition(pointer.position.ReadValue());
@@ -114,10 +115,12 @@ public class HeroAreaController : MonoBehaviour
                 OnPointerDown(hitArea);
             }
         }
+        // 터치/클릭 드래그
         else if (pointer.press.isPressed && isDragging)
         {
             OnPointerDrag(pointer.position.ReadValue());
         }
+        // 터치/클릭 끝
         else if (pointer.press.wasReleasedThisFrame && isDragging)
         {
             var worldPos = GetWorldPosition(pointer.position.ReadValue());
@@ -191,6 +194,9 @@ public class HeroAreaController : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// 화면 좌표를 월드 좌표로 변환
+    /// </summary>
     private Vector2 GetWorldPosition(Vector2 screenPosition)
     {
         var worldPos = mainCamera.ScreenToWorldPoint(screenPosition);

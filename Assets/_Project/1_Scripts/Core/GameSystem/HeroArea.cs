@@ -4,19 +4,17 @@ using UnityEditor;
 using UnityEngine;
 
 /// <summary>
-/// 개별 삼각형 영역
+/// 영웅이 위치할 개별 삼각형 영역
 /// </summary>
 public class HeroArea : MonoBehaviour
 {
     [SerializeField] private HeroAreaType areaType;
     private SpriteRenderer highlightRenderer;
 
-    [Header("영역 설정")]
-    [SerializeField] private Transform[] triAreaPoints;
+    [Header("영역 설정")] [SerializeField] private Transform[] triAreaPoints;
     [SerializeField] private Transform[] rectAreaPoints;
-    
-    [Header("등급별 위치 설정")]
-    [SerializeField] private GradePosition[] gradePositions;
+
+    [Header("등급별 위치 설정")] [SerializeField] private GradePosition[] gradePositions;
 
     private List<BaseHero> heroes = new();
     private bool isHighlighted = false;
@@ -72,6 +70,9 @@ public class HeroArea : MonoBehaviour
         return removedHeroes;
     }
 
+    /// <summary>
+    /// 터치 지점이 영역 내부인지 검사 (삼각형 + 직사각형 영역)
+    /// </summary>
     public bool ContainsPointInArea(Vector2 worldPoint)
     {
         // 삼각형 검사
@@ -89,6 +90,9 @@ public class HeroArea : MonoBehaviour
         return false;
     }
 
+    /// <summary>
+    /// 터치 지점이 영역 내부인지 검사 (삼각형 영역)
+    /// </summary>
     private bool IsPointInTriangle(Vector2 worldPoint)
     {
         if (triAreaPoints == null || triAreaPoints.Length < 3) return false;
@@ -100,6 +104,9 @@ public class HeroArea : MonoBehaviour
         return IsPointInArea(worldPoint, p0, p1, p2);
     }
 
+    /// <summary>
+    /// 터치 지점이 영역 내부인지 검사 (직사각형 영역)
+    /// </summary>
     private bool IsPointInRectangle(Vector2 worldPoint)
     {
         if (triAreaPoints == null || triAreaPoints.Length < 3) return false;
@@ -134,7 +141,7 @@ public class HeroArea : MonoBehaviour
     private void SetHeroPosition(BaseHero hero)
     {
         var targetPosition = GetRandomPosition(hero.GradeType);
-        
+
         hero.Move(targetPosition);
     }
 
@@ -174,6 +181,17 @@ public class HeroArea : MonoBehaviour
         return (point1.x - point3.x) * (point2.y - point3.y) - (point2.x - point3.x) * (point1.y - point3.y);
     }
 
+    /// <summary>
+    /// 등급별 위치 지정용
+    /// </summary>
+    [Serializable]
+    private struct GradePosition
+    {
+        public HeroGradeType grade;
+        public Transform[] transforms;
+    }
+
+#if UNITY_EDITOR
     private void OnDrawGizmos()
     {
         Gizmos.color = isHighlighted ? Color.yellow : Color.green;
@@ -208,7 +226,7 @@ public class HeroArea : MonoBehaviour
                 Gizmos.DrawSphere(point.position, 0.1f);
             }
         }
-        
+
         // 등급별 위치
         foreach (var gradePosition in gradePositions)
         {
@@ -218,11 +236,5 @@ public class HeroArea : MonoBehaviour
             Gizmos.DrawLine(gradePosition.transforms[0].position, gradePosition.transforms[1].position);
         }
     }
-    
-    [Serializable]
-    private struct GradePosition
-    {
-        public HeroGradeType grade;
-        public Transform[] transforms;
-    }
+#endif
 }

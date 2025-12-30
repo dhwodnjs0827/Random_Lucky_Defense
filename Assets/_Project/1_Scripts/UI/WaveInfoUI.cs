@@ -3,6 +3,9 @@ using UniRx;
 using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// 인게임 웨이브 정보 UI
+/// </summary>
 public class WaveInfoUI : UIBase
 {
     [SerializeField] private TextMeshProUGUI currentWaveText;

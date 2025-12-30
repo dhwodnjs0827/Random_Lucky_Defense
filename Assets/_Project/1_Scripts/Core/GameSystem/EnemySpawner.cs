@@ -19,6 +19,10 @@ public class EnemySpawner : MonoBehaviour
         objectPoolManager = ObjectPoolManager.Instance;
     }
 
+    /// <summary>
+    /// 적 생성 및 초기화
+    /// </summary>
+    /// <param name="spawnEnemy">생성할 적 Prefab</param>
     public void Spawn(BaseEnemy spawnEnemy)
     {
         var enemy = objectPoolManager.Get(spawnEnemy);
@@ -35,7 +39,8 @@ public class EnemySpawner : MonoBehaviour
             CDebug.LogError("[EnemySpawner] SplineContainer가 없습니다!");
             return;
         }
-
+        
+        // Spline 경로의 시작 지점을 SpawnPoint로 설정
         spawnPoint = splineContainer.transform.TransformPoint(splineContainer.Spline[0].Position);
     }
 }

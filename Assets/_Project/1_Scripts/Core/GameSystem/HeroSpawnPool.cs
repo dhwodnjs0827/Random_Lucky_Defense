@@ -15,10 +15,12 @@ public class HeroSpawnPool : MonoBehaviour
 
     private void Awake()
     {
+        // PlayerDataManager에서 선택한 영웅 정보 갖고오기
         heroDatas = PlayerDataManager.Instance.SelectedHeroes as Dictionary<HeroClassType, Dictionary<HeroGradeType, HeroDataSO>>;
-        InitializeClass(HeroClassType.Magician);
-        InitializeClass(HeroClassType.Archer);
-        InitializeClass(HeroClassType.Warrior);
+        
+        InitializeClassPool(HeroClassType.Magician);
+        InitializeClassPool(HeroClassType.Archer);
+        InitializeClassPool(HeroClassType.Warrior);
 
         InitializeSpawnChance();
     }
@@ -36,16 +38,20 @@ public class HeroSpawnPool : MonoBehaviour
         return hero;
     }
 
-    private void InitializeClass(HeroClassType classType)
+    /// <summary>
+    /// 사용될 영웅 Prefab 초기화 및 Pool 생성
+    /// </summary>
+    private void InitializeClassPool(HeroClassType classType)
     {
         var prefabDict = new Dictionary<HeroGradeType, BaseHero>();
-
+        
         foreach (var kvp in heroDatas[classType])
         {
             var heroData = kvp.Value;
             var prefab = ResourceManager.Instance.Load<BaseHero>($"Prefabs/Hero/{heroData.Name}");
             prefabDict.Add(kvp.Key, prefab);
             
+            // Pool 미리 생성
             ObjectPoolManager.Instance.Preload(prefab, 10, 50);
         }
         
@@ -72,7 +78,7 @@ public class HeroSpawnPool : MonoBehaviour
     }
 
     /// <summary>
-    /// 영웅 클래스 확률
+    /// 랜덤 영웅 클래스 가져오기
     /// </summary>
     private HeroClassType GetRandomClass()
     {
@@ -84,7 +90,7 @@ public class HeroSpawnPool : MonoBehaviour
     }
 
     /// <summary>
-    /// 영웅 등급 확률
+    /// 랜덤 영웅 등급 가져오기
     /// </summary>
     private HeroGradeType GetRandomGrade()
     {

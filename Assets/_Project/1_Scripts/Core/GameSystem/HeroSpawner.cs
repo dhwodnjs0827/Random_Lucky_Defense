@@ -25,6 +25,9 @@ public class HeroSpawner : MonoBehaviour, IEventListener
         EventManager.Unsubscribe(GameEventType.SpawnHero, SpawnHero);
     }
 
+    /// <summary>
+    /// 영웅 소환
+    /// </summary>
     private void SpawnHero()
     {
         if (areaController == null)

@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using Generated;
 using UnityEngine;
 
+/// <summary>
+/// 게임 초기 설정 데이터
+/// </summary>
 [CreateAssetMenu(fileName = "InitialGameConfig", menuName = "GameConfig/Initial Game Config")]
 public class InitialGameConfig : ScriptableObject
 {

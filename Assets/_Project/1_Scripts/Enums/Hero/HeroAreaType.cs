@@ -1,3 +1,6 @@
+/// <summary>
+/// 인게임 영웅 배치 영역 종류
+/// </summary>
 public enum HeroAreaType
 {
     Top,    // 위쪽 - 전사

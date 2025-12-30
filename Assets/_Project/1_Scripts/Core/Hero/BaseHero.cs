@@ -13,10 +13,10 @@ public abstract class BaseHero : MonoBehaviour, IPoolable
     protected HeroDataSO heroData; // 영웅 데이터
     protected IHeroSkill skill;
 
-    protected float attackPower;
-    protected float attackSpeed;
-    protected float attackRange;
-    protected float splashRange;
+    protected float attackPower; // 공격력
+    protected float attackSpeed; // 공격속도
+    protected float attackRange; // 공격범위
+    protected float splashRange; // 스플래쉬 범위
 
     public Animator Animator => animator;
 
@@ -29,6 +29,7 @@ public abstract class BaseHero : MonoBehaviour, IPoolable
 
     private void Awake()
     {
+        // 상태머신 초기화
         stateMachine = new HeroStateMachine(this);
         stateMachine?.ChangeState(stateMachine?.IdleState);
     }
@@ -49,12 +50,12 @@ public abstract class BaseHero : MonoBehaviour, IPoolable
         attackSpeed = heroData.AttackSpeed;
         attackRange = heroData.AttackRange / 50f;
         splashRange = heroData.SplashRange;
-        
+
         CDebug.Log($"[BaseHero] {data.ID} 데이터 초기화");
     }
 
     /// <summary>
-    /// 기본 이동
+    /// 영웅 이동
     /// </summary>
     public void Move(Vector3 position)
     {
@@ -66,9 +67,11 @@ public abstract class BaseHero : MonoBehaviour, IPoolable
 
     public abstract void OnRelease();
 
+#if UNITY_EDITOR
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, AttackRange);
     }
+#endif
 }

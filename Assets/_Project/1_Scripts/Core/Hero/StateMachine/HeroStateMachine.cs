@@ -1,3 +1,6 @@
+/// <summary>
+/// 영웅의 상태 머신 클래스
+/// </summary>
 public class HeroStateMachine
 {
     private HeroIdleState idleState;
@@ -14,13 +17,17 @@ public class HeroStateMachine
     {
         InitializeState(hero);
         
+        // IdleState로 시작
         currentState = idleState;
     }
 
-    public void ChangeState(BaseHeroState newState)
+    /// <summary>
+    /// State 전환
+    /// </summary>
+    public void ChangeState(BaseHeroState nextState)
     {
         currentState?.Exit();
-        currentState = newState;
+        currentState = nextState;
         currentState.Enter();
     }
 
@@ -29,6 +36,9 @@ public class HeroStateMachine
         currentState?.Execute();
     }
     
+    /// <summary>
+    /// HeroState 목록 초기화
+    /// </summary>
     private void InitializeState(BaseHero hero)
     {
         idleState = new HeroIdleState(hero, this);

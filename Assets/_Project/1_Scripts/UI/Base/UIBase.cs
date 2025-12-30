@@ -1,6 +1,8 @@
-using Cysharp.Threading.Tasks;
 using UnityEngine;
 
+/// <summary>
+/// 모든 UI의 기본 클래스
+/// </summary>
 public abstract class UIBase : MonoBehaviour
 {
     [Header("UI Config")]
