@@ -2,6 +2,7 @@ using System;
 using System.Threading;
 using Cysharp.Threading.Tasks;
 using Generated;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Splines;
 
@@ -13,10 +14,12 @@ public abstract class BaseEnemy : MonoBehaviour, IPoolable, IDetectable, IDamage
 {
     private static readonly int EnemyMoveAnimParam = Animator.StringToHash("1_Move");
 
+    [SerializeField] private GameObject enemyObject;
     [SerializeField] private GameObject rootEnemyObject;
     [SerializeField] private SplineAnimate splineAnimate;
     [SerializeField] private Collider2D enemyCollider;
     [SerializeField] private Animator animator;
+    [SerializeField] private TextMeshPro healthText;
 
     private SpriteRenderer[] spriteRenderers;
     private Color[] originalColors;
@@ -96,7 +99,7 @@ public abstract class BaseEnemy : MonoBehaviour, IPoolable, IDetectable, IDamage
             }
         }
     }
-    
+
     /// <summary>
     /// 적이 이동할 Spline 경로 SplineAnimate에 할당
     /// </summary>
@@ -116,6 +119,7 @@ public abstract class BaseEnemy : MonoBehaviour, IPoolable, IDetectable, IDamage
         enemyData = data;
         maxHealth = data.Health;
         currentHealth = maxHealth;
+        healthText.text = $"{currentHealth:N0}";
         moveSpeed = data.MoveSpeed;
         splineAnimate.MaxSpeed = moveSpeed;
         defense = data.Defense;
@@ -131,11 +135,11 @@ public abstract class BaseEnemy : MonoBehaviour, IPoolable, IDetectable, IDamage
 
         if (directionX > FLIP_THRESHOLD)
         {
-            transform.rotation = Quaternion.Euler(0f, 180f, 0f); // 오른쪽 방향
+            enemyObject.transform.rotation = Quaternion.Euler(0f, 180f, 0f); // 오른쪽 방향
         }
         else if (directionX < -FLIP_THRESHOLD)
         {
-            transform.rotation = Quaternion.Euler(0f, 0f, 0f); // 왼쪽 방향
+            enemyObject.transform.rotation = Quaternion.Euler(0f, 0f, 0f); // 왼쪽 방향
         }
 
         previousPosition = currentPosition;
@@ -152,10 +156,14 @@ public abstract class BaseEnemy : MonoBehaviour, IPoolable, IDetectable, IDamage
         splineAnimate.Pause();
     }
 
-    public void TakeDamage()
+    public void TakeDamage(float damage)
     {
         HitEffect();
         CDebug.Log("[BaseEnemy] 피격 받음!");
+
+        currentHealth -= damage;
+        currentHealth = Mathf.Max(currentHealth, 0f);
+        healthText.text = $"{currentHealth:N0}";
 
         if (currentHealth <= 0)
         {
@@ -197,7 +205,7 @@ public abstract class BaseEnemy : MonoBehaviour, IPoolable, IDetectable, IDamage
             spriteRenderers[i].color = originalColors[i];
         }
     }
-    
+
     public virtual void Die()
     {
         EventManager.Dispatch(GameEventType.EnemyDie);
