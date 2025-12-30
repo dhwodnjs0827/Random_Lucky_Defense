@@ -16,6 +16,6 @@ MonoBehaviour:
   Name: "\uD2B8\uB864"
   EnemyType: 1
   MonsterType: 1
-  AttackPower: 49
-  AttackRange: 0
-  AttackSpeed: 5
+  Health: 49
+  Defense: 0
+  MoveSpeed: 5
