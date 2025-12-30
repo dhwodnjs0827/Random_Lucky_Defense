@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 /// <summary>
@@ -206,6 +207,15 @@ public class HeroArea : MonoBehaviour
             {
                 Gizmos.DrawSphere(point.position, 0.1f);
             }
+        }
+        
+        // 등급별 위치
+        foreach (var gradePosition in gradePositions)
+        {
+            Gizmos.color = Color.blue;
+            Gizmos.DrawSphere(gradePosition.transforms[0].position, 0.1f);
+            Gizmos.DrawSphere(gradePosition.transforms[1].position, 0.1f);
+            Gizmos.DrawLine(gradePosition.transforms[0].position, gradePosition.transforms[1].position);
         }
     }
     
