@@ -1,6 +1,7 @@
 using System;
 using System.Threading;
 using Cysharp.Threading.Tasks;
+using Generated;
 using UnityEngine;
 using UnityEngine.Splines;
 
@@ -24,7 +25,13 @@ public abstract class BaseEnemy : MonoBehaviour, IPoolable, IDetectable, IDamage
     private Vector3 previousPosition;
     private const float FLIP_THRESHOLD = 0.01f;
 
+    protected EnemyDataSO enemyData;
+    protected float maxHealth;
+    protected float currentHealth;
+
     public Transform Transform => transform;
+    public float MaxHealth => maxHealth;
+    public float CurrentHealth => currentHealth;
 
     private void Awake()
     {
@@ -40,7 +47,10 @@ public abstract class BaseEnemy : MonoBehaviour, IPoolable, IDetectable, IDamage
     /// <summary>
     /// 적 초기화
     /// </summary>
-    public abstract void Initialize();
+    public virtual void Initialize(EnemyDataSO data)
+    {
+        enemyData = data;
+    }
 
     /// <summary>
     /// 적이 이동할 Spline 경로 SplineAnimate에 할당
@@ -128,6 +138,11 @@ public abstract class BaseEnemy : MonoBehaviour, IPoolable, IDetectable, IDamage
     {
         HitEffect();
         CDebug.Log("[BaseEnemy] 피격 받음!");
+
+        if (currentHealth <= 0)
+        {
+            Die();
+        }
     }
 
     public void HitEffect()
@@ -163,5 +178,12 @@ public abstract class BaseEnemy : MonoBehaviour, IPoolable, IDetectable, IDamage
         {
             spriteRenderers[i].color = originalColors[i];
         }
+    }
+    
+    public virtual void Die()
+    {
+        EventManager.Dispatch(GameEventType.EnemyDie);
+        ObjectPoolManager.Instance.Release(gameObject);
+        CDebug.Log("[BaseEnemy] 적 사망");
     }
 }
