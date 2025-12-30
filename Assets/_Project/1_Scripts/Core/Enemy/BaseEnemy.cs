@@ -5,7 +5,7 @@ using UnityEngine.Splines;
 /// 모든 Enemy의 부모 클래스
 /// </summary>
 [RequireComponent(typeof(SplineAnimate))]
-public abstract class BaseEnemy : MonoBehaviour, IPoolable
+public abstract class BaseEnemy : MonoBehaviour, IPoolable, IDetectable
 {
     private static readonly int EnemyMoveAnimParam = Animator.StringToHash("1_Move");
     
@@ -15,6 +15,8 @@ public abstract class BaseEnemy : MonoBehaviour, IPoolable
 
     private Vector3 previousPosition;
     private const float FLIP_THRESHOLD = 0.01f;
+    
+    public Transform Transform => transform;
 
     private void Awake()
     {

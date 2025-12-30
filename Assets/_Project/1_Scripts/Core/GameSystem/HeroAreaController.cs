@@ -61,7 +61,6 @@ public class HeroAreaController : MonoBehaviour
             if (kvp.Value.CurrentHeroClass == classType)
             {
                 kvp.Value.AddSingleHero(hero);
-                CDebug.Log($"[HeroAreaController] {hero.name}을(를) {kvp.Value.CurrentHeroClass} 영역에 배치");
                 return;
             }
         }
@@ -190,8 +189,6 @@ public class HeroAreaController : MonoBehaviour
         {
             fromArea.AddSingleHero(hero);
         }
-
-        CDebug.Log($"[HeroAreaController] {fromArea.AreaType} ↔ {toArea.AreaType} 스왑 완료");
     }
 
     private Vector2 GetWorldPosition(Vector2 screenPosition)

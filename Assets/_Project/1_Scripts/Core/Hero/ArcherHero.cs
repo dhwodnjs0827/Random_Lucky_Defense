@@ -4,10 +4,6 @@ public class ArcherHero : BaseHero
 {
     public override HeroClassType ClassType => HeroClassType.Archer;
 
-    public override void Attack(BaseEnemy target)
-    {
-    }
-
     public override void OnGet()
     {
     }

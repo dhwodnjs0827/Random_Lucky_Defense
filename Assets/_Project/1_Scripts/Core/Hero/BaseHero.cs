@@ -9,13 +9,23 @@ public abstract class BaseHero : MonoBehaviour, IPoolable
     [SerializeField] protected SPUM_Prefabs prefab;
     [SerializeField] protected Animator animator;
     protected HeroStateMachine stateMachine;
-    
+
     protected HeroDataSO heroData; // 영웅 데이터
     protected IHeroSkill skill;
 
-    public abstract HeroClassType ClassType { get; }
-    public virtual HeroGradeType GradeType => heroData.GradeType;
+    protected float attackPower;
+    protected float attackSpeed;
+    protected float attackRange;
+    protected float splashRange;
+
     public Animator Animator => animator;
+
+    public abstract HeroClassType ClassType { get; }
+    public HeroGradeType GradeType => heroData.GradeType;
+    public float AttackPower => attackPower;
+    public float AttackSpeed => attackSpeed;
+    public float AttackRange => attackRange;
+    public float SplashRange => splashRange;
 
     private void Awake()
     {
@@ -31,16 +41,17 @@ public abstract class BaseHero : MonoBehaviour, IPoolable
     /// <summary>
     /// 영웅 초기화
     /// </summary>
-    public virtual void Initialize(HeroDataSO data)
+    public void Initialize(HeroDataSO data)
     {
         heroData = data;
+
+        attackPower = heroData.AttackPower;
+        attackSpeed = heroData.AttackSpeed;
+        attackRange = heroData.AttackRange / 50f;
+        splashRange = heroData.SplashRange;
+        
         CDebug.Log($"[BaseHero] {data.ID} 데이터 초기화");
     }
-
-    /// <summary>
-    /// 기본 공격
-    /// </summary>
-    public abstract void Attack(BaseEnemy target);
 
     /// <summary>
     /// 기본 이동
@@ -50,8 +61,14 @@ public abstract class BaseHero : MonoBehaviour, IPoolable
         stateMachine?.MoveState?.SetTargetPosition(position);
         stateMachine?.ChangeState(stateMachine?.MoveState);
     }
-    
+
     public abstract void OnGet();
 
     public abstract void OnRelease();
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, AttackRange);
+    }
 }
