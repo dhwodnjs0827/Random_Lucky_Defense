@@ -5,6 +5,8 @@ public class HeroMoveState : BaseHeroState
     private static readonly int MoveAnimParam = Animator.StringToHash("1_Move");
     
     private Vector3 targetPosition;
+    private Vector3 previousPosition;
+    private const float FLIP_THRESHOLD = 0.01f;
     
     public HeroMoveState(BaseHero hero, HeroStateMachine heroStateMachine) : base(hero,  heroStateMachine)
     {
@@ -18,6 +20,7 @@ public class HeroMoveState : BaseHeroState
     public override void Execute()
     {
         Move();
+        Flip();
     }
 
     public override void Exit()
@@ -39,5 +42,22 @@ public class HeroMoveState : BaseHeroState
         {
             stateMachine.ChangeState(stateMachine.IdleState);
         }
+    }
+
+    private void Flip()
+    {
+        var currentPosition = hero.transform.position;
+        var directionX = currentPosition.x - previousPosition.x;
+
+        if (directionX > FLIP_THRESHOLD)
+        {
+            hero.transform.rotation = Quaternion.Euler(0f, 180f, 0f);
+        }
+        else if (directionX < -FLIP_THRESHOLD)
+        {
+            hero.transform.rotation = Quaternion.Euler(0f, 0f, 0f);
+        }
+
+        previousPosition = currentPosition;
     }
 }
