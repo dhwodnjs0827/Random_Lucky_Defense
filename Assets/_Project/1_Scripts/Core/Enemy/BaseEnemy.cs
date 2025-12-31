@@ -153,6 +153,10 @@ public abstract class BaseEnemy : MonoBehaviour, IPoolable, IDetectable, IDamage
 
     public void OnRelease()
     {
+        flashCts?.Cancel();
+        flashCts?.Dispose();
+        flashCts = null;
+        
         splineAnimate.Pause();
     }
 
