@@ -58,8 +58,7 @@ public class InGameUI : BaseUI
 
     private void OnClickPauseButton()
     {
-        //TODO: PauseUI 열기
-        //UIManager.Instance.Open<PauseUI>();
+        UIManager.Instance.Open<PauseUI>();
     }
 
     private void OnClickGameSpeedButton()

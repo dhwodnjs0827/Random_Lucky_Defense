@@ -178,6 +178,28 @@ public class UIManager : MonoSingleton<UIManager>
             closedUI.Add(uiName, ui);
         }
     }
+    
+    public void Close(BaseUI ui, params object[] args)
+    {
+        var uiName = ui.GetType().Name;
+        if (!openedUI.ContainsKey(uiName))
+        {
+            CDebug.LogWarning("[UIManager] 존재하지 않는 UI를 닫으려고 했습니다.");
+            return;
+        }
+
+        openedUI.Remove(uiName);
+        ui.Close(args);
+
+        if (ui.IsDestroyOnClose)
+        {
+            Destroy(ui.gameObject);
+        }
+        else
+        {
+            closedUI.Add(uiName, ui);
+        }
+    }
 
     /// <summary>
     /// 열려있는 UI 가져오기
