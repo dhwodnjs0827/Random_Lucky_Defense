@@ -13,6 +13,7 @@ public class InGameUI : UIBase
     protected override void Opened(params object[] args)
     {
         InitializeButtons();
+        gameSpeedText.text = $"x{InGameManager.Instance.CurrentGameSpeed}";
         
         if (args[0] is EnemyWaveController)
         {
@@ -63,6 +64,7 @@ public class InGameUI : UIBase
 
     private void OnClickGameSpeedButton()
     {
-        
+        InGameManager.Instance.ToggleGameSpeed();
+        gameSpeedText.text = $"x{InGameManager.Instance.CurrentGameSpeed}";
     }
 }

@@ -6,6 +6,7 @@ public class GameScene : BaseScene
 
     public override async UniTask InitializeAsync()
     {
+        await InGameManager.Instance.InitializeAsync();
         await EffectManager.Instance.InitializeAsync();
     }
 
