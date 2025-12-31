@@ -1,3 +1,4 @@
+using System.Linq;
 using Generated;
 using UniRx;
 using UnityEngine;
@@ -8,8 +9,7 @@ using UnityEngine;
 public class EnemyWaveController : MonoBehaviour, IEventListener
 {
     [SerializeField] private EnemySpawner spawner;
-    //TODO: 나중에 외부에서 WaveData 할당으로 변경
-    [SerializeField] private WaveDataSO[] waveDatas;
+    private WaveDataSO[] waveDatas;
 
     private ResourceManager resourceManager;
 
@@ -29,6 +29,13 @@ public class EnemyWaveController : MonoBehaviour, IEventListener
     public IReadOnlyReactiveProperty<WaveDataSO> CurrentWaveData => currentWaveData;
     public IReadOnlyReactiveProperty<float> CurrentWaveTime => currentWaveTime;
 
+    private void Awake()
+    {
+        resourceManager = ResourceManager.Instance;
+        //TODO: 나중에 외부에서 WaveData 할당으로 변경
+        waveDatas = resourceManager.LoadAll<WaveDataSO>("Data/SO/WaveData").OrderBy(i => i.WaveIndex).ToArray();
+    }
+
     private void OnEnable()
     {
         SubscribeEvents();
@@ -36,7 +43,6 @@ public class EnemyWaveController : MonoBehaviour, IEventListener
 
     private void Start()
     {
-        resourceManager = ResourceManager.Instance;
         // 첫 웨이브 설정
         SetWaveData();
         UIManager.Instance.Open<InGameUI>(this);
