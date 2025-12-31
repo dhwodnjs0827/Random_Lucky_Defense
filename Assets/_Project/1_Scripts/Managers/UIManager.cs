@@ -260,7 +260,7 @@ public class UIManager : MonoSingleton<UIManager>
     /// <summary>
     /// UI 정리
     /// </summary>
-    private void Cleanup()
+    public void Cleanup()
     {
         foreach (var kvp in openedUI)
         {
