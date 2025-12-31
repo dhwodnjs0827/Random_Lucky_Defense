@@ -5,7 +5,8 @@ public enum GameEventType
 {
     ApplicationStart, // 앱 시작
     GameStart, // 게임 시작
-    GameOver, // 게임 종료
+    GameVictory, // 게임 승리
+    GameOver, // 게임 패배
     ApplicationQuit, // 앱 종료
     
     WaveStart, // 웨이브 시작

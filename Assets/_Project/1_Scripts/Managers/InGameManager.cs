@@ -8,6 +8,8 @@ public class InGameManager : MonoSingleton<InGameManager>, IEventListener
 
     private readonly float[] gameSpeeds = { 1f, 1.5f, 2f };
     private int currentGameSpeedIndex;
+
+    private int spawnedEnemyCount;
     
     public float CurrentGameSpeed => gameSpeeds[currentGameSpeedIndex];
 
@@ -40,12 +42,14 @@ public class InGameManager : MonoSingleton<InGameManager>, IEventListener
 
     public void SubscribeEvents()
     {
-        EventManager.Subscribe(GameEventType.GameOver, GameOver);
+        EventManager.Subscribe(GameEventType.GameVictory, GameFinish);
+        EventManager.Subscribe(GameEventType.GameOver, GameFinish);
     }
 
     public void UnsubscribeEvents()
     {
-        EventManager.Unsubscribe(GameEventType.GameOver, GameOver);
+        EventManager.Unsubscribe(GameEventType.GameVictory, GameFinish);
+        EventManager.Unsubscribe(GameEventType.GameOver, GameFinish);
     }
 
     /// <summary>
@@ -82,12 +86,12 @@ public class InGameManager : MonoSingleton<InGameManager>, IEventListener
     }
 
     /// <summary>
-    /// 게임 오버
+    /// 게임 종료
     /// </summary>
-    private void GameOver()
+    private void GameFinish()
     {
         PauseGame();
         UIManager.Instance.Open<GameResultUI>();
-        CDebug.Log("[InGameManager] 게임 오버");
+        CDebug.Log("[InGameManager] 게임 종료");
     }
 }

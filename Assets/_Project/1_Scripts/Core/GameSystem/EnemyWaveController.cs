@@ -51,13 +51,21 @@ public class EnemyWaveController : MonoBehaviour, IEventListener
             SetWaveData();
         }
         spawn?.Invoke();
-
-        CheckWaveState();
     }
 
     private void OnDisable()
     {
         UnsubscribeEvents();
+    }
+    
+    public void SubscribeEvents()
+    {
+        EventManager.Subscribe(GameEventType.EnemyDie, DecreaseEnemyCount);
+    }
+
+    public void UnsubscribeEvents()
+    {
+        EventManager.Unsubscribe(GameEventType.EnemyDie, DecreaseEnemyCount);
     }
 
     /// <summary>
@@ -73,6 +81,8 @@ public class EnemyWaveController : MonoBehaviour, IEventListener
             spawnedEnemyCount++;
             EventManager.Dispatch(GameEventType.SpawnEnemy);
             EventManager.Dispatch(GameEventType.SpawnNormalEnemy);
+
+            CheckGameOver();
         }
     }
 
@@ -86,6 +96,8 @@ public class EnemyWaveController : MonoBehaviour, IEventListener
         spawnedEnemyCount++;
         EventManager.Dispatch(GameEventType.SpawnEnemy);
         EventManager.Dispatch(GameEventType.SpawnBossEnemy);
+
+        CheckGameOver();
         
         // 한 번만 스폰되게 null처리
         spawn = null;
@@ -122,35 +134,28 @@ public class EnemyWaveController : MonoBehaviour, IEventListener
         currentWaveDataIndex++;
         EventManager.Dispatch(GameEventType.WaveStart);
     }
-
-    private void CheckWaveState()
+    
+    private void DecreaseEnemyCount()
+    {
+        spawnedEnemyCount--;
+        CheckGameVictory();
+    }
+    
+    private void CheckGameVictory()
+    {
+        if (currentWaveDataIndex >= waveDatas.Length && spawnedEnemyCount == 0)
+        {
+            EventManager.Dispatch(GameEventType.GameVictory);
+            CDebug.Log("[EnemyWaveController] 게임 승리");
+        }
+    }
+    
+    private void CheckGameOver()
     {
         if (spawnedEnemyCount == 100)
         {
             EventManager.Dispatch(GameEventType.GameOver);
             CDebug.Log("[EnemyWaveController] 게임 오버");
-            return;
         }
-
-        if (currentWaveDataIndex >= waveDatas.Length && spawnedEnemyCount == 0)
-        {
-            EventManager.Dispatch(GameEventType.GameOver);
-            CDebug.Log("[EnemyWaveController] 게임 승리");
-        }
-    }
-
-    public void SubscribeEvents()
-    {
-        EventManager.Subscribe(GameEventType.EnemyDie, DecreaseEnemyCount);
-    }
-
-    public void UnsubscribeEvents()
-    {
-        EventManager.Unsubscribe(GameEventType.EnemyDie, DecreaseEnemyCount);
-    }
-    
-    private void DecreaseEnemyCount()
-    {
-        spawnedEnemyCount--;
     }
 }
