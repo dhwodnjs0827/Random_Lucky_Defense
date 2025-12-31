@@ -87,6 +87,7 @@ public class InGameManager : MonoSingleton<InGameManager>, IEventListener
     private void GameOver()
     {
         PauseGame();
+        UIManager.Instance.Open<GameResultUI>();
         CDebug.Log("[InGameManager] 게임 오버");
     }
 }

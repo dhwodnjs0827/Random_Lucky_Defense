@@ -5,7 +5,7 @@ using UnityEngine;
 /// <summary>
 /// WaveData 기반 적 웨이브 관리
 /// </summary>
-public class EnemyWaveController : MonoBehaviour
+public class EnemyWaveController : MonoBehaviour, IEventListener
 {
     [SerializeField] private EnemySpawner spawner;
     //TODO: 나중에 외부에서 WaveData 할당으로 변경
@@ -29,6 +29,11 @@ public class EnemyWaveController : MonoBehaviour
     public IReadOnlyReactiveProperty<WaveDataSO> CurrentWaveData => currentWaveData;
     public IReadOnlyReactiveProperty<float> CurrentWaveTime => currentWaveTime;
 
+    private void OnEnable()
+    {
+        SubscribeEvents();
+    }
+
     private void Start()
     {
         resourceManager = ResourceManager.Instance;
@@ -46,6 +51,13 @@ public class EnemyWaveController : MonoBehaviour
             SetWaveData();
         }
         spawn?.Invoke();
+
+        CheckWaveState();
+    }
+
+    private void OnDisable()
+    {
+        UnsubscribeEvents();
     }
 
     /// <summary>
@@ -109,5 +121,36 @@ public class EnemyWaveController : MonoBehaviour
         
         currentWaveDataIndex++;
         EventManager.Dispatch(GameEventType.WaveStart);
+    }
+
+    private void CheckWaveState()
+    {
+        if (spawnedEnemyCount == 100)
+        {
+            EventManager.Dispatch(GameEventType.GameOver);
+            CDebug.Log("[EnemyWaveController] 게임 오버");
+            return;
+        }
+
+        if (currentWaveDataIndex >= waveDatas.Length && spawnedEnemyCount == 0)
+        {
+            EventManager.Dispatch(GameEventType.GameOver);
+            CDebug.Log("[EnemyWaveController] 게임 승리");
+        }
+    }
+
+    public void SubscribeEvents()
+    {
+        EventManager.Subscribe(GameEventType.EnemyDie, DecreaseEnemyCount);
+    }
+
+    public void UnsubscribeEvents()
+    {
+        EventManager.Unsubscribe(GameEventType.EnemyDie, DecreaseEnemyCount);
+    }
+    
+    private void DecreaseEnemyCount()
+    {
+        spawnedEnemyCount--;
     }
 }

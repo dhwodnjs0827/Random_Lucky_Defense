@@ -53,12 +53,16 @@ public class BaseProjectile : MonoBehaviour, IPoolable
 
     private void OnArrived()
     {
+        isFired = false;
+        
         // 메인 타겟 데미지
         if (projectileData.Target?.Transform != null &&
             projectileData.Target.Transform.TryGetComponent<IDamageable>(out var damageable))
         {
             damageable.TakeDamage(projectileData.Damage);
         }
+        
+        //TODO: HitEffect 재생
 
         // 스플래시 데미지
         if (projectileData.SplashRange > 0)

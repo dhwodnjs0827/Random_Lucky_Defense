@@ -10,11 +10,11 @@ public class GameScene : BaseScene
         await EffectManager.Instance.InitializeAsync();
     }
 
-    public override UniTask CleanupAsync()
+    public override async UniTask CleanupAsync()
     {
         UIManager.Instance.Cleanup();
         ObjectPoolManager.Instance.ClearAll();
         EffectManager.Instance.ClearAll();
-        return base.CleanupAsync();
+        await base.CleanupAsync();
     }
 }
