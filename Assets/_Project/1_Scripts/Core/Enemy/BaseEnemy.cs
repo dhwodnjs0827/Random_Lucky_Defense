@@ -157,6 +157,11 @@ public abstract class BaseEnemy : MonoBehaviour, IPoolable, IDetectable, IDamage
         flashCts?.Dispose();
         flashCts = null;
         
+        for (int i = 0; i < spriteRenderers.Length; i++)
+        {
+            spriteRenderers[i].color = originalColors[i];
+        }
+        
         splineAnimate.Pause();
     }
 
