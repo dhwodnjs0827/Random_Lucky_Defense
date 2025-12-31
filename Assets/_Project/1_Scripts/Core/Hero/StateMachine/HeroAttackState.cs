@@ -66,6 +66,7 @@ public class HeroAttackState : BaseHeroState
     private void CreateProjectile()
     {
         var projectile = ObjectPoolManager.Instance.Get(projectilePrefab);
+        projectile.transform.position = hero.transform.position;
         var projectileData = new ProjectileData
         (
             targetEnemy,
@@ -74,8 +75,6 @@ public class HeroAttackState : BaseHeroState
             hero.ClassType
         );
         projectile.Initialize(projectileData);
-        projectile.transform.parent = null;
-        projectile.transform.position = hero.transform.position;
         projectile.Fire();
     }
 
