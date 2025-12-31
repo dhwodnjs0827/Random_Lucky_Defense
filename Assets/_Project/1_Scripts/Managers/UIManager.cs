@@ -11,8 +11,8 @@ public class UIManager : MonoSingleton<UIManager>
     private const string UI_RESOURCE_PATH = "UI/";
 
     private Dictionary<UIType, Canvas> canvases;
-    private Dictionary<string, UIBase> openedUI = new();
-    private Dictionary<string, UIBase> closedUI = new();
+    private Dictionary<string, BaseUI> openedUI = new();
+    private Dictionary<string, BaseUI> closedUI = new();
 
     private bool isInitialized = false;
 
@@ -38,10 +38,10 @@ public class UIManager : MonoSingleton<UIManager>
         isInitialized = true;
     }
 
-    public T Open<T>(params object[] args) where T : UIBase
+    public T Open<T>(params object[] args) where T : BaseUI
     {
         // UI가 열려있으면 해당 UI 반환
-        UIBase ui = GetUI<T>();
+        BaseUI ui = GetUI<T>();
         if (ui != null)
         {
             return (T)ui;
@@ -97,10 +97,10 @@ public class UIManager : MonoSingleton<UIManager>
     /// <summary>
     /// UI 열기 (비동기)
     /// </summary>
-    public async UniTask<T> OpenAsync<T>(params object[] args) where T : UIBase
+    public async UniTask<T> OpenAsync<T>(params object[] args) where T : BaseUI
     {
         // UI가 열려있으면 해당 UI 반환
-        UIBase ui = GetUI<T>();
+        BaseUI ui = GetUI<T>();
         if (ui != null)
         {
             return (T)ui;
@@ -156,7 +156,7 @@ public class UIManager : MonoSingleton<UIManager>
     /// <summary>
     /// UI 닫기
     /// </summary>
-    public void Close<T>(params object[] args) where T : UIBase
+    public void Close<T>(params object[] args) where T : BaseUI
     {
         var uiName = typeof(T).Name;
         var ui = GetUI<T>();
@@ -182,7 +182,7 @@ public class UIManager : MonoSingleton<UIManager>
     /// <summary>
     /// 열려있는 UI 가져오기
     /// </summary>
-    public T GetUI<T>() where T : UIBase
+    public T GetUI<T>() where T : BaseUI
     {
         openedUI.TryGetValue(typeof(T).Name, out var ui);
         return ui as T;

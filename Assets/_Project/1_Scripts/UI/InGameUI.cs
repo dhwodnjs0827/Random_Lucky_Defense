@@ -2,7 +2,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class InGameUI : UIBase
+public class InGameUI : BaseUI
 {
     [SerializeField] private Button pauseButton;
     [SerializeField] private Button gameSpeedButton;
