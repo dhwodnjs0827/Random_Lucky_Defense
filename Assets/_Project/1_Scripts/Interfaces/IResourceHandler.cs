@@ -11,6 +11,8 @@ public interface IResourceHandler
     public T Load<T>(string path) where T : Object;
     
     public UniTask<T[]> LoadAllAsync<T>(string path) where T : Object;
+    
+    public T[] LoadAll<T>(string path) where T : Object;
 
     public void Release(Object obj);
 }

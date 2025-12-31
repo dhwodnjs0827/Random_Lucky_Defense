@@ -39,6 +39,16 @@ public class AddressableHandler : IResourceHandler
         return resources.ToArray();
     }
 
+    public T[] LoadAll<T>(string path) where T : Object
+    {
+        var resources = Addressables.LoadAssetsAsync<T>(path).WaitForCompletion();;
+        if (resources == null)
+        {
+            return null;
+        }
+        return resources.ToArray();
+    }
+
     public void Release(Object obj)
     {
         Addressables.Release(obj);

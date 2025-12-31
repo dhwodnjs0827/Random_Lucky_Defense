@@ -37,6 +37,12 @@ public class ResourcesHandler : IResourceHandler
         return UniTask.FromResult(resources);
     }
 
+    public T[] LoadAll<T>(string path) where T : Object
+    {
+        var resources = Resources.LoadAll<T>(path);
+        return resources;
+    }
+
     public void Release(Object obj)
     {
         if (obj is GameObject or Component)

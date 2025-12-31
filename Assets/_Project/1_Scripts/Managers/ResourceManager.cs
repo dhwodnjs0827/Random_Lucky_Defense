@@ -106,6 +106,17 @@ public class ResourceManager : MonoSingleton<ResourceManager>, IResourceHandler
         return resources;
     }
 
+    public T[] LoadAll<T>(string path) where T : Object
+    {
+        var resources = handler.LoadAll<T>(path);
+        if (resources == null)
+        {
+            CDebug.LogError($"[ResourceManager] {path}에 리소스가 없습니다.");
+        }
+
+        return resources;
+    }
+
     /// <summary>
     /// 리소스 해제
     /// </summary>
