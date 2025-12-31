@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using Cysharp.Threading.Tasks;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 
 /// <summary>
@@ -64,7 +65,7 @@ public class SceneLoadManager : MonoSingleton<SceneLoadManager>
 
             // 2. 로딩 UI 표시
             //TODO: LoadingUI 활성화, 필요 시, Fade 연출 추가
-            // var loadingUI = await UIManager.Instance.OpenAsync<LoadingUI>();
+            var loadingUI = await UIManager.Instance.OpenAsync<LoadingUI>();
             // await FadeOut();
 
             // 3. 씬 로드
@@ -76,9 +77,29 @@ public class SceneLoadManager : MonoSingleton<SceneLoadManager>
             }
 
             operation.allowSceneActivation = false;
-            while (operation.progress < 0.9f)
+            float displayProgress = 0f;
+            float minLoadTime = 1f;  // 최소 로딩 시간
+            float elapsedTime = 0f;
+
+            // 4. 로딩 연출 (실제 진행률 + 시간 기반)
+            while (displayProgress < 1f)
             {
-                CDebug.Log($"[SceneLoadManager] 로딩 진행률: {operation.progress * 100:N0}%");
+                elapsedTime += Time.unscaledDeltaTime;
+
+                // 실제 진행률 (0.9가 최대)
+                var realProgress = operation.progress / 0.9f;
+
+                // 시간 기반 진행률
+                var timeProgress = elapsedTime / minLoadTime;
+
+                // 둘 중 작은 값 사용 (부드럽게 증가)
+                var targetProgress = Mathf.Min(realProgress, timeProgress);
+                displayProgress = Mathf.MoveTowards(displayProgress, targetProgress, Time.unscaledDeltaTime * 2f);
+
+                // UI 업데이트
+                loadingUI.UpdateProgress(displayProgress);
+                CDebug.Log($"[SceneLoadManager] 로딩: {displayProgress * 100:N0}%");
+
                 await UniTask.Yield();
             }
 
@@ -92,7 +113,7 @@ public class SceneLoadManager : MonoSingleton<SceneLoadManager>
 
             // 6. LoadingUI 닫기
             // await FadeIn();
-            // UIManager.Instance.Close<LoadingUI>(loadingUI);
+            UIManager.Instance.Close<LoadingUI>(loadingUI);
         }
         catch (Exception e)
         {
