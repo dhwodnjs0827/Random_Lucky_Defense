@@ -3,10 +3,10 @@ using UnityEngine;
 using UnityEngine.UI;
 
 /// <summary>
-/// 인게임 UI
-/// <para>영웅 소환/판매/교환 등</para>>
+/// 인게임 영웅 컨트롤 UI
+/// <para>영웅 소환/판매/교환 등</para>
 /// </summary>
-public class HUDUI : UIBase, IEventListener
+public class InGameHeroControlUIComponent : MonoBehaviour, IEventListener
 {
     private int spawnedEnemyCount;
 
@@ -22,13 +22,13 @@ public class HUDUI : UIBase, IEventListener
     [SerializeField] private Button exchangeButton;
     [SerializeField] private Button sellButton;
 
-    protected override void Opened(params object[] args)
+    private void OnEnable()
     {
         InitializeButtons();
         SubscribeEvents();
     }
 
-    protected override void Closed(params object[] args)
+    private void OnDisable()
     {
         ClearButtons();
         UnsubscribeEvents();

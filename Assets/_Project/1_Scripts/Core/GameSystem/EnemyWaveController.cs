@@ -34,7 +34,7 @@ public class EnemyWaveController : MonoBehaviour
         resourceManager = ResourceManager.Instance;
         // 첫 웨이브 설정
         SetWaveData();
-        UIManager.Instance.Open<WaveInfoUI>(this);
+        UIManager.Instance.Open<InGameUI>(this);
     }
 
     private void Update()

@@ -6,7 +6,7 @@ using UnityEngine.UI;
 /// <summary>
 /// 인게임 웨이브 정보 UI
 /// </summary>
-public class WaveInfoUI : UIBase
+public class InGameWaveInfoUIComponent : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI currentWaveText;
     [SerializeField] private TextMeshProUGUI waveTimerText;
@@ -14,16 +14,7 @@ public class WaveInfoUI : UIBase
     [SerializeField] private TextMeshProUGUI enemyTypeText;
     [SerializeField] private TextMeshProUGUI monsterTypeText;
 
-    protected override void Opened(params object[] args)
-    {
-        SubscribeEnemyController(args[0] as EnemyWaveController);
-    }
-
-    protected override void Closed(params object[] args)
-    {
-    }
-
-    private void SubscribeEnemyController(EnemyWaveController controller)
+    public void SubscribeEnemyController(EnemyWaveController controller)
     {
         controller.CurrentWaveData.Where(data => data != null)
             .Subscribe(waveData => currentWaveText.text = $"WAVE {waveData.WaveIndex}/101")
