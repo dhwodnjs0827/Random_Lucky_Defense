@@ -158,6 +158,11 @@ public abstract class BaseEnemy : MonoBehaviour, IPoolable, IDetectable, IDamage
 
     public void TakeDamage(float damage)
     {
+        if (currentHealth <= 0)
+        {
+            return;
+        }
+        
         HitEffect();
         CDebug.Log("[BaseEnemy] 피격 받음!");
 

@@ -19,7 +19,7 @@ public abstract class BaseHero : MonoBehaviour, IPoolable
     protected float splashRange; // 스플래쉬 범위
 
     public Animator Animator => animator;
-
+    
     public abstract HeroClassType ClassType { get; }
     public HeroGradeType GradeType => heroData.GradeType;
     public float AttackPower => attackPower;
@@ -49,7 +49,7 @@ public abstract class BaseHero : MonoBehaviour, IPoolable
         attackPower = heroData.AttackPower;
         attackSpeed = heroData.AttackSpeed;
         attackRange = heroData.AttackRange / 50f;
-        splashRange = heroData.SplashRange;
+        splashRange = heroData.SplashRange / 50f;
 
         CDebug.Log($"[BaseHero] {data.ID} 데이터 초기화");
     }

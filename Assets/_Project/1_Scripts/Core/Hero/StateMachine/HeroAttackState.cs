@@ -9,9 +9,12 @@ public class HeroAttackState : BaseHeroState
 
     private BaseEnemy targetEnemy;
     private float attackCooldown;
+    
+    private BaseProjectile projectilePrefab;
 
     public HeroAttackState(BaseHero hero, HeroStateMachine heroStateMachine) : base(hero, heroStateMachine)
     {
+        projectilePrefab = ResourceManager.Instance.Load<BaseProjectile>("Prefabs/Projectile/BaseProjectile");
     }
 
     public override void Enter()
@@ -21,7 +24,7 @@ public class HeroAttackState : BaseHeroState
     public override void Execute()
     {
         attackCooldown += Time.deltaTime;
-        
+
         // 타겟 유효성 검사
         if (IsTargetValidity())
         {
@@ -55,13 +58,25 @@ public class HeroAttackState : BaseHeroState
         {
             //TODO: 투사체 생성
             hero.Animator.SetTrigger(AttackAnimParam);
-            if (targetEnemy.TryGetComponent<IDamageable>(out var damageable))
-            {
-                damageable.TakeDamage(hero.AttackPower);
-            }
-            CDebug.Log($"[AttackState] {targetEnemy.GetInstanceID()} 타겟팅 공격!");
+            CreateProjectile();
             attackCooldown = 0f;
         }
+    }
+
+    private void CreateProjectile()
+    {
+        var projectile = ObjectPoolManager.Instance.Get(projectilePrefab);
+        var projectileData = new ProjectileData
+        (
+            targetEnemy,
+            hero.AttackPower,
+            hero.SplashRange,
+            hero.ClassType
+        );
+        projectile.Initialize(projectileData);
+        projectile.transform.parent = null;
+        projectile.transform.position = hero.transform.position;
+        projectile.Fire();
     }
 
     /// <summary>
@@ -95,7 +110,7 @@ public class HeroAttackState : BaseHeroState
         {
             hero.transform.rotation = Quaternion.Euler(0f, 0f, 0f); // 왼쪽
         }
-        else if(direction.x > 0)
+        else if (direction.x > 0)
         {
             hero.transform.rotation = Quaternion.Euler(0f, 180f, 0f); // 오른쪽
         }

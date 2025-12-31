@@ -4,88 +4,116 @@ public class BaseProjectile : MonoBehaviour, IPoolable
 {
     [SerializeField] protected ParticleSystem projectileParticles;
     [SerializeField] private Rigidbody2D rb;
-    
-    private ProjectileData projectileData;
-    private readonly float speed = 5f;
-    private bool isFireTrigger;
+    [SerializeField] private float arrivalThreshold = 0.1f;
+
+    protected ProjectileData projectileData;
+    private float speed = 10f;
+    private bool isFired;
     private Vector3 lastTargetPosition;
 
     private void FixedUpdate()
     {
-        if (!isFireTrigger)
-        {
-            return;
-        }
+        if (!isFired) return;
 
         FlyToTarget();
-    }
-
-    private void OnCollisionEnter2D(Collision2D other)
-    {
-        if (!other.gameObject.CompareTag("Enemy"))
-        {
-            return;
-        }
-
-        if (other.gameObject.TryGetComponent<IDamageable>(out var enemy))
-        {
-            enemy.TakeDamage(projectileData.Damage);
-        }
-        
-        ObjectPoolManager.Instance.Release(gameObject);
+        CheckArrival();
     }
 
     public virtual void Initialize(ProjectileData data)
     {
         projectileData = data;
+        lastTargetPosition = data.Target?.Transform.position ?? transform.position;
     }
 
-    public void FireProjectile()
+    public void Fire()
     {
-        isFireTrigger = true;
+        isFired = true;
     }
 
     private void FlyToTarget()
     {
-        if (projectileData.Target != null)
+        // 타겟이 살아있으면 위치 갱신
+        if (projectileData.Target?.Transform != null)
         {
             lastTargetPosition = projectileData.Target.Transform.position;
         }
-        var dir = (lastTargetPosition - transform.position).normalized;
-        rb.linearVelocity = dir * speed;
 
-        if (transform.position == lastTargetPosition)
+        var direction = (lastTargetPosition - transform.position).normalized;
+        rb.linearVelocity = direction * speed;
+    }
+
+    private void CheckArrival()
+    {
+        float distance = Vector3.Distance(transform.position, lastTargetPosition);
+        if (distance <= arrivalThreshold)
         {
-            AttackTarget(projectileData.Target);
+            OnArrived();
         }
     }
 
-    private void AttackTarget(IDetectable target)
+    private void OnArrived()
     {
-        if (target != null && target.Transform.TryGetComponent<IDamageable>(out var damageable))
+        // 메인 타겟 데미지
+        if (projectileData.Target?.Transform != null &&
+            projectileData.Target.Transform.TryGetComponent<IDamageable>(out var damageable))
         {
             damageable.TakeDamage(projectileData.Damage);
         }
-        
+
+        // 스플래시 데미지
+        if (projectileData.SplashRange > 0)
+        {
+            ApplySplashDamage();
+        }
+
+        Release();
+    }
+
+    private void ApplySplashDamage()
+    {
+        var hits = Physics2D.OverlapCircleAll(transform.position, projectileData.SplashRange);
+
+        foreach (var hit in hits)
+        {
+            // 메인 타겟 제외
+            if (hit.transform == projectileData.Target?.Transform)
+                continue;
+
+            if (hit.TryGetComponent<IDamageable>(out var damageable))
+            {
+                damageable.TakeDamage(projectileData.Damage);
+            }
+        }
+    }
+
+    private void Release()
+    {
         ObjectPoolManager.Instance.Release(gameObject);
     }
 
     public virtual void OnGet()
     {
-        
+        isFired = false;
     }
 
     public virtual void OnRelease()
     {
         projectileData = default;
-        isFireTrigger = false;
+        rb.linearVelocity = Vector2.zero;
     }
+    
+#if UNITY_EDITOR
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, projectileData.SplashRange);
+    }
+#endif
 }
 
 public struct ProjectileData
 {
     public readonly IDetectable Target;
-    
     public readonly float Damage;
     public readonly float SplashRange;
     public readonly HeroClassType HeroClass;
@@ -93,7 +121,6 @@ public struct ProjectileData
     public ProjectileData(IDetectable target, float damage, float splashRange, HeroClassType heroClassType)
     {
         Target = target;
-        
         Damage = damage;
         SplashRange = splashRange;
         HeroClass = heroClassType;
