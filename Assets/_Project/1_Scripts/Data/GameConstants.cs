@@ -20,5 +20,5 @@ public static class GameConstants
     // 게임 내 초기 SP
     public const int INITIAL_HERO_SPAWN_POINT = 100;
     // 게임 내 영웅 소환 비용
-    public const int HERO_SPAWN_POINT_COST = 20;
+    public const int HERO_SPAWN_POINT_COST = 1;
 }

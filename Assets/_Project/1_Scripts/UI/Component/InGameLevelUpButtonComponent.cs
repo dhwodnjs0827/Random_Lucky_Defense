@@ -49,7 +49,7 @@ public class InGameLevelUpButtonComponent : MonoBehaviour, IEventListener
     public void SubscribeLevelUpController(InGameHeroLevelUpController controller)
     {
         levelUpController = controller;
-        levelUpController.CurrentSpawnPoint.Subscribe(sp => levelUpButton.interactable = sp >= levelUpController.LevelUpDataDict[classType][levelUpController.CurrentLevelDict[classType].Value].LevelUpCost).AddTo(this);
+        levelUpController.CurrentSpawnPoint.Subscribe(sp => levelUpButton.interactable = sp >= levelUpController.LevelUpDataDict[classType][levelUpController.CurrentLevelDict[classType].Value].LevelUpCost && heroCount.Value > 0).AddTo(this);
         levelUpController.CurrentLevelDict[classType].Subscribe(level => levelText.text = $"Lv: {level.ToString()}")
             .AddTo(this);
         levelUpController.CurrentLevelDict[classType].Subscribe(level => levelUpCostText.text = $"비용: {levelUpController.LevelUpDataDict[classType][level].LevelUpCost}")
@@ -66,9 +66,7 @@ public class InGameLevelUpButtonComponent : MonoBehaviour, IEventListener
         onSpawnedHero += IncreaseHeroCount;
         EventManager.Subscribe(GameEventType.SpawnHero, onSpawnedHero);
         
-        heroCount.Subscribe(count => levelText.text = $"Lv: {count.ToString()}").AddTo(this);
-        heroCount.Subscribe(count => levelUpButton.interactable = count > 0).AddTo(this);
-        
+        heroCount.Subscribe(count => heroCountText.text = count.ToString()).AddTo(this);
     }
 
     public void UnsubscribeEvents()
@@ -82,7 +80,6 @@ public class InGameLevelUpButtonComponent : MonoBehaviour, IEventListener
         if (data.SpawnedHero.ClassType == classType)
         {
             heroCount.Value++;
-            heroCountText.text = heroCount.ToString();
         }
     }
 }
