@@ -44,6 +44,8 @@ public class HeroSpawner : MonoBehaviour, IEventListener
             CDebug.LogWarning("[HeroSpawner] hero가 없습니다.");
             return;
         }
+        
+        EventManager.Dispatch(GameEventType.SpawnHero, new HeroSpawnEventData(hero));
 
         hero.transform.position = spawnPosition.position;
 
