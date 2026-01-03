@@ -51,8 +51,8 @@ public class InGameManager : MonoSingleton<InGameManager>, IEventListener
 
     public void UnsubscribeEvents()
     {
-        onGameFinish -= GameFinish;
         EventManager.Unsubscribe(GameEventType.GameFinish, onGameFinish);
+        onGameFinish -= GameFinish;
     }
 
     /// <summary>

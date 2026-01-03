@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class InGameLevelUpButtonComponent : MonoBehaviour, IEventListener
 {
+    [Header("영웅 클래스 설정")]
     [SerializeField] private HeroClassType classType;
 
     [Header("UI Elements")]
@@ -17,9 +18,7 @@ public class InGameLevelUpButtonComponent : MonoBehaviour, IEventListener
     [SerializeField] private TextMeshProUGUI levelUpCostText;
     
     private InGameHeroLevelUpController levelUpController;
-
-    private ReactiveProperty<int> heroCount = new();
-    
+    private readonly ReactiveProperty<int> heroCount = new();
     private Action<HeroSpawnEventData> onSpawnedHero;
 
     private void Awake()
@@ -73,8 +72,8 @@ public class InGameLevelUpButtonComponent : MonoBehaviour, IEventListener
 
     public void UnsubscribeEvents()
     {
-        onSpawnedHero -= IncreaseHeroCount;
         EventManager.Unsubscribe(GameEventType.SpawnHero, onSpawnedHero);
+        onSpawnedHero -= IncreaseHeroCount;
     }
 
     private void IncreaseHeroCount(HeroSpawnEventData data)
