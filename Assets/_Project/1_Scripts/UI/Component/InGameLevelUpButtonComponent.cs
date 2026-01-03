@@ -6,7 +6,12 @@ using UnityEngine.UI;
 public class InGameLevelUpButtonComponent : MonoBehaviour
 {
     [SerializeField] private HeroClassType classType;
+
+    [Header("UI Elements")]
     [SerializeField] private Button levelUpButton;
+    [SerializeField] private TextMeshProUGUI heroCountText;
+    [SerializeField] private TextMeshProUGUI classDamageRateText;
+    [SerializeField] private Image heroImage;
     [SerializeField] private TextMeshProUGUI levelText;
     [SerializeField] private TextMeshProUGUI levelUpCostText;
     
