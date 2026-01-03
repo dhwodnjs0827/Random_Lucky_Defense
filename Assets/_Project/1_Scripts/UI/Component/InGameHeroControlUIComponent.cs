@@ -18,9 +18,7 @@ public class InGameHeroControlUIComponent : MonoBehaviour, IEventListener
     [SerializeField] private TextMeshProUGUI spawnPointCostText;
 
     [Header("Buttons")] [SerializeField] private Button spawnButton;
-    [SerializeField] private Button magicianLevelUpButton;
-    [SerializeField] private Button archerLevelUpButton;
-    [SerializeField] private Button warriorLevelUpButton;
+    [SerializeField] private InGameLevelUpButtonComponent[] levelUpButtons;
     [SerializeField] private Button exchangeButton;
     [SerializeField] private Button sellButton;
     
@@ -29,6 +27,7 @@ public class InGameHeroControlUIComponent : MonoBehaviour, IEventListener
     private void Awake()
     {
         levelUpController = new InGameHeroLevelUpController();
+        spawnPointCostText.text = InGameHeroLevelUpController.SPAWN_POINT_COST.ToString();
     }
 
     private void OnEnable()
@@ -50,21 +49,6 @@ public class InGameHeroControlUIComponent : MonoBehaviour, IEventListener
             spawnButton.onClick.AddListener(OnClickSpawnButton);
         }
 
-        if (magicianLevelUpButton != null)
-        {
-            magicianLevelUpButton.onClick.AddListener(OnClickMagicianLevelUpButton);
-        }
-
-        if (archerLevelUpButton != null)
-        {
-            archerLevelUpButton.onClick.AddListener(OnClickArcherLevelUpButton);
-        }
-
-        if (warriorLevelUpButton != null)
-        {
-            warriorLevelUpButton.onClick.AddListener(OnClickWarriorLevelUpButton);
-        }
-
         if (exchangeButton != null)
         {
             exchangeButton.onClick.AddListener(OnClickExchangeButton);
@@ -83,21 +67,6 @@ public class InGameHeroControlUIComponent : MonoBehaviour, IEventListener
             spawnButton.onClick.RemoveAllListeners();
         }
 
-        if (magicianLevelUpButton != null)
-        {
-            magicianLevelUpButton.onClick.RemoveAllListeners();
-        }
-
-        if (archerLevelUpButton != null)
-        {
-            archerLevelUpButton.onClick.RemoveAllListeners();
-        }
-
-        if (warriorLevelUpButton != null)
-        {
-            warriorLevelUpButton.onClick.RemoveAllListeners();
-        }
-
         if (exchangeButton != null)
         {
             exchangeButton.onClick.RemoveAllListeners();
@@ -113,24 +82,6 @@ public class InGameHeroControlUIComponent : MonoBehaviour, IEventListener
     {
         EventManager.Dispatch(GameEventType.SpawnHero);
         levelUpController.OnSpawnHero();
-    }
-
-    private void OnClickMagicianLevelUpButton()
-    {
-        EventManager.Dispatch(GameEventType.LevelUpMagician);
-        levelUpController.LevelUp(HeroClassType.Magician);
-    }
-
-    private void OnClickArcherLevelUpButton()
-    {
-        EventManager.Dispatch(GameEventType.LevelUpArcher);
-        levelUpController.LevelUp(HeroClassType.Archer);
-    }
-
-    private void OnClickWarriorLevelUpButton()
-    {
-        EventManager.Dispatch(GameEventType.LevelUpWarrior);
-        levelUpController.LevelUp(HeroClassType.Warrior);
     }
 
     private void OnClickExchangeButton()
@@ -162,7 +113,17 @@ public class InGameHeroControlUIComponent : MonoBehaviour, IEventListener
     private void SubscribeLevelUpController()
     {
         levelUpController.SubscribeEvents();
+        
+        levelUpController.CurrentSpawnPoint.Subscribe(sp => spawnButton.interactable = sp >= InGameHeroLevelUpController.SPAWN_POINT_COST).AddTo(this);
         levelUpController.CurrentSpawnPoint.Subscribe(sp => currentSpawnPointText.text = $"영웅 소환 재화: {sp}").AddTo(this);
+        
+        if (levelUpButtons != null)
+        {
+            foreach (var levelUpButton in levelUpButtons)
+            {
+                levelUpButton.SubscribeLevelUpController(levelUpController);
+            }
+        }
     }
 
     private void UnsubscribeLevelUpController()

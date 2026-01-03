@@ -4,16 +4,15 @@ using UniRx;
 
 public class InGameHeroLevelUpController : IEventListener
 {
-    private const int SPAWN_POINT_COST = 20;
     private ReactiveProperty<int> currentSpawnPoint = new();
 
     private readonly Dictionary<HeroClassType, Dictionary<int, ClassLevelUpData>> levelUpDataDict = new();
-    private readonly Dictionary<HeroClassType, int> currentLevelDict = new();
+    private readonly Dictionary<HeroClassType, ReactiveProperty<int>> currentLevelDict = new();
     
+    public const int SPAWN_POINT_COST = 20;
     public IReadOnlyReactiveProperty<int> CurrentSpawnPoint => currentSpawnPoint;
-    public int CurrentMagicianLevel => currentLevelDict[HeroClassType.Magician];
-    public int CurrentArcherLevel => currentLevelDict[HeroClassType.Archer];
-    public int CurrentWarriorLevel => currentLevelDict[HeroClassType.Warrior];
+    public IDictionary<HeroClassType, Dictionary<int, ClassLevelUpData>> LevelUpDataDict => levelUpDataDict;
+    public IDictionary<HeroClassType, ReactiveProperty<int>> CurrentLevelDict => currentLevelDict;
     
     public InGameHeroLevelUpController()
     {
@@ -42,15 +41,15 @@ public class InGameHeroLevelUpController : IEventListener
     public void LevelUp(HeroClassType classType)
     {
         CDebug.Log($"[InGameHeroLevelUpController] {classType} 레벨 업");
-        currentSpawnPoint.Value -= levelUpDataDict[classType][currentLevelDict[classType]].LevelUpCost;
-        currentLevelDict[classType]++;
+        currentSpawnPoint.Value -= levelUpDataDict[classType][currentLevelDict[classType].Value].LevelUpCost;
+        currentLevelDict[classType].Value++;
     }
     
     private void InitializeLevelUpData()
     {
-        currentLevelDict.Add(HeroClassType.Magician, 1);
-        currentLevelDict.Add(HeroClassType.Archer, 1);
-        currentLevelDict.Add(HeroClassType.Warrior, 1);
+        currentLevelDict.Add(HeroClassType.Magician, new ReactiveProperty<int>(1));
+        currentLevelDict.Add(HeroClassType.Archer, new ReactiveProperty<int>(1));
+        currentLevelDict.Add(HeroClassType.Warrior, new ReactiveProperty<int>(1));
         
         var datas = ResourceManager.Instance.LoadAll<InGameLevelUpDataSO>("Data/SO/InGameLevelUpData");
         levelUpDataDict.Add(HeroClassType.Magician, new Dictionary<int, ClassLevelUpData>());
