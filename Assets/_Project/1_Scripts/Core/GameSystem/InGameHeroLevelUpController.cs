@@ -4,10 +4,10 @@ using UniRx;
 
 public class InGameHeroLevelUpController : IEventListener
 {
-    private ReactiveProperty<int> currentSpawnPoint = new();
+    private ReactiveProperty<int> currentSpawnPoint = new(); // 현재 영웅 소환 재화
 
-    private readonly Dictionary<HeroClassType, Dictionary<int, ClassLevelUpData>> levelUpDataDict = new();
-    private readonly Dictionary<HeroClassType, ReactiveProperty<int>> currentLevelDict = new();
+    private readonly Dictionary<HeroClassType, Dictionary<int, ClassLevelUpData>> levelUpDataDict = new(); // 클래스 별 레벨 업 데이터
+    private readonly Dictionary<HeroClassType, ReactiveProperty<int>> currentLevelDict = new(); // 클래스 별 현재 레벨
     
     public IReadOnlyReactiveProperty<int> CurrentSpawnPoint => currentSpawnPoint;
     public IDictionary<HeroClassType, Dictionary<int, ClassLevelUpData>> LevelUpDataDict => levelUpDataDict;
@@ -38,9 +38,9 @@ public class InGameHeroLevelUpController : IEventListener
 
     public void LevelUp(HeroClassType classType)
     {
-        CDebug.Log($"[InGameHeroLevelUpController] {classType} 레벨 업");
         currentSpawnPoint.Value -= levelUpDataDict[classType][currentLevelDict[classType].Value].LevelUpCost;
         currentLevelDict[classType].Value++;
+        CDebug.Log($"[InGameHeroLevelUpController] {classType} 레벨 업, 현재 레벨: {currentLevelDict[classType].Value}");
     }
     
     private void InitializeLevelUpData()

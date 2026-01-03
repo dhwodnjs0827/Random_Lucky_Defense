@@ -46,6 +46,7 @@ public class HeroSpawner : MonoBehaviour, IEventListener
         }
         
         EventManager.Dispatch(GameEventType.SpawnHero, new HeroSpawnEventData(hero));
+        CDebug.Log("[HeroSpawner] 영웅 소환!");
 
         hero.transform.position = spawnPosition.position;
 

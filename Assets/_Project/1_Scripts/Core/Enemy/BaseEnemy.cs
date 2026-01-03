@@ -173,7 +173,6 @@ public abstract class BaseEnemy : MonoBehaviour, IPoolable, IDetectable, IDamage
         }
         
         HitEffect();
-        CDebug.Log("[BaseEnemy] 피격 받음!");
 
         currentHealth -= damage;
         currentHealth = Mathf.Max(currentHealth, 0f);
@@ -224,6 +223,5 @@ public abstract class BaseEnemy : MonoBehaviour, IPoolable, IDetectable, IDamage
     {
         EventManager.Dispatch(GameEventType.EnemyDie);
         ObjectPoolManager.Instance.Release(gameObject);
-        CDebug.Log("[BaseEnemy] 적 사망");
     }
 }

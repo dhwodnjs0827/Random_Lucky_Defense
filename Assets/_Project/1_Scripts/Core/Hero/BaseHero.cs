@@ -50,8 +50,6 @@ public abstract class BaseHero : MonoBehaviour, IPoolable
         attackSpeed = heroData.AttackSpeed;
         attackRange = heroData.AttackRange / 50f;
         splashRange = heroData.SplashRange / 50f;
-
-        CDebug.Log($"[BaseHero] {data.ID} 데이터 초기화");
     }
 
     /// <summary>

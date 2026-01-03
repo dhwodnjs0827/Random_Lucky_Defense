@@ -98,7 +98,6 @@ public class SceneLoadManager : MonoSingleton<SceneLoadManager>
 
                 // UI 업데이트
                 loadingUI.UpdateProgress(displayProgress);
-                CDebug.Log($"[SceneLoadManager] 로딩: {displayProgress * 100:N0}%");
 
                 await UniTask.Yield();
             }
@@ -150,7 +149,6 @@ public class SceneLoadManager : MonoSingleton<SceneLoadManager>
         {
             currentScene = scene;
             await currentScene.InitializeAsync();
-            CDebug.Log($"[SceneLoadManager] 시작 씬: {currentScene.SceneType}");
         }
     }
 }

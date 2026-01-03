@@ -86,12 +86,12 @@ public class InGameHeroControlUIComponent : MonoBehaviour, IEventListener
 
     private void OnClickExchangeButton()
     {
-        CDebug.Log("[HUDUI] 영웅 교환 버튼 클릭");
+        //TODO: 영웅 교환 기능 구현 필요
     }
 
     private void OnClickSellButton()
     {
-        CDebug.Log("[HUDUI] 영웅 판매 버튼 클릭");
+        //TODO: 영웅 판매 기능 구현 필요
     }
 
     public void SubscribeEvents()

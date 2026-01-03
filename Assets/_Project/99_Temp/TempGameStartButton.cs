@@ -17,6 +17,5 @@ public class TempGameStartButton : MonoBehaviour
     private void GameStart()
     {
         SceneLoadManager.Instance.LoadSceneAsync(SceneType.GameScene).Forget();
-        CDebug.Log("[TempGameStartButton] 게임 시작");
     }
 }
