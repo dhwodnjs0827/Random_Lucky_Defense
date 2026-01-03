@@ -27,7 +27,7 @@ public class InGameHeroControlUIComponent : MonoBehaviour, IEventListener
     private void Awake()
     {
         levelUpController = new InGameHeroLevelUpController();
-        spawnPointCostText.text = GameConstants.HERO_SPAWN_POINT_COST.ToString();
+        spawnPointCostText.text = $"영웅 소환\n{GameConstants.HERO_SPAWN_POINT_COST}";
     }
 
     private void OnEnable()
