@@ -15,8 +15,7 @@ public class InGameHeroLevelUpController : IEventListener
     
     public InGameHeroLevelUpController()
     {
-        currentSpawnPoint.Value = 40;
-        
+        currentSpawnPoint.Value = GameConstants.INITIAL_HERO_SPAWN_POINT;
         InitializeLevelUpData();
     }
     

@@ -28,6 +28,7 @@ public class InGameLevelUpButtonComponent : MonoBehaviour, IEventListener
         levelUpButton.onClick.AddListener(OnClick);
         heroCount.Value = 0;
         heroCountText.text = heroCount.Value.ToString();
+        levelUpButton.interactable = false;
     }
 
     private void OnEnable()

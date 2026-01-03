@@ -65,15 +65,15 @@ public class HeroSpawnPool : MonoBehaviour
     {
         heroSpawnChance = new List<(HeroGradeType, int)>()
         {
-            { (HeroGradeType.Normal, 5000) },
-            { (HeroGradeType.Superior, 3300) },
-            { (HeroGradeType.Rare, 1020) },
-            { (HeroGradeType.Ancient, 510) },
-            { (HeroGradeType.Relic, 80) },
-            { (HeroGradeType.Legend, 50) },
-            { (HeroGradeType.Epic, 20) },
-            { (HeroGradeType.Myth, 8) },
-            { (HeroGradeType.God, 2) }
+            { (HeroGradeType.Normal, GameConstants.NORMAL_HERO_SPAWN_CHANCE) },
+            { (HeroGradeType.Superior, GameConstants.SUPERIOR_HERO_SPAWN_CHANCE) },
+            { (HeroGradeType.Rare, GameConstants.RARE_HERO_SPAWN_CHANCE) },
+            { (HeroGradeType.Ancient, GameConstants.ANCIENT_HERO_SPAWN_CHANCE) },
+            { (HeroGradeType.Relic, GameConstants.RELIC_HERO_SPAWN_CHANCE) },
+            { (HeroGradeType.Legend, GameConstants.LEGEND_HERO_SPAWN_CHANCE) },
+            { (HeroGradeType.Epic, GameConstants.EPIC_HERO_SPAWN_CHANCE) },
+            { (HeroGradeType.Myth, GameConstants.MYTH_HERO_SPAWN_CHANCE) },
+            { (HeroGradeType.God, GameConstants.GOD_HERO_SPAWN_CHANCE) }
         };
     }
 
