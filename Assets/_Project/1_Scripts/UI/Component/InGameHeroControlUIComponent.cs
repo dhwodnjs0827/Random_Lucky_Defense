@@ -1,4 +1,5 @@
 using TMPro;
+using UniRx;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,10 +11,11 @@ public class InGameHeroControlUIComponent : MonoBehaviour, IEventListener
 {
     private int spawnedEnemyCount;
 
-    [Header("UI Elements")] [SerializeField]
-    private Slider spawnedEnemyCountSlider;
-
+    [Header("UI Elements")]
+    [SerializeField] private Slider spawnedEnemyCountSlider;
     [SerializeField] private TextMeshProUGUI spawnedEnemyCountText;
+    [SerializeField] private TextMeshProUGUI currentSpawnPointText;
+    [SerializeField] private TextMeshProUGUI spawnPointCostText;
 
     [Header("Buttons")] [SerializeField] private Button spawnButton;
     [SerializeField] private Button magicianLevelUpButton;
@@ -21,6 +23,13 @@ public class InGameHeroControlUIComponent : MonoBehaviour, IEventListener
     [SerializeField] private Button warriorLevelUpButton;
     [SerializeField] private Button exchangeButton;
     [SerializeField] private Button sellButton;
+    
+    private InGameHeroLevelUpController levelUpController;
+
+    private void Awake()
+    {
+        levelUpController = new InGameHeroLevelUpController();
+    }
 
     private void OnEnable()
     {
@@ -103,21 +112,25 @@ public class InGameHeroControlUIComponent : MonoBehaviour, IEventListener
     private void OnClickSpawnButton()
     {
         EventManager.Dispatch(GameEventType.SpawnHero);
+        levelUpController.OnSpawnHero();
     }
 
     private void OnClickMagicianLevelUpButton()
     {
-        CDebug.Log("[HUDUI] 마법사 레벨 업 버튼 클릭");
+        EventManager.Dispatch(GameEventType.LevelUpMagician);
+        levelUpController.LevelUp(HeroClassType.Magician);
     }
 
     private void OnClickArcherLevelUpButton()
     {
-        CDebug.Log("[HUDUI] 궁수 레벨 업 버튼 클릭");
+        EventManager.Dispatch(GameEventType.LevelUpArcher);
+        levelUpController.LevelUp(HeroClassType.Archer);
     }
 
     private void OnClickWarriorLevelUpButton()
     {
-        CDebug.Log("[HUDUI] 전사 레벨 업 버튼 클릭");
+        EventManager.Dispatch(GameEventType.LevelUpWarrior);
+        levelUpController.LevelUp(HeroClassType.Warrior);
     }
 
     private void OnClickExchangeButton()
@@ -132,14 +145,29 @@ public class InGameHeroControlUIComponent : MonoBehaviour, IEventListener
 
     public void SubscribeEvents()
     {
+        SubscribeLevelUpController();
+        
         EventManager.Subscribe(GameEventType.SpawnEnemy, IncreaseEnemyCount);
         EventManager.Subscribe(GameEventType.EnemyDie, DecreaseEnemyCount);
     }
 
     public void UnsubscribeEvents()
     {
+        UnsubscribeLevelUpController();
+        
         EventManager.Unsubscribe(GameEventType.SpawnEnemy, IncreaseEnemyCount);
         EventManager.Unsubscribe(GameEventType.EnemyDie, DecreaseEnemyCount);
+    }
+
+    private void SubscribeLevelUpController()
+    {
+        levelUpController.SubscribeEvents();
+        levelUpController.CurrentSpawnPoint.Subscribe(sp => currentSpawnPointText.text = $"영웅 소환 재화: {sp}").AddTo(this);
+    }
+
+    private void UnsubscribeLevelUpController()
+    {
+        levelUpController.UnsubscribeEvents();
     }
 
     private void IncreaseEnemyCount()

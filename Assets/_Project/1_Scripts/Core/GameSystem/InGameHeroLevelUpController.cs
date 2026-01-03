@@ -1,44 +1,51 @@
 using System.Collections.Generic;
 using Generated;
-using UnityEngine;
+using UniRx;
 
-public class HeroController : MonoBehaviour, IEventListener
+public class InGameHeroLevelUpController : IEventListener
 {
     private const int SPAWN_POINT_COST = 20;
-    private int currentSpawnPoint = 40;
+    private ReactiveProperty<int> currentSpawnPoint = new();
 
     private readonly Dictionary<HeroClassType, Dictionary<int, ClassLevelUpData>> levelUpDataDict = new();
     private readonly Dictionary<HeroClassType, int> currentLevelDict = new();
-
-    private void Awake()
+    
+    public IReadOnlyReactiveProperty<int> CurrentSpawnPoint => currentSpawnPoint;
+    public int CurrentMagicianLevel => currentLevelDict[HeroClassType.Magician];
+    public int CurrentArcherLevel => currentLevelDict[HeroClassType.Archer];
+    public int CurrentWarriorLevel => currentLevelDict[HeroClassType.Warrior];
+    
+    public InGameHeroLevelUpController()
     {
+        currentSpawnPoint.Value = 40;
+        
         InitializeLevelUpData();
     }
-
-    private void OnEnable()
-    {
-        SubscribeEvents();
-    }
-
-    private void OnDisable()
-    {
-        UnsubscribeEvents();
-    }
-
+    
     public void SubscribeEvents()
     {
         EventManager.Subscribe(GameEventType.NormalEnemyDie, OnNormalEnemyDie);
         EventManager.Subscribe(GameEventType.BossEnemyDie, OnBossEnemyDie);
-        EventManager.Subscribe(GameEventType.SpawnHero, OnSpawnHero);
     }
 
     public void UnsubscribeEvents()
     {
         EventManager.Unsubscribe(GameEventType.NormalEnemyDie, OnNormalEnemyDie);
         EventManager.Unsubscribe(GameEventType.BossEnemyDie, OnBossEnemyDie);
-        EventManager.Unsubscribe(GameEventType.SpawnHero, OnSpawnHero);
+    }
+    
+    public void OnSpawnHero()
+    {
+        currentSpawnPoint.Value -= SPAWN_POINT_COST;
     }
 
+    public void LevelUp(HeroClassType classType)
+    {
+        CDebug.Log($"[InGameHeroLevelUpController] {classType} 레벨 업");
+        currentSpawnPoint.Value -= levelUpDataDict[classType][currentLevelDict[classType]].LevelUpCost;
+        currentLevelDict[classType]++;
+    }
+    
     private void InitializeLevelUpData()
     {
         currentLevelDict.Add(HeroClassType.Magician, 1);
@@ -56,36 +63,15 @@ public class HeroController : MonoBehaviour, IEventListener
             dict.Add(data.Level, levelUpData);
         }
     }
-
+    
     private void OnNormalEnemyDie()
     {
-        IncreaseSpawnPoint(1);
+        currentSpawnPoint.Value += 1;
     }
 
     private void OnBossEnemyDie()
     {
-        IncreaseSpawnPoint(10);
-    }
-
-    private void OnSpawnHero()
-    {
-        DecreaseSpawnPoint(SPAWN_POINT_COST);
-    }
-
-    private void IncreaseSpawnPoint(int value)
-    {
-        currentSpawnPoint += value;
-    }
-
-    private void DecreaseSpawnPoint(int value)
-    {
-        currentSpawnPoint -= value;
-    }
-
-    private void LevelUp(HeroClassType classType)
-    {
-        DecreaseSpawnPoint(levelUpDataDict[classType][currentLevelDict[classType]].LevelUpCost);
-        currentLevelDict[classType]++;
+        currentSpawnPoint.Value += 10;
     }
 }
 
@@ -100,3 +86,4 @@ public struct ClassLevelUpData
         AttackPowerMultiplier = attackPowerMultiplier;
     }
 }
+

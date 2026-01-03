@@ -12,6 +12,9 @@ public enum GameEventType
     WaveStart, // 웨이브 시작
     
     SpawnHero, // 영웅 소환
+    LevelUpMagician, // 마법사 레벨 업
+    LevelUpArcher, // 궁수 레벨 업
+    LevelUpWarrior, // 전사 레벨 업
     
     SpawnEnemy, // 적 소환
     EnemyDie, // 적 사망
