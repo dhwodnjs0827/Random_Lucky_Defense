@@ -9,3 +9,13 @@ public struct HeroSpawnEventData
         SpawnedHero = spawnedHero;
     }
 }
+
+public struct GameFinishEventData
+{
+    public bool IsGameVictory;
+
+    public GameFinishEventData(bool isGameVictory)
+    {
+        IsGameVictory = isGameVictory;
+    }
+}

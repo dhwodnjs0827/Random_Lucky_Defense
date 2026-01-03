@@ -20,14 +20,13 @@ public class InGameLevelUpButtonComponent : MonoBehaviour, IEventListener
 
     private ReactiveProperty<int> heroCount = new();
     
-    private Action<HeroSpawnEventData> heroSpawn;
+    private Action<HeroSpawnEventData> onSpawnedHero;
 
     private void Awake()
     {
         levelUpButton ??= GetComponent<Button>();
 
         levelUpButton.onClick.AddListener(OnClick);
-        heroSpawn += OnSpawnHero;
         heroCount.Value = 0;
         heroCountText.text = heroCount.Value.ToString();
     }
@@ -64,7 +63,8 @@ public class InGameLevelUpButtonComponent : MonoBehaviour, IEventListener
 
     public void SubscribeEvents()
     {
-        EventManager.Subscribe(GameEventType.SpawnHero, heroSpawn);
+        onSpawnedHero += IncreaseHeroCount;
+        EventManager.Subscribe(GameEventType.SpawnHero, onSpawnedHero);
         
         heroCount.Subscribe(count => levelText.text = $"Lv: {count.ToString()}").AddTo(this);
         heroCount.Subscribe(count => levelUpButton.interactable = count > 0).AddTo(this);
@@ -73,10 +73,11 @@ public class InGameLevelUpButtonComponent : MonoBehaviour, IEventListener
 
     public void UnsubscribeEvents()
     {
-        EventManager.Unsubscribe(GameEventType.SpawnHero, heroSpawn);
+        onSpawnedHero -= IncreaseHeroCount;
+        EventManager.Unsubscribe(GameEventType.SpawnHero, onSpawnedHero);
     }
 
-    private void OnSpawnHero(HeroSpawnEventData data)
+    private void IncreaseHeroCount(HeroSpawnEventData data)
     {
         if (data.SpawnedHero.ClassType == classType)
         {

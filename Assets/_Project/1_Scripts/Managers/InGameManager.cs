@@ -1,3 +1,4 @@
+using System;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
 
@@ -10,6 +11,8 @@ public class InGameManager : MonoSingleton<InGameManager>, IEventListener
     private int currentGameSpeedIndex;
 
     private int spawnedEnemyCount;
+    
+    private Action<GameFinishEventData> onGameFinish;
     
     public float CurrentGameSpeed => gameSpeeds[currentGameSpeedIndex];
 
@@ -42,14 +45,14 @@ public class InGameManager : MonoSingleton<InGameManager>, IEventListener
 
     public void SubscribeEvents()
     {
-        EventManager.Subscribe(GameEventType.GameVictory, GameFinish);
-        EventManager.Subscribe(GameEventType.GameOver, GameFinish);
+        onGameFinish += GameFinish;
+        EventManager.Subscribe(GameEventType.GameFinish, onGameFinish);
     }
 
     public void UnsubscribeEvents()
     {
-        EventManager.Unsubscribe(GameEventType.GameVictory, GameFinish);
-        EventManager.Unsubscribe(GameEventType.GameOver, GameFinish);
+        onGameFinish -= GameFinish;
+        EventManager.Unsubscribe(GameEventType.GameFinish, onGameFinish);
     }
 
     /// <summary>
@@ -88,10 +91,18 @@ public class InGameManager : MonoSingleton<InGameManager>, IEventListener
     /// <summary>
     /// 게임 종료
     /// </summary>
-    private void GameFinish()
+    private void GameFinish(GameFinishEventData eventData)
     {
         PauseGame();
         UIManager.Instance.Open<GameResultUI>();
         CDebug.Log("[InGameManager] 게임 종료");
+        if (eventData.IsGameVictory)
+        {
+            CDebug.Log("[InGameManager] 게임 승리");
+        }
+        else
+        {
+            CDebug.Log("[InGameManager] 게임 패배");
+        }
     }
 }

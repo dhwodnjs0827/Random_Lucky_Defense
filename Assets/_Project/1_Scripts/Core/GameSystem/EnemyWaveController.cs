@@ -151,7 +151,7 @@ public class EnemyWaveController : MonoBehaviour, IEventListener
     {
         if (currentWaveDataIndex >= waveDatas.Length && spawnedEnemyCount == 0)
         {
-            EventManager.Dispatch(GameEventType.GameVictory);
+            EventManager.Dispatch(GameEventType.GameFinish, new GameFinishEventData(false));
             CDebug.Log("[EnemyWaveController] 게임 승리");
         }
     }
@@ -160,7 +160,7 @@ public class EnemyWaveController : MonoBehaviour, IEventListener
     {
         if (spawnedEnemyCount == 100)
         {
-            EventManager.Dispatch(GameEventType.GameOver);
+            EventManager.Dispatch(GameEventType.GameFinish, new GameFinishEventData(false));
             CDebug.Log("[EnemyWaveController] 게임 오버");
         }
     }
