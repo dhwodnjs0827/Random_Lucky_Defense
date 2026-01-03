@@ -9,7 +9,6 @@ public class InGameHeroLevelUpController : IEventListener
     private readonly Dictionary<HeroClassType, Dictionary<int, ClassLevelUpData>> levelUpDataDict = new();
     private readonly Dictionary<HeroClassType, ReactiveProperty<int>> currentLevelDict = new();
     
-    public const int SPAWN_POINT_COST = 20;
     public IReadOnlyReactiveProperty<int> CurrentSpawnPoint => currentSpawnPoint;
     public IDictionary<HeroClassType, Dictionary<int, ClassLevelUpData>> LevelUpDataDict => levelUpDataDict;
     public IDictionary<HeroClassType, ReactiveProperty<int>> CurrentLevelDict => currentLevelDict;
@@ -35,7 +34,7 @@ public class InGameHeroLevelUpController : IEventListener
     
     public void OnSpawnHero()
     {
-        currentSpawnPoint.Value -= SPAWN_POINT_COST;
+        currentSpawnPoint.Value -= GameConstants.HERO_SPAWN_POINT_COST;
     }
 
     public void LevelUp(HeroClassType classType)

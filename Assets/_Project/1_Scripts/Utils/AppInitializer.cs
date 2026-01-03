@@ -8,6 +8,8 @@ using Object = UnityEngine.Object;
 /// </summary>
 public static class AppInitializer
 {
+    private const int FRAME_RATE = 60;
+    
     /// <summary>
     /// 씬 로드 전 호출되는 메서드
     /// </summary>
@@ -17,7 +19,7 @@ public static class AppInitializer
     [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
     private static void InitializeBeforeSceneLoad()
     {
-        Application.targetFrameRate = 60;
+        Application.targetFrameRate = FRAME_RATE;
         
         // Prefab에서 AudioManager 로드
         var audioManagerPrefab = Resources.Load<AudioManager>("Audio/AudioManager");

@@ -27,7 +27,7 @@ public class InGameHeroControlUIComponent : MonoBehaviour, IEventListener
     private void Awake()
     {
         levelUpController = new InGameHeroLevelUpController();
-        spawnPointCostText.text = InGameHeroLevelUpController.SPAWN_POINT_COST.ToString();
+        spawnPointCostText.text = GameConstants.HERO_SPAWN_POINT_COST.ToString();
     }
 
     private void OnEnable()
@@ -114,7 +114,7 @@ public class InGameHeroControlUIComponent : MonoBehaviour, IEventListener
     {
         levelUpController.SubscribeEvents();
         
-        levelUpController.CurrentSpawnPoint.Subscribe(sp => spawnButton.interactable = sp >= InGameHeroLevelUpController.SPAWN_POINT_COST).AddTo(this);
+        levelUpController.CurrentSpawnPoint.Subscribe(sp => spawnButton.interactable = sp >= GameConstants.HERO_SPAWN_POINT_COST).AddTo(this);
         levelUpController.CurrentSpawnPoint.Subscribe(sp => currentSpawnPointText.text = $"영웅 소환 재화: {sp}").AddTo(this);
         
         if (levelUpButtons != null)

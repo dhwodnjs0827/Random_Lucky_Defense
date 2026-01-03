@@ -9,8 +9,6 @@ public class InGameManager : MonoSingleton<InGameManager>, IEventListener
 
     private readonly float[] gameSpeeds = { 1f, 1.5f, 2f };
     private int currentGameSpeedIndex;
-
-    private int spawnedEnemyCount;
     
     private Action<GameFinishEventData> onGameFinish;
     
