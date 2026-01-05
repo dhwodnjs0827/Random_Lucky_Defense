@@ -18,4 +18,6 @@ public enum GameEventType
     NormalEnemyDie, // 일반 적 사망
     SpawnBossEnemy, // 보스 적 소환
     BossEnemyDie, // 보스 적 사망
+    
+    BuffCardSelected, // 버프 카드 선택
 }

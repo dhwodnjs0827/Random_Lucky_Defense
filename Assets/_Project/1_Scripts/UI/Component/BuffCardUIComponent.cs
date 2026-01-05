@@ -24,10 +24,16 @@ public class BuffCardUIComponent : MonoBehaviour
         currentCard = card;
         cardName.text = currentCard.Name;
         cardDescription.text = currentCard.Description;
+
+        for (var i = 0; i < levelIcons.Length; i++)
+        {
+            levelIcons[i].gameObject.SetActive(i < currentCard.CurrentLevel);
+        }
     }
 
     private void OnClickSelect()
     {
+        EventManager.Dispatch(GameEventType.BuffCardSelected, new GameBuffCardSelectEventData(currentCard));
         UIManager.Instance.Close(parentUI);
     }
 }

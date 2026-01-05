@@ -46,6 +46,7 @@ public class InGameManager : MonoSingleton<InGameManager>, IEventListener
     protected override void OnDestroy()
     {
         ResetTimeScale();
+        cardEffectFactory.UnsubscribeEvents();
         UnsubscribeEvents();
         base.OnDestroy();
     }

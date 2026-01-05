@@ -31,3 +31,13 @@ public struct GameWaveStartEventData
         CurrentWaveData = currentWaveData;
     }
 }
+
+public struct GameBuffCardSelectEventData
+{
+    public readonly BuffCardContainer SelectedCard;
+
+    public GameBuffCardSelectEventData(BuffCardContainer selectedCard)
+    {
+        SelectedCard = selectedCard;
+    }
+}

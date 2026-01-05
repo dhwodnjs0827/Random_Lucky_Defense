@@ -23,6 +23,8 @@ public static class GameConstants
     public const int HERO_SPAWN_POINT_COST = 1;
 
     // 카드 선택 등장 웨이브 배수 값
+    //TODO: 임시 값
+    //public const int CARD_SELECTION_STAGE_INTERVAL = 7;
     public const int CARD_SELECTION_STAGE_INTERVAL = 1;
     // 카드 레벨 최대치
     public const int CARD_MAX_LEVEL = 5;
