@@ -135,9 +135,7 @@ public class EnemyWaveController : MonoBehaviour, IEventListener
         
         currentWaveData =  waveDatas[currentWaveDataIndex];
         
-        //TODO: 임시 값
-        //currentWaveTime.Value = currentWaveData.WaveTime;
-        currentWaveTime.Value = 5;
+        currentWaveTime.Value = currentWaveData.WaveTime;
         spawnInterval = currentWaveData.SpawnInterval;
         spawnTimer = 0f;
         

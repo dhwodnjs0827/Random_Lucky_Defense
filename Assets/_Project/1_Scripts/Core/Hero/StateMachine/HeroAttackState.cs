@@ -57,7 +57,6 @@ public class HeroAttackState : BaseHeroState
         var attackSpeed = hero.BaseStat.AttackSpeed * hero.LevelUpStat.AttackSpeedMultiplier * hero.CardEffectStat.AttackSpeedMultiplier;
         if (attackCooldown >= attackSpeed)
         {
-            //TODO: 투사체 생성
             hero.Animator.SetTrigger(AttackAnimParam);
             CreateProjectile();
             attackCooldown = 0f;
