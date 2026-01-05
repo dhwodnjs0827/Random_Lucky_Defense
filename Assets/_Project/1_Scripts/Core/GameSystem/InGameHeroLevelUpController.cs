@@ -95,14 +95,12 @@ public class InGameHeroLevelUpController : IEventListener, IBuffCardEffect
 
     public void ApplyEffect(BuffCardContainer cardContainer)
     {
-        if (cardContainer.CardData.BuffEffectType != BuffEffectType.IncreaseSpawnPointGainRate)
+        if (cardContainer.CardData.BuffEffectType == BuffEffectType.IncreaseSpawnPointGainRate)
         {
-            return;
+            isActiveSPGainRateEffect =  true;
+            spGainInterval = cardContainer.CardLevelData.value;
+            spGainAmount = (int)cardContainer.CardLevelData.value1;
         }
-        
-        isActiveSPGainRateEffect =  true;
-        spGainInterval = cardContainer.CardLevelData.value;
-        spGainAmount = (int)cardContainer.CardLevelData.value1;
     }
 }
 
