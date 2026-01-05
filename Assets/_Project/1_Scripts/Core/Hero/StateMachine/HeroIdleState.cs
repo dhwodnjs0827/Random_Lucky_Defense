@@ -30,7 +30,7 @@ public class HeroIdleState : BaseHeroState
     /// </summary>
     private void FindTarget()
     {
-        var hits = Physics2D.OverlapCircleAll(hero.transform.position, hero.AttackRange, enemyLayerMask);
+        var hits = Physics2D.OverlapCircleAll(hero.transform.position, hero.Stat.AttackRange, enemyLayerMask);
 
         foreach (var hit in hits)
         {

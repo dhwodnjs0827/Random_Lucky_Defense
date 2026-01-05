@@ -32,6 +32,18 @@ public struct GameWaveStartEventData
     }
 }
 
+public struct GameInGameLevelUpEventData
+{
+    public readonly HeroClassType TargetClass;
+    public readonly float DamageMultiplier;
+    
+    public GameInGameLevelUpEventData(HeroClassType targetClass, float damageMultiplier)
+    {
+        TargetClass = targetClass;
+        DamageMultiplier = damageMultiplier;
+    }
+}
+
 public struct GameBuffCardSelectEventData
 {
     public readonly BuffCardContainer SelectedCard;

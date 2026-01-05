@@ -17,7 +17,6 @@ public class CardEffectFactory : IEventListener
     public CardEffectFactory()
     {
         InitializeData();
-        SubscribeEvents();
     }
 
     public void SubscribeEvents()

@@ -41,8 +41,7 @@ public class HeroMoveState : BaseHeroState
     /// </summary>
     private void Move()
     {
-        //TODO: 임시 이동속도 5
-        var movePos = Vector3.MoveTowards(hero.transform.position, targetPosition, 5f * Time.deltaTime);
+        var movePos = Vector3.MoveTowards(hero.transform.position, targetPosition, hero.Stat.MoveSpeed * Time.deltaTime);
         hero.transform.position = movePos;
         if (hero.transform.position == targetPosition)
         {

@@ -19,5 +19,6 @@ public enum GameEventType
     SpawnBossEnemy, // 보스 적 소환
     BossEnemyDie, // 보스 적 사망
     
+    InGameHeroLevelUp, // 영웅 레벨 업
     BuffCardSelected, // 버프 카드 선택
 }

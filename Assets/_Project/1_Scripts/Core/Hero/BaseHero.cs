@@ -9,24 +9,17 @@ public abstract class BaseHero : MonoBehaviour, IPoolable
     [SerializeField] protected SPUM_Prefabs prefab;
     [SerializeField] protected Animator animator;
     protected HeroStateMachine stateMachine;
-    protected BaseHeroCardEffectHandler effectHandler;
 
     protected HeroDataSO heroData; // 영웅 데이터
     protected IHeroSkill skill;
-
-    protected float attackPower; // 공격력
-    protected float attackSpeed; // 공격속도
-    protected float attackRange; // 공격범위
-    protected float splashRange; // 스플래쉬 범위
+    
+    protected HeroStat stat;
 
     public Animator Animator => animator;
     
     public abstract HeroClassType ClassType { get; }
     public HeroGradeType GradeType => heroData.GradeType;
-    public float AttackPower => attackPower;
-    public float AttackSpeed => attackSpeed;
-    public float AttackRange => attackRange;
-    public float SplashRange => splashRange;
+    public HeroStat Stat => stat;
 
     protected virtual void Awake()
     {
@@ -46,11 +39,8 @@ public abstract class BaseHero : MonoBehaviour, IPoolable
     public void Initialize(HeroDataSO data)
     {
         heroData = data;
-
-        attackPower = heroData.AttackPower;
-        attackSpeed = heroData.AttackSpeed;
-        attackRange = heroData.AttackRange / 50f;
-        splashRange = heroData.SplashRange / 50f;
+        
+        stat = new HeroStat(data);
     }
 
     /// <summary>
@@ -64,19 +54,17 @@ public abstract class BaseHero : MonoBehaviour, IPoolable
 
     public virtual void OnGet()
     {
-        effectHandler.RegisterCardEffect();
     }
 
     public virtual void OnRelease()
     {
-        effectHandler.UnregisterCardEffect();
     }
 
 #if UNITY_EDITOR
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, AttackRange);
+        Gizmos.DrawWireSphere(transform.position, stat.AttackRange);
     }
 #endif
 }

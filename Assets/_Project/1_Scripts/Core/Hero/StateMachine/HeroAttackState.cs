@@ -54,7 +54,7 @@ public class HeroAttackState : BaseHeroState
     /// </summary>
     private void Attack()
     {
-        if (attackCooldown >= hero.AttackSpeed)
+        if (attackCooldown >= hero.Stat.AttackSpeed)
         {
             //TODO: 투사체 생성
             hero.Animator.SetTrigger(AttackAnimParam);
@@ -70,8 +70,8 @@ public class HeroAttackState : BaseHeroState
         var projectileData = new ProjectileData
         (
             targetEnemy,
-            hero.AttackPower,
-            hero.SplashRange,
+            hero.Stat.AttackPower,
+            hero.Stat.SplashRange,
             hero.ClassType
         );
         projectile.Initialize(projectileData);
@@ -90,7 +90,7 @@ public class HeroAttackState : BaseHeroState
         }
 
         var distance = Vector2.Distance(hero.transform.position, targetEnemy.transform.position);
-        if (distance > hero.AttackRange)
+        if (distance > hero.Stat.AttackRange)
         {
             stateMachine.ChangeState(stateMachine.IdleState);
             return false;
