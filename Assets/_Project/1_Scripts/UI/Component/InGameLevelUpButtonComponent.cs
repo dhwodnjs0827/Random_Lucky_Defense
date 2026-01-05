@@ -58,7 +58,7 @@ public class InGameLevelUpButtonComponent : MonoBehaviour, IEventListener
 
     private void OnClick()
     {
-        levelUpController.LevelUp(classType);
+        EventManager.Dispatch(GameEventType.InGameHeroLevelUpRequest, classType);
     }
 
     public void SubscribeEvents()

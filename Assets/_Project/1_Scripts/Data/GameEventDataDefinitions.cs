@@ -25,7 +25,7 @@ public struct GameFinishEventData
 public struct GameWaveStartEventData
 {
     public readonly WaveDataSO CurrentWaveData;
-    
+
     public GameWaveStartEventData(WaveDataSO currentWaveData)
     {
         CurrentWaveData = currentWaveData;
@@ -36,7 +36,7 @@ public struct GameInGameLevelUpEventData
 {
     public readonly HeroClassType TargetClass;
     public readonly float DamageMultiplier;
-    
+
     public GameInGameLevelUpEventData(HeroClassType targetClass, float damageMultiplier)
     {
         TargetClass = targetClass;

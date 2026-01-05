@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Generated;
 using UniRx;
@@ -15,6 +16,8 @@ public class InGameHeroLevelUpController : IEventListener, IBuffCardEffect
     private int spGainAmount;
     private float spGainTimer;
     
+    private Action<HeroClassType> onLevelUp;
+    
     public IReadOnlyReactiveProperty<int> CurrentSpawnPoint => currentSpawnPoint;
     public IDictionary<HeroClassType, Dictionary<int, ClassLevelUpData>> LevelUpDataDict => levelUpDataDict;
     public IDictionary<HeroClassType, ReactiveProperty<int>> CurrentLevelDict => currentLevelDict;
@@ -28,25 +31,31 @@ public class InGameHeroLevelUpController : IEventListener, IBuffCardEffect
     
     public void SubscribeEvents()
     {
+        onLevelUp += LevelUp;
+        EventManager.Subscribe(GameEventType.InGameHeroLevelUpRequest, onLevelUp);
+        EventManager.Subscribe(GameEventType.SpawnHero, OnSpawnHero);
         EventManager.Subscribe(GameEventType.NormalEnemyDie, OnNormalEnemyDie);
         EventManager.Subscribe(GameEventType.BossEnemyDie, OnBossEnemyDie);
     }
 
     public void UnsubscribeEvents()
     {
+        EventManager.Unsubscribe(GameEventType.InGameHeroLevelUpRequest, onLevelUp);
+        onLevelUp -= LevelUp;
+        EventManager.Unsubscribe(GameEventType.SpawnHero, OnSpawnHero);
         EventManager.Unsubscribe(GameEventType.NormalEnemyDie, OnNormalEnemyDie);
         EventManager.Unsubscribe(GameEventType.BossEnemyDie, OnBossEnemyDie);
     }
     
-    public void OnSpawnHero()
+    private void OnSpawnHero()
     {
         currentSpawnPoint.Value -= GameConstants.HERO_SPAWN_POINT_COST;
     }
 
-    public void LevelUp(HeroClassType classType)
+    private void LevelUp(HeroClassType classType)
     {
         currentSpawnPoint.Value -= levelUpDataDict[classType][currentLevelDict[classType].Value].LevelUpCost;
-        EventManager.Dispatch(GameEventType.InGameHeroLevelUp, new GameInGameLevelUpEventData(classType, levelUpDataDict[classType][currentLevelDict[classType].Value].AttackPowerMultiplier));
+        EventManager.Dispatch(GameEventType.InGameHeroLevelUpCompleted, new GameInGameLevelUpEventData(classType, levelUpDataDict[classType][currentLevelDict[classType].Value].AttackPowerMultiplier));
         currentLevelDict[classType].Value++;
         CDebug.Log($"[InGameHeroLevelUpController] {classType} 레벨 업, 현재 레벨: {currentLevelDict[classType].Value}");
     }

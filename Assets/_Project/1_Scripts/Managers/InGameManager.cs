@@ -8,6 +8,7 @@ public class InGameManager : MonoSingleton<InGameManager>, IEventListener
     private bool isInitialized = false;
     
     private CardEffectFactory cardEffectFactory;
+    private InGameHeroLevelUpController heroLevelUpController;
     private InGameHeroBuffController heroBuffController;
 
     private readonly float[] gameSpeeds = { 1f, 1.5f, 2f };
@@ -16,6 +17,7 @@ public class InGameManager : MonoSingleton<InGameManager>, IEventListener
     private Action<GameFinishEventData> onGameFinish;
     
     public CardEffectFactory CardEffectFactory => cardEffectFactory;
+    public InGameHeroLevelUpController HeroLevelUpController => heroLevelUpController;
     public InGameHeroBuffController HeroBuffController => heroBuffController;
     public float CurrentGameSpeed => gameSpeeds[currentGameSpeedIndex];
 
@@ -30,6 +32,7 @@ public class InGameManager : MonoSingleton<InGameManager>, IEventListener
         currentGameSpeedIndex = 0;
         
         cardEffectFactory = new CardEffectFactory();
+        heroLevelUpController =  new InGameHeroLevelUpController();
         heroBuffController = new InGameHeroBuffController();
         
         UIManager.Instance.Open<InGameUI>();
@@ -40,6 +43,11 @@ public class InGameManager : MonoSingleton<InGameManager>, IEventListener
         
         isInitialized = true;
         await UniTask.CompletedTask;
+    }
+
+    private void Update()
+    {
+        heroLevelUpController?.GainSpawnPointCardEffect();
     }
 
     protected override void OnDestroy()
@@ -55,6 +63,7 @@ public class InGameManager : MonoSingleton<InGameManager>, IEventListener
         EventManager.Subscribe(GameEventType.GameFinish, onGameFinish);
         
         cardEffectFactory.SubscribeEvents();
+        heroLevelUpController.SubscribeEvents();
         heroBuffController.SubscribeEvents();
         heroBuffController.RegisterCardEffect(cardEffectFactory);
     }
@@ -63,6 +72,7 @@ public class InGameManager : MonoSingleton<InGameManager>, IEventListener
     {
         heroBuffController.UnregisterCardEffect(cardEffectFactory);
         heroBuffController.UnsubscribeEvents();
+        heroLevelUpController.UnsubscribeEvents();
         cardEffectFactory.UnsubscribeEvents();
         
         EventManager.Unsubscribe(GameEventType.GameFinish, onGameFinish);

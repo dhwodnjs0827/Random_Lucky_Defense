@@ -22,12 +22,12 @@ public class InGameHeroBuffController : IEventListener, IBuffCardEffect
     public void SubscribeEvents()
     {
         onLevelUp += LevelUp;
-        EventManager.Subscribe(GameEventType.InGameHeroLevelUp, onLevelUp);
+        EventManager.Subscribe(GameEventType.InGameHeroLevelUpCompleted, onLevelUp);
     }
 
     public void UnsubscribeEvents()
     {
-        EventManager.Unsubscribe(GameEventType.InGameHeroLevelUp, onLevelUp);
+        EventManager.Unsubscribe(GameEventType.InGameHeroLevelUpCompleted, onLevelUp);
         onLevelUp -= LevelUp;
     }
 

@@ -21,12 +21,9 @@ public class InGameHeroControlUIComponent : MonoBehaviour, IEventListener
     [SerializeField] private InGameLevelUpButtonComponent[] levelUpButtons;
     [SerializeField] private Button exchangeButton;
     [SerializeField] private Button sellButton;
-    
-    private InGameHeroLevelUpController levelUpController;
 
     private void Awake()
     {
-        levelUpController = new InGameHeroLevelUpController();
         spawnPointCostText.text = $"영웅 소환\n{GameConstants.HERO_SPAWN_POINT_COST}";
     }
 
@@ -36,9 +33,9 @@ public class InGameHeroControlUIComponent : MonoBehaviour, IEventListener
         SubscribeEvents();
     }
 
-    private void Update()
+    private void Start()
     {
-        levelUpController?.GainSpawnPointCardEffect();
+        SubscribeLevelUpController(InGameManager.Instance.HeroLevelUpController);
     }
 
     private void OnDisable()
@@ -86,7 +83,6 @@ public class InGameHeroControlUIComponent : MonoBehaviour, IEventListener
     private void OnClickSpawnButton()
     {
         EventManager.Dispatch(GameEventType.SpawnHero);
-        levelUpController.OnSpawnHero();
     }
 
     private void OnClickExchangeButton()
@@ -101,24 +97,18 @@ public class InGameHeroControlUIComponent : MonoBehaviour, IEventListener
 
     public void SubscribeEvents()
     {
-        SubscribeLevelUpController();
-        
         EventManager.Subscribe(GameEventType.SpawnEnemy, IncreaseEnemyCount);
         EventManager.Subscribe(GameEventType.EnemyDie, DecreaseEnemyCount);
     }
 
     public void UnsubscribeEvents()
     {
-        UnsubscribeLevelUpController();
-        
         EventManager.Unsubscribe(GameEventType.SpawnEnemy, IncreaseEnemyCount);
         EventManager.Unsubscribe(GameEventType.EnemyDie, DecreaseEnemyCount);
     }
 
-    private void SubscribeLevelUpController()
+    private void SubscribeLevelUpController(InGameHeroLevelUpController levelUpController)
     {
-        levelUpController.SubscribeEvents();
-        
         levelUpController.CurrentSpawnPoint.Subscribe(sp => spawnButton.interactable = sp >= GameConstants.HERO_SPAWN_POINT_COST).AddTo(this);
         levelUpController.CurrentSpawnPoint.Subscribe(sp => currentSpawnPointText.text = $"영웅 소환 재화: {sp}").AddTo(this);
         
@@ -129,11 +119,6 @@ public class InGameHeroControlUIComponent : MonoBehaviour, IEventListener
                 levelUpButton.SubscribeLevelUpController(levelUpController);
             }
         }
-    }
-
-    private void UnsubscribeLevelUpController()
-    {
-        levelUpController.UnsubscribeEvents();
     }
 
     private void IncreaseEnemyCount()
