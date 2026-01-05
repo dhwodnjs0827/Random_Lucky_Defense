@@ -9,11 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ce8541583bd3d41ba98259e95b5e0624, type: 3}
-  m_Name: 100005
-  m_EditorClassIdentifier: Assembly-CSharp::Generated.BuffCardLevelDataSO
-  ID: 0
-  CardID: 0
-  Level: 0
-  value: 0
-  value1: 0
+  m_Script: {fileID: 11500000, guid: 221d0677aa753457f88c143059c535e5, type: 3}
+  m_Name: Archer_Troll
+  m_EditorClassIdentifier: Assembly-CSharp::Generated.DamageRateByClassDataSO
+  ID: 
+  ClassType: 0
+  MonsterType: 0
+  DamageRate: 0

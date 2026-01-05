@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce8541583bd3d41ba98259e95b5e0624, type: 3}
   m_Name: 100011
   m_EditorClassIdentifier: Assembly-CSharp::Generated.BuffCardLevelDataSO
-  ID: 100011
-  CardID: 10001
-  Level: 1
-  value: 20
+  ID: 0
+  CardID: 0
+  Level: 0
+  value: 0
   value1: 0
