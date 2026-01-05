@@ -2,5 +2,5 @@ using Generated;
 
 public interface IBuffCardEffect
 {
-    public void ApplyEffect(GlobalBuffCardDataSO cardData, int level);
+    public void ApplyEffect(BuffCardDataSO cardData, int level);
 }

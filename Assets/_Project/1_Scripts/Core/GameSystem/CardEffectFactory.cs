@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CardEffectFactory : MonoBehaviour
 {
-    private List<GlobalBuffCardData> globalBuffCardDatas;
+    private List<BuffCardData> globalBuffCardDatas;
     
     public CardEffectFactory()
     {
@@ -20,7 +20,7 @@ public class CardEffectFactory : MonoBehaviour
 
     private void InitializeData()
     {
-        var cardDatas = ResourceManager.Instance.LoadAll<GlobalBuffCardDataSO>("");
+        var cardDatas = ResourceManager.Instance.LoadAll<BuffCardDataSO>("");
         var cardLevelDatas = ResourceManager.Instance.LoadAll<BuffCardLevelDataSO>("");
     }
 }
