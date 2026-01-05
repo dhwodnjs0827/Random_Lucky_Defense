@@ -21,4 +21,6 @@ public static class GameConstants
     public const int INITIAL_HERO_SPAWN_POINT = 100;
     // 게임 내 영웅 소환 비용
     public const int HERO_SPAWN_POINT_COST = 1;
+
+    public const int CardSelectionStageInterval = 7;
 }
