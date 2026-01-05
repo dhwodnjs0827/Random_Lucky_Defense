@@ -128,7 +128,7 @@ public class CardEffectFactory : IEventListener
         {
             foreach (var handler in handlers)
             {
-                handler.ApplyEffect(data.SelectedCard);
+                handler.ApplyCardEffect(data.SelectedCard);
             }
         }
         

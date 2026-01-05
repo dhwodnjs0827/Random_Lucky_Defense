@@ -26,7 +26,6 @@ public class InGameHeroLevelUpController : IEventListener, IBuffCardEffect
     {
         currentSpawnPoint.Value = GameConstants.INITIAL_HERO_SPAWN_POINT;
         InitializeLevelUpData();
-        InGameManager.Instance.CardEffectFactory.RegisterCardEffectHandler(BuffEffectType.IncreaseSpawnPointGainRate, this);
     }
     
     public void SubscribeEvents()
@@ -55,8 +54,8 @@ public class InGameHeroLevelUpController : IEventListener, IBuffCardEffect
     private void LevelUp(HeroClassType classType)
     {
         currentSpawnPoint.Value -= levelUpDataDict[classType][currentLevelDict[classType].Value].LevelUpCost;
-        EventManager.Dispatch(GameEventType.InGameHeroLevelUpCompleted, new GameInGameLevelUpEventData(classType, levelUpDataDict[classType][currentLevelDict[classType].Value].AttackPowerMultiplier));
         currentLevelDict[classType].Value++;
+        EventManager.Dispatch(GameEventType.InGameHeroLevelUpCompleted, new GameInGameLevelUpEventData(classType, levelUpDataDict[classType][currentLevelDict[classType].Value].AttackPowerMultiplier));
         CDebug.Log($"[InGameHeroLevelUpController] {classType} 레벨 업, 현재 레벨: {currentLevelDict[classType].Value}");
     }
     
@@ -103,7 +102,17 @@ public class InGameHeroLevelUpController : IEventListener, IBuffCardEffect
         }
     }
 
-    public void ApplyEffect(BuffCardContainer cardContainer)
+    public void RegisterCardEffect(CardEffectFactory cardEffectFactory)
+    {
+        cardEffectFactory.RegisterCardEffectHandler(BuffEffectType.IncreaseSpawnPointGainRate, this);
+    }
+
+    public void UnregisterCardEffect(CardEffectFactory cardEffectFactory)
+    {
+        cardEffectFactory.UnregisterCardEffectHandler(BuffEffectType.IncreaseSpawnPointGainRate, this);
+    }
+
+    public void ApplyCardEffect(BuffCardContainer cardContainer)
     {
         if (cardContainer.CardData.BuffEffectType == BuffEffectType.IncreaseSpawnPointGainRate)
         {

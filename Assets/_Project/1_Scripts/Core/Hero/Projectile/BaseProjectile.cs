@@ -59,7 +59,7 @@ public class BaseProjectile : MonoBehaviour, IPoolable
         if (projectileData.Target?.Transform != null &&
             projectileData.Target.Transform.TryGetComponent<IDamageable>(out var damageable))
         {
-            damageable.TakeDamage(projectileData.Damage);
+            damageable.TakeDamage(projectileData.AttackPower);
         }
         
         //TODO: HitEffect 재생
@@ -85,7 +85,7 @@ public class BaseProjectile : MonoBehaviour, IPoolable
 
             if (hit.TryGetComponent<IDamageable>(out var damageable))
             {
-                damageable.TakeDamage(projectileData.Damage);
+                damageable.TakeDamage(projectileData.AttackPower);
             }
         }
     }
@@ -115,18 +115,25 @@ public class BaseProjectile : MonoBehaviour, IPoolable
 #endif
 }
 
-public struct ProjectileData
+public readonly struct ProjectileData
 {
     public readonly IDetectable Target;
-    public readonly float Damage;
-    public readonly float SplashRange;
+    private readonly HeroStat HeroStat;
+    private readonly HeroStat LevelUpStat;
+    private readonly HeroStat CardEffectStat;
     public readonly HeroClassType HeroClass;
+    
+    public float AttackPower => HeroStat.AttackPower * LevelUpStat.AttackPowerMultiplier * CardEffectStat.AttackPowerMultiplier;
+    public float CriticalRate => HeroStat.CriticalRate + LevelUpStat.CriticalRate + CardEffectStat.CriticalRate;
+    public float CriticalDamage => HeroStat.CriticalDamage + LevelUpStat.CriticalDamage + CardEffectStat.CriticalDamage;
+    public float SplashRange => HeroStat.SplashRange * LevelUpStat.SplashRangeMultiplier * CardEffectStat.SplashRangeMultiplier;
 
-    public ProjectileData(IDetectable target, float damage, float splashRange, HeroClassType heroClassType)
+    public ProjectileData(IDetectable target, HeroStat heroStat, HeroStat levelUpStat, HeroStat cardEffectStat, HeroClassType heroClassType)
     {
         Target = target;
-        Damage = damage;
-        SplashRange = splashRange;
+        HeroStat = heroStat;
+        LevelUpStat = levelUpStat;
+        CardEffectStat = cardEffectStat;
         HeroClass = heroClassType;
     }
 }

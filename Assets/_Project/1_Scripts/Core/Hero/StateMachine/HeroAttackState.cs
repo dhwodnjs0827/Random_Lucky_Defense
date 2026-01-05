@@ -54,7 +54,8 @@ public class HeroAttackState : BaseHeroState
     /// </summary>
     private void Attack()
     {
-        if (attackCooldown >= hero.Stat.AttackSpeed)
+        var attackSpeed = hero.BaseStat.AttackSpeed * hero.LevelUpStat.AttackSpeedMultiplier * hero.CardEffectStat.AttackSpeedMultiplier;
+        if (attackCooldown >= attackSpeed)
         {
             //TODO: 투사체 생성
             hero.Animator.SetTrigger(AttackAnimParam);
@@ -70,8 +71,9 @@ public class HeroAttackState : BaseHeroState
         var projectileData = new ProjectileData
         (
             targetEnemy,
-            hero.Stat.AttackPower,
-            hero.Stat.SplashRange,
+            hero.BaseStat,
+            hero.LevelUpStat,
+            hero.CardEffectStat,
             hero.ClassType
         );
         projectile.Initialize(projectileData);
@@ -90,7 +92,9 @@ public class HeroAttackState : BaseHeroState
         }
 
         var distance = Vector2.Distance(hero.transform.position, targetEnemy.transform.position);
-        if (distance > hero.Stat.AttackRange)
+        var attackRange = hero.BaseStat.SplashRange * hero.LevelUpStat.SplashRangeMultiplier *
+                          hero.CardEffectStat.SplashRangeMultiplier;
+        if (distance > attackRange)
         {
             stateMachine.ChangeState(stateMachine.IdleState);
             return false;

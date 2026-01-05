@@ -65,6 +65,7 @@ public class InGameManager : MonoSingleton<InGameManager>, IEventListener
         cardEffectFactory.SubscribeEvents();
         heroLevelUpController.SubscribeEvents();
         heroBuffController.SubscribeEvents();
+        heroLevelUpController.RegisterCardEffect(cardEffectFactory);
         heroBuffController.RegisterCardEffect(cardEffectFactory);
     }
 
@@ -72,6 +73,7 @@ public class InGameManager : MonoSingleton<InGameManager>, IEventListener
     {
         heroBuffController.UnregisterCardEffect(cardEffectFactory);
         heroBuffController.UnsubscribeEvents();
+        heroLevelUpController.UnregisterCardEffect(cardEffectFactory);
         heroLevelUpController.UnsubscribeEvents();
         cardEffectFactory.UnsubscribeEvents();
         

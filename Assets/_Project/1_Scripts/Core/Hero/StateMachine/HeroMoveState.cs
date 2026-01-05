@@ -41,7 +41,9 @@ public class HeroMoveState : BaseHeroState
     /// </summary>
     private void Move()
     {
-        var movePos = Vector3.MoveTowards(hero.transform.position, targetPosition, hero.Stat.MoveSpeed * Time.deltaTime);
+        var moveSpeed = hero.BaseStat.MoveSpeed * hero.LevelUpStat.MoveSpeedMultiplier *
+                          hero.CardEffectStat.MoveSpeedMultiplier;
+        var movePos = Vector3.MoveTowards(hero.transform.position, targetPosition, moveSpeed * Time.deltaTime);
         hero.transform.position = movePos;
         if (hero.transform.position == targetPosition)
         {

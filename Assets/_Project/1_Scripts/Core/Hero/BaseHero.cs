@@ -13,13 +13,15 @@ public abstract class BaseHero : MonoBehaviour, IPoolable
     protected HeroDataSO heroData; // 영웅 데이터
     protected IHeroSkill skill;
     
-    protected HeroStat stat;
+    protected HeroStat baseStat;
 
     public Animator Animator => animator;
     
     public abstract HeroClassType ClassType { get; }
     public HeroGradeType GradeType => heroData.GradeType;
-    public HeroStat Stat => stat;
+    public HeroStat BaseStat => baseStat;
+    public HeroStat LevelUpStat => InGameManager.Instance.HeroBuffController.LevelUpStats[ClassType];
+    public HeroStat CardEffectStat => InGameManager.Instance.HeroBuffController.CardEffectStats[ClassType];
 
     protected virtual void Awake()
     {
@@ -39,8 +41,7 @@ public abstract class BaseHero : MonoBehaviour, IPoolable
     public void Initialize(HeroDataSO data)
     {
         heroData = data;
-        
-        stat = new HeroStat(data);
+        baseStat = new HeroStat(data);
     }
 
     /// <summary>
@@ -64,7 +65,7 @@ public abstract class BaseHero : MonoBehaviour, IPoolable
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, stat.AttackRange);
+        Gizmos.DrawWireSphere(transform.position, baseStat.AttackRange * LevelUpStat.AttackRangeMultiplier * CardEffectStat.AttackRangeMultiplier);
     }
 #endif
 }
