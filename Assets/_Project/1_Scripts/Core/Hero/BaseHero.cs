@@ -9,6 +9,7 @@ public abstract class BaseHero : MonoBehaviour, IPoolable
     [SerializeField] protected SPUM_Prefabs prefab;
     [SerializeField] protected Animator animator;
     protected HeroStateMachine stateMachine;
+    protected BaseHeroCardEffectHandler effectHandler;
 
     protected HeroDataSO heroData; // 영웅 데이터
     protected IHeroSkill skill;
@@ -27,7 +28,7 @@ public abstract class BaseHero : MonoBehaviour, IPoolable
     public float AttackRange => attackRange;
     public float SplashRange => splashRange;
 
-    private void Awake()
+    protected virtual void Awake()
     {
         // 상태머신 초기화
         stateMachine = new HeroStateMachine(this);
@@ -61,9 +62,15 @@ public abstract class BaseHero : MonoBehaviour, IPoolable
         stateMachine?.ChangeState(stateMachine?.MoveState);
     }
 
-    public abstract void OnGet();
+    public virtual void OnGet()
+    {
+        effectHandler.RegisterCardEffect();
+    }
 
-    public abstract void OnRelease();
+    public virtual void OnRelease()
+    {
+        effectHandler.UnregisterCardEffect();
+    }
 
 #if UNITY_EDITOR
     private void OnDrawGizmos()
