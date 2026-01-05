@@ -92,8 +92,8 @@ public class HeroAttackState : BaseHeroState
         }
 
         var distance = Vector2.Distance(hero.transform.position, targetEnemy.transform.position);
-        var attackRange = hero.BaseStat.SplashRange * hero.LevelUpStat.SplashRangeMultiplier *
-                          hero.CardEffectStat.SplashRangeMultiplier;
+        var attackRange = hero.BaseStat.AttackRange * hero.LevelUpStat.AttackRangeMultiplier *
+                          hero.CardEffectStat.AttackRangeMultiplier;
         if (distance > attackRange)
         {
             stateMachine.ChangeState(stateMachine.IdleState);

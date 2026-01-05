@@ -105,14 +105,6 @@ public class BaseProjectile : MonoBehaviour, IPoolable
         projectileData = default;
         rb.linearVelocity = Vector2.zero;
     }
-    
-#if UNITY_EDITOR
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, projectileData.SplashRange);
-    }
-#endif
 }
 
 public readonly struct ProjectileData
