@@ -1,0 +1,47 @@
+[
+  {
+    "ClassType": "Magician",
+    "MonsterType": "Undead",
+    "DamageRate": 1.0
+  },
+  {
+    "ClassType": "Magician",
+    "MonsterType": "Orc",
+    "DamageRate": 0.5
+  },
+  {
+    "ClassType": "Magician",
+    "MonsterType": "Troll",
+    "DamageRate": 0.25
+  },
+  {
+    "ClassType": "Archer",
+    "MonsterType": "Undead",
+    "DamageRate": 0.8
+  },
+  {
+    "ClassType": "Archer",
+    "MonsterType": "Orc",
+    "DamageRate": 1.0
+  },
+  {
+    "ClassType": "Archer",
+    "MonsterType": "Troll",
+    "DamageRate": 0.9
+  },
+  {
+    "ClassType": "Warrior",
+    "MonsterType": "Undead",
+    "DamageRate": 0.5
+  },
+  {
+    "ClassType": "Warrior",
+    "MonsterType": "Orc",
+    "DamageRate": 0.75
+  },
+  {
+    "ClassType": "Warrior",
+    "MonsterType": "Troll",
+    "DamageRate": 1.0
+  }
+]
