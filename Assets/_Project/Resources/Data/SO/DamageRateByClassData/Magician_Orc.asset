@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 221d0677aa753457f88c143059c535e5, type: 3}
   m_Name: Magician_Orc
   m_EditorClassIdentifier: Assembly-CSharp::Generated.DamageRateByClassDataSO
-  ID: 
-  ClassType: 0
-  MonsterType: 0
-  DamageRate: 0
+  ID: Magician_Orc
+  ClassType: 1
+  MonsterType: 2
+  DamageRate: 0.5

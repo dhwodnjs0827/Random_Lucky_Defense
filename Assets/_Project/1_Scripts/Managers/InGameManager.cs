@@ -14,6 +14,7 @@ public class InGameManager : MonoSingleton<InGameManager>, IEventListener
     
     private Action<GameFinishEventData> onGameFinish;
     
+    public CardEffectFactory CardEffectFactory => cardEffectFactory;
     public float CurrentGameSpeed => gameSpeeds[currentGameSpeedIndex];
 
     public async UniTask InitializeAsync()
@@ -25,6 +26,8 @@ public class InGameManager : MonoSingleton<InGameManager>, IEventListener
 
         ResetTimeScale();
         currentGameSpeedIndex = 0;
+        
+        cardEffectFactory = new CardEffectFactory();
         
         UIManager.Instance.Open<InGameUI>();
         var backgroundPrefab = ResourceManager.Instance.Load<GameObject>("Prefabs/Background");

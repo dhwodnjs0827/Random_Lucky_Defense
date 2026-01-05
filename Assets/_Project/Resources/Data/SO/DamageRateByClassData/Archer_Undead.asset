@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 221d0677aa753457f88c143059c535e5, type: 3}
   m_Name: Archer_Undead
   m_EditorClassIdentifier: Assembly-CSharp::Generated.DamageRateByClassDataSO
-  ID: 
-  ClassType: 0
+  ID: Archer_Undead
+  ClassType: 2
   MonsterType: 0
-  DamageRate: 0
+  DamageRate: 0.8

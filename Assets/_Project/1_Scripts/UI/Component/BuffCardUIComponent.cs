@@ -11,6 +11,7 @@ public class BuffCardUIComponent : MonoBehaviour
     [SerializeField] private Image[] levelIcons;
     
     private BaseUI parentUI;
+    private BuffCardContainer currentCard;
     
     public void InitializeCard(BaseUI ui)
     {
@@ -18,9 +19,11 @@ public class BuffCardUIComponent : MonoBehaviour
         selectButton.onClick.AddListener(OnClickSelect);
     }
 
-    public void SetGlobalBuffData()
+    public void SetBuffCardData(BuffCardContainer card)
     {
-        
+        currentCard = card;
+        cardName.text = currentCard.Name;
+        cardDescription.text = currentCard.Description;
     }
 
     private void OnClickSelect()

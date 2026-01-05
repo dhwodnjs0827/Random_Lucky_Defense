@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2a9e9c6be99f4071912840d07d22213, type: 3}
   m_Name: 10002
   m_EditorClassIdentifier: Assembly-CSharp::Generated.BuffCardDataSO
-  ID: 0
-  Name: 
-  Description: 
-  BuffEffectType: 0
-  Weight: 0
+  ID: 10002
+  Name: "\uD0D0\uC695"
+  Description: "{value}\uCD08 \uB9C8\uB2E4 SP {value1} \uD68D\uB4DD"
+  BuffEffectType: 2
+  Weight: 10

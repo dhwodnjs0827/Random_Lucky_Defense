@@ -55,7 +55,7 @@ public class EnemyWaveController : MonoBehaviour, IEventListener
         if (currentWaveTime.Value <= 0)
         {
             // 7의 배수 스테이지 끝날 시, 카드 선택 UI 등장
-            if (currentWaveData.WaveIndex % GameConstants.CardSelectionStageInterval == 0)
+            if (currentWaveData.WaveIndex % GameConstants.CARD_SELECTION_STAGE_INTERVAL == 0)
             {
                 UIManager.Instance.Open<BuffCardSelectUI>();
             }
