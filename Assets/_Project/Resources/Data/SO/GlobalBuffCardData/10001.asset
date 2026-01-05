@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8acd2c2dc1a94c7386992a066615373, type: 3}
+  m_Name: 10001
+  m_EditorClassIdentifier: Assembly-CSharp::Generated.GlobalBuffCardDataSO
+  ID: 10001
+  Name: "\uD06C\uB9AC\uD2F0\uCEEC \uB370\uBBF8\uC9C0"
+  Description: "\uD06C\uB9AC\uD2F0\uCEEC \uB370\uBBF8\uC9C0 {value}% \uC99D\uAC00"
+  BuffEffectType: 1

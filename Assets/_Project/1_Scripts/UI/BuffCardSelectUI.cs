@@ -1,9 +1,9 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class GlobalBuffSelectUI : BaseUI
+public class BuffCardSelectUI : BaseUI
 {
-    [SerializeField] private GlobalBuffCard[] cards;
+    [SerializeField] private BuffCardUIComponent[] cards;
     [SerializeField] private Button refreshButton;
 
     private void Awake()

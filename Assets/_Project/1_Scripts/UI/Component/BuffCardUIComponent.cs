@@ -2,7 +2,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class GlobalBuffCard : MonoBehaviour
+public class BuffCardUIComponent : MonoBehaviour
 {
     [SerializeField] private Button selectButton;
     [SerializeField] private TextMeshProUGUI cardName;

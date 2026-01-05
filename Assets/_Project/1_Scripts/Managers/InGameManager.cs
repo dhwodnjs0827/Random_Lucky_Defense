@@ -6,6 +6,8 @@ public class InGameManager : MonoSingleton<InGameManager>, IEventListener
 {
     protected override bool IsDontDestroyOnLoad => false;
     private bool isInitialized = false;
+    
+    private CardEffectFactory cardEffectFactory;
 
     private readonly float[] gameSpeeds = { 1f, 1.5f, 2f };
     private int currentGameSpeedIndex;
