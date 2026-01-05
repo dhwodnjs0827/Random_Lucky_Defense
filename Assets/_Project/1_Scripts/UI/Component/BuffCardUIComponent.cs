@@ -22,12 +22,12 @@ public class BuffCardUIComponent : MonoBehaviour
     public void SetBuffCardData(BuffCardContainer card)
     {
         currentCard = card;
-        cardName.text = currentCard.Name;
-        cardDescription.text = currentCard.Description;
+        cardName.text = currentCard.CardData.Name;
+        cardDescription.text = currentCard.CardData.Description;
 
         for (var i = 0; i < levelIcons.Length; i++)
         {
-            levelIcons[i].gameObject.SetActive(i < currentCard.CurrentLevel);
+            levelIcons[i].gameObject.SetActive(i < currentCard.CardLevelData.Level - 1);
         }
     }
 

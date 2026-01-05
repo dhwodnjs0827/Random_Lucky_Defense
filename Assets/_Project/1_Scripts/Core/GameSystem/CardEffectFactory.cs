@@ -6,12 +6,12 @@ using Random = UnityEngine.Random;
 
 public class CardEffectFactory : IEventListener
 {
-    private List<IBuffCardEffect> effectHandlers = new();
-    
+    private Dictionary<BuffEffectType, List<IBuffCardEffect>> effectHandlers = new();
+
     private BuffCardDataSO[] buffCardDatas;
     private readonly Dictionary<int, List<BuffCardLevelDataSO>> buffCardLevelDatas = new();
     private readonly Dictionary<int, int> currentCardLevels = new();
-    
+
     private Action<GameBuffCardSelectEventData> onCardSelected;
 
     public CardEffectFactory()
@@ -19,7 +19,7 @@ public class CardEffectFactory : IEventListener
         InitializeData();
         SubscribeEvents();
     }
-    
+
     public void SubscribeEvents()
     {
         onCardSelected += SelectedCardProcess;
@@ -50,12 +50,24 @@ public class CardEffectFactory : IEventListener
         return selectedCards.ToArray();
     }
 
-    public void LevelUpCard(int cardId)
+    public void RegisterCardEffectHandler(BuffEffectType type, IBuffCardEffect handler)
     {
-        currentCardLevels.TryAdd(cardId, 0);
+        if (!effectHandlers.ContainsKey(type))
+        {
+            effectHandlers[type] = new List<IBuffCardEffect>();
+        }
 
-        currentCardLevels[cardId]++;
+        effectHandlers[type].Add(handler);
     }
+
+    public void UnregisterCardEffectHandler(BuffEffectType type, IBuffCardEffect handler)
+    {
+        if (effectHandlers.TryGetValue(type, out var handlers))
+        {
+            handlers.Remove(handler);
+        }
+    }
+
 
     private void InitializeData()
     {
@@ -76,7 +88,7 @@ public class CardEffectFactory : IEventListener
             }
         }
     }
-    
+
     private int GetCardLevel(int cardId)
     {
         return currentCardLevels.GetValueOrDefault(cardId, 0);
@@ -107,38 +119,32 @@ public class CardEffectFactory : IEventListener
 
     private void SelectedCardProcess(GameBuffCardSelectEventData data)
     {
-        if (currentCardLevels.ContainsKey(data.SelectedCard.CardID))
+        if (currentCardLevels.ContainsKey(data.SelectedCard.CardData.ID))
         {
-            currentCardLevels[data.SelectedCard.CardID]++;
-            CDebug.Log($"[CardEffectFactory] {data.SelectedCard.Name} 선택. 현재 레벨{currentCardLevels[data.SelectedCard.CardID]}");
+            currentCardLevels[data.SelectedCard.CardData.ID]++;
         }
-
-        foreach (var handler in effectHandlers)
+        
+        var effectType = data.SelectedCard.CardData.BuffEffectType;
+        if (effectHandlers.TryGetValue(effectType, out var handlers))
         {
-            handler.ApplyEffect(data.SelectedCard);
-            CDebug.Log($"[CardEffectFactory] 카드 효과 적용");
+            foreach (var handler in handlers)
+            {
+                handler.ApplyEffect(data.SelectedCard);
+            }
         }
+        
+        CDebug.Log($"[CardEffectFactory] 선택한 카드: {data.SelectedCard.CardData.Name}, 카드 레벨: {currentCardLevels[data.SelectedCard.CardData.ID]}");
     }
 }
 
 public struct BuffCardContainer
 {
-    public int CardID;
-    public string Name;
-    public string Description;
-    public BuffEffectType EffectType;
-    public int Level;
-    public int CurrentLevel;
-    public List<float> EffectValue;
+    public BuffCardDataSO CardData;
+    public BuffCardLevelDataSO CardLevelData;
 
     public BuffCardContainer(BuffCardDataSO cardData, BuffCardLevelDataSO levelData)
     {
-        CardID = cardData.ID;
-        Name = cardData.Name;
-        Description = cardData.Description;
-        EffectType = cardData.BuffEffectType;
-        Level = levelData.Level;
-        CurrentLevel = Level - 1;
-        EffectValue = new List<float> { levelData.value, levelData.value1 };
+        CardData = cardData;
+        CardLevelData = levelData;
     }
 }

@@ -36,6 +36,11 @@ public class InGameHeroControlUIComponent : MonoBehaviour, IEventListener
         SubscribeEvents();
     }
 
+    private void Update()
+    {
+        levelUpController?.GainSpawnPointCardEffect();
+    }
+
     private void OnDisable()
     {
         ClearButtons();

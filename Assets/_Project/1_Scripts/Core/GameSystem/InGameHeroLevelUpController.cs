@@ -1,13 +1,19 @@
 using System.Collections.Generic;
 using Generated;
 using UniRx;
+using UnityEngine;
 
-public class InGameHeroLevelUpController : IEventListener
+public class InGameHeroLevelUpController : IEventListener, IBuffCardEffect
 {
     private ReactiveProperty<int> currentSpawnPoint = new(); // 현재 영웅 소환 재화
 
     private readonly Dictionary<HeroClassType, Dictionary<int, ClassLevelUpData>> levelUpDataDict = new(); // 클래스 별 레벨 업 데이터
     private readonly Dictionary<HeroClassType, ReactiveProperty<int>> currentLevelDict = new(); // 클래스 별 현재 레벨
+
+    private bool isActiveSPGainRateEffect = false;
+    private float spGainInterval;
+    private int spGainAmount;
+    private float spGainTimer;
     
     public IReadOnlyReactiveProperty<int> CurrentSpawnPoint => currentSpawnPoint;
     public IDictionary<HeroClassType, Dictionary<int, ClassLevelUpData>> LevelUpDataDict => levelUpDataDict;
@@ -17,6 +23,7 @@ public class InGameHeroLevelUpController : IEventListener
     {
         currentSpawnPoint.Value = GameConstants.INITIAL_HERO_SPAWN_POINT;
         InitializeLevelUpData();
+        InGameManager.Instance.CardEffectFactory.RegisterCardEffectHandler(BuffEffectType.IncreaseSpawnPointGainRate, this);
     }
     
     public void SubscribeEvents()
@@ -70,6 +77,33 @@ public class InGameHeroLevelUpController : IEventListener
     {
         currentSpawnPoint.Value += 10;
     }
+
+    public void GainSpawnPointCardEffect()
+    {
+        if (!isActiveSPGainRateEffect)
+        {
+            return;
+        }
+        spGainTimer += Time.deltaTime;
+        if (spGainTimer >= spGainInterval)
+        {
+            currentSpawnPoint.Value += spGainAmount;
+            spGainTimer = 0;
+            CDebug.Log($"[InGameHeroLevelUpController] 현재 카드 효과 간격: {spGainInterval}, 획득량: {spGainAmount}");
+        }
+    }
+
+    public void ApplyEffect(BuffCardContainer cardContainer)
+    {
+        if (cardContainer.CardData.BuffEffectType != BuffEffectType.IncreaseSpawnPointGainRate)
+        {
+            return;
+        }
+        
+        isActiveSPGainRateEffect =  true;
+        spGainInterval = cardContainer.CardLevelData.value;
+        spGainAmount = (int)cardContainer.CardLevelData.value1;
+    }
 }
 
 public struct ClassLevelUpData
@@ -83,4 +117,3 @@ public struct ClassLevelUpData
         AttackPowerMultiplier = attackPowerMultiplier;
     }
 }
-
