@@ -1,0 +1,142 @@
+[
+  {
+    "ID": 100001,
+    "CardID": 10000,
+    "Level": 1,
+    "value": 5.0,
+    "value1": 0.0
+  },
+  {
+    "ID": 100002,
+    "CardID": 10000,
+    "Level": 2,
+    "value": 10.0,
+    "value1": 0.0
+  },
+  {
+    "ID": 100003,
+    "CardID": 10000,
+    "Level": 3,
+    "value": 15.0,
+    "value1": 0.0
+  },
+  {
+    "ID": 100004,
+    "CardID": 10000,
+    "Level": 4,
+    "value": 20.0,
+    "value1": 0.0
+  },
+  {
+    "ID": 100005,
+    "CardID": 10000,
+    "Level": 5,
+    "value": 25.0,
+    "value1": 0.0
+  },
+  {
+    "ID": 100011,
+    "CardID": 10001,
+    "Level": 1,
+    "value": 20.0,
+    "value1": 0.0
+  },
+  {
+    "ID": 100012,
+    "CardID": 10001,
+    "Level": 2,
+    "value": 25.0,
+    "value1": 0.0
+  },
+  {
+    "ID": 100013,
+    "CardID": 10001,
+    "Level": 3,
+    "value": 25.0,
+    "value1": 0.0
+  },
+  {
+    "ID": 100014,
+    "CardID": 10001,
+    "Level": 4,
+    "value": 25.0,
+    "value1": 0.0
+  },
+  {
+    "ID": 100015,
+    "CardID": 10001,
+    "Level": 5,
+    "value": 25.0,
+    "value1": 0.0
+  },
+  {
+    "ID": 100021,
+    "CardID": 10002,
+    "Level": 1,
+    "value": 0.5,
+    "value1": 1.0
+  },
+  {
+    "ID": 100022,
+    "CardID": 10002,
+    "Level": 2,
+    "value": 0.5,
+    "value1": 2.0
+  },
+  {
+    "ID": 100023,
+    "CardID": 10002,
+    "Level": 3,
+    "value": 0.5,
+    "value1": 3.0
+  },
+  {
+    "ID": 100024,
+    "CardID": 10002,
+    "Level": 4,
+    "value": 0.5,
+    "value1": 4.0
+  },
+  {
+    "ID": 100025,
+    "CardID": 10002,
+    "Level": 5,
+    "value": 0.5,
+    "value1": 5.0
+  },
+  {
+    "ID": 100031,
+    "CardID": 10003,
+    "Level": 1,
+    "value": 0.1,
+    "value1": 4.0
+  },
+  {
+    "ID": 100032,
+    "CardID": 10003,
+    "Level": 2,
+    "value": 0.1,
+    "value1": 8.0
+  },
+  {
+    "ID": 100033,
+    "CardID": 10003,
+    "Level": 3,
+    "value": 0.1,
+    "value1": 16.0
+  },
+  {
+    "ID": 100034,
+    "CardID": 10003,
+    "Level": 4,
+    "value": 0.1,
+    "value1": 24.0
+  },
+  {
+    "ID": 100035,
+    "CardID": 10003,
+    "Level": 5,
+    "value": 0.1,
+    "value1": 32.0
+  }
+]
