@@ -24,6 +24,10 @@ public class InGameManager : MonoSingleton<InGameManager>, IEventListener
         ResetTimeScale();
         currentGameSpeedIndex = 0;
         
+        UIManager.Instance.Open<InGameUI>();
+        var backgroundPrefab = ResourceManager.Instance.Load<GameObject>("Prefabs/Background");
+        Instantiate(backgroundPrefab);
+        
         isInitialized = true;
         await UniTask.CompletedTask;
     }

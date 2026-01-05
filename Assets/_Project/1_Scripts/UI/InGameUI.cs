@@ -9,20 +9,13 @@ public class InGameUI : BaseUI
     [SerializeField] private TextMeshProUGUI gameSpeedText;
     [SerializeField] private InGameWaveInfoUIComponent waveInfo;
     [SerializeField] private InGameHeroControlUIComponent heroControl;
+    
+    public InGameWaveInfoUIComponent WaveInfoUI => waveInfo;
 
     protected override void Opened(params object[] args)
     {
         InitializeButtons();
         gameSpeedText.text = $"x{InGameManager.Instance.CurrentGameSpeed}";
-        
-        if (args[0] is EnemyWaveController)
-        {
-            waveInfo.SubscribeEnemyController(args[0] as EnemyWaveController);
-        }
-        else
-        {
-            CDebug.LogError("[InGameUI] Open 매개변수 확인 필요!");
-        }
     }
 
     protected override void Closed(params object[] args)

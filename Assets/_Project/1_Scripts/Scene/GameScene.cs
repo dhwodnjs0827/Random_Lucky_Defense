@@ -1,4 +1,5 @@
 using Cysharp.Threading.Tasks;
+using UnityEngine;
 
 public class GameScene : BaseScene
 {
@@ -8,6 +9,7 @@ public class GameScene : BaseScene
     {
         await InGameManager.Instance.InitializeAsync();
         await EffectManager.Instance.InitializeAsync();
+        await base.InitializeAsync();
     }
 
     public override async UniTask CleanupAsync()

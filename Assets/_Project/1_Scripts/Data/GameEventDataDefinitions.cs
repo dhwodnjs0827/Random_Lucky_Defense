@@ -1,5 +1,7 @@
 // GameEventManager 매개변수
 
+using Generated;
+
 public struct HeroSpawnEventData
 {
     public readonly BaseHero SpawnedHero;
@@ -12,10 +14,20 @@ public struct HeroSpawnEventData
 
 public struct GameFinishEventData
 {
-    public bool IsGameVictory;
+    public readonly bool IsGameVictory;
 
     public GameFinishEventData(bool isGameVictory)
     {
         IsGameVictory = isGameVictory;
+    }
+}
+
+public struct GameWaveStartEventData
+{
+    public readonly WaveDataSO CurrentWaveData;
+    
+    public GameWaveStartEventData(WaveDataSO currentWaveData)
+    {
+        CurrentWaveData = currentWaveData;
     }
 }

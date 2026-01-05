@@ -13,7 +13,7 @@ public class EnemyWaveController : MonoBehaviour, IEventListener
 
     private ResourceManager resourceManager;
 
-    private readonly ReactiveProperty<WaveDataSO> currentWaveData = new();
+    private WaveDataSO currentWaveData;
     private readonly ReactiveProperty<float> currentWaveTime = new();
     private BaseEnemy currentSpawnEnemyPrefab;
     private EnemyDataSO currentSpawnEnemyData;
@@ -25,8 +25,7 @@ public class EnemyWaveController : MonoBehaviour, IEventListener
     
     private delegate void SpawnMethod();
     private SpawnMethod spawn;
-
-    public IReadOnlyReactiveProperty<WaveDataSO> CurrentWaveData => currentWaveData;
+    
     public IReadOnlyReactiveProperty<float> CurrentWaveTime => currentWaveTime;
 
     private void Awake()
@@ -43,9 +42,11 @@ public class EnemyWaveController : MonoBehaviour, IEventListener
 
     private void Start()
     {
+        var waveInfoUI = UIManager.Instance.GetUI<InGameUI>().WaveInfoUI;
+        waveInfoUI.SubscribeEnemyController(this);
+        
         // 첫 웨이브 설정
         SetWaveData();
-        UIManager.Instance.Open<InGameUI>(this);
     }
 
     private void Update()
@@ -126,19 +127,19 @@ public class EnemyWaveController : MonoBehaviour, IEventListener
             return;
         }
         
-        currentWaveData.Value =  waveDatas[currentWaveDataIndex];
+        currentWaveData =  waveDatas[currentWaveDataIndex];
         
-        currentWaveTime.Value = currentWaveData.Value.WaveTime;
-        spawnInterval = currentWaveData.Value.SpawnInterval;
+        currentWaveTime.Value = currentWaveData.WaveTime;
+        spawnInterval = currentWaveData.SpawnInterval;
         spawnTimer = 0f;
         
-        currentSpawnEnemyPrefab = resourceManager.Load<BaseEnemy>($"Prefabs/Enemy/{currentWaveData.Value.SpawnEnemyID}");
-        currentSpawnEnemyData = resourceManager.Load<EnemyDataSO>($"Data/SO/EnemyData/{currentWaveData.Value.SpawnEnemyID}");
+        currentSpawnEnemyPrefab = resourceManager.Load<BaseEnemy>($"Prefabs/Enemy/{currentWaveData.SpawnEnemyID}");
+        currentSpawnEnemyData = resourceManager.Load<EnemyDataSO>($"Data/SO/EnemyData/{currentWaveData.SpawnEnemyID}");
 
-        spawn = currentWaveData.Value.WaveType == WaveType.Normal ? SpawnNormalEnemy : SpawnBossEnemy;
+        spawn = currentWaveData.WaveType == WaveType.Normal ? SpawnNormalEnemy : SpawnBossEnemy;
         
         currentWaveDataIndex++;
-        EventManager.Dispatch(GameEventType.WaveStart);
+        EventManager.Dispatch(GameEventType.WaveStart, new GameWaveStartEventData(currentWaveData));
     }
     
     private void DecreaseEnemyCount()
