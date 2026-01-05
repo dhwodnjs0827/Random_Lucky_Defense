@@ -43,7 +43,7 @@ public class EnemyWaveController : MonoBehaviour, IEventListener
     private void Start()
     {
         var waveInfoUI = UIManager.Instance.GetUI<InGameUI>().WaveInfoUI;
-        waveInfoUI.SubscribeEnemyController(this);
+        waveInfoUI.SubscribeWaveTimer(currentWaveTime);
         
         // 첫 웨이브 설정
         SetWaveData();

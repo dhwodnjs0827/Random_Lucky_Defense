@@ -17,9 +17,9 @@ public class InGameWaveInfoUIComponent : MonoBehaviour, IEventListener
     
     private Action<GameWaveStartEventData> onWaveStart;
 
-    public void SubscribeEnemyController(EnemyWaveController controller)
+    public void SubscribeWaveTimer(ReactiveProperty<float> waveTimer)
     {
-        controller.CurrentWaveTime.Subscribe(waveTime => waveTimerText.text = TimeFormatUtil.ToMMSSms(waveTime))
+        waveTimer.Subscribe(waveTime => waveTimerText.text = TimeFormatUtil.ToMMSSms(waveTime))
             .AddTo(this);
     }
 
