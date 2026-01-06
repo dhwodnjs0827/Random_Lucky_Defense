@@ -7,7 +7,6 @@ public class BaseProjectile : MonoBehaviour, IPoolable
     [SerializeField] private float arrivalThreshold = 0.1f;
 
     protected ProjectileData projectileData;
-    private float speed = 10f;
     private bool isFired;
     private Vector3 lastTargetPosition;
 
@@ -39,7 +38,7 @@ public class BaseProjectile : MonoBehaviour, IPoolable
         }
 
         var direction = (lastTargetPosition - transform.position).normalized;
-        rb.linearVelocity = direction * speed;
+        rb.linearVelocity = direction * GameConstants.PROJECTILE_SPEED;
     }
 
     private void CheckArrival()
@@ -59,7 +58,14 @@ public class BaseProjectile : MonoBehaviour, IPoolable
         if (projectileData.Target?.Transform != null &&
             projectileData.Target.Transform.TryGetComponent<IDamageable>(out var damageable))
         {
-            damageable.TakeDamage(projectileData.AttackPower);
+            var damageContext = new DamageContext
+            (
+                projectileData.AttackPower,
+                projectileData.CriticalRate,
+                projectileData.CriticalDamage,
+                projectileData.HeroClass
+            );
+            damageable.TakeDamage(damageContext);
         }
 
         //TODO: HitEffect 재생
@@ -85,7 +91,14 @@ public class BaseProjectile : MonoBehaviour, IPoolable
 
             if (hit.TryGetComponent<IDamageable>(out var damageable))
             {
-                damageable.TakeDamage(projectileData.AttackPower);
+                var damageContext = new DamageContext
+                (
+                    projectileData.AttackPower,
+                    projectileData.CriticalRate,
+                    projectileData.CriticalDamage,
+                    projectileData.HeroClass
+                );
+                damageable.TakeDamage(damageContext);
             }
         }
     }

@@ -17,6 +17,9 @@ public static class GameConstants
     public const int MYTH_HERO_SPAWN_CHANCE = 8; // 0.08%
     public const int GOD_HERO_SPAWN_CHANCE = 2; // 0.02%
     
+    // 투사체 속도
+    public const float PROJECTILE_SPEED = 20f;
+    
     // 게임 내 초기 SP
     public const int INITIAL_HERO_SPAWN_POINT = 100;
     // 게임 내 영웅 소환 비용

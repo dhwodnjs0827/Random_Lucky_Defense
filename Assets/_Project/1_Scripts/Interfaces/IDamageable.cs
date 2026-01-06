@@ -9,7 +9,7 @@ public interface IDamageable
     /// <summary>
     /// 데미지 처리
     /// </summary>
-    public void TakeDamage(float damage);
+    public void TakeDamage(DamageContext damageContext);
 
     /// <summary>
     /// 피격 이펙트

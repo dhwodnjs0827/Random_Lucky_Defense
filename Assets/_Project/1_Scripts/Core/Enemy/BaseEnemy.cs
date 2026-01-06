@@ -165,7 +165,7 @@ public abstract class BaseEnemy : MonoBehaviour, IPoolable, IDetectable, IDamage
         splineAnimate.Pause();
     }
 
-    public void TakeDamage(float damage)
+    public void TakeDamage(DamageContext damageContext)
     {
         if (currentHealth <= 0)
         {
@@ -173,8 +173,9 @@ public abstract class BaseEnemy : MonoBehaviour, IPoolable, IDetectable, IDamage
         }
         
         HitEffect();
-
-        currentHealth -= damage;
+        
+        var damageResult = DamageCalculator.CalculateDamage(damageContext, enemyData.MonsterType, defense);
+        currentHealth -= damageResult.Damage;
         currentHealth = Mathf.Max(currentHealth, 0f);
         healthText.text = $"{currentHealth:N0}";
 

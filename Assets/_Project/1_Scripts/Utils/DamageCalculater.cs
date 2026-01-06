@@ -1,4 +1,6 @@
+using System.Collections.Generic;
 using System.Linq;
+using Generated;
 using UnityEngine;
 
 /// <summary>
@@ -6,37 +8,64 @@ using UnityEngine;
 /// </summary>
 public static class DamageCalculator
 {
+    private static Dictionary<(HeroClassType, MonsterType), DamageRateByClassDataSO> damageRateByClassData = new();
+    
     /// <summary>
-    /// 최종 데미지 계산 (크리티컬 + 방어력 적용)
+    /// 초기화
     /// </summary>
-    public static DamageResult CalculateFinalDamage(ProjectileData projectileData, float defense)
+    static DamageCalculator()
     {
-        var baseDamage = projectileData.AttackPower;
-
-        // 1. 크리티컬 계산
-        var isCritical = TryCalculateCriticalDamage(
-            baseDamage,
-            projectileData.CriticalRate,
-            projectileData.CriticalDamage,
-            out var criticalDamage);
-
-        // 2. 방어력 적용
-        var finalDamage = ApplyDefense(criticalDamage, defense);
-
-        // 3. 최소 데미지 보장
-        finalDamage = Mathf.Max(finalDamage, 1f);
-
-        return new DamageResult(finalDamage, isCritical);
+        var datas = ResourceManager.Instance.LoadAll<DamageRateByClassDataSO>("Data/SO/DamageRateByClassData");
+        foreach (var data in datas)
+        {
+            if (!damageRateByClassData.ContainsKey((data.ClassType, data.MonsterType)))
+            {
+                damageRateByClassData.Add((data.ClassType, data.MonsterType), data);
+            }
+        }
     }
 
     /// <summary>
+    /// 데미지 계산
+    /// </summary>
+    public static DamageResult CalculateDamage(DamageContext damageContext, MonsterType monsterType, float defense)
+    {
+        // 기본 공격력 (영웅 기본 공격력 * 레벨 업 공격력 배율 * 카드 효과 공격력 배율)
+        var baseDamage = damageContext.BaseDamage;
+        
+        // 클래스-몬스터별 데미지 배율 계산
+        ApplyClassDamageRate(baseDamage, damageContext.HeroClass, monsterType, out baseDamage);
+        
+        // 크리티컬 확률 계산 (크리티컬 발동 시, 크리티컬 데미지 배율 계산 됨)
+        var isCritical = TryCalculateCriticalDamage(baseDamage, damageContext.CriticalRate, damageContext.CriticalDamage, out baseDamage);
+        
+        // 방어력 적용
+        ApplyDefense(baseDamage, defense, out baseDamage);
+        
+        // 음수 방지 및 최소 데미지 적용
+        baseDamage = Mathf.Max(baseDamage, 0.1f);
+        
+        // 최종 데미지 계산 결과(계산된 데미지, 치명 여부)
+        return new DamageResult(baseDamage, isCritical);
+    }
+
+    /// <summary>
+    /// 클래스별 데미지 비율 적용
+    /// </summary>
+    public static void ApplyClassDamageRate(float damage, HeroClassType classType, MonsterType monsterType, out float finalDamage)
+    {
+        var damageRateData = damageRateByClassData[(classType, monsterType)];
+        finalDamage = CalculateMultipliers(damage, damageRateData.DamageRate);
+    }
+    
+    /// <summary>
     /// 방어력 적용 (예: 방어력 100 = 50% 감소)
     /// </summary>
-    public static float ApplyDefense(float damage, float defense)
+    public static void ApplyDefense(float damage, float defense, out float finalDamage)
     {
         // 공식 예시: 데미지 감소율 = 방어력 / (방어력 + 100)
         var reduction = defense / (defense + 100f);
-        return damage * (1f - reduction);
+        finalDamage =  damage * (1f - reduction);
     }
 
     /// <summary>
@@ -96,5 +125,24 @@ public readonly struct DamageResult
     {
         Damage = damage;
         IsCritical = isCritical;
+    }
+}
+
+/// <summary>
+/// 데미지 계산용 Context
+/// </summary>
+public readonly struct DamageContext
+{
+    public readonly float BaseDamage;
+    public readonly float CriticalRate;
+    public readonly float CriticalDamage;
+    public readonly HeroClassType HeroClass;
+
+    public DamageContext(float baseDamage, float criticalRate, float criticalDamage, HeroClassType heroClass)
+    {
+        BaseDamage = baseDamage;
+        CriticalRate = criticalRate;
+        CriticalDamage = criticalDamage;
+        HeroClass = heroClass;
     }
 }
