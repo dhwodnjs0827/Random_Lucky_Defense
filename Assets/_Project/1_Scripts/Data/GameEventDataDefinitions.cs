@@ -25,10 +25,12 @@ public struct GameFinishEventData
 public struct GameWaveStartEventData
 {
     public readonly WaveDataSO CurrentWaveData;
+    public readonly EnemyDataSO CurrentEnemyData;
 
-    public GameWaveStartEventData(WaveDataSO currentWaveData)
+    public GameWaveStartEventData(WaveDataSO currentWaveData, EnemyDataSO currentEnemyData)
     {
         CurrentWaveData = currentWaveData;
+        CurrentEnemyData = currentEnemyData;
     }
 }
 

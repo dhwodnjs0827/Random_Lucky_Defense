@@ -9,7 +9,10 @@ using UnityEngine;
 public static class DamageCalculator
 {
     private static Dictionary<(HeroClassType, MonsterType), DamageRateByClassDataSO> damageRateByClassData = new();
-    
+
+    public static IDictionary<(HeroClassType, MonsterType), DamageRateByClassDataSO> DamageRateByClassData =>
+        damageRateByClassData;
+
     /// <summary>
     /// 초기화
     /// </summary>
@@ -32,19 +35,20 @@ public static class DamageCalculator
     {
         // 기본 공격력 (영웅 기본 공격력 * 레벨 업 공격력 배율 * 카드 효과 공격력 배율)
         var baseDamage = damageContext.BaseDamage;
-        
+
         // 클래스-몬스터별 데미지 배율 계산
         ApplyClassDamageRate(baseDamage, damageContext.HeroClass, monsterType, out baseDamage);
-        
+
         // 크리티컬 확률 계산 (크리티컬 발동 시, 크리티컬 데미지 배율 계산 됨)
-        var isCritical = TryCalculateCriticalDamage(baseDamage, damageContext.CriticalRate, damageContext.CriticalDamage, out baseDamage);
-        
+        var isCritical = TryCalculateCriticalDamage(baseDamage, damageContext.CriticalRate,
+            damageContext.CriticalDamage, out baseDamage);
+
         // 방어력 적용
         ApplyDefense(baseDamage, defense, out baseDamage);
-        
+
         // 음수 방지 및 최소 데미지 적용
         baseDamage = Mathf.Max(baseDamage, 0.1f);
-        
+
         // 최종 데미지 계산 결과(계산된 데미지, 치명 여부)
         return new DamageResult(baseDamage, isCritical);
     }
@@ -52,12 +56,13 @@ public static class DamageCalculator
     /// <summary>
     /// 클래스별 데미지 비율 적용
     /// </summary>
-    public static void ApplyClassDamageRate(float damage, HeroClassType classType, MonsterType monsterType, out float finalDamage)
+    public static void ApplyClassDamageRate(float damage, HeroClassType classType, MonsterType monsterType,
+        out float finalDamage)
     {
         var damageRateData = damageRateByClassData[(classType, monsterType)];
         finalDamage = CalculateMultipliers(damage, damageRateData.DamageRate);
     }
-    
+
     /// <summary>
     /// 방어력 적용 (예: 방어력 100 = 50% 감소)
     /// </summary>
@@ -65,7 +70,7 @@ public static class DamageCalculator
     {
         // 공식 예시: 데미지 감소율 = 방어력 / (방어력 + 100)
         var reduction = defense / (defense + 100f);
-        finalDamage =  damage * (1f - reduction);
+        finalDamage = damage * (1f - reduction);
     }
 
     /// <summary>
@@ -86,7 +91,7 @@ public static class DamageCalculator
     {
         return baseValue * multiplier;
     }
-    
+
     /// <summary>
     /// 스탯 곱연산 (기본 수치 * 배율들)
     /// </summary>
@@ -102,7 +107,7 @@ public static class DamageCalculator
     {
         return baseValue + additionalValue;
     }
-    
+
     /// <summary>
     /// 스탯 합연산 (기본 수치 + 추가 수치들)
     /// </summary>

@@ -145,7 +145,7 @@ public class EnemyWaveController : MonoBehaviour, IEventListener
         spawn = currentWaveData.WaveType == WaveType.Normal ? SpawnNormalEnemy : SpawnBossEnemy;
         
         currentWaveDataIndex++;
-        EventManager.Dispatch(GameEventType.WaveStart, new GameWaveStartEventData(currentWaveData));
+        EventManager.Dispatch(GameEventType.WaveStart, new GameWaveStartEventData(currentWaveData, currentSpawnEnemyData));
     }
     
     private void DecreaseEnemyCount()

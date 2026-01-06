@@ -48,6 +48,7 @@ public class InGameWaveInfoUIComponent : MonoBehaviour, IEventListener
     private void SetWaveDate(GameWaveStartEventData data)
     {
         currentWaveText.text = $"WAVE {data.CurrentWaveData.WaveIndex}/101";
-        monsterTypeText.text = $"{data.CurrentWaveData.WaveType}";
+        monsterTypeText.text = $"{data.CurrentEnemyData.MonsterType}";
+        enemyTypeText.text = $"{data.CurrentEnemyData.EnemyType}";
     }
 }

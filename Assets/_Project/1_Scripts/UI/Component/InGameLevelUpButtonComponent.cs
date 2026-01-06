@@ -20,6 +20,7 @@ public class InGameLevelUpButtonComponent : MonoBehaviour, IEventListener
     private InGameHeroLevelUpController levelUpController;
     private readonly ReactiveProperty<int> heroCount = new();
     private Action<HeroSpawnEventData> onSpawnedHero;
+    private Action<GameWaveStartEventData> onWaveStart;
 
     private void Awake()
     {
@@ -65,12 +66,16 @@ public class InGameLevelUpButtonComponent : MonoBehaviour, IEventListener
     {
         onSpawnedHero += IncreaseHeroCount;
         EventManager.Subscribe(GameEventType.SpawnHero, onSpawnedHero);
+        onWaveStart += ChangeDamageRate;
+        EventManager.Subscribe(GameEventType.WaveStart, onWaveStart);
         
         heroCount.Subscribe(count => heroCountText.text = count.ToString()).AddTo(this);
     }
 
     public void UnsubscribeEvents()
     {
+        EventManager.Unsubscribe(GameEventType.WaveStart, onWaveStart);
+        onWaveStart -= ChangeDamageRate;
         EventManager.Unsubscribe(GameEventType.SpawnHero, onSpawnedHero);
         onSpawnedHero -= IncreaseHeroCount;
     }
@@ -80,6 +85,26 @@ public class InGameLevelUpButtonComponent : MonoBehaviour, IEventListener
         if (data.SpawnedHero.ClassType == classType)
         {
             heroCount.Value++;
+        }
+    }
+
+    private void ChangeDamageRate(GameWaveStartEventData data)
+    {
+        var currentEnemyData = data.CurrentEnemyData;
+        switch (currentEnemyData.MonsterType)
+        {
+           case MonsterType.Undead:
+               classDamageRateText.text =
+                   $"{DamageCalculator.DamageRateByClassData[(classType, MonsterType.Undead)].DamageRate * 100f :N0}";
+               break;
+           case MonsterType.Troll:
+               classDamageRateText.text =
+                   $"{DamageCalculator.DamageRateByClassData[(classType, MonsterType.Troll)].DamageRate * 100f :N0}";
+               break;
+           case MonsterType.Orc:
+               classDamageRateText.text =
+                   $"{DamageCalculator.DamageRateByClassData[(classType, MonsterType.Orc)].DamageRate * 100f :N0}";
+               break;
         }
     }
 }
