@@ -3,25 +3,43 @@ using UnityEngine;
 public class BaseProjectile : MonoBehaviour, IPoolable
 {
     [SerializeField] protected ParticleSystem projectileParticles;
-    [SerializeField] private Rigidbody2D rb;
-    [SerializeField] private float arrivalThreshold = 0.1f;
 
     protected ProjectileData projectileData;
     private bool isFired;
     private Vector3 lastTargetPosition;
 
-    private void FixedUpdate()
+    private void Update()
     {
         if (!isFired) return;
 
         FlyToTarget();
-        CheckArrival();
+        CheckTargetValidity();
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (!isFired) return;
+        if (projectileData.Target == null || projectileData.Target.Transform == null) return;
+        if (collision.transform != projectileData.Target.Transform) return;
+        
+        if (collision.TryGetComponent<IDamageable>(out var damageable))
+        {
+            isFired = false;
+            HitTarget(damageable);
+        }
     }
 
     public virtual void Initialize(ProjectileData data)
     {
         projectileData = data;
-        lastTargetPosition = data.Target?.Transform.position ?? transform.position;
+        if (data.Target != null && data.Target.Transform != null && projectileData.Target.Transform.gameObject.activeSelf)
+        {
+            lastTargetPosition = data.Target.Transform.position;
+        }
+        else
+        {
+            Release();
+        }
     }
 
     public void Fire()
@@ -32,41 +50,36 @@ public class BaseProjectile : MonoBehaviour, IPoolable
     private void FlyToTarget()
     {
         // 타겟이 살아있으면 위치 갱신
-        if (projectileData.Target?.Transform != null)
+        if (projectileData.Target != null && projectileData.Target.Transform != null && projectileData.Target.Transform.gameObject.activeSelf)
         {
             lastTargetPosition = projectileData.Target.Transform.position;
         }
-
-        var direction = (lastTargetPosition - transform.position).normalized;
-        rb.linearVelocity = direction * GameConstants.PROJECTILE_SPEED;
+        var movePos = Vector3.MoveTowards(transform.position, lastTargetPosition, GameConstants.PROJECTILE_SPEED * Time.deltaTime);
+        transform.position = movePos;
     }
 
-    private void CheckArrival()
+    private void CheckTargetValidity()
     {
-        float distance = Vector3.Distance(transform.position, lastTargetPosition);
-        if (distance <= arrivalThreshold)
+        if (projectileData.Target == null || projectileData.Target.Transform == null || !projectileData.Target.Transform.gameObject.activeSelf)
         {
-            OnArrived();
+            if (transform.position == lastTargetPosition)
+            {
+                Release();
+            }
         }
     }
 
-    private void OnArrived()
+    private void HitTarget(IDamageable target)
     {
-        isFired = false;
-
         // 메인 타겟 데미지
-        if (projectileData.Target?.Transform != null &&
-            projectileData.Target.Transform.TryGetComponent<IDamageable>(out var damageable))
-        {
-            var damageContext = new DamageContext
-            (
-                projectileData.AttackPower,
-                projectileData.CriticalRate,
-                projectileData.CriticalDamage,
-                projectileData.HeroClass
-            );
-            damageable.TakeDamage(damageContext);
-        }
+        var damageContext = new DamageContext
+        (
+            projectileData.AttackPower,
+            projectileData.CriticalRate,
+            projectileData.CriticalDamage,
+            projectileData.HeroClass
+        );
+        target.TakeDamage(damageContext);
 
         //TODO: HitEffect 재생
 
@@ -116,7 +129,8 @@ public class BaseProjectile : MonoBehaviour, IPoolable
     public virtual void OnRelease()
     {
         projectileData = default;
-        rb.linearVelocity = Vector2.zero;
+        lastTargetPosition = Vector2.zero;
+        isFired = false;
     }
 }
 

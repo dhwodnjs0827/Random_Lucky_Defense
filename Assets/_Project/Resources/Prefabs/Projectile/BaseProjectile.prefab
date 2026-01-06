@@ -49,7 +49,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BaseProjectile
   projectileParticles: {fileID: 792618122507488750}
   rb: {fileID: 2973150858893765614}
-  arrivalThreshold: 0.1
 --- !u!50 &2973150858893765614
 Rigidbody2D:
   serializedVersion: 5
@@ -112,7 +111,7 @@ CircleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_Radius: 0.38
+  m_Radius: 0.23
 --- !u!1001 &3549176880235938606
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -161,8 +161,6 @@ public abstract class BaseEnemy : MonoBehaviour, IPoolable, IDetectable, IDamage
         {
             spriteRenderers[i].color = originalColors[i];
         }
-        
-        splineAnimate.Pause();
     }
 
     public void TakeDamage(DamageContext damageContext)
