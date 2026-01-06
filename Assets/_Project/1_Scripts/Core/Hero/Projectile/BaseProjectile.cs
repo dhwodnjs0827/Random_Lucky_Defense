@@ -54,14 +54,14 @@ public class BaseProjectile : MonoBehaviour, IPoolable
     private void OnArrived()
     {
         isFired = false;
-        
+
         // 메인 타겟 데미지
         if (projectileData.Target?.Transform != null &&
             projectileData.Target.Transform.TryGetComponent<IDamageable>(out var damageable))
         {
             damageable.TakeDamage(projectileData.AttackPower);
         }
-        
+
         //TODO: HitEffect 재생
 
         // 스플래시 데미지
@@ -114,13 +114,22 @@ public readonly struct ProjectileData
     private readonly HeroStat LevelUpStat;
     private readonly HeroStat CardEffectStat;
     public readonly HeroClassType HeroClass;
-    
-    public float AttackPower => HeroStat.AttackPower * LevelUpStat.AttackPowerMultiplier * CardEffectStat.AttackPowerMultiplier;
-    public float CriticalRate => HeroStat.CriticalRate + LevelUpStat.CriticalRate + CardEffectStat.CriticalRate;
-    public float CriticalDamage => HeroStat.CriticalDamage + LevelUpStat.CriticalDamage + CardEffectStat.CriticalDamage;
-    public float SplashRange => HeroStat.SplashRange * LevelUpStat.SplashRangeMultiplier * CardEffectStat.SplashRangeMultiplier;
 
-    public ProjectileData(IDetectable target, HeroStat heroStat, HeroStat levelUpStat, HeroStat cardEffectStat, HeroClassType heroClassType)
+    public float AttackPower => DamageCalculator.CalculateMultipliers(HeroStat.AttackPower,
+        LevelUpStat.AttackPowerMultiplier, CardEffectStat.AttackPowerMultiplier);
+
+    public float CriticalRate =>
+        DamageCalculator.CalculateAdditives(HeroStat.CriticalRate, LevelUpStat.CriticalRate,
+            CardEffectStat.CriticalRate);
+
+    public float CriticalDamage => DamageCalculator.CalculateAdditives(HeroStat.CriticalDamage,
+        LevelUpStat.CriticalDamage, CardEffectStat.CriticalDamage);
+
+    public float SplashRange => DamageCalculator.CalculateMultipliers(HeroStat.SplashRange,
+        LevelUpStat.SplashRangeMultiplier, CardEffectStat.SplashRangeMultiplier);
+
+    public ProjectileData(IDetectable target, HeroStat heroStat, HeroStat levelUpStat, HeroStat cardEffectStat,
+        HeroClassType heroClassType)
     {
         Target = target;
         HeroStat = heroStat;

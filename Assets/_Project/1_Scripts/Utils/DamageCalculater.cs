@@ -1,3 +1,4 @@
+using System.Linq;
 using UnityEngine;
 
 /// <summary>
@@ -10,17 +11,17 @@ public static class DamageCalculator
     /// </summary>
     public static DamageResult CalculateFinalDamage(ProjectileData projectileData, float defense)
     {
-        float baseDamage = projectileData.AttackPower;
+        var baseDamage = projectileData.AttackPower;
 
         // 1. 크리티컬 계산
-        bool isCritical = TryCalculateCriticalDamage(
+        var isCritical = TryCalculateCriticalDamage(
             baseDamage,
             projectileData.CriticalRate,
             projectileData.CriticalDamage,
-            out float criticalDamage);
+            out var criticalDamage);
 
         // 2. 방어력 적용
-        float finalDamage = ApplyDefense(criticalDamage, defense);
+        var finalDamage = ApplyDefense(criticalDamage, defense);
 
         // 3. 최소 데미지 보장
         finalDamage = Mathf.Max(finalDamage, 1f);
@@ -34,7 +35,7 @@ public static class DamageCalculator
     public static float ApplyDefense(float damage, float defense)
     {
         // 공식 예시: 데미지 감소율 = 방어력 / (방어력 + 100)
-        float reduction = defense / (defense + 100f);
+        var reduction = defense / (defense + 100f);
         return damage * (1f - reduction);
     }
 
@@ -52,17 +53,34 @@ public static class DamageCalculator
     /// <summary>
     /// 스탯 곱연산 (기본 수치 * 배율)
     /// </summary>
-    public static float CalculateStatMultiplier(float baseValue, float multiplier)
+    public static float CalculateMultiplier(float baseValue, float multiplier)
     {
         return baseValue * multiplier;
+    }
+    
+    /// <summary>
+    /// 스탯 곱연산 (기본 수치 * 배율들)
+    /// </summary>
+    public static float CalculateMultipliers(float baseValue, params float[] multipliers)
+    {
+        return multipliers.Aggregate(baseValue, (current, multiplier) => current * multiplier);
     }
 
     /// <summary>
     /// 스탯 합연산 (기본 수치 + 추가 수치)
     /// </summary>
-    public static float CalculateStatAdditive(float baseValue, float additionalValue)
+    public static float CalculateAdditive(float baseValue, float additionalValue)
     {
         return baseValue + additionalValue;
+    }
+    
+    /// <summary>
+    /// 스탯 합연산 (기본 수치 + 추가 수치들)
+    /// </summary>
+    public static float CalculateAdditives(float baseValue, params float[] additionalValues)
+    {
+        baseValue += additionalValues.Sum();
+        return baseValue;
     }
 }
 

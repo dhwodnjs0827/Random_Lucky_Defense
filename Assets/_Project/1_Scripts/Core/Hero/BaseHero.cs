@@ -65,7 +65,7 @@ public abstract class BaseHero : MonoBehaviour, IPoolable
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, baseStat.AttackRange * LevelUpStat.AttackRangeMultiplier * CardEffectStat.AttackRangeMultiplier);
+        Gizmos.DrawWireSphere(transform.position, DamageCalculator.CalculateMultipliers(baseStat.AttackRange, LevelUpStat.AttackRangeMultiplier, CardEffectStat.AttackRangeMultiplier));
     }
 #endif
 }

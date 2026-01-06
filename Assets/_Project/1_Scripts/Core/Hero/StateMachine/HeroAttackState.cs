@@ -54,7 +54,7 @@ public class HeroAttackState : BaseHeroState
     /// </summary>
     private void Attack()
     {
-        var attackSpeed = hero.BaseStat.AttackSpeed * hero.LevelUpStat.AttackSpeedMultiplier * hero.CardEffectStat.AttackSpeedMultiplier;
+        var attackSpeed = DamageCalculator.CalculateMultipliers(hero.BaseStat.AttackSpeed, hero.LevelUpStat.AttackSpeedMultiplier, hero.CardEffectStat.AttackSpeedMultiplier);
         if (attackCooldown >= attackSpeed)
         {
             hero.Animator.SetTrigger(AttackAnimParam);
@@ -91,8 +91,7 @@ public class HeroAttackState : BaseHeroState
         }
 
         var distance = Vector2.Distance(hero.transform.position, targetEnemy.transform.position);
-        var attackRange = hero.BaseStat.AttackRange * hero.LevelUpStat.AttackRangeMultiplier *
-                          hero.CardEffectStat.AttackRangeMultiplier;
+        var attackRange = DamageCalculator.CalculateMultipliers(hero.BaseStat.AttackRange, hero.LevelUpStat.AttackRangeMultiplier, hero.CardEffectStat.AttackRangeMultiplier);
         if (distance > attackRange)
         {
             stateMachine.ChangeState(stateMachine.IdleState);
