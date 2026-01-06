@@ -34,6 +34,7 @@ Transform:
   m_Children:
   - {fileID: 4767500449059120445}
   - {fileID: 2769264858661309030}
+  - {fileID: 3141360520059508318}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &5260817138432476631
@@ -54,6 +55,8 @@ MonoBehaviour:
   enemyCollider: {fileID: 7722003596406119402}
   animator: {fileID: 4338755256544215116}
   healthText: {fileID: 7139671081074817787}
+  damageTextPrefab: {fileID: -6916611632916073526, guid: 5117f3ae5a36340438125496ffd9c06c, type: 3}
+  damageTextTransform: {fileID: 3141360520059508318}
 --- !u!114 &8678669102888184078
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -123,6 +126,37 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1.5351448, y: 1.1384814}
   m_EdgeRadius: 0
+--- !u!1 &8158730213160070451
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3141360520059508318}
+  m_Layer: 6
+  m_Name: DamageTextTransform
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3141360520059508318
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8158730213160070451}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.25, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 428564572923500696}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &9056971170700673824
 GameObject:
   m_ObjectHideFlags: 0

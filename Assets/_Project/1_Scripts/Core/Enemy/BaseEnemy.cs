@@ -20,6 +20,8 @@ public abstract class BaseEnemy : MonoBehaviour, IPoolable, IDetectable, IDamage
     [SerializeField] private Collider2D enemyCollider;
     [SerializeField] private Animator animator;
     [SerializeField] private TextMeshPro healthText;
+    [SerializeField] private DamageText damageTextPrefab;
+    [SerializeField] private Transform damageTextTransform;
 
     private SpriteRenderer[] spriteRenderers;
     private Color[] originalColors;
@@ -145,6 +147,13 @@ public abstract class BaseEnemy : MonoBehaviour, IPoolable, IDetectable, IDamage
         previousPosition = currentPosition;
     }
 
+    private void DamageTextEffect(float damage, bool isCritical)
+    {
+        var text = ObjectPoolManager.Instance.Get(damageTextPrefab);
+        text.transform.position = damageTextTransform.position;
+        text.PlayDamageTextSequence(damage, isCritical);
+    }
+
     public void OnGet()
     {
         splineAnimate.Restart(false);
@@ -170,12 +179,14 @@ public abstract class BaseEnemy : MonoBehaviour, IPoolable, IDetectable, IDamage
             return;
         }
         
-        HitEffect();
         
         var damageResult = DamageCalculator.CalculateDamage(damageContext, enemyData.MonsterType, defense);
         currentHealth -= damageResult.Damage;
         currentHealth = Mathf.Max(currentHealth, 0f);
         healthText.text = $"{currentHealth:N0}";
+        
+        HitEffect();
+        DamageTextEffect(damageResult.Damage, damageResult.IsCritical);
 
         if (currentHealth <= 0)
         {
