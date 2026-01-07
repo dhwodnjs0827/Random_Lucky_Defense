@@ -18,27 +18,52 @@ public class LobbyBottomButtonGroups : MonoBehaviour
     {
         if (shopButton != null)
         {
-            //UIManager.Instance.Open<ShopUI>();
+            shopButton.onClick.AddListener(OnClickShopButton);
         }
 
         if (heroButton != null)
         {
-            UIManager.Instance.Open<HeroManageUI>();
+            heroButton.onClick.AddListener(OnClickHeroButton);
         }
 
         if (lockButton != null)
         {
-            //ToastMessage.Show("준비 중입니다.");
+            lockButton.onClick.AddListener(OnClickLockButton);
         }
 
         if (rankButton != null)
         {
-            //UIManager.Instance.Open<RankingUI>();
+            rankButton.onClick.AddListener(OnClickRankButton);
         }
 
         if (settingButton != null)
         {
-            //UIManager.Instance.Open<SettingUI>();
+            settingButton.onClick.AddListener(OnClickSettingButton);
         }
+    }
+
+    private void OnClickShopButton()
+    {
+        //UIManager.Instance.Open<ShopUI>();
+    }
+
+    private void OnClickHeroButton()
+    {
+        UIManager.Instance.Open<HeroManageUI>();
+    }
+
+    private void OnClickLockButton()
+    {
+        //ToastMessage.Show("준비 중입니다.");
+    }
+
+    private void OnClickRankButton()
+    {
+        //UIManager.Instance.Open<RankingUI>();
+    }
+
+    private void OnClickSettingButton()
+    {
+        //UIManager.Instance.Open<SettingUI>();
     }
 }
