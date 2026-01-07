@@ -1,4 +1,19 @@
+using Cysharp.Threading.Tasks;
+
 public class LobbyScene : BaseScene
 {
     public override SceneType SceneType => SceneType.LobbyScene;
+
+    public override async UniTask InitializeAsync()
+    {
+        await UIManager.Instance.OpenAsync<MainLobbyUI>();
+        
+        await base.InitializeAsync();
+    }
+
+    public override async UniTask CleanupAsync()
+    {
+        UIManager.Instance.Cleanup();
+        await base.CleanupAsync();
+    }
 }
