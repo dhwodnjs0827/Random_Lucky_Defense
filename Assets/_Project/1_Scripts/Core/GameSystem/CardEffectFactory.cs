@@ -9,8 +9,8 @@ public class CardEffectFactory : IEventListener
     private Dictionary<BuffEffectType, List<IBuffCardEffect>> effectHandlers = new();
 
     private BuffCardDataSO[] buffCardDatas;
-    private readonly Dictionary<int, List<BuffCardLevelDataSO>> buffCardLevelDatas = new();
-    private readonly Dictionary<int, int> currentCardLevels = new();
+    private readonly Dictionary<string, List<BuffCardLevelDataSO>> buffCardLevelDatas = new();
+    private readonly Dictionary<string, int> currentCardLevels = new();
 
     private Action<GameBuffCardSelectEventData> onCardSelected;
 
@@ -88,7 +88,7 @@ public class CardEffectFactory : IEventListener
         }
     }
 
-    private int GetCardLevel(int cardId)
+    private int GetCardLevel(string cardId)
     {
         return currentCardLevels.GetValueOrDefault(cardId, 0);
     }
