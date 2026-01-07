@@ -23,7 +23,7 @@ public class BuffCardUIComponent : MonoBehaviour
     {
         currentCard = card;
         cardName.text = currentCard.CardData.Name;
-        cardDescription.text = currentCard.CardData.Description;
+        cardDescription.text = ReplaceCardDescriptionValues(card.CardData.Description, card.CardLevelData.value, card.CardLevelData.value1);
 
         for (var i = 0; i < levelIcons.Length; i++)
         {
@@ -35,5 +35,10 @@ public class BuffCardUIComponent : MonoBehaviour
     {
         EventManager.Dispatch(GameEventType.BuffCardSelected, new GameBuffCardSelectEventData(currentCard));
         UIManager.Instance.Close(parentUI);
+    }
+    
+    private string ReplaceCardDescriptionValues(string originalDesc, float value, float value1)
+    {
+        return originalDesc.Replace("{value}", value.ToString()).Replace("{value1}", value1.ToString());
     }
 }
