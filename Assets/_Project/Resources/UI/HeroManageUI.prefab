@@ -2999,15 +2999,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd388de69f91e40c68e1773596cfe7ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SelectedHeroViewComponent
-  normalHero: {fileID: 0}
-  superiorHero: {fileID: 0}
-  rareHero: {fileID: 0}
-  ancientHero: {fileID: 0}
-  relicHero: {fileID: 0}
-  legendHero: {fileID: 0}
-  epicHero: {fileID: 0}
-  mythHero: {fileID: 0}
-  godHero: {fileID: 0}
+  normalHero:
+    HeroGradeText: {fileID: 3512386197616587222}
+    Hero: {fileID: 6120046541328382014}
+  superiorHero:
+    HeroGradeText: {fileID: 8840348367767329152}
+    Hero: {fileID: 2021400089913385463}
+  rareHero:
+    HeroGradeText: {fileID: 8530215867821892323}
+    Hero: {fileID: 3871636207742783245}
+  ancientHero:
+    HeroGradeText: {fileID: 2937492173121481572}
+    Hero: {fileID: 5509233311527455205}
+  relicHero:
+    HeroGradeText: {fileID: 5872435123258802536}
+    Hero: {fileID: 1586022225904502119}
+  legendHero:
+    HeroGradeText: {fileID: 8685337325962805463}
+    Hero: {fileID: 1316817232327596489}
+  epicHero:
+    HeroGradeText: {fileID: 4350135896597240953}
+    Hero: {fileID: 4290536127915695862}
+  mythHero:
+    HeroGradeText: {fileID: 7672340077743527844}
+    Hero: {fileID: 983894554739989054}
+  godHero:
+    HeroGradeText: {fileID: 5279270455767247599}
+    Hero: {fileID: 3397126872944533894}
 --- !u!1 &5437559589206753347
 GameObject:
   m_ObjectHideFlags: 0
@@ -5592,6 +5610,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 69b9540d86d25450c88a95c69aa1c57d, type: 3}
+--- !u!114 &983894554739989054 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 489747877637689420, guid: 69b9540d86d25450c88a95c69aa1c57d, type: 3}
+  m_PrefabInstance: {fileID: 823193342944692850}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2697a22afa76942fa933a017fd1d645c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HeroViewComponent
 --- !u!224 &6240909735453147858 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6769116593039935648, guid: 69b9540d86d25450c88a95c69aa1c57d, type: 3}
@@ -5710,6 +5739,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 69b9540d86d25450c88a95c69aa1c57d, type: 3}
+--- !u!114 &1586022225904502119 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 489747877637689420, guid: 69b9540d86d25450c88a95c69aa1c57d, type: 3}
+  m_PrefabInstance: {fileID: 1209570362857166123}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2697a22afa76942fa933a017fd1d645c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HeroViewComponent
 --- !u!224 &5564754222721277323 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6769116593039935648, guid: 69b9540d86d25450c88a95c69aa1c57d, type: 3}
@@ -5832,6 +5872,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 69b9540d86d25450c88a95c69aa1c57d, type: 3}
+--- !u!114 &1316817232327596489 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 489747877637689420, guid: 69b9540d86d25450c88a95c69aa1c57d, type: 3}
+  m_PrefabInstance: {fileID: 1481026023518062981}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2697a22afa76942fa933a017fd1d645c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HeroViewComponent
 --- !u!224 &5295409623312777509 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6769116593039935648, guid: 69b9540d86d25450c88a95c69aa1c57d, type: 3}
@@ -5950,6 +6001,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 69b9540d86d25450c88a95c69aa1c57d, type: 3}
+--- !u!114 &2021400089913385463 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 489747877637689420, guid: 69b9540d86d25450c88a95c69aa1c57d, type: 3}
+  m_PrefabInstance: {fileID: 1929400694484398523}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2697a22afa76942fa933a017fd1d645c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HeroViewComponent
 --- !u!224 &5131324116166211867 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6769116593039935648, guid: 69b9540d86d25450c88a95c69aa1c57d, type: 3}
@@ -6072,6 +6134,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 69b9540d86d25450c88a95c69aa1c57d, type: 3}
+--- !u!114 &3397126872944533894 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 489747877637689420, guid: 69b9540d86d25450c88a95c69aa1c57d, type: 3}
+  m_PrefabInstance: {fileID: 3021611875945312714}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2697a22afa76942fa933a017fd1d645c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HeroViewComponent
 --- !u!224 &8367213464938838378 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6769116593039935648, guid: 69b9540d86d25450c88a95c69aa1c57d, type: 3}
@@ -6190,6 +6263,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 69b9540d86d25450c88a95c69aa1c57d, type: 3}
+--- !u!114 &3871636207742783245 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 489747877637689420, guid: 69b9540d86d25450c88a95c69aa1c57d, type: 3}
+  m_PrefabInstance: {fileID: 3706813820209209153}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2697a22afa76942fa933a017fd1d645c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HeroViewComponent
 --- !u!224 &7962790936273819617 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6769116593039935648, guid: 69b9540d86d25450c88a95c69aa1c57d, type: 3}
@@ -6312,6 +6396,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 69b9540d86d25450c88a95c69aa1c57d, type: 3}
+--- !u!114 &4290536127915695862 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 489747877637689420, guid: 69b9540d86d25450c88a95c69aa1c57d, type: 3}
+  m_PrefabInstance: {fileID: 4413779396620291770}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2697a22afa76942fa933a017fd1d645c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HeroViewComponent
 --- !u!224 &6967173440325584410 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6769116593039935648, guid: 69b9540d86d25450c88a95c69aa1c57d, type: 3}
@@ -6435,6 +6530,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 6769116593039935648, guid: 69b9540d86d25450c88a95c69aa1c57d, type: 3}
   m_PrefabInstance: {fileID: 5386117792331159977}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &5509233311527455205 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 489747877637689420, guid: 69b9540d86d25450c88a95c69aa1c57d, type: 3}
+  m_PrefabInstance: {fileID: 5386117792331159977}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2697a22afa76942fa933a017fd1d645c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HeroViewComponent
 --- !u!1001 &5919184559897110642
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6553,3 +6659,14 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 6769116593039935648, guid: 69b9540d86d25450c88a95c69aa1c57d, type: 3}
   m_PrefabInstance: {fileID: 5919184559897110642}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &6120046541328382014 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 489747877637689420, guid: 69b9540d86d25450c88a95c69aa1c57d, type: 3}
+  m_PrefabInstance: {fileID: 5919184559897110642}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2697a22afa76942fa933a017fd1d645c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HeroViewComponent

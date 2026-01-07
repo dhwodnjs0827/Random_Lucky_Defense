@@ -23,8 +23,10 @@ public class HeroViewComponent : MonoBehaviour
     /// <summary>
     /// 영웅 정보에 맞게 UI 요소들 초기화
     /// </summary>
-    public void InitializeHeroViewUIComponent(HeroDataSO heroData)
+    public void UpdateHeroViewUIComponent(HeroDataSO heroData, bool isSelected)
     {
-        
+        heroGradeText.text = $"{heroData.GradeType}";
+        heroRankText.text = $"{heroData.RankType}";
+        isSelectedImage.gameObject.SetActive(isSelected);
     }
 }
