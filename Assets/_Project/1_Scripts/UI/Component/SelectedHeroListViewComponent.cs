@@ -33,7 +33,10 @@ public class SelectedHeroListViewComponent : MonoBehaviour
             { HeroGradeType.Myth, mythHero },
             { HeroGradeType.God, godHero }
         };
+    }
 
+    private void OnEnable()
+    {
         var currentSelectedHeros = PlayerDataManager.Instance.SelectedHeroes;
         foreach (var heroData in currentSelectedHeros[currentHeroClassView])
         {
