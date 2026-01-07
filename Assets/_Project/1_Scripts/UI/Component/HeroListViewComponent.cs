@@ -1,16 +1,24 @@
+using TMPro;
 using UnityEngine;
 
 public class HeroListViewComponent : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    [Header("UI Components")]
+    [SerializeField] private TextMeshProUGUI heroCollectionDamageBonusText;
+    [SerializeField] private TMP_Dropdown alignmentDropdown;
+    [Space]
+    [SerializeField] private GameObject scrollViewContent;
+    
+    [Header("Hero View Prefab")]
+    [SerializeField] private HeroViewComponent heroViewPrefab;
+
+    private void Awake()
     {
-        
+        ReloadHeroView();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void ReloadHeroView()
     {
-        
+        ObjectPoolManager.Instance.Preload(heroViewPrefab, 9, 36);
     }
 }
