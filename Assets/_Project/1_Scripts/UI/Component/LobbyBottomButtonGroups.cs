@@ -23,7 +23,7 @@ public class LobbyBottomButtonGroups : MonoBehaviour
 
         if (heroButton != null)
         {
-            //UIManager.Instance.Open<HeroManageUI>();
+            UIManager.Instance.Open<HeroManageUI>();
         }
 
         if (lockButton != null)
