@@ -138,5 +138,110 @@
     "Level": 5,
     "value": 0.1,
     "value1": 32.0
+  },
+  {
+    "ID": "MagicianMoveSpeed_1",
+    "CardID": "MagicianMoveSpeed",
+    "Level": 1,
+    "value": 5.0,
+    "value1": 0.0
+  },
+  {
+    "ID": "MagicianMoveSpeed_2",
+    "CardID": "MagicianMoveSpeed",
+    "Level": 2,
+    "value": 6.0,
+    "value1": 0.0
+  },
+  {
+    "ID": "MagicianMoveSpeed_3",
+    "CardID": "MagicianMoveSpeed",
+    "Level": 3,
+    "value": 7.0,
+    "value1": 0.0
+  },
+  {
+    "ID": "MagicianMoveSpeed_4",
+    "CardID": "MagicianMoveSpeed",
+    "Level": 4,
+    "value": 8.0,
+    "value1": 0.0
+  },
+  {
+    "ID": "MagicianMoveSpeed_5",
+    "CardID": "MagicianMoveSpeed",
+    "Level": 5,
+    "value": 9.0,
+    "value1": 0.0
+  },
+  {
+    "ID": "ArcherMoveSpeed_1",
+    "CardID": "ArcherMoveSpeed",
+    "Level": 1,
+    "value": 5.0,
+    "value1": 0.0
+  },
+  {
+    "ID": "ArcherMoveSpeed_2",
+    "CardID": "ArcherMoveSpeed",
+    "Level": 2,
+    "value": 6.0,
+    "value1": 0.0
+  },
+  {
+    "ID": "ArcherMoveSpeed_3",
+    "CardID": "ArcherMoveSpeed",
+    "Level": 3,
+    "value": 7.0,
+    "value1": 0.0
+  },
+  {
+    "ID": "ArcherMoveSpeed_4",
+    "CardID": "ArcherMoveSpeed",
+    "Level": 4,
+    "value": 8.0,
+    "value1": 0.0
+  },
+  {
+    "ID": "ArcherMoveSpeed_5",
+    "CardID": "ArcherMoveSpeed",
+    "Level": 5,
+    "value": 9.0,
+    "value1": 0.0
+  },
+  {
+    "ID": "WarriorMoveSpeed_1",
+    "CardID": "WarriorMoveSpeed",
+    "Level": 1,
+    "value": 5.0,
+    "value1": 0.0
+  },
+  {
+    "ID": "WarriorMoveSpeed_2",
+    "CardID": "WarriorMoveSpeed",
+    "Level": 2,
+    "value": 6.0,
+    "value1": 0.0
+  },
+  {
+    "ID": "WarriorMoveSpeed_3",
+    "CardID": "WarriorMoveSpeed",
+    "Level": 3,
+    "value": 7.0,
+    "value1": 0.0
+  },
+  {
+    "ID": "WarriorMoveSpeed_4",
+    "CardID": "WarriorMoveSpeed",
+    "Level": 4,
+    "value": 8.0,
+    "value1": 0.0
+  },
+  {
+    "ID": "WarriorMoveSpeed_5",
+    "CardID": "WarriorMoveSpeed",
+    "Level": 5,
+    "value": 9.0,
+    "value1": 0.0
   }
 ]
