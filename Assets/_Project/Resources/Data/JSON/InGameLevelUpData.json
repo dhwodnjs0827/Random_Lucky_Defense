@@ -11,273 +11,273 @@
     "Level": 2,
     "HeroClassType": "Magician",
     "Cost": 26,
-    "AttackPowerMultiplier": 0.05
+    "AttackPowerMultiplier": 0.15
   },
   {
     "ID": "LevelUp_M3",
     "Level": 3,
     "HeroClassType": "Magician",
-    "Cost": 28,
-    "AttackPowerMultiplier": 0.1
+    "Cost": 29,
+    "AttackPowerMultiplier": 0.3
   },
   {
     "ID": "LevelUp_M4",
     "Level": 4,
     "HeroClassType": "Magician",
-    "Cost": 30,
-    "AttackPowerMultiplier": 0.15
+    "Cost": 32,
+    "AttackPowerMultiplier": 0.45
   },
   {
     "ID": "LevelUp_M5",
     "Level": 5,
     "HeroClassType": "Magician",
-    "Cost": 32,
-    "AttackPowerMultiplier": 0.2
+    "Cost": 35,
+    "AttackPowerMultiplier": 0.6
   },
   {
     "ID": "LevelUp_M6",
     "Level": 6,
     "HeroClassType": "Magician",
-    "Cost": 34,
-    "AttackPowerMultiplier": 0.25
+    "Cost": 38,
+    "AttackPowerMultiplier": 0.75
   },
   {
     "ID": "LevelUp_M7",
     "Level": 7,
     "HeroClassType": "Magician",
-    "Cost": 36,
-    "AttackPowerMultiplier": 0.3
+    "Cost": 41,
+    "AttackPowerMultiplier": 0.9
   },
   {
     "ID": "LevelUp_M8",
     "Level": 8,
     "HeroClassType": "Magician",
-    "Cost": 38,
-    "AttackPowerMultiplier": 0.35
+    "Cost": 44,
+    "AttackPowerMultiplier": 1.05
   },
   {
     "ID": "LevelUp_M9",
     "Level": 9,
     "HeroClassType": "Magician",
-    "Cost": 40,
-    "AttackPowerMultiplier": 0.4
+    "Cost": 47,
+    "AttackPowerMultiplier": 1.2
   },
   {
     "ID": "LevelUp_M10",
     "Level": 10,
     "HeroClassType": "Magician",
-    "Cost": 42,
-    "AttackPowerMultiplier": 0.45
+    "Cost": 48,
+    "AttackPowerMultiplier": 1.35
   },
   {
     "ID": "LevelUp_M11",
     "Level": 11,
     "HeroClassType": "Magician",
-    "Cost": 44,
-    "AttackPowerMultiplier": 0.5
+    "Cost": 52,
+    "AttackPowerMultiplier": 1.5
   },
   {
     "ID": "LevelUp_M12",
     "Level": 12,
     "HeroClassType": "Magician",
-    "Cost": 46,
-    "AttackPowerMultiplier": 0.55
+    "Cost": 55,
+    "AttackPowerMultiplier": 1.65
   },
   {
     "ID": "LevelUp_M13",
     "Level": 13,
     "HeroClassType": "Magician",
-    "Cost": 48,
-    "AttackPowerMultiplier": 0.6
+    "Cost": 58,
+    "AttackPowerMultiplier": 1.8
   },
   {
     "ID": "LevelUp_M14",
     "Level": 14,
     "HeroClassType": "Magician",
-    "Cost": 50,
-    "AttackPowerMultiplier": 0.65
+    "Cost": 61,
+    "AttackPowerMultiplier": 1.95
   },
   {
     "ID": "LevelUp_M15",
     "Level": 15,
     "HeroClassType": "Magician",
-    "Cost": 52,
-    "AttackPowerMultiplier": 0.7
+    "Cost": 64,
+    "AttackPowerMultiplier": 2.1
   },
   {
     "ID": "LevelUp_M16",
     "Level": 16,
     "HeroClassType": "Magician",
-    "Cost": 54,
-    "AttackPowerMultiplier": 0.75
+    "Cost": 68,
+    "AttackPowerMultiplier": 2.25
   },
   {
     "ID": "LevelUp_M17",
     "Level": 17,
     "HeroClassType": "Magician",
-    "Cost": 56,
-    "AttackPowerMultiplier": 0.8
+    "Cost": 71,
+    "AttackPowerMultiplier": 2.4
   },
   {
     "ID": "LevelUp_M18",
     "Level": 18,
     "HeroClassType": "Magician",
-    "Cost": 58,
-    "AttackPowerMultiplier": 0.85
+    "Cost": 75,
+    "AttackPowerMultiplier": 2.55
   },
   {
     "ID": "LevelUp_M19",
     "Level": 19,
     "HeroClassType": "Magician",
-    "Cost": 60,
-    "AttackPowerMultiplier": 0.9
+    "Cost": 78,
+    "AttackPowerMultiplier": 2.7
   },
   {
     "ID": "LevelUp_M20",
     "Level": 20,
     "HeroClassType": "Magician",
-    "Cost": 62,
-    "AttackPowerMultiplier": 0.95
+    "Cost": 82,
+    "AttackPowerMultiplier": 2.85
   },
   {
     "ID": "LevelUp_M21",
     "Level": 21,
     "HeroClassType": "Magician",
-    "Cost": 64,
-    "AttackPowerMultiplier": 1.0
+    "Cost": 86,
+    "AttackPowerMultiplier": 3.0
   },
   {
     "ID": "LevelUp_M22",
     "Level": 22,
     "HeroClassType": "Magician",
-    "Cost": 66,
-    "AttackPowerMultiplier": 1.05
+    "Cost": 90,
+    "AttackPowerMultiplier": 3.15
   },
   {
     "ID": "LevelUp_M23",
     "Level": 23,
     "HeroClassType": "Magician",
-    "Cost": 68,
-    "AttackPowerMultiplier": 1.1
+    "Cost": 94,
+    "AttackPowerMultiplier": 3.3
   },
   {
     "ID": "LevelUp_M24",
     "Level": 24,
     "HeroClassType": "Magician",
-    "Cost": 70,
-    "AttackPowerMultiplier": 1.15
+    "Cost": 98,
+    "AttackPowerMultiplier": 3.45
   },
   {
     "ID": "LevelUp_M25",
     "Level": 25,
     "HeroClassType": "Magician",
-    "Cost": 72,
-    "AttackPowerMultiplier": 1.2
+    "Cost": 102,
+    "AttackPowerMultiplier": 3.6
   },
   {
     "ID": "LevelUp_M26",
     "Level": 26,
     "HeroClassType": "Magician",
-    "Cost": 74,
-    "AttackPowerMultiplier": 1.25
+    "Cost": 107,
+    "AttackPowerMultiplier": 3.75
   },
   {
     "ID": "LevelUp_M27",
     "Level": 27,
     "HeroClassType": "Magician",
-    "Cost": 76,
-    "AttackPowerMultiplier": 1.3
+    "Cost": 111,
+    "AttackPowerMultiplier": 3.9
   },
   {
     "ID": "LevelUp_M28",
     "Level": 28,
     "HeroClassType": "Magician",
-    "Cost": 78,
-    "AttackPowerMultiplier": 1.35
+    "Cost": 116,
+    "AttackPowerMultiplier": 4.05
   },
   {
     "ID": "LevelUp_M29",
     "Level": 29,
     "HeroClassType": "Magician",
-    "Cost": 80,
-    "AttackPowerMultiplier": 1.4
+    "Cost": 121,
+    "AttackPowerMultiplier": 4.2
   },
   {
     "ID": "LevelUp_M30",
     "Level": 30,
     "HeroClassType": "Magician",
-    "Cost": 82,
-    "AttackPowerMultiplier": 1.45
+    "Cost": 126,
+    "AttackPowerMultiplier": 4.35
   },
   {
     "ID": "LevelUp_M31",
     "Level": 31,
     "HeroClassType": "Magician",
-    "Cost": 84,
-    "AttackPowerMultiplier": 1.5
+    "Cost": 131,
+    "AttackPowerMultiplier": 4.5
   },
   {
     "ID": "LevelUp_M32",
     "Level": 32,
     "HeroClassType": "Magician",
-    "Cost": 86,
-    "AttackPowerMultiplier": 1.55
+    "Cost": 136,
+    "AttackPowerMultiplier": 4.65
   },
   {
     "ID": "LevelUp_M33",
     "Level": 33,
     "HeroClassType": "Magician",
-    "Cost": 88,
-    "AttackPowerMultiplier": 1.6
+    "Cost": 142,
+    "AttackPowerMultiplier": 4.8
   },
   {
     "ID": "LevelUp_M34",
     "Level": 34,
     "HeroClassType": "Magician",
-    "Cost": 90,
-    "AttackPowerMultiplier": 1.65
+    "Cost": 147,
+    "AttackPowerMultiplier": 4.95
   },
   {
     "ID": "LevelUp_M35",
     "Level": 35,
     "HeroClassType": "Magician",
-    "Cost": 92,
-    "AttackPowerMultiplier": 1.7
+    "Cost": 153,
+    "AttackPowerMultiplier": 5.1
   },
   {
     "ID": "LevelUp_M36",
     "Level": 36,
     "HeroClassType": "Magician",
-    "Cost": 94,
-    "AttackPowerMultiplier": 1.75
+    "Cost": 159,
+    "AttackPowerMultiplier": 5.25
   },
   {
     "ID": "LevelUp_M37",
     "Level": 37,
     "HeroClassType": "Magician",
-    "Cost": 96,
-    "AttackPowerMultiplier": 1.8
+    "Cost": 165,
+    "AttackPowerMultiplier": 5.4
   },
   {
     "ID": "LevelUp_M38",
     "Level": 38,
     "HeroClassType": "Magician",
-    "Cost": 98,
-    "AttackPowerMultiplier": 1.85
+    "Cost": 171,
+    "AttackPowerMultiplier": 5.55
   },
   {
     "ID": "LevelUp_M39",
     "Level": 39,
     "HeroClassType": "Magician",
-    "Cost": 100,
-    "AttackPowerMultiplier": 1.9
+    "Cost": 177,
+    "AttackPowerMultiplier": 5.7
   },
   {
     "ID": "LevelUp_M40",
     "Level": 40,
     "HeroClassType": "Magician",
-    "Cost": 102,
-    "AttackPowerMultiplier": 1.95
+    "Cost": 183,
+    "AttackPowerMultiplier": 5.85
   },
   {
     "ID": "LevelUp_A1",
@@ -291,273 +291,273 @@
     "Level": 2,
     "HeroClassType": "Archer",
     "Cost": 26,
-    "AttackPowerMultiplier": 0.05
+    "AttackPowerMultiplier": 0.15
   },
   {
     "ID": "LevelUp_A3",
     "Level": 3,
     "HeroClassType": "Archer",
-    "Cost": 28,
-    "AttackPowerMultiplier": 0.1
+    "Cost": 29,
+    "AttackPowerMultiplier": 0.3
   },
   {
     "ID": "LevelUp_A4",
     "Level": 4,
     "HeroClassType": "Archer",
-    "Cost": 30,
-    "AttackPowerMultiplier": 0.15
+    "Cost": 32,
+    "AttackPowerMultiplier": 0.45
   },
   {
     "ID": "LevelUp_A5",
     "Level": 5,
     "HeroClassType": "Archer",
-    "Cost": 32,
-    "AttackPowerMultiplier": 0.2
+    "Cost": 35,
+    "AttackPowerMultiplier": 0.6
   },
   {
     "ID": "LevelUp_A6",
     "Level": 6,
     "HeroClassType": "Archer",
-    "Cost": 34,
-    "AttackPowerMultiplier": 0.25
+    "Cost": 38,
+    "AttackPowerMultiplier": 0.75
   },
   {
     "ID": "LevelUp_A7",
     "Level": 7,
     "HeroClassType": "Archer",
-    "Cost": 36,
-    "AttackPowerMultiplier": 0.3
+    "Cost": 41,
+    "AttackPowerMultiplier": 0.9
   },
   {
     "ID": "LevelUp_A8",
     "Level": 8,
     "HeroClassType": "Archer",
-    "Cost": 38,
-    "AttackPowerMultiplier": 0.35
+    "Cost": 44,
+    "AttackPowerMultiplier": 1.05
   },
   {
     "ID": "LevelUp_A9",
     "Level": 9,
     "HeroClassType": "Archer",
-    "Cost": 40,
-    "AttackPowerMultiplier": 0.4
+    "Cost": 47,
+    "AttackPowerMultiplier": 1.2
   },
   {
     "ID": "LevelUp_A10",
     "Level": 10,
     "HeroClassType": "Archer",
-    "Cost": 42,
-    "AttackPowerMultiplier": 0.45
+    "Cost": 48,
+    "AttackPowerMultiplier": 1.35
   },
   {
     "ID": "LevelUp_A11",
     "Level": 11,
     "HeroClassType": "Archer",
-    "Cost": 44,
-    "AttackPowerMultiplier": 0.5
+    "Cost": 52,
+    "AttackPowerMultiplier": 1.5
   },
   {
     "ID": "LevelUp_A12",
     "Level": 12,
     "HeroClassType": "Archer",
-    "Cost": 46,
-    "AttackPowerMultiplier": 0.55
+    "Cost": 55,
+    "AttackPowerMultiplier": 1.65
   },
   {
     "ID": "LevelUp_A13",
     "Level": 13,
     "HeroClassType": "Archer",
-    "Cost": 48,
-    "AttackPowerMultiplier": 0.6
+    "Cost": 58,
+    "AttackPowerMultiplier": 1.8
   },
   {
     "ID": "LevelUp_A14",
     "Level": 14,
     "HeroClassType": "Archer",
-    "Cost": 50,
-    "AttackPowerMultiplier": 0.65
+    "Cost": 61,
+    "AttackPowerMultiplier": 1.95
   },
   {
     "ID": "LevelUp_A15",
     "Level": 15,
     "HeroClassType": "Archer",
-    "Cost": 52,
-    "AttackPowerMultiplier": 0.7
+    "Cost": 64,
+    "AttackPowerMultiplier": 2.1
   },
   {
     "ID": "LevelUp_A16",
     "Level": 16,
     "HeroClassType": "Archer",
-    "Cost": 54,
-    "AttackPowerMultiplier": 0.75
+    "Cost": 68,
+    "AttackPowerMultiplier": 2.25
   },
   {
     "ID": "LevelUp_A17",
     "Level": 17,
     "HeroClassType": "Archer",
-    "Cost": 56,
-    "AttackPowerMultiplier": 0.8
+    "Cost": 71,
+    "AttackPowerMultiplier": 2.4
   },
   {
     "ID": "LevelUp_A18",
     "Level": 18,
     "HeroClassType": "Archer",
-    "Cost": 58,
-    "AttackPowerMultiplier": 0.85
+    "Cost": 75,
+    "AttackPowerMultiplier": 2.55
   },
   {
     "ID": "LevelUp_A19",
     "Level": 19,
     "HeroClassType": "Archer",
-    "Cost": 60,
-    "AttackPowerMultiplier": 0.9
+    "Cost": 78,
+    "AttackPowerMultiplier": 2.7
   },
   {
     "ID": "LevelUp_A20",
     "Level": 20,
     "HeroClassType": "Archer",
-    "Cost": 62,
-    "AttackPowerMultiplier": 0.95
+    "Cost": 82,
+    "AttackPowerMultiplier": 2.85
   },
   {
     "ID": "LevelUp_A21",
     "Level": 21,
     "HeroClassType": "Archer",
-    "Cost": 64,
-    "AttackPowerMultiplier": 1.0
+    "Cost": 86,
+    "AttackPowerMultiplier": 3.0
   },
   {
     "ID": "LevelUp_A22",
     "Level": 22,
     "HeroClassType": "Archer",
-    "Cost": 66,
-    "AttackPowerMultiplier": 1.05
+    "Cost": 90,
+    "AttackPowerMultiplier": 3.15
   },
   {
     "ID": "LevelUp_A23",
     "Level": 23,
     "HeroClassType": "Archer",
-    "Cost": 68,
-    "AttackPowerMultiplier": 1.1
+    "Cost": 94,
+    "AttackPowerMultiplier": 3.3
   },
   {
     "ID": "LevelUp_A24",
     "Level": 24,
     "HeroClassType": "Archer",
-    "Cost": 70,
-    "AttackPowerMultiplier": 1.15
+    "Cost": 98,
+    "AttackPowerMultiplier": 3.45
   },
   {
     "ID": "LevelUp_A25",
     "Level": 25,
     "HeroClassType": "Archer",
-    "Cost": 72,
-    "AttackPowerMultiplier": 1.2
+    "Cost": 102,
+    "AttackPowerMultiplier": 3.6
   },
   {
     "ID": "LevelUp_A26",
     "Level": 26,
     "HeroClassType": "Archer",
-    "Cost": 74,
-    "AttackPowerMultiplier": 1.25
+    "Cost": 107,
+    "AttackPowerMultiplier": 3.75
   },
   {
     "ID": "LevelUp_A27",
     "Level": 27,
     "HeroClassType": "Archer",
-    "Cost": 76,
-    "AttackPowerMultiplier": 1.3
+    "Cost": 111,
+    "AttackPowerMultiplier": 3.9
   },
   {
     "ID": "LevelUp_A28",
     "Level": 28,
     "HeroClassType": "Archer",
-    "Cost": 78,
-    "AttackPowerMultiplier": 1.35
+    "Cost": 116,
+    "AttackPowerMultiplier": 4.05
   },
   {
     "ID": "LevelUp_A29",
     "Level": 29,
     "HeroClassType": "Archer",
-    "Cost": 80,
-    "AttackPowerMultiplier": 1.4
+    "Cost": 121,
+    "AttackPowerMultiplier": 4.2
   },
   {
     "ID": "LevelUp_A30",
     "Level": 30,
     "HeroClassType": "Archer",
-    "Cost": 82,
-    "AttackPowerMultiplier": 1.45
+    "Cost": 126,
+    "AttackPowerMultiplier": 4.35
   },
   {
     "ID": "LevelUp_A31",
     "Level": 31,
     "HeroClassType": "Archer",
-    "Cost": 84,
-    "AttackPowerMultiplier": 1.5
+    "Cost": 131,
+    "AttackPowerMultiplier": 4.5
   },
   {
     "ID": "LevelUp_A32",
     "Level": 32,
     "HeroClassType": "Archer",
-    "Cost": 86,
-    "AttackPowerMultiplier": 1.55
+    "Cost": 136,
+    "AttackPowerMultiplier": 4.65
   },
   {
     "ID": "LevelUp_A33",
     "Level": 33,
     "HeroClassType": "Archer",
-    "Cost": 88,
-    "AttackPowerMultiplier": 1.6
+    "Cost": 142,
+    "AttackPowerMultiplier": 4.8
   },
   {
     "ID": "LevelUp_A34",
     "Level": 34,
     "HeroClassType": "Archer",
-    "Cost": 90,
-    "AttackPowerMultiplier": 1.65
+    "Cost": 147,
+    "AttackPowerMultiplier": 4.95
   },
   {
     "ID": "LevelUp_A35",
     "Level": 35,
     "HeroClassType": "Archer",
-    "Cost": 92,
-    "AttackPowerMultiplier": 1.7
+    "Cost": 153,
+    "AttackPowerMultiplier": 5.1
   },
   {
     "ID": "LevelUp_A36",
     "Level": 36,
     "HeroClassType": "Archer",
-    "Cost": 94,
-    "AttackPowerMultiplier": 1.75
+    "Cost": 159,
+    "AttackPowerMultiplier": 5.25
   },
   {
     "ID": "LevelUp_A37",
     "Level": 37,
     "HeroClassType": "Archer",
-    "Cost": 96,
-    "AttackPowerMultiplier": 1.8
+    "Cost": 165,
+    "AttackPowerMultiplier": 5.4
   },
   {
     "ID": "LevelUp_A38",
     "Level": 38,
     "HeroClassType": "Archer",
-    "Cost": 98,
-    "AttackPowerMultiplier": 1.85
+    "Cost": 171,
+    "AttackPowerMultiplier": 5.55
   },
   {
     "ID": "LevelUp_A39",
     "Level": 39,
     "HeroClassType": "Archer",
-    "Cost": 100,
-    "AttackPowerMultiplier": 1.9
+    "Cost": 177,
+    "AttackPowerMultiplier": 5.7
   },
   {
     "ID": "LevelUp_A40",
     "Level": 40,
     "HeroClassType": "Archer",
-    "Cost": 102,
-    "AttackPowerMultiplier": 1.95
+    "Cost": 183,
+    "AttackPowerMultiplier": 5.85
   },
   {
     "ID": "LevelUp_W1",
@@ -571,272 +571,272 @@
     "Level": 2,
     "HeroClassType": "Warrior",
     "Cost": 26,
-    "AttackPowerMultiplier": 0.05
+    "AttackPowerMultiplier": 0.15
   },
   {
     "ID": "LevelUp_W3",
     "Level": 3,
     "HeroClassType": "Warrior",
-    "Cost": 28,
-    "AttackPowerMultiplier": 0.1
+    "Cost": 29,
+    "AttackPowerMultiplier": 0.3
   },
   {
     "ID": "LevelUp_W4",
     "Level": 4,
     "HeroClassType": "Warrior",
-    "Cost": 30,
-    "AttackPowerMultiplier": 0.15
+    "Cost": 32,
+    "AttackPowerMultiplier": 0.45
   },
   {
     "ID": "LevelUp_W5",
     "Level": 5,
     "HeroClassType": "Warrior",
-    "Cost": 32,
-    "AttackPowerMultiplier": 0.2
+    "Cost": 35,
+    "AttackPowerMultiplier": 0.6
   },
   {
     "ID": "LevelUp_W6",
     "Level": 6,
     "HeroClassType": "Warrior",
-    "Cost": 34,
-    "AttackPowerMultiplier": 0.25
+    "Cost": 38,
+    "AttackPowerMultiplier": 0.75
   },
   {
     "ID": "LevelUp_W7",
     "Level": 7,
     "HeroClassType": "Warrior",
-    "Cost": 36,
-    "AttackPowerMultiplier": 0.3
+    "Cost": 41,
+    "AttackPowerMultiplier": 0.9
   },
   {
     "ID": "LevelUp_W8",
     "Level": 8,
     "HeroClassType": "Warrior",
-    "Cost": 38,
-    "AttackPowerMultiplier": 0.35
+    "Cost": 44,
+    "AttackPowerMultiplier": 1.05
   },
   {
     "ID": "LevelUp_W9",
     "Level": 9,
     "HeroClassType": "Warrior",
-    "Cost": 40,
-    "AttackPowerMultiplier": 0.4
+    "Cost": 47,
+    "AttackPowerMultiplier": 1.2
   },
   {
     "ID": "LevelUp_W10",
     "Level": 10,
     "HeroClassType": "Warrior",
-    "Cost": 42,
-    "AttackPowerMultiplier": 0.45
+    "Cost": 48,
+    "AttackPowerMultiplier": 1.35
   },
   {
     "ID": "LevelUp_W11",
     "Level": 11,
     "HeroClassType": "Warrior",
-    "Cost": 44,
-    "AttackPowerMultiplier": 0.5
+    "Cost": 52,
+    "AttackPowerMultiplier": 1.5
   },
   {
     "ID": "LevelUp_W12",
     "Level": 12,
     "HeroClassType": "Warrior",
-    "Cost": 46,
-    "AttackPowerMultiplier": 0.55
+    "Cost": 55,
+    "AttackPowerMultiplier": 1.65
   },
   {
     "ID": "LevelUp_W13",
     "Level": 13,
     "HeroClassType": "Warrior",
-    "Cost": 48,
-    "AttackPowerMultiplier": 0.6
+    "Cost": 58,
+    "AttackPowerMultiplier": 1.8
   },
   {
     "ID": "LevelUp_W14",
     "Level": 14,
     "HeroClassType": "Warrior",
-    "Cost": 50,
-    "AttackPowerMultiplier": 0.65
+    "Cost": 61,
+    "AttackPowerMultiplier": 1.95
   },
   {
     "ID": "LevelUp_W15",
     "Level": 15,
     "HeroClassType": "Warrior",
-    "Cost": 52,
-    "AttackPowerMultiplier": 0.7
+    "Cost": 64,
+    "AttackPowerMultiplier": 2.1
   },
   {
     "ID": "LevelUp_W16",
     "Level": 16,
     "HeroClassType": "Warrior",
-    "Cost": 54,
-    "AttackPowerMultiplier": 0.75
+    "Cost": 68,
+    "AttackPowerMultiplier": 2.25
   },
   {
     "ID": "LevelUp_W17",
     "Level": 17,
     "HeroClassType": "Warrior",
-    "Cost": 56,
-    "AttackPowerMultiplier": 0.8
+    "Cost": 71,
+    "AttackPowerMultiplier": 2.4
   },
   {
     "ID": "LevelUp_W18",
     "Level": 18,
     "HeroClassType": "Warrior",
-    "Cost": 58,
-    "AttackPowerMultiplier": 0.85
+    "Cost": 75,
+    "AttackPowerMultiplier": 2.55
   },
   {
     "ID": "LevelUp_W19",
     "Level": 19,
     "HeroClassType": "Warrior",
-    "Cost": 60,
-    "AttackPowerMultiplier": 0.9
+    "Cost": 78,
+    "AttackPowerMultiplier": 2.7
   },
   {
     "ID": "LevelUp_W20",
     "Level": 20,
     "HeroClassType": "Warrior",
-    "Cost": 62,
-    "AttackPowerMultiplier": 0.95
+    "Cost": 82,
+    "AttackPowerMultiplier": 2.85
   },
   {
     "ID": "LevelUp_W21",
     "Level": 21,
     "HeroClassType": "Warrior",
-    "Cost": 64,
-    "AttackPowerMultiplier": 1.0
+    "Cost": 86,
+    "AttackPowerMultiplier": 3.0
   },
   {
     "ID": "LevelUp_W22",
     "Level": 22,
     "HeroClassType": "Warrior",
-    "Cost": 66,
-    "AttackPowerMultiplier": 1.05
+    "Cost": 90,
+    "AttackPowerMultiplier": 3.15
   },
   {
     "ID": "LevelUp_W23",
     "Level": 23,
     "HeroClassType": "Warrior",
-    "Cost": 68,
-    "AttackPowerMultiplier": 1.1
+    "Cost": 94,
+    "AttackPowerMultiplier": 3.3
   },
   {
     "ID": "LevelUp_W24",
     "Level": 24,
     "HeroClassType": "Warrior",
-    "Cost": 70,
-    "AttackPowerMultiplier": 1.15
+    "Cost": 98,
+    "AttackPowerMultiplier": 3.45
   },
   {
     "ID": "LevelUp_W25",
     "Level": 25,
     "HeroClassType": "Warrior",
-    "Cost": 72,
-    "AttackPowerMultiplier": 1.2
+    "Cost": 102,
+    "AttackPowerMultiplier": 3.6
   },
   {
     "ID": "LevelUp_W26",
     "Level": 26,
     "HeroClassType": "Warrior",
-    "Cost": 74,
-    "AttackPowerMultiplier": 1.25
+    "Cost": 107,
+    "AttackPowerMultiplier": 3.75
   },
   {
     "ID": "LevelUp_W27",
     "Level": 27,
     "HeroClassType": "Warrior",
-    "Cost": 76,
-    "AttackPowerMultiplier": 1.3
+    "Cost": 111,
+    "AttackPowerMultiplier": 3.9
   },
   {
     "ID": "LevelUp_W28",
     "Level": 28,
     "HeroClassType": "Warrior",
-    "Cost": 78,
-    "AttackPowerMultiplier": 1.35
+    "Cost": 116,
+    "AttackPowerMultiplier": 4.05
   },
   {
     "ID": "LevelUp_W29",
     "Level": 29,
     "HeroClassType": "Warrior",
-    "Cost": 80,
-    "AttackPowerMultiplier": 1.4
+    "Cost": 121,
+    "AttackPowerMultiplier": 4.2
   },
   {
     "ID": "LevelUp_W30",
     "Level": 30,
     "HeroClassType": "Warrior",
-    "Cost": 82,
-    "AttackPowerMultiplier": 1.45
+    "Cost": 126,
+    "AttackPowerMultiplier": 4.35
   },
   {
     "ID": "LevelUp_W31",
     "Level": 31,
     "HeroClassType": "Warrior",
-    "Cost": 84,
-    "AttackPowerMultiplier": 1.5
+    "Cost": 131,
+    "AttackPowerMultiplier": 4.5
   },
   {
     "ID": "LevelUp_W32",
     "Level": 32,
     "HeroClassType": "Warrior",
-    "Cost": 86,
-    "AttackPowerMultiplier": 1.55
+    "Cost": 136,
+    "AttackPowerMultiplier": 4.65
   },
   {
     "ID": "LevelUp_W33",
     "Level": 33,
     "HeroClassType": "Warrior",
-    "Cost": 88,
-    "AttackPowerMultiplier": 1.6
+    "Cost": 142,
+    "AttackPowerMultiplier": 4.8
   },
   {
     "ID": "LevelUp_W34",
     "Level": 34,
     "HeroClassType": "Warrior",
-    "Cost": 90,
-    "AttackPowerMultiplier": 1.65
+    "Cost": 147,
+    "AttackPowerMultiplier": 4.95
   },
   {
     "ID": "LevelUp_W35",
     "Level": 35,
     "HeroClassType": "Warrior",
-    "Cost": 92,
-    "AttackPowerMultiplier": 1.7
+    "Cost": 153,
+    "AttackPowerMultiplier": 5.1
   },
   {
     "ID": "LevelUp_W36",
     "Level": 36,
     "HeroClassType": "Warrior",
-    "Cost": 94,
-    "AttackPowerMultiplier": 1.75
+    "Cost": 159,
+    "AttackPowerMultiplier": 5.25
   },
   {
     "ID": "LevelUp_W37",
     "Level": 37,
     "HeroClassType": "Warrior",
-    "Cost": 96,
-    "AttackPowerMultiplier": 1.8
+    "Cost": 165,
+    "AttackPowerMultiplier": 5.4
   },
   {
     "ID": "LevelUp_W38",
     "Level": 38,
     "HeroClassType": "Warrior",
-    "Cost": 98,
-    "AttackPowerMultiplier": 1.85
+    "Cost": 171,
+    "AttackPowerMultiplier": 5.55
   },
   {
     "ID": "LevelUp_W39",
     "Level": 39,
     "HeroClassType": "Warrior",
-    "Cost": 100,
-    "AttackPowerMultiplier": 1.9
+    "Cost": 177,
+    "AttackPowerMultiplier": 5.7
   },
   {
     "ID": "LevelUp_W40",
     "Level": 40,
     "HeroClassType": "Warrior",
-    "Cost": 102,
-    "AttackPowerMultiplier": 1.95
+    "Cost": 183,
+    "AttackPowerMultiplier": 5.85
   }
 ]

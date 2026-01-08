@@ -46,19 +46,19 @@
   },
   {
     "ID": 20005,
-    "Name": "오크",
+    "Name": "트롤",
     "EnemyType": "Normal",
-    "MonsterType": "Orc",
-    "Health": 49.0,
+    "MonsterType": "Troll",
+    "Health": 70.0,
     "Defense": 0.0,
     "MoveSpeed": 5.0
   },
   {
     "ID": 20006,
-    "Name": "오크",
+    "Name": "트롤",
     "EnemyType": "Normal",
-    "MonsterType": "Orc",
-    "Health": 49.0,
+    "MonsterType": "Troll",
+    "Health": 99.0,
     "Defense": 0.0,
     "MoveSpeed": 5.0
   },
@@ -67,7 +67,7 @@
     "Name": "언데드",
     "EnemyType": "Normal",
     "MonsterType": "Undead",
-    "Health": 49.0,
+    "Health": 189.0,
     "Defense": 0.0,
     "MoveSpeed": 5.0
   },
@@ -76,7 +76,7 @@
     "Name": "트롤",
     "EnemyType": "Normal",
     "MonsterType": "Troll",
-    "Health": 49.0,
+    "Health": 178.0,
     "Defense": 0.0,
     "MoveSpeed": 5.0
   },
@@ -85,16 +85,826 @@
     "Name": "트롤",
     "EnemyType": "Boss",
     "MonsterType": "Troll",
-    "Health": 49.0,
+    "Health": 7300.0,
     "Defense": 0.0,
     "MoveSpeed": 5.0
   },
   {
     "ID": 20010,
+    "Name": "언데드",
+    "EnemyType": "Normal",
+    "MonsterType": "Undead",
+    "Health": 407.0,
+    "Defense": 0.0,
+    "MoveSpeed": 5.0
+  },
+  {
+    "ID": 20011,
     "Name": "트롤",
     "EnemyType": "Normal",
     "MonsterType": "Troll",
-    "Health": 49.0,
+    "Health": 355.0,
+    "Defense": 0.0,
+    "MoveSpeed": 5.0
+  },
+  {
+    "ID": 20012,
+    "Name": "언데드",
+    "EnemyType": "Normal",
+    "MonsterType": "Undead",
+    "Health": 613.0,
+    "Defense": 0.0,
+    "MoveSpeed": 5.0
+  },
+  {
+    "ID": 20013,
+    "Name": "트롤",
+    "EnemyType": "Normal",
+    "MonsterType": "Troll",
+    "Health": 517.0,
+    "Defense": 0.0,
+    "MoveSpeed": 5.0
+  },
+  {
+    "ID": 20014,
+    "Name": "오크",
+    "EnemyType": "Normal",
+    "MonsterType": "Orc",
+    "Health": 630.0,
+    "Defense": 0.0,
+    "MoveSpeed": 5.0
+  },
+  {
+    "ID": 20015,
+    "Name": "트롤",
+    "EnemyType": "Normal",
+    "MonsterType": "Troll",
+    "Health": 719.0,
+    "Defense": 0.0,
+    "MoveSpeed": 5.0
+  },
+  {
+    "ID": 20016,
+    "Name": "언데드",
+    "EnemyType": "Normal",
+    "MonsterType": "Undead",
+    "Health": 810.0,
+    "Defense": 0.0,
+    "MoveSpeed": 5.0
+  },
+  {
+    "ID": 20017,
+    "Name": "트롤",
+    "EnemyType": "Normal",
+    "MonsterType": "Troll",
+    "Health": 905.0,
+    "Defense": 0.0,
+    "MoveSpeed": 5.0
+  },
+  {
+    "ID": 20018,
+    "Name": "오크",
+    "EnemyType": "Normal",
+    "MonsterType": "Orc",
+    "Health": 1002.0,
+    "Defense": 0.0,
+    "MoveSpeed": 5.0
+  },
+  {
+    "ID": 20019,
+    "Name": "트롤",
+    "EnemyType": "Boss",
+    "MonsterType": "Troll",
+    "Health": 9500.0,
+    "Defense": 0.0,
+    "MoveSpeed": 5.0
+  },
+  {
+    "ID": 20020,
+    "Name": "언데드",
+    "EnemyType": "Normal",
+    "MonsterType": "Undead",
+    "Health": 1120.0,
+    "Defense": 0.0,
+    "MoveSpeed": 5.0
+  },
+  {
+    "ID": 20021,
+    "Name": "트롤",
+    "EnemyType": "Normal",
+    "MonsterType": "Troll",
+    "Health": 1245.0,
+    "Defense": 0.0,
+    "MoveSpeed": 5.0
+  },
+  {
+    "ID": 20022,
+    "Name": "오크",
+    "EnemyType": "Normal",
+    "MonsterType": "Orc",
+    "Health": 1380.0,
+    "Defense": 0.0,
+    "MoveSpeed": 5.0
+  },
+  {
+    "ID": 20023,
+    "Name": "언데드",
+    "EnemyType": "Normal",
+    "MonsterType": "Undead",
+    "Health": 1525.0,
+    "Defense": 0.0,
+    "MoveSpeed": 5.0
+  },
+  {
+    "ID": 20024,
+    "Name": "트롤",
+    "EnemyType": "Normal",
+    "MonsterType": "Troll",
+    "Health": 1680.0,
+    "Defense": 0.0,
+    "MoveSpeed": 5.0
+  },
+  {
+    "ID": 20025,
+    "Name": "오크",
+    "EnemyType": "Normal",
+    "MonsterType": "Orc",
+    "Health": 1845.0,
+    "Defense": 0.0,
+    "MoveSpeed": 5.0
+  },
+  {
+    "ID": 20026,
+    "Name": "언데드",
+    "EnemyType": "Normal",
+    "MonsterType": "Undead",
+    "Health": 2020.0,
+    "Defense": 0.0,
+    "MoveSpeed": 5.0
+  },
+  {
+    "ID": 20027,
+    "Name": "트롤",
+    "EnemyType": "Normal",
+    "MonsterType": "Troll",
+    "Health": 2205.0,
+    "Defense": 0.0,
+    "MoveSpeed": 5.0
+  },
+  {
+    "ID": 20028,
+    "Name": "오크",
+    "EnemyType": "Normal",
+    "MonsterType": "Orc",
+    "Health": 2400.0,
+    "Defense": 0.0,
+    "MoveSpeed": 5.0
+  },
+  {
+    "ID": 20029,
+    "Name": "오크",
+    "EnemyType": "Boss",
+    "MonsterType": "Orc",
+    "Health": 12800.0,
+    "Defense": 0.0,
+    "MoveSpeed": 5.0
+  },
+  {
+    "ID": 20030,
+    "Name": "언데드",
+    "EnemyType": "Normal",
+    "MonsterType": "Undead",
+    "Health": 2620.0,
+    "Defense": 0.0,
+    "MoveSpeed": 5.0
+  },
+  {
+    "ID": 20031,
+    "Name": "트롤",
+    "EnemyType": "Normal",
+    "MonsterType": "Troll",
+    "Health": 2855.0,
+    "Defense": 0.0,
+    "MoveSpeed": 5.0
+  },
+  {
+    "ID": 20032,
+    "Name": "오크",
+    "EnemyType": "Normal",
+    "MonsterType": "Orc",
+    "Health": 3110.0,
+    "Defense": 0.0,
+    "MoveSpeed": 5.0
+  },
+  {
+    "ID": 20033,
+    "Name": "언데드",
+    "EnemyType": "Normal",
+    "MonsterType": "Undead",
+    "Health": 3385.0,
+    "Defense": 0.0,
+    "MoveSpeed": 5.0
+  },
+  {
+    "ID": 20034,
+    "Name": "트롤",
+    "EnemyType": "Normal",
+    "MonsterType": "Troll",
+    "Health": 3680.0,
+    "Defense": 0.0,
+    "MoveSpeed": 5.0
+  },
+  {
+    "ID": 20035,
+    "Name": "오크",
+    "EnemyType": "Normal",
+    "MonsterType": "Orc",
+    "Health": 3995.0,
+    "Defense": 0.0,
+    "MoveSpeed": 5.0
+  },
+  {
+    "ID": 20036,
+    "Name": "언데드",
+    "EnemyType": "Normal",
+    "MonsterType": "Undead",
+    "Health": 4330.0,
+    "Defense": 0.0,
+    "MoveSpeed": 5.0
+  },
+  {
+    "ID": 20037,
+    "Name": "트롤",
+    "EnemyType": "Normal",
+    "MonsterType": "Troll",
+    "Health": 4685.0,
+    "Defense": 0.0,
+    "MoveSpeed": 5.0
+  },
+  {
+    "ID": 20038,
+    "Name": "오크",
+    "EnemyType": "Normal",
+    "MonsterType": "Orc",
+    "Health": 5060.0,
+    "Defense": 0.0,
+    "MoveSpeed": 5.0
+  },
+  {
+    "ID": 20039,
+    "Name": "트롤",
+    "EnemyType": "Boss",
+    "MonsterType": "Troll",
+    "Health": 17600.0,
+    "Defense": 0.0,
+    "MoveSpeed": 5.0
+  },
+  {
+    "ID": 20040,
+    "Name": "언데드",
+    "EnemyType": "Normal",
+    "MonsterType": "Undead",
+    "Health": 5460.0,
+    "Defense": 0.0,
+    "MoveSpeed": 5.0
+  },
+  {
+    "ID": 20041,
+    "Name": "트롤",
+    "EnemyType": "Normal",
+    "MonsterType": "Troll",
+    "Health": 5885.0,
+    "Defense": 0.0,
+    "MoveSpeed": 5.0
+  },
+  {
+    "ID": 20042,
+    "Name": "오크",
+    "EnemyType": "Normal",
+    "MonsterType": "Orc",
+    "Health": 6340.0,
+    "Defense": 0.0,
+    "MoveSpeed": 5.0
+  },
+  {
+    "ID": 20043,
+    "Name": "언데드",
+    "EnemyType": "Normal",
+    "MonsterType": "Undead",
+    "Health": 6825.0,
+    "Defense": 0.0,
+    "MoveSpeed": 5.0
+  },
+  {
+    "ID": 20044,
+    "Name": "트롤",
+    "EnemyType": "Normal",
+    "MonsterType": "Troll",
+    "Health": 7340.0,
+    "Defense": 0.0,
+    "MoveSpeed": 5.0
+  },
+  {
+    "ID": 20045,
+    "Name": "오크",
+    "EnemyType": "Normal",
+    "MonsterType": "Orc",
+    "Health": 7885.0,
+    "Defense": 0.0,
+    "MoveSpeed": 5.0
+  },
+  {
+    "ID": 20046,
+    "Name": "언데드",
+    "EnemyType": "Normal",
+    "MonsterType": "Undead",
+    "Health": 8460.0,
+    "Defense": 0.0,
+    "MoveSpeed": 5.0
+  },
+  {
+    "ID": 20047,
+    "Name": "트롤",
+    "EnemyType": "Normal",
+    "MonsterType": "Troll",
+    "Health": 9065.0,
+    "Defense": 0.0,
+    "MoveSpeed": 5.0
+  },
+  {
+    "ID": 20048,
+    "Name": "오크",
+    "EnemyType": "Normal",
+    "MonsterType": "Orc",
+    "Health": 9700.0,
+    "Defense": 0.0,
+    "MoveSpeed": 5.0
+  },
+  {
+    "ID": 20049,
+    "Name": "언데드",
+    "EnemyType": "Boss",
+    "MonsterType": "Undead",
+    "Health": 23500.0,
+    "Defense": 0.0,
+    "MoveSpeed": 5.0
+  },
+  {
+    "ID": 20050,
+    "Name": "트롤",
+    "EnemyType": "Normal",
+    "MonsterType": "Troll",
+    "Health": 10380.0,
+    "Defense": 0.0,
+    "MoveSpeed": 5.0
+  },
+  {
+    "ID": 20051,
+    "Name": "오크",
+    "EnemyType": "Normal",
+    "MonsterType": "Orc",
+    "Health": 11105.0,
+    "Defense": 0.0,
+    "MoveSpeed": 5.0
+  },
+  {
+    "ID": 20052,
+    "Name": "언데드",
+    "EnemyType": "Normal",
+    "MonsterType": "Undead",
+    "Health": 11870.0,
+    "Defense": 0.0,
+    "MoveSpeed": 5.0
+  },
+  {
+    "ID": 20053,
+    "Name": "트롤",
+    "EnemyType": "Normal",
+    "MonsterType": "Troll",
+    "Health": 12675.0,
+    "Defense": 0.0,
+    "MoveSpeed": 5.0
+  },
+  {
+    "ID": 20054,
+    "Name": "오크",
+    "EnemyType": "Normal",
+    "MonsterType": "Orc",
+    "Health": 13520.0,
+    "Defense": 0.0,
+    "MoveSpeed": 5.0
+  },
+  {
+    "ID": 20055,
+    "Name": "언데드",
+    "EnemyType": "Normal",
+    "MonsterType": "Undead",
+    "Health": 14405.0,
+    "Defense": 0.0,
+    "MoveSpeed": 5.0
+  },
+  {
+    "ID": 20056,
+    "Name": "트롤",
+    "EnemyType": "Normal",
+    "MonsterType": "Troll",
+    "Health": 15330.0,
+    "Defense": 0.0,
+    "MoveSpeed": 5.0
+  },
+  {
+    "ID": 20057,
+    "Name": "오크",
+    "EnemyType": "Normal",
+    "MonsterType": "Orc",
+    "Health": 16295.0,
+    "Defense": 0.0,
+    "MoveSpeed": 5.0
+  },
+  {
+    "ID": 20058,
+    "Name": "언데드",
+    "EnemyType": "Normal",
+    "MonsterType": "Undead",
+    "Health": 17300.0,
+    "Defense": 0.0,
+    "MoveSpeed": 5.0
+  },
+  {
+    "ID": 20059,
+    "Name": "오크",
+    "EnemyType": "Boss",
+    "MonsterType": "Orc",
+    "Health": 30500.0,
+    "Defense": 0.0,
+    "MoveSpeed": 5.0
+  },
+  {
+    "ID": 20060,
+    "Name": "트롤",
+    "EnemyType": "Normal",
+    "MonsterType": "Troll",
+    "Health": 18350.0,
+    "Defense": 0.0,
+    "MoveSpeed": 5.0
+  },
+  {
+    "ID": 20061,
+    "Name": "언데드",
+    "EnemyType": "Normal",
+    "MonsterType": "Undead",
+    "Health": 19445.0,
+    "Defense": 0.0,
+    "MoveSpeed": 5.0
+  },
+  {
+    "ID": 20062,
+    "Name": "오크",
+    "EnemyType": "Normal",
+    "MonsterType": "Orc",
+    "Health": 20580.0,
+    "Defense": 0.0,
+    "MoveSpeed": 5.0
+  },
+  {
+    "ID": 20063,
+    "Name": "트롤",
+    "EnemyType": "Normal",
+    "MonsterType": "Troll",
+    "Health": 21755.0,
+    "Defense": 0.0,
+    "MoveSpeed": 5.0
+  },
+  {
+    "ID": 20064,
+    "Name": "언데드",
+    "EnemyType": "Normal",
+    "MonsterType": "Undead",
+    "Health": 22970.0,
+    "Defense": 0.0,
+    "MoveSpeed": 5.0
+  },
+  {
+    "ID": 20065,
+    "Name": "오크",
+    "EnemyType": "Normal",
+    "MonsterType": "Orc",
+    "Health": 24225.0,
+    "Defense": 0.0,
+    "MoveSpeed": 5.0
+  },
+  {
+    "ID": 20066,
+    "Name": "트롤",
+    "EnemyType": "Normal",
+    "MonsterType": "Troll",
+    "Health": 25520.0,
+    "Defense": 0.0,
+    "MoveSpeed": 5.0
+  },
+  {
+    "ID": 20067,
+    "Name": "언데드",
+    "EnemyType": "Normal",
+    "MonsterType": "Undead",
+    "Health": 26855.0,
+    "Defense": 0.0,
+    "MoveSpeed": 5.0
+  },
+  {
+    "ID": 20068,
+    "Name": "오크",
+    "EnemyType": "Normal",
+    "MonsterType": "Orc",
+    "Health": 28230.0,
+    "Defense": 0.0,
+    "MoveSpeed": 5.0
+  },
+  {
+    "ID": 20069,
+    "Name": "트롤",
+    "EnemyType": "Boss",
+    "MonsterType": "Troll",
+    "Health": 38800.0,
+    "Defense": 0.0,
+    "MoveSpeed": 5.0
+  },
+  {
+    "ID": 20070,
+    "Name": "언데드",
+    "EnemyType": "Normal",
+    "MonsterType": "Undead",
+    "Health": 29645.0,
+    "Defense": 0.0,
+    "MoveSpeed": 5.0
+  },
+  {
+    "ID": 20071,
+    "Name": "오크",
+    "EnemyType": "Normal",
+    "MonsterType": "Orc",
+    "Health": 31100.0,
+    "Defense": 0.0,
+    "MoveSpeed": 5.0
+  },
+  {
+    "ID": 20072,
+    "Name": "트롤",
+    "EnemyType": "Normal",
+    "MonsterType": "Troll",
+    "Health": 32595.0,
+    "Defense": 0.0,
+    "MoveSpeed": 5.0
+  },
+  {
+    "ID": 20073,
+    "Name": "언데드",
+    "EnemyType": "Normal",
+    "MonsterType": "Undead",
+    "Health": 34130.0,
+    "Defense": 0.0,
+    "MoveSpeed": 5.0
+  },
+  {
+    "ID": 20074,
+    "Name": "오크",
+    "EnemyType": "Normal",
+    "MonsterType": "Orc",
+    "Health": 35705.0,
+    "Defense": 0.0,
+    "MoveSpeed": 5.0
+  },
+  {
+    "ID": 20075,
+    "Name": "트롤",
+    "EnemyType": "Normal",
+    "MonsterType": "Troll",
+    "Health": 37320.0,
+    "Defense": 0.0,
+    "MoveSpeed": 5.0
+  },
+  {
+    "ID": 20076,
+    "Name": "언데드",
+    "EnemyType": "Normal",
+    "MonsterType": "Undead",
+    "Health": 38975.0,
+    "Defense": 0.0,
+    "MoveSpeed": 5.0
+  },
+  {
+    "ID": 20077,
+    "Name": "오크",
+    "EnemyType": "Normal",
+    "MonsterType": "Orc",
+    "Health": 40670.0,
+    "Defense": 0.0,
+    "MoveSpeed": 5.0
+  },
+  {
+    "ID": 20078,
+    "Name": "트롤",
+    "EnemyType": "Normal",
+    "MonsterType": "Troll",
+    "Health": 42405.0,
+    "Defense": 0.0,
+    "MoveSpeed": 5.0
+  },
+  {
+    "ID": 20079,
+    "Name": "언데드",
+    "EnemyType": "Boss",
+    "MonsterType": "Undead",
+    "Health": 48600.0,
+    "Defense": 0.0,
+    "MoveSpeed": 5.0
+  },
+  {
+    "ID": 20080,
+    "Name": "오크",
+    "EnemyType": "Normal",
+    "MonsterType": "Orc",
+    "Health": 44280.0,
+    "Defense": 0.0,
+    "MoveSpeed": 5.0
+  },
+  {
+    "ID": 20081,
+    "Name": "트롤",
+    "EnemyType": "Normal",
+    "MonsterType": "Troll",
+    "Health": 46195.0,
+    "Defense": 0.0,
+    "MoveSpeed": 5.0
+  },
+  {
+    "ID": 20082,
+    "Name": "언데드",
+    "EnemyType": "Normal",
+    "MonsterType": "Undead",
+    "Health": 48150.0,
+    "Defense": 0.0,
+    "MoveSpeed": 5.0
+  },
+  {
+    "ID": 20083,
+    "Name": "오크",
+    "EnemyType": "Normal",
+    "MonsterType": "Orc",
+    "Health": 50145.0,
+    "Defense": 0.0,
+    "MoveSpeed": 5.0
+  },
+  {
+    "ID": 20084,
+    "Name": "트롤",
+    "EnemyType": "Normal",
+    "MonsterType": "Troll",
+    "Health": 52180.0,
+    "Defense": 0.0,
+    "MoveSpeed": 5.0
+  },
+  {
+    "ID": 20085,
+    "Name": "언데드",
+    "EnemyType": "Normal",
+    "MonsterType": "Undead",
+    "Health": 54255.0,
+    "Defense": 0.0,
+    "MoveSpeed": 5.0
+  },
+  {
+    "ID": 20086,
+    "Name": "오크",
+    "EnemyType": "Normal",
+    "MonsterType": "Orc",
+    "Health": 56370.0,
+    "Defense": 0.0,
+    "MoveSpeed": 5.0
+  },
+  {
+    "ID": 20087,
+    "Name": "트롤",
+    "EnemyType": "Normal",
+    "MonsterType": "Troll",
+    "Health": 58525.0,
+    "Defense": 0.0,
+    "MoveSpeed": 5.0
+  },
+  {
+    "ID": 20088,
+    "Name": "언데드",
+    "EnemyType": "Normal",
+    "MonsterType": "Undead",
+    "Health": 60720.0,
+    "Defense": 0.0,
+    "MoveSpeed": 5.0
+  },
+  {
+    "ID": 20089,
+    "Name": "오크",
+    "EnemyType": "Boss",
+    "MonsterType": "Orc",
+    "Health": 61200.0,
+    "Defense": 0.0,
+    "MoveSpeed": 5.0
+  },
+  {
+    "ID": 20090,
+    "Name": "트롤",
+    "EnemyType": "Normal",
+    "MonsterType": "Troll",
+    "Health": 62955.0,
+    "Defense": 0.0,
+    "MoveSpeed": 5.0
+  },
+  {
+    "ID": 20091,
+    "Name": "언데드",
+    "EnemyType": "Normal",
+    "MonsterType": "Undead",
+    "Health": 64750.0,
+    "Defense": 0.0,
+    "MoveSpeed": 5.0
+  },
+  {
+    "ID": 20092,
+    "Name": "오크",
+    "EnemyType": "Normal",
+    "MonsterType": "Orc",
+    "Health": 66585.0,
+    "Defense": 0.0,
+    "MoveSpeed": 5.0
+  },
+  {
+    "ID": 20093,
+    "Name": "트롤",
+    "EnemyType": "Normal",
+    "MonsterType": "Troll",
+    "Health": 68460.0,
+    "Defense": 0.0,
+    "MoveSpeed": 5.0
+  },
+  {
+    "ID": 20094,
+    "Name": "언데드",
+    "EnemyType": "Normal",
+    "MonsterType": "Undead",
+    "Health": 70375.0,
+    "Defense": 0.0,
+    "MoveSpeed": 5.0
+  },
+  {
+    "ID": 20095,
+    "Name": "오크",
+    "EnemyType": "Normal",
+    "MonsterType": "Orc",
+    "Health": 72330.0,
+    "Defense": 0.0,
+    "MoveSpeed": 5.0
+  },
+  {
+    "ID": 20096,
+    "Name": "트롤",
+    "EnemyType": "Normal",
+    "MonsterType": "Troll",
+    "Health": 74325.0,
+    "Defense": 0.0,
+    "MoveSpeed": 5.0
+  },
+  {
+    "ID": 20097,
+    "Name": "언데드",
+    "EnemyType": "Normal",
+    "MonsterType": "Undead",
+    "Health": 76360.0,
+    "Defense": 0.0,
+    "MoveSpeed": 5.0
+  },
+  {
+    "ID": 20098,
+    "Name": "오크",
+    "EnemyType": "Normal",
+    "MonsterType": "Orc",
+    "Health": 78435.0,
+    "Defense": 0.0,
+    "MoveSpeed": 5.0
+  },
+  {
+    "ID": 20099,
+    "Name": "트롤",
+    "EnemyType": "Boss",
+    "MonsterType": "Troll",
+    "Health": 74500.0,
+    "Defense": 0.0,
+    "MoveSpeed": 5.0
+  },
+  {
+    "ID": 20100,
+    "Name": "언데드",
+    "EnemyType": "Boss",
+    "MonsterType": "Undead",
+    "Health": 90000.0,
     "Defense": 0.0,
     "MoveSpeed": 5.0
   }
