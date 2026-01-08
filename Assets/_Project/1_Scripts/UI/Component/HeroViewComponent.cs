@@ -21,6 +21,8 @@ public class HeroViewComponent : MonoBehaviour
     [SerializeField] private TextMeshProUGUI heroRequiredLevelText;
     
     private HeroDataSO currentHeroData;
+    
+    public HeroDataSO CurrentHeroData => currentHeroData;
 
     /// <summary>
     /// 영웅 정보에 맞게 UI 요소들 초기화

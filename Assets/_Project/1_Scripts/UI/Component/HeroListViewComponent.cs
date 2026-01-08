@@ -1,24 +1,31 @@
 using System.Collections.Generic;
+using System.Linq;
 using Generated;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class HeroListViewComponent : MonoBehaviour
 {
     [Header("UI Components")] [SerializeField]
     private TextMeshProUGUI heroCollectionDamageBonusText;
 
-    [SerializeField] private TMP_Dropdown alignmentDropdown;
+    [SerializeField] private Button alignmentButton;
+    [SerializeField] private TextMeshProUGUI alignmentTypeText;
     [Space] [SerializeField] private GameObject scrollViewContent;
 
     [Header("Hero View Prefab")] [SerializeField]
     private HeroViewComponent heroViewPrefab;
     
-    private List<HeroViewComponent> currentHeroes = new List<HeroViewComponent>();
+    private List<HeroViewComponent> currentHeroes = new();
+    private HeroAlignmentType heroAlignmentType;
+    
 
     private void Awake()
     {
         PreloadHeroViewComponentPool();
+        
+        alignmentButton.onClick.AddListener(ChangeAlignmentType);
     }
 
     public void ChangeHeroView(Dictionary<HeroGradeType, HeroDataSO> ownedHeroDataDict)
@@ -36,10 +43,44 @@ public class HeroListViewComponent : MonoBehaviour
             heroView.UpdateHeroViewUIComponent(hero.Value, false);
             currentHeroes.Add(heroView);
         }
+        
+        AlignmentHeroList(heroAlignmentType);
     }
 
     private void PreloadHeroViewComponentPool()
     {
         ObjectPoolManager.Instance.Preload(heroViewPrefab, 9, 36);
+    }
+
+    private void ChangeAlignmentType()
+    {
+        heroAlignmentType = heroAlignmentType.Next();
+        AlignmentHeroList(heroAlignmentType);
+    }
+
+    private void AlignmentHeroList(HeroAlignmentType alignmentType)
+    {
+        switch (alignmentType)
+        {
+            case HeroAlignmentType.A:
+                currentHeroes = currentHeroes.OrderBy(data => data.CurrentHeroData.GradeType).ThenBy(data => data.CurrentHeroData.RankType).ToList();
+                alignmentTypeText.text = "정렬방식 A";
+                break;
+            case HeroAlignmentType.B:
+                currentHeroes = currentHeroes.OrderByDescending(data => data.CurrentHeroData.GradeType).ThenByDescending(data => data.CurrentHeroData.RankType).ToList();
+                alignmentTypeText.text = "정렬방식 B";
+                break;
+        }
+
+        foreach (var hero in currentHeroes)
+        {
+            hero.transform.SetAsLastSibling();
+        }
+    }
+
+    private enum HeroAlignmentType
+    {
+        A,
+        B,
     }
 }
