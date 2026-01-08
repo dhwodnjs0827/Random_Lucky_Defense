@@ -142,7 +142,7 @@ public class EnemyWaveController : MonoBehaviour, IEventListener
         //TODO: 추후 변경하기
         //currentSpawnEnemyPrefab = resourceManager.Load<BaseEnemy>($"Prefabs/Enemy/{currentWaveData.SpawnEnemyID}");
         currentSpawnEnemyData = resourceManager.Load<EnemyDataSO>($"Data/SO/EnemyData/{currentWaveData.SpawnEnemyID}");
-        currentSpawnEnemyPrefab = resourceManager.Load<BaseEnemy>($"Prefabs/Enemy/{currentSpawnEnemyData.EnemyType}");
+        currentSpawnEnemyPrefab = resourceManager.Load<BaseEnemy>($"Prefabs/Enemy/{currentSpawnEnemyData.MonsterType}_{currentSpawnEnemyData.EnemyType}");
 
         spawn = currentWaveData.WaveType == WaveType.Normal ? SpawnNormalEnemy : SpawnBossEnemy;
         
