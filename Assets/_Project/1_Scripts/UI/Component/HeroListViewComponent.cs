@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Generated;
 using TMPro;
 using UnityEngine;
 
@@ -12,42 +13,32 @@ public class HeroListViewComponent : MonoBehaviour
 
     [Header("Hero View Prefab")] [SerializeField]
     private HeroViewComponent heroViewPrefab;
-
-    private HeroClassType currentHeroClassView = HeroClassType.Magician;
+    
     private List<HeroViewComponent> currentHeroes = new List<HeroViewComponent>();
 
     private void Awake()
     {
-        ReloadHeroView();
+        PreloadHeroViewComponentPool();
     }
 
-    private void OnEnable()
-    {
-        UpdateHeroListView();
-    }
-
-    private void OnDisable()
+    public void ChangeHeroView(Dictionary<HeroGradeType, HeroDataSO> ownedHeroDataDict)
     {
         for (var i = currentHeroes.Count - 1; i >= 0; i--)
         {
             ObjectPoolManager.Instance.Release(currentHeroes[i]);
             currentHeroes.Remove(currentHeroes[i]);
         }
-    }
-
-    private void UpdateHeroListView()
-    {
-        var selectedHeroes = PlayerDataManager.Instance.SelectedHeroes;
-        foreach (var hero in selectedHeroes[currentHeroClassView])
+        
+        foreach (var hero in ownedHeroDataDict)
         {
             var heroView = ObjectPoolManager.Instance.Get(heroViewPrefab);
-            heroView.transform.SetParent(scrollViewContent.transform, false);
+            heroView.transform.SetParent(scrollViewContent.transform, true);
             heroView.UpdateHeroViewUIComponent(hero.Value, false);
             currentHeroes.Add(heroView);
         }
     }
 
-    private void ReloadHeroView()
+    private void PreloadHeroViewComponentPool()
     {
         ObjectPoolManager.Instance.Preload(heroViewPrefab, 9, 36);
     }

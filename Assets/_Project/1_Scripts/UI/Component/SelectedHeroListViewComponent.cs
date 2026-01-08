@@ -17,7 +17,6 @@ public class SelectedHeroListViewComponent : MonoBehaviour
     [SerializeField] private CurrentSelectedHeroView godHero;
 
     private Dictionary<HeroGradeType, CurrentSelectedHeroView> heroViewComponents;
-    private HeroClassType currentHeroClassView = HeroClassType.Magician;
 
     private void Awake()
     {
@@ -35,10 +34,9 @@ public class SelectedHeroListViewComponent : MonoBehaviour
         };
     }
 
-    private void OnEnable()
+    public void ChangeHeroView(Dictionary<HeroGradeType, HeroDataSO> selectedHeroDataDict)
     {
-        var currentSelectedHeros = PlayerDataManager.Instance.SelectedHeroes;
-        foreach (var heroData in currentSelectedHeros[currentHeroClassView])
+        foreach (var heroData in selectedHeroDataDict)
         {
             heroViewComponents[heroData.Key].UpdateView(heroData.Value);
         }

@@ -19,12 +19,16 @@ public class HeroViewComponent : MonoBehaviour
     [Space]
     [SerializeField] private Slider heroRequiredLevelSlider;
     [SerializeField] private TextMeshProUGUI heroRequiredLevelText;
+    
+    private HeroDataSO currentHeroData;
 
     /// <summary>
     /// 영웅 정보에 맞게 UI 요소들 초기화
     /// </summary>
     public void UpdateHeroViewUIComponent(HeroDataSO heroData, bool isSelected)
     {
+        currentHeroData = heroData;
+        
         heroGradeText.text = $"{heroData.GradeType}";
         heroRankText.text = $"{heroData.RankType}";
         isSelectedImage.gameObject.SetActive(isSelected);
