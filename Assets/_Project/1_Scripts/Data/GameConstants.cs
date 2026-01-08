@@ -21,9 +21,9 @@ public static class GameConstants
     public const float PROJECTILE_SPEED = 20f;
     
     // 게임 내 초기 SP
-    public const int INITIAL_HERO_SPAWN_POINT = 100;
+    public const int INITIAL_HERO_SPAWN_POINT = 40;
     // 게임 내 영웅 소환 비용
-    public const int HERO_SPAWN_POINT_COST = 1;
+    public const int HERO_SPAWN_POINT_COST = 20;
 
     // 카드 선택 등장 웨이브 배수 값
     public const int CARD_SELECTION_STAGE_INTERVAL = 7;
