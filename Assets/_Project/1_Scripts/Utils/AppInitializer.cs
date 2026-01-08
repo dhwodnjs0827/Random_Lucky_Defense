@@ -51,6 +51,7 @@ public static class AppInitializer
     {
         try
         {
+            await DataSaveLoadManager.Instance.InitializeAsync();
             await ResourceManager.Instance.InitializeAsync();
             await AudioManager.Instance.InitializeAsync();
             await UIManager.Instance.InitializeAsync();

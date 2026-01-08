@@ -11,11 +11,14 @@ public class InitialGameConfig : ScriptableObject
 {
     [Header("Starting Currency")] public int StartGold;
     public int StartGem;
-
-    [Header("Starting Heroes")] public SelectedHeroes StartHeroes;
-
+    public int Diamond;
+    
+    [Header("Starting Profile")]
+    public string PlayerName;
     public int StartLevel;
     public int StartEXP;
+
+    [Header("Starting Heroes")] public SelectedHeroes StartHeroes;
 }
 
 [Serializable]

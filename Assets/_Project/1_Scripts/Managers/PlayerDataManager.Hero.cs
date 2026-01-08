@@ -1,10 +1,10 @@
 using System.Collections.Generic;
-using System.Linq;
 using Generated;
-using UnityEngine;
 
 public partial class PlayerDataManager
 {
+    private const string HERO_DATA_RESOURCE_PATH = "Data/SO/HeroData/";
+    
     private readonly Dictionary<HeroClassType, Dictionary<HeroGradeType, HeroDataSO>> ownedHeroes = new();
     private readonly Dictionary<HeroClassType, Dictionary<HeroGradeType, HeroDataSO>> selectedHeroes = new();
 
@@ -15,20 +15,31 @@ public partial class PlayerDataManager
     /// <summary>
     /// 초기 선택 영웅 데이터 초기화
     /// </summary>
-    private void InitializeSelectedHeroes()
+    private void InitializeHeroData(HeroSaveData data)
     {
-        var initialGameConfig = Resources.Load<InitialGameConfig>("Data/SO/InitialGameConfig");
-
+        var selectedHeroIDs = data.SelectedHeroIDs;
+        
         selectedHeroes.Clear();
         selectedHeroes.Add(HeroClassType.Magician, new Dictionary<HeroGradeType, HeroDataSO>());
         selectedHeroes.Add(HeroClassType.Archer, new Dictionary<HeroGradeType, HeroDataSO>());
         selectedHeroes.Add(HeroClassType.Warrior, new Dictionary<HeroGradeType, HeroDataSO>());
 
-        selectedHeroes[HeroClassType.Magician] =
-            initialGameConfig.StartHeroes.magicians.ToDictionary(k => k.GradeType, v => v);
-        selectedHeroes[HeroClassType.Archer] =
-            initialGameConfig.StartHeroes.archers.ToDictionary(k => k.GradeType, v => v);
-        selectedHeroes[HeroClassType.Warrior] =
-            initialGameConfig.StartHeroes.warriors.ToDictionary(k => k.GradeType, v => v);
+        foreach (var heroID in selectedHeroIDs)
+        {
+            var so = ResourceManager.Instance.Load<HeroDataSO>($"{HERO_DATA_RESOURCE_PATH}{heroID}");
+            selectedHeroes[so.ClassType].Add(so.GradeType, so);
+        }
+        
+        var ownedHeroIDs = data.OwnedHeroIDs;
+        ownedHeroes.Clear();
+        ownedHeroes.Add(HeroClassType.Magician, new Dictionary<HeroGradeType, HeroDataSO>());
+        ownedHeroes.Add(HeroClassType.Archer, new Dictionary<HeroGradeType, HeroDataSO>());
+        ownedHeroes.Add(HeroClassType.Warrior, new Dictionary<HeroGradeType, HeroDataSO>());
+
+        foreach (var heroID in ownedHeroIDs)
+        {
+            var so = ResourceManager.Instance.Load<HeroDataSO>($"{HERO_DATA_RESOURCE_PATH}{heroID}");
+            ownedHeroes[so.ClassType].Add(so.GradeType, so);
+        }
     }
 }
