@@ -14,6 +14,7 @@ public class LobbyScene : BaseScene
     public override async UniTask CleanupAsync()
     {
         UIManager.Instance.Cleanup();
+        ToastManager.Instance.Clear();
         await base.CleanupAsync();
     }
 }

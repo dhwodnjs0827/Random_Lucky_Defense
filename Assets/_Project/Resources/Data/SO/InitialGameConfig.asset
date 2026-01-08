@@ -14,6 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::InitialGameConfig
   StartGold: 500
   StartGem: 500
+  Diamond: 500
+  PlayerName: "\uC2E0\uADDC \uD50C\uB808\uC774\uC5B4"
+  StartLevel: 1
+  StartEXP: 0
   StartHeroes:
     magicians:
     - {fileID: 11400000, guid: 16717dc6d9aba43e8990ddb9d1a40862, type: 2}
@@ -45,5 +49,3 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 90f8639c20f894d639c49de04974fac9, type: 2}
     - {fileID: 11400000, guid: abff0435540274c9ca741f26ea1d756c, type: 2}
     - {fileID: 11400000, guid: e38928884d30e4ec1ade39cedb61c51f, type: 2}
-  StartLevel: 1
-  StartEXP: 0

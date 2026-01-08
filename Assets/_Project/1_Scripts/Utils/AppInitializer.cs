@@ -29,7 +29,7 @@ public static class AppInitializer
             audioManager.name = "AudioManager";
         }
         
-        InitializeAsync().Forget();
+        InitializeManagerAsync().Forget();
     }
     
     /// <summary>
@@ -47,7 +47,7 @@ public static class AppInitializer
     /// <summary>
     /// 초기 필수 Manager 초기화
     /// </summary>
-    private static async UniTask InitializeAsync()
+    private static async UniTask InitializeManagerAsync()
     {
         try
         {
@@ -56,6 +56,7 @@ public static class AppInitializer
             await AudioManager.Instance.InitializeAsync();
             await UIManager.Instance.InitializeAsync();
             await SceneLoadManager.Instance.InitializeAsync();
+            await ToastManager.Instance.InitializeAsync();
         }
         catch (Exception e)
         {

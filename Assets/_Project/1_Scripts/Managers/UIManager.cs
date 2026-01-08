@@ -232,7 +232,6 @@ public class UIManager : MonoSingleton<UIManager>
         var popupPrefab = await resourceManager.LoadAsync<Canvas>("UI/Canvas/@Popup");
         var tooltipPrefab = await resourceManager.LoadAsync<Canvas>("UI/Canvas/@Tooltip");
         var loadingPrefab = await resourceManager.LoadAsync<Canvas>("UI/Canvas/@Loading");
-        var systemPrefab = await resourceManager.LoadAsync<Canvas>("UI/Canvas/@System");
 
         canvases = new()
         {
@@ -241,7 +240,6 @@ public class UIManager : MonoSingleton<UIManager>
             { UIType.Popup, Instantiate(popupPrefab) },
             { UIType.Tooltip, Instantiate(tooltipPrefab) },
             { UIType.Loading, Instantiate(loadingPrefab) },
-            { UIType.System, Instantiate(systemPrefab) }
         };
 
         foreach (var kvp in canvases)

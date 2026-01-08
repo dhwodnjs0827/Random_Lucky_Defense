@@ -54,7 +54,7 @@ public class LobbyBottomButtonGroups : MonoBehaviour
 
     private void OnClickLockButton()
     {
-        //ToastMessage.Show("준비 중입니다.");
+        ToastManager.Instance.Show("준비 중입니다.");
     }
 
     private void OnClickRankButton()
