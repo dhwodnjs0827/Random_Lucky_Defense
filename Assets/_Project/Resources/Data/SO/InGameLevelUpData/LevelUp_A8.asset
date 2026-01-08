@@ -15,5 +15,5 @@ MonoBehaviour:
   ID: LevelUp_A8
   Level: 8
   HeroClassType: 2
-  Cost: 38
-  AttackPowerMultiplier: 0.35
+  Cost: 44
+  AttackPowerMultiplier: 1.05

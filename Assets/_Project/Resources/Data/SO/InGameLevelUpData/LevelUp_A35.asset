@@ -15,5 +15,5 @@ MonoBehaviour:
   ID: LevelUp_A35
   Level: 35
   HeroClassType: 2
-  Cost: 92
-  AttackPowerMultiplier: 1.7
+  Cost: 153
+  AttackPowerMultiplier: 5.1

@@ -15,5 +15,5 @@ MonoBehaviour:
   ID: LevelUp_M28
   Level: 28
   HeroClassType: 1
-  Cost: 78
-  AttackPowerMultiplier: 1.35
+  Cost: 116
+  AttackPowerMultiplier: 4.05

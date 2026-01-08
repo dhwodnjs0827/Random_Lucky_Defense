@@ -16,6 +16,6 @@ MonoBehaviour:
   Name: "\uC5B8\uB370\uB4DC"
   EnemyType: 0
   MonsterType: 0
-  Health: 49
+  Health: 189
   Defense: 0
   MoveSpeed: 5

@@ -15,5 +15,5 @@ MonoBehaviour:
   ID: LevelUp_M36
   Level: 36
   HeroClassType: 1
-  Cost: 94
-  AttackPowerMultiplier: 1.75
+  Cost: 159
+  AttackPowerMultiplier: 5.25

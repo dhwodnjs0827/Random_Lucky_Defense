@@ -15,5 +15,5 @@ MonoBehaviour:
   ID: LevelUp_M21
   Level: 21
   HeroClassType: 1
-  Cost: 64
-  AttackPowerMultiplier: 1
+  Cost: 86
+  AttackPowerMultiplier: 3

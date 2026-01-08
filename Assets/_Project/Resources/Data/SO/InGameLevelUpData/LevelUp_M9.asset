@@ -15,5 +15,5 @@ MonoBehaviour:
   ID: LevelUp_M9
   Level: 9
   HeroClassType: 1
-  Cost: 40
-  AttackPowerMultiplier: 0.4
+  Cost: 47
+  AttackPowerMultiplier: 1.2

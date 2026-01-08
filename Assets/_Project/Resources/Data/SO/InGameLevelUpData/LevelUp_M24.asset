@@ -15,5 +15,5 @@ MonoBehaviour:
   ID: LevelUp_M24
   Level: 24
   HeroClassType: 1
-  Cost: 70
-  AttackPowerMultiplier: 1.15
+  Cost: 98
+  AttackPowerMultiplier: 3.45

@@ -15,5 +15,5 @@ MonoBehaviour:
   ID: LevelUp_M7
   Level: 7
   HeroClassType: 1
-  Cost: 36
-  AttackPowerMultiplier: 0.3
+  Cost: 41
+  AttackPowerMultiplier: 0.9

@@ -15,5 +15,5 @@ MonoBehaviour:
   ID: LevelUp_A29
   Level: 29
   HeroClassType: 2
-  Cost: 80
-  AttackPowerMultiplier: 1.4
+  Cost: 121
+  AttackPowerMultiplier: 4.2

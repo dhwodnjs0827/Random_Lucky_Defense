@@ -15,5 +15,5 @@ MonoBehaviour:
   ID: LevelUp_M19
   Level: 19
   HeroClassType: 1
-  Cost: 60
-  AttackPowerMultiplier: 0.9
+  Cost: 78
+  AttackPowerMultiplier: 2.7

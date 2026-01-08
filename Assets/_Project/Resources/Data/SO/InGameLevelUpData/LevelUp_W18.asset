@@ -15,5 +15,5 @@ MonoBehaviour:
   ID: LevelUp_W18
   Level: 18
   HeroClassType: 3
-  Cost: 58
-  AttackPowerMultiplier: 0.85
+  Cost: 75
+  AttackPowerMultiplier: 2.55

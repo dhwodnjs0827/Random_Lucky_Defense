@@ -15,5 +15,5 @@ MonoBehaviour:
   ID: LevelUp_M10
   Level: 10
   HeroClassType: 1
-  Cost: 42
-  AttackPowerMultiplier: 0.45
+  Cost: 48
+  AttackPowerMultiplier: 1.35

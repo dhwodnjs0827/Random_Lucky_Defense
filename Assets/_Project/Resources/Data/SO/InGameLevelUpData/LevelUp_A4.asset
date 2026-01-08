@@ -15,5 +15,5 @@ MonoBehaviour:
   ID: LevelUp_A4
   Level: 4
   HeroClassType: 2
-  Cost: 30
-  AttackPowerMultiplier: 0.15
+  Cost: 32
+  AttackPowerMultiplier: 0.45

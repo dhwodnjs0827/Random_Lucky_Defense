@@ -15,5 +15,5 @@ MonoBehaviour:
   ID: LevelUp_W20
   Level: 20
   HeroClassType: 3
-  Cost: 62
-  AttackPowerMultiplier: 0.95
+  Cost: 82
+  AttackPowerMultiplier: 2.85

@@ -15,5 +15,5 @@ MonoBehaviour:
   ID: LevelUp_A39
   Level: 39
   HeroClassType: 2
-  Cost: 100
-  AttackPowerMultiplier: 1.9
+  Cost: 177
+  AttackPowerMultiplier: 5.7

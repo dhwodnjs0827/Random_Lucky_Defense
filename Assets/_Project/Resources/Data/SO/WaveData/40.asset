@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Generated.WaveDataSO
   WaveIndex: 40
   WaveType: 1
-  SpawnEnemyID: 20009
+  SpawnEnemyID: 20039
   SpawnInterval: 0
   WaveTime: 30
   WaveHpCoefficients: 4

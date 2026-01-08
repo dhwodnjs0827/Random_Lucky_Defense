@@ -15,5 +15,5 @@ MonoBehaviour:
   ID: LevelUp_A3
   Level: 3
   HeroClassType: 2
-  Cost: 28
-  AttackPowerMultiplier: 0.1
+  Cost: 29
+  AttackPowerMultiplier: 0.3

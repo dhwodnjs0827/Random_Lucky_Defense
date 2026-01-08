@@ -15,5 +15,5 @@ MonoBehaviour:
   ID: LevelUp_M6
   Level: 6
   HeroClassType: 1
-  Cost: 34
-  AttackPowerMultiplier: 0.25
+  Cost: 38
+  AttackPowerMultiplier: 0.75

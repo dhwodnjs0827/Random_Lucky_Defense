@@ -15,5 +15,5 @@ MonoBehaviour:
   ID: LevelUp_W16
   Level: 16
   HeroClassType: 3
-  Cost: 54
-  AttackPowerMultiplier: 0.75
+  Cost: 68
+  AttackPowerMultiplier: 2.25

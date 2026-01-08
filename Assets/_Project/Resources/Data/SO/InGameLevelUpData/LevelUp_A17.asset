@@ -15,5 +15,5 @@ MonoBehaviour:
   ID: LevelUp_A17
   Level: 17
   HeroClassType: 2
-  Cost: 56
-  AttackPowerMultiplier: 0.8
+  Cost: 71
+  AttackPowerMultiplier: 2.4

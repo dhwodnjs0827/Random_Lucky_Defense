@@ -15,5 +15,5 @@ MonoBehaviour:
   ID: LevelUp_M31
   Level: 31
   HeroClassType: 1
-  Cost: 84
-  AttackPowerMultiplier: 1.5
+  Cost: 131
+  AttackPowerMultiplier: 4.5

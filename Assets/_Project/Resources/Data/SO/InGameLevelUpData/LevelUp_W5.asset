@@ -15,5 +15,5 @@ MonoBehaviour:
   ID: LevelUp_W5
   Level: 5
   HeroClassType: 3
-  Cost: 32
-  AttackPowerMultiplier: 0.2
+  Cost: 35
+  AttackPowerMultiplier: 0.6

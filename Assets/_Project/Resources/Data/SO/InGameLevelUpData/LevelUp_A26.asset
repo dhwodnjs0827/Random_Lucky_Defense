@@ -15,5 +15,5 @@ MonoBehaviour:
   ID: LevelUp_A26
   Level: 26
   HeroClassType: 2
-  Cost: 74
-  AttackPowerMultiplier: 1.25
+  Cost: 107
+  AttackPowerMultiplier: 3.75

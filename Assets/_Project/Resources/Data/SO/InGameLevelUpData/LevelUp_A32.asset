@@ -15,5 +15,5 @@ MonoBehaviour:
   ID: LevelUp_A32
   Level: 32
   HeroClassType: 2
-  Cost: 86
-  AttackPowerMultiplier: 1.55
+  Cost: 136
+  AttackPowerMultiplier: 4.65

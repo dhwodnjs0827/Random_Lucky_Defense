@@ -15,5 +15,5 @@ MonoBehaviour:
   ID: LevelUp_A11
   Level: 11
   HeroClassType: 2
-  Cost: 44
-  AttackPowerMultiplier: 0.5
+  Cost: 52
+  AttackPowerMultiplier: 1.5

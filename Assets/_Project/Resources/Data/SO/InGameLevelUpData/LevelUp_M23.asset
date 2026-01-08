@@ -15,5 +15,5 @@ MonoBehaviour:
   ID: LevelUp_M23
   Level: 23
   HeroClassType: 1
-  Cost: 68
-  AttackPowerMultiplier: 1.1
+  Cost: 94
+  AttackPowerMultiplier: 3.3

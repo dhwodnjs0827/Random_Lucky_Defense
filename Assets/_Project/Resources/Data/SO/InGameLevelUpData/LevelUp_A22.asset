@@ -15,5 +15,5 @@ MonoBehaviour:
   ID: LevelUp_A22
   Level: 22
   HeroClassType: 2
-  Cost: 66
-  AttackPowerMultiplier: 1.05
+  Cost: 90
+  AttackPowerMultiplier: 3.15

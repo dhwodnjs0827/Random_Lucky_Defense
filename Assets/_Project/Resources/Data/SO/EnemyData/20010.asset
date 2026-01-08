@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: 20010
   m_EditorClassIdentifier: Assembly-CSharp::Generated.EnemyDataSO
   ID: 20010
-  Name: "\uD2B8\uB864"
+  Name: "\uC5B8\uB370\uB4DC"
   EnemyType: 0
-  MonsterType: 1
-  Health: 49
+  MonsterType: 0
+  Health: 407
   Defense: 0
   MoveSpeed: 5

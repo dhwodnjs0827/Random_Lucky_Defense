@@ -16,4 +16,4 @@ MonoBehaviour:
   Level: 2
   HeroClassType: 1
   Cost: 26
-  AttackPowerMultiplier: 0.05
+  AttackPowerMultiplier: 0.15

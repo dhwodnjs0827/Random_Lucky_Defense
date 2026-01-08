@@ -18,7 +18,7 @@ MonoBehaviour:
   GradeType: 6
   RankType: 1
   SkillType: 0
-  AttackPower: 14
+  AttackPower: 1900
   AttackSpeed: 2.6
   AttackRange: 600
   SplashRange: 150

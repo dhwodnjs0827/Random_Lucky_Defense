@@ -15,5 +15,5 @@ MonoBehaviour:
   ID: LevelUp_M27
   Level: 27
   HeroClassType: 1
-  Cost: 76
-  AttackPowerMultiplier: 1.3
+  Cost: 111
+  AttackPowerMultiplier: 3.9
