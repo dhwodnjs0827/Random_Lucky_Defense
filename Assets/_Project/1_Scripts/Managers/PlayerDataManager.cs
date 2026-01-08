@@ -5,6 +5,6 @@ public partial class PlayerDataManager : Singleton<PlayerDataManager>
 {
     public PlayerDataManager()
     {
-        InitializeHeroData(DataSaveLoadManager.Instance.SaveData.HeroData);
+        InitializeHeroData(SaveLoadManager.Instance.SaveData.HeroData);
     }
 }

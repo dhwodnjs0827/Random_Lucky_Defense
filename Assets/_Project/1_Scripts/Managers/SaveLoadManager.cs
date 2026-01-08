@@ -1,7 +1,7 @@
 using Cysharp.Threading.Tasks;
 using UnityEngine;
 
-public class DataSaveLoadManager : Singleton<DataSaveLoadManager>
+public class SaveLoadManager : Singleton<SaveLoadManager>
 {
     private InitialGameConfig gameConfig;
     private readonly IDataSaveLoadHandler handler;
@@ -9,9 +9,10 @@ public class DataSaveLoadManager : Singleton<DataSaveLoadManager>
     
     public SaveData SaveData => saveData;
 
-    public DataSaveLoadManager()
+    public SaveLoadManager()
     {
         handler = new PlayerPrefsHandler();
+        //handler = new ServerHandler();
     }
 
     public async UniTask InitializeAsync()
