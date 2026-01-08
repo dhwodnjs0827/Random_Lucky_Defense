@@ -1,4 +1,5 @@
 using Cysharp.Threading.Tasks;
+using UnityEditor;
 using UnityEngine;
 
 public class SaveLoadManager : Singleton<SaveLoadManager>
@@ -38,7 +39,11 @@ public class SaveLoadManager : Singleton<SaveLoadManager>
     public void Delete()
     {
         handler.Delete();
+#if UNITY_EDITOR
+        EditorApplication.isPlaying = false;
+#else
         Application.Quit();
+#endif
     }
     
     /// <summary>

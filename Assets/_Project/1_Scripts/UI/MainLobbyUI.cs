@@ -12,4 +12,10 @@ public class MainLobbyUI : BaseUI
     protected override void Closed(params object[] args)
     {
     }
+
+    //TODO: 임시로 작성
+    public void TmpDeleteData()
+    {
+        SaveLoadManager.Instance.Delete();
+    }
 }
