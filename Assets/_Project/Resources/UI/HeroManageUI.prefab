@@ -1789,7 +1789,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::HeroManageUI
   uiType: 100
   isActiveOnLoad: 1
-  isDestroyOnClose: 0
+  isDestroyOnClose: 1
   closeButton: {fileID: 5125228753180921190}
   selectedHeroListViewComponent: {fileID: 1194778521924178991}
   heroListViewComponent: {fileID: 1654865060619714985}

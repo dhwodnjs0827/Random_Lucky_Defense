@@ -5,6 +5,11 @@ public static class GameConstants
 {
     // 게임 시작 씬
     public const SceneType START_SCENE = SceneType.TitleScene;
+    
+    // 영웅 랭크 가챠 확률
+    public const int RANK_B_CHANCE = 72;
+    public const int RANK_A_CHANCE = 25;
+    public const int RANK_S_CHANCE = 3;
 
     // 게임 내 영웅 소환 확률
     public const int NORMAL_HERO_SPAWN_CHANCE = 5000; // 50%
