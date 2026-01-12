@@ -18,7 +18,7 @@ public partial class FirebaseManager : MonoSingleton<FirebaseManager>
     /// <summary>
     /// Firebase 초기화
     /// </summary>
-    public async UniTaskVoid InitializeFirebaseAsync()
+    public async UniTask InitializeFirebaseAsync()
     {
         try
         {
