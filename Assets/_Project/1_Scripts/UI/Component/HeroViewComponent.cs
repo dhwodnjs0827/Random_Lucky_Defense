@@ -1,6 +1,3 @@
-using System;
-using System.Linq;
-using Generated;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -31,6 +28,8 @@ public class HeroViewComponent : MonoBehaviour
     /// </summary>
     public void UpdateHeroViewUIComponent(HeroGameData heroData, bool isSelected)
     {
+        currentHeroData = heroData;
+        
         //TODO: 임시 색 변경(추후 이미지 변경으로)
         //heroRankImage.sprite =
         switch (heroData.Rank)
@@ -50,12 +49,11 @@ public class HeroViewComponent : MonoBehaviour
         heroRankText.text = $"{heroData.Rank}";
         
         isSelectedImage.gameObject.SetActive(isSelected);
-
-        var heroGameData = PlayerDataManager.Instance.AcquiredHeroes[heroData.ID];
-        heroLevelText.text = $"레벨 {heroGameData.Level}";
+        
+        heroLevelText.text = $"레벨 {heroData.Level}";
 
         //TODO: 임시 요구치 10 할당
-        heroRequiredLevelSlider.value = heroGameData.AcquiredStack / 10f;
-        heroRequiredLevelText.text = $"{heroGameData.AcquiredStack}/10";
+        heroRequiredLevelSlider.value = heroData.AcquiredStack / 10f;
+        heroRequiredLevelText.text = $"{heroData.AcquiredStack}/10";
     }
 }

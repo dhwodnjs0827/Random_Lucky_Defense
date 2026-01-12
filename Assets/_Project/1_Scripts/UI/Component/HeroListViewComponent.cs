@@ -44,13 +44,13 @@ public class HeroListViewComponent : MonoBehaviour
         var acquiredHeroes = PlayerDataManager.Instance.AcquiredHeroes;
         foreach (var hero in acquiredHeroes)
         {
-            if (hero.Class != heroClassViewType)
+            if (hero.Class != heroClassViewType || !hero.IsAcquiredHero)
             {
                 continue;
             }
             var heroView = ObjectPoolManager.Instance.Get(heroViewPrefab);
             heroView.transform.SetParent(scrollViewContent.transform, true);
-            heroView.UpdateHeroViewUIComponent(hero, false);
+            heroView.UpdateHeroViewUIComponent(hero, hero.isSelected);
             currentHeroes.Add(heroView);
         }
         

@@ -22,7 +22,7 @@ public class InitialGameConfig : ScriptableObject
 
     [SerializeField] private List<HeroDataSO> allHeroes;
     [SerializeField] private List<HeroDataSO> initialHeroes;
-
+    
     private void OnValidate()
     {
         SetHeroConfigGroup();
