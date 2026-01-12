@@ -47,6 +47,7 @@ public class InGameWaveInfoUIComponent : MonoBehaviour, IEventListener
 
     private void SetWaveDate(GameWaveStartEventData data)
     {
+        enemyImage.sprite = ResourceManager.Instance.Load<Sprite>($"Sprites/Enemy/{data.CurrentEnemyData.MonsterType}_{data.CurrentEnemyData.EnemyType}");
         currentWaveText.text = $"WAVE {data.CurrentWaveData.WaveIndex}/101";
         monsterTypeText.text = $"{data.CurrentEnemyData.MonsterType}";
         enemyTypeText.text = $"{data.CurrentEnemyData.EnemyType}";
