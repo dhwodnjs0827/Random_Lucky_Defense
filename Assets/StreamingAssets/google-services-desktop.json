@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "323160557358",
+    "project_id": "random-lucky-defense-52d32",
+    "storage_bucket": "random-lucky-defense-52d32.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:323160557358:android:1dc9a816c12884ad195cbf",
+        "android_client_info": {
+          "package_name": "com.Jaewon.Random_Lucky_Defense"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCX2WPxvGcojIUQC4rs3vl9hfAQr7o5ztM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
