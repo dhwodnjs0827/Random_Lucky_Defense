@@ -14,7 +14,6 @@ public class InitialGameConfig : ScriptableObject
     public int Diamond;
     
     [Header("Starting Profile")]
-    public string PlayerName;
     public int StartLevel;
     public int StartEXP;
 
