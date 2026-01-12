@@ -57,9 +57,11 @@ public class SaveLoadManager : Singleton<SaveLoadManager>
         saveData = new SaveData();
         var initialGameConfig = Resources.Load<InitialGameConfig>("Data/SO/InitialGameConfig");
         
+        // 재화
         saveData.CurrencyData.Gold = initialGameConfig.StartGold;
         saveData.CurrencyData.Gem = initialGameConfig.StartGem;
 
+        // 프로필
 #if FIREBASE_ENABLED
         saveData.ProfileData.PlayerName = FirebaseManager.Instance.CurrentUser?.UserId ?? "Guest";
 #else
@@ -67,31 +69,52 @@ public class SaveLoadManager : Singleton<SaveLoadManager>
 #endif
         saveData.ProfileData.Level = initialGameConfig.StartLevel;
         saveData.ProfileData.Exp = initialGameConfig.StartEXP;
-
-        saveData.HeroData.OwnedHeroIDs = new();
-        foreach (var magician in initialGameConfig.StartHeroes.magicians)
+        
+        // 영웅
+        saveData.HeroData.AcquiredHeroes = new();
+        foreach (var hero in initialGameConfig.Heroes.Magicians)
         {
-            saveData.HeroData.OwnedHeroIDs.Add(magician.ID);
+            var heroGameData = new HeroGameData
+            {
+                ID = hero.HeroData.ID,
+                Class = hero.HeroData.ClassType,
+                Grade = hero.HeroData.GradeType,
+                IsAcquiredHero = hero.IsAcquired,
+                Level = 1,
+                AcquiredStack = 0,
+                isSelected = hero.IsAcquired
+            };
+            saveData.HeroData.AcquiredHeroes.Add(heroGameData);
         }
-        foreach (var archer in initialGameConfig.StartHeroes.archers)
+        foreach (var hero in initialGameConfig.Heroes.Archers)
         {
-            saveData.HeroData.OwnedHeroIDs.Add(archer.ID);
+            var heroGameData = new HeroGameData
+            {
+                ID = hero.HeroData.ID,
+                Class = hero.HeroData.ClassType,
+                Grade = hero.HeroData.GradeType,
+                IsAcquiredHero = hero.IsAcquired,
+                Level = 1,
+                AcquiredStack = 0,
+                isSelected = hero.IsAcquired
+            };
+            saveData.HeroData.AcquiredHeroes.Add(heroGameData);
         }
-        foreach (var warrior in initialGameConfig.StartHeroes.warriors)
+        foreach (var hero in initialGameConfig.Heroes.Warriors)
         {
-            saveData.HeroData.OwnedHeroIDs.Add(warrior.ID);
+            var heroGameData = new HeroGameData
+            {
+                ID = hero.HeroData.ID,
+                Class = hero.HeroData.ClassType,
+                Grade = hero.HeroData.GradeType,
+                IsAcquiredHero = hero.IsAcquired,
+                Level = 1,
+                AcquiredStack = 0,
+                isSelected = hero.IsAcquired
+            };
+            saveData.HeroData.AcquiredHeroes.Add(heroGameData);
         }
-        saveData.HeroData.SelectedHeroIDs = new(saveData.HeroData.OwnedHeroIDs);
-        saveData.HeroData.HeroLevels = new();
-        foreach (var ownedHeroID in saveData.HeroData.OwnedHeroIDs)
-        {
-            saveData.HeroData.HeroLevels.Add(ownedHeroID, 1);
-        }
-        saveData.HeroData.OwnedHeroStacks = new();
-        foreach (var ownedHeroID in saveData.HeroData.OwnedHeroIDs)
-        {
-            saveData.HeroData.OwnedHeroStacks.Add(ownedHeroID, 0);
-        }
+        
         await SaveAsync(saveData);
 
         CDebug.Log("[SaveLoadManager] 신규 플레이어 데이터 생성 및 저장");

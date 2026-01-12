@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using Generated;
 using TMPro;
 using UnityEngine;
@@ -21,20 +22,18 @@ public class HeroViewComponent : MonoBehaviour
     [SerializeField] private Slider heroRequiredLevelSlider;
     [SerializeField] private TextMeshProUGUI heroRequiredLevelText;
     
-    private HeroDataSO currentHeroData;
+    private HeroGameData currentHeroData;
     
-    public HeroDataSO CurrentHeroData => currentHeroData;
+    public HeroGameData CurrentHeroData => currentHeroData;
 
     /// <summary>
     /// 영웅 정보에 맞게 UI 요소들 초기화
     /// </summary>
-    public void UpdateHeroViewUIComponent(HeroDataSO heroData, bool isSelected)
+    public void UpdateHeroViewUIComponent(HeroGameData heroData, bool isSelected)
     {
-        currentHeroData = heroData;
-        
         //TODO: 임시 색 변경(추후 이미지 변경으로)
         //heroRankImage.sprite =
-        switch (heroData.RankType)
+        switch (heroData.Rank)
         {
             case HeroRankType.B:
                 heroRankImage.color = Color.gray;
@@ -46,17 +45,17 @@ public class HeroViewComponent : MonoBehaviour
                 heroRankImage.color = Color.orange;
                 break;
         }
-        heroGradeText.text = $"{heroData.GradeType}";
-        heroImage.sprite = ResourceManager.Instance.Load<Sprite>($"Sprites/Hero/{heroData.ClassType}_{heroData.GradeType}");
-        heroRankText.text = $"{heroData.RankType}";
+        heroGradeText.text = $"{heroData.Grade}";
+        heroImage.sprite = ResourceManager.Instance.Load<Sprite>($"Sprites/Hero/{heroData.Class}_{heroData.Grade}");
+        heroRankText.text = $"{heroData.Rank}";
         
         isSelectedImage.gameObject.SetActive(isSelected);
-        
-        heroLevelText.text = $"레벨 {PlayerDataManager.Instance.CurrentHeroLevels[heroData.ID]}";
+
+        var heroGameData = PlayerDataManager.Instance.AcquiredHeroes[heroData.ID];
+        heroLevelText.text = $"레벨 {heroGameData.Level}";
 
         //TODO: 임시 요구치 10 할당
-        var currentStack = PlayerDataManager.Instance.CurrentHeroStacks[heroData.ID];
-        heroRequiredLevelSlider.value = currentStack / 10f;
-        heroRequiredLevelText.text = $"{currentStack}/10";
+        heroRequiredLevelSlider.value = heroGameData.AcquiredStack / 10f;
+        heroRequiredLevelText.text = $"{heroGameData.AcquiredStack}/10";
     }
 }

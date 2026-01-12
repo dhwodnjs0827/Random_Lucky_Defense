@@ -16,7 +16,7 @@ public class MainLobbyUI : BaseUI
     {
         //TODO: 임시
         userNameText.text = PlayerDataManager.Instance.ProfileSaveData.PlayerName;
-        goldText.text = PlayerDataManager.Instance.CurrencySaveData.Gold.ToString();
+        goldText.text = PlayerDataManager.Instance.Currency[CurrencyType.Gold].ToString();
         levelText.text = PlayerDataManager.Instance.ProfileSaveData.Level.ToString();
     }
 

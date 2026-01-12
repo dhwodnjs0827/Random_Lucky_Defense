@@ -7,22 +7,9 @@ public partial class PlayerDataManager : Singleton<PlayerDataManager>
 {
     public PlayerDataManager()
     {
-        InitializeProfileData(SaveLoadManager.Instance.SaveData.ProfileData);
-        InitializeCurrencyData(SaveLoadManager.Instance.SaveData.CurrencyData);
-        InitializeHeroData(SaveLoadManager.Instance.SaveData.HeroData);
-    }
-
-    public ProfileSaveData ProfileSaveData {get; private set;}
-    
-    private void InitializeProfileData(ProfileSaveData data)
-    {
-        ProfileSaveData = data;
-    }
-    
-    public CurrencySaveData CurrencySaveData {get; private set;}
-
-    private void InitializeCurrencyData(CurrencySaveData data)
-    {
-        CurrencySaveData = data;
+        var saveData = SaveLoadManager.Instance.SaveData;
+        InitializeCurrencyData(saveData.CurrencyData);
+        InitializeProfileData(saveData.ProfileData);
+        InitializeHeroData(saveData.HeroData);
     }
 }

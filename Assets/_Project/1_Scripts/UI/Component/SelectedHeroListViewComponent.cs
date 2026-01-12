@@ -34,11 +34,15 @@ public class SelectedHeroListViewComponent : MonoBehaviour
         };
     }
 
-    public void ChangeHeroView(Dictionary<HeroGradeType, HeroDataSO> selectedHeroDataDict)
+    public void ChangeHeroView(HeroClassType heroClassViewType)
     {
-        foreach (var heroData in selectedHeroDataDict)
+        var selectedHeroes = PlayerDataManager.Instance.AcquiredHeroes;
+        foreach (var heroData in selectedHeroes)
         {
-            heroViewComponents[heroData.Key].UpdateView(heroData.Value);
+            if (heroData.Class == heroClassViewType && heroData.isSelected)
+            {
+                heroViewComponents[heroData.Grade].UpdateView(heroData);
+            }
         }
     }
 }
@@ -49,9 +53,9 @@ public struct CurrentSelectedHeroView
     public TextMeshProUGUI HeroGradeText;
     public HeroViewComponent Hero;
 
-    public void UpdateView(HeroDataSO heroData)
+    public void UpdateView(HeroGameData heroData)
     {
-        HeroGradeText.text = $"{heroData.GradeType}";
+        HeroGradeText.text = $"{heroData.Grade}";
         Hero.UpdateHeroViewUIComponent(heroData, true);
     }
 }

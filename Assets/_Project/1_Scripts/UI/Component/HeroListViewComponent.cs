@@ -33,19 +33,24 @@ public class HeroListViewComponent : MonoBehaviour
         heroAlignmentType = HeroAlignmentType.A;
     }
 
-    public void ChangeHeroView(Dictionary<HeroGradeType, HeroDataSO> ownedHeroDataDict)
+    public void ChangeHeroView(HeroClassType heroClassViewType)
     {
         for (var i = currentHeroes.Count - 1; i >= 0; i--)
         {
             ObjectPoolManager.Instance.Release(currentHeroes[i]);
             currentHeroes.Remove(currentHeroes[i]);
         }
-        
-        foreach (var hero in ownedHeroDataDict)
+
+        var acquiredHeroes = PlayerDataManager.Instance.AcquiredHeroes;
+        foreach (var hero in acquiredHeroes)
         {
+            if (hero.Class != heroClassViewType)
+            {
+                continue;
+            }
             var heroView = ObjectPoolManager.Instance.Get(heroViewPrefab);
             heroView.transform.SetParent(scrollViewContent.transform, true);
-            heroView.UpdateHeroViewUIComponent(hero.Value, false);
+            heroView.UpdateHeroViewUIComponent(hero, false);
             currentHeroes.Add(heroView);
         }
         
@@ -68,11 +73,11 @@ public class HeroListViewComponent : MonoBehaviour
         switch (alignmentType)
         {
             case HeroAlignmentType.A:
-                currentHeroes = currentHeroes.OrderBy(data => data.CurrentHeroData.GradeType).ThenBy(data => data.CurrentHeroData.RankType).ToList();
+                currentHeroes = currentHeroes.OrderBy(data => data.CurrentHeroData.Grade).ThenBy(data => data.CurrentHeroData.Rank).ToList();
                 alignmentTypeText.text = "정렬방식 A";
                 break;
             case HeroAlignmentType.B:
-                currentHeroes = currentHeroes.OrderByDescending(data => data.CurrentHeroData.GradeType).ThenByDescending(data => data.CurrentHeroData.RankType).ToList();
+                currentHeroes = currentHeroes.OrderByDescending(data => data.CurrentHeroData.Grade).ThenByDescending(data => data.CurrentHeroData.Rank).ToList();
                 alignmentTypeText.text = "정렬방식 B";
                 break;
         }

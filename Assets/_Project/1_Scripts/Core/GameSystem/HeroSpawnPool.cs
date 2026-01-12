@@ -16,8 +16,25 @@ public class HeroSpawnPool : MonoBehaviour
     private void Awake()
     {
         // PlayerDataManager에서 선택한 영웅 정보 갖고오기
-        heroDatas = PlayerDataManager.Instance.SelectedHeroes as Dictionary<HeroClassType, Dictionary<HeroGradeType, HeroDataSO>>;
-        
+        var acquiredHeroes = PlayerDataManager.Instance.AcquiredHeroes;
+        heroDatas.Clear();
+        heroDatas = new()
+        {
+            { HeroClassType.Magician, new Dictionary<HeroGradeType, HeroDataSO>() },
+            { HeroClassType.Archer, new Dictionary<HeroGradeType, HeroDataSO>() },
+            { HeroClassType.Warrior, new Dictionary<HeroGradeType, HeroDataSO>() },
+        };
+        foreach (var heroData in acquiredHeroes)
+        {
+            if (!heroData.isSelected)
+            {
+                continue;
+            }
+
+            var so = ResourceManager.Instance.Load<HeroDataSO>($"Data/SO/HeroData/{heroData.ID}");
+            heroDatas[heroData.Class].Add(heroData.Grade, so);
+        }
+
         InitializeClassPool(HeroClassType.Magician);
         InitializeClassPool(HeroClassType.Archer);
         InitializeClassPool(HeroClassType.Warrior);
@@ -44,17 +61,17 @@ public class HeroSpawnPool : MonoBehaviour
     private void InitializeClassPool(HeroClassType classType)
     {
         var prefabDict = new Dictionary<HeroGradeType, BaseHero>();
-        
+
         foreach (var kvp in heroDatas[classType])
         {
             var heroData = kvp.Value;
             var prefab = ResourceManager.Instance.Load<BaseHero>($"Prefabs/Hero/{heroData.Name}");
             prefabDict.Add(kvp.Key, prefab);
-            
+
             // Pool 미리 생성
             ObjectPoolManager.Instance.Preload(prefab, 10, 50);
         }
-        
+
         heroPrefabs.Add(classType, prefabDict);
     }
 

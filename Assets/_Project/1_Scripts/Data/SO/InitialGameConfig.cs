@@ -17,13 +17,60 @@ public class InitialGameConfig : ScriptableObject
     public int StartLevel;
     public int StartEXP;
 
-    [Header("Starting Heroes")] public SelectedHeroes StartHeroes;
+    [Header("Starting Heroes")]
+    [Tooltip("직접 수정 금지!")] public HeroConfigGroup Heroes;
+
+    [SerializeField] private List<HeroDataSO> allHeroes;
+    [SerializeField] private List<HeroDataSO> initialHeroes;
+
+    private void OnValidate()
+    {
+        SetHeroConfigGroup();
+    }
+
+    private void SetHeroConfigGroup()
+    {
+        if (allHeroes == null) return;
+
+        Heroes = new HeroConfigGroup();
+
+        foreach (HeroDataSO hero in allHeroes)
+        {
+            var heroConfig = new InitialHeroConfig
+            {
+                HeroData = hero,
+                IsAcquired = initialHeroes != null && initialHeroes.Contains(hero)
+            };
+
+            switch (hero.ClassType)
+            {
+                case HeroClassType.Magician:
+                    Heroes.Magicians.Add(heroConfig);
+                    break;
+
+                case HeroClassType.Archer:
+                    Heroes.Archers.Add(heroConfig);
+                    break;
+
+                case HeroClassType.Warrior:
+                    Heroes.Warriors.Add(heroConfig);
+                    break;
+            }
+        }
+    }
 }
 
 [Serializable]
-public struct SelectedHeroes
+public class HeroConfigGroup
 {
-    public List<HeroDataSO> magicians;
-    public List<HeroDataSO> archers;
-    public List<HeroDataSO> warriors;
+    public List<InitialHeroConfig> Magicians = new();
+    public List<InitialHeroConfig> Archers = new();
+    public List<InitialHeroConfig> Warriors = new();
+}
+
+[Serializable]
+public struct InitialHeroConfig
+{
+    public HeroDataSO HeroData;
+    public bool IsAcquired;
 }
