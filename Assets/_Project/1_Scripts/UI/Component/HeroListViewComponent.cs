@@ -28,6 +28,11 @@ public class HeroListViewComponent : MonoBehaviour
         alignmentButton.onClick.AddListener(ChangeAlignmentType);
     }
 
+    public void ResetAlignmentType()
+    {
+        heroAlignmentType = HeroAlignmentType.A;
+    }
+
     public void ChangeHeroView(Dictionary<HeroGradeType, HeroDataSO> ownedHeroDataDict)
     {
         for (var i = currentHeroes.Count - 1; i >= 0; i--)

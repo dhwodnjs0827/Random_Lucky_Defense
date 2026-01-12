@@ -26,7 +26,9 @@ public class HeroManageUI : BaseUI
 
     protected override void Opened(params object[] args)
     {
+        currentHeroClassViewType = HeroClassType.Magician;
         selectedHeroListViewComponent.ChangeHeroView(currentSelectedHeros[currentHeroClassViewType]);
+        heroListViewComponent.ResetAlignmentType();
         heroListViewComponent.ChangeHeroView(currentSelectedHeros[currentHeroClassViewType]);
         
         foreach (var changeHeroClassViewButtonComponent in changeHeroClassViewButtonComponents)

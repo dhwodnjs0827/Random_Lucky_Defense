@@ -31,8 +31,15 @@ public class HeroViewComponent : MonoBehaviour
     {
         currentHeroData = heroData;
         
+        //heroRankImage.sprite = 
         heroGradeText.text = $"{heroData.GradeType}";
+        heroImage.sprite = ResourceManager.Instance.Load<Sprite>($"Sprites/Hero/{heroData.ClassType}_{heroData.GradeType}");
         heroRankText.text = $"{heroData.RankType}";
+        
         isSelectedImage.gameObject.SetActive(isSelected);
+        
+        //heroLevelText.text =
+        //heroRequiredLevelSlider.value =
+        //heroRequiredLevelText.text = 
     }
 }
