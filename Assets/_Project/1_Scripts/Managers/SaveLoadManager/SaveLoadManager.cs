@@ -7,38 +7,41 @@ public class SaveLoadManager : Singleton<SaveLoadManager>
     private InitialGameConfig gameConfig;
     private readonly IDataSaveLoadHandler handler;
     private SaveData saveData;
-    
+
     public SaveData SaveData => saveData;
 
     public SaveLoadManager()
     {
+#if FIREBASE_ENABLED
+        handler = new FirestoreHandler();
+#else
         handler = new PlayerPrefsHandler();
-        //handler = new ServerHandler();
+#endif
     }
 
     public async UniTask InitializeAsync()
     {
-        saveData = Load();
-        
+        saveData = await LoadAsync();
+
         if (saveData == null)
         {
             await InitializeNewPlayerAsync();
         }
     }
 
-    public void Save(SaveData data)
+    public async UniTask SaveAsync(SaveData data)
     {
-        handler.Save(data);
+        await handler.SaveAsync(data);
     }
 
-    public SaveData Load()
+    public async UniTask<SaveData> LoadAsync()
     {
-        return handler.Load();
+        return await handler.LoadAsync();
     }
 
-    public void Delete()
+    public async UniTask DeleteAsync()
     {
-        handler.Delete();
+        await handler.DeleteAsync();
 #if UNITY_EDITOR
         EditorApplication.isPlaying = false;
 #else
@@ -80,9 +83,8 @@ public class SaveLoadManager : Singleton<SaveLoadManager>
         {
             saveData.HeroData.HeroLevels.Add(ownedHeroID, 1);
         }
-        Save(saveData);
+        await SaveAsync(saveData);
 
-        CDebug.Log("[DataSaveLoadManager] 신규 플레이어 데이터 생성 및 저장]");
-        await UniTask.Yield();
+        CDebug.Log("[SaveLoadManager] 신규 플레이어 데이터 생성 및 저장");
     }
 }

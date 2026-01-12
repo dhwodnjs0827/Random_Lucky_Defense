@@ -4,6 +4,7 @@ using Cysharp.Threading.Tasks;
 using Firebase;
 using Firebase.Auth;
 using Firebase.Analytics;
+using Firebase.Firestore;
 
 /// <summary>
 /// Firebase 초기화 및 관리를 담당하는 매니저
@@ -26,11 +27,14 @@ public partial class FirebaseManager : MonoSingleton<FirebaseManager>
 
             if (dependencyStatus == DependencyStatus.Available)
             {
-                // Firebase 초기화 성공
+                // Auth 초기화
                 auth = FirebaseAuth.DefaultInstance;
 
                 // Analytics 활성화
                 FirebaseAnalytics.SetAnalyticsCollectionEnabled(true);
+
+                // Firestore 초기화
+                firestore = FirebaseFirestore.DefaultInstance;
 
                 isInitialized = true;
                 CDebug.Log("[FirebaseManager] Firebase 초기화 성공");

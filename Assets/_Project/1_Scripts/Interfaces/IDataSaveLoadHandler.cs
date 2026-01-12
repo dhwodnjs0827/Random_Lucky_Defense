@@ -1,6 +1,8 @@
+using Cysharp.Threading.Tasks;
+
 public interface IDataSaveLoadHandler
 {
-    public void Save(SaveData data);
-    public SaveData Load();
-    public void Delete();
+    public UniTask SaveAsync(SaveData data);
+    public UniTask<SaveData> LoadAsync();
+    public UniTask DeleteAsync();
 }
