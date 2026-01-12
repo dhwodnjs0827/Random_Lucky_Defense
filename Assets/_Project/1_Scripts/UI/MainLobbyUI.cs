@@ -1,3 +1,4 @@
+using Cysharp.Threading.Tasks;
 using UnityEngine;
 
 public class MainLobbyUI : BaseUI
@@ -16,6 +17,6 @@ public class MainLobbyUI : BaseUI
     //TODO: 임시로 작성
     public void TmpDeleteData()
     {
-        SaveLoadManager.Instance.Delete();
+        FirebaseManager.Instance.DeleteUserAsync().Forget();
     }
 }

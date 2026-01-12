@@ -8,9 +8,9 @@ using Firebase.Auth;
 public partial class FirebaseManager
 {
     private FirebaseAuth auth;
-    
+
     public FirebaseUser CurrentUser => auth?.CurrentUser;
-    
+
     /// <summary>
     /// 현재 로그인 상태 확인
     /// </summary>
@@ -20,7 +20,7 @@ public partial class FirebaseManager
     /// 익명 계정인지 확인
     /// </summary>
     public bool IsAnonymous => auth?.CurrentUser?.IsAnonymous ?? false;
-    
+
     /// <summary>
     /// 익명 로그인
     /// </summary>
@@ -116,7 +116,7 @@ public partial class FirebaseManager
         CDebug.Log("[FirebaseManager] 유저 정보가 없습니다. 익명(게스트) 로그인 중...");
         return await SignInAnonymouslyAsync();
     }
-    
+
     /// <summary>
     /// 로그아웃
     /// </summary>
@@ -126,5 +126,39 @@ public partial class FirebaseManager
 
         auth.SignOut();
         CDebug.Log("[FirebaseManager] 로그아웃");
+    }
+
+    public async UniTask<bool> DeleteUserAsync()
+    {
+        if (CurrentUser == null)
+        {
+            CDebug.LogError("[FirebaseManager] 로그인된 유저가 없습니다!");
+            return false;
+        }
+
+        try
+        {
+            // Firestore 데이터 먼저 삭제
+            await SaveLoadManager.Instance.DeleteAsync();
+
+            // Firebase 계정 삭제
+            await CurrentUser.DeleteAsync();
+
+            CDebug.Log("[FirebaseManager] 계정 삭제 성공");
+            return true;
+        }
+        catch (Firebase.FirebaseException e)
+        {
+            // 재인증이 필요한 경우 (오래 전 로그인)
+            if (e.Message.Contains("CREDENTIAL_TOO_OLD"))
+            {
+                CDebug.LogError("[FirebaseManager] 재로그인이 필요합니다");
+            }
+            else
+            {
+                CDebug.LogError($"[FirebaseManager] 계정 삭제 실패: {e.Message}");
+            }
+            return false;
+        }
     }
 }
