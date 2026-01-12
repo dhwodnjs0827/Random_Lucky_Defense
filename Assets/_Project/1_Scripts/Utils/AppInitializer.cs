@@ -52,6 +52,7 @@ public static class AppInitializer
         try
         {
             await FirebaseManager.Instance.InitializeFirebaseAsync();
+            await FirebaseManager.Instance.AutoSignInAsync();
             await SaveLoadManager.Instance.InitializeAsync();
             await ResourceManager.Instance.InitializeAsync();
             await AudioManager.Instance.InitializeAsync();

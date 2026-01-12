@@ -12,25 +12,35 @@ public partial class FirebaseManager
     public FirebaseUser CurrentUser => auth?.CurrentUser;
     
     /// <summary>
+    /// 현재 로그인 상태 확인
+    /// </summary>
+    public bool IsSignedIn => auth?.CurrentUser != null;
+
+    /// <summary>
+    /// 익명 계정인지 확인
+    /// </summary>
+    public bool IsAnonymous => auth?.CurrentUser?.IsAnonymous ?? false;
+    
+    /// <summary>
     /// 익명 로그인
     /// </summary>
     public async UniTask<FirebaseUser> SignInAnonymouslyAsync()
     {
         if (!isInitialized)
         {
-            CDebug.LogError("[FirebaseManager] Firebase is not initialized");
+            CDebug.LogError("[FirebaseManager] Firebase 초기화가 되지 않았습니다!");
             return null;
         }
 
         try
         {
             var result = await auth.SignInAnonymouslyAsync();
-            CDebug.Log($"[FirebaseManager] Signed in anonymously: {result.User.UserId}");
+            CDebug.Log($"[FirebaseManager] 익명(게스트) 로그인 성공: {result.User.UserId}");
             return result.User;
         }
         catch (Exception e)
         {
-            CDebug.LogError($"[FirebaseManager] Anonymous sign in failed: {e.Message}");
+            CDebug.LogError($"[FirebaseManager] 익명(게스트) 로그인 실패: {e.Message}");
             return null;
         }
     }
@@ -66,23 +76,47 @@ public partial class FirebaseManager
     {
         if (!isInitialized)
         {
-            CDebug.LogError("[FirebaseManager] Firebase is not initialized");
+            CDebug.LogError("[FirebaseManager] Firebase 초기화가 되지 않았습니다!");
             return null;
         }
 
         try
         {
             var result = await auth.SignInWithEmailAndPasswordAsync(email, password);
-            CDebug.Log($"[FirebaseManager] Signed in: {result.User.Email}");
+            CDebug.Log($"[FirebaseManager] 로그인 성공: {result.User.Email}");
             return result.User;
         }
         catch (Exception e)
         {
-            CDebug.LogError($"[FirebaseManager] Sign in failed: {e.Message}");
+            CDebug.LogError($"[FirebaseManager] 로그인 실패: {e.Message}");
             return null;
         }
     }
 
+    /// <summary>
+    /// 자동 로그인 처리
+    /// Firebase 초기화 후 호출하여 기존 계정이 있으면 자동 로그인, 없으면 익명 로그인
+    /// </summary>
+    public async UniTask<FirebaseUser> AutoSignInAsync()
+    {
+        if (!isInitialized)
+        {
+            CDebug.LogError("[FirebaseManager] Firebase 초기화가 되지 않았습니다!");
+            return null;
+        }
+
+        // 이미 로그인된 유저가 있는지 확인
+        if (CurrentUser != null)
+        {
+            CDebug.Log($"[FirebaseManager] 자동 로그인 성공: {CurrentUser.UserId} (익명(게스트) 로그인: {CurrentUser.IsAnonymous})");
+            return CurrentUser;
+        }
+
+        // 로그인된 유저가 없으면 익명 로그인
+        CDebug.Log("[FirebaseManager] 유저 정보가 없습니다. 익명(게스트) 로그인 중...");
+        return await SignInAnonymouslyAsync();
+    }
+    
     /// <summary>
     /// 로그아웃
     /// </summary>
@@ -91,6 +125,6 @@ public partial class FirebaseManager
         if (!isInitialized) return;
 
         auth.SignOut();
-        CDebug.Log("[FirebaseManager] Signed out");
+        CDebug.Log("[FirebaseManager] 로그아웃");
     }
 }

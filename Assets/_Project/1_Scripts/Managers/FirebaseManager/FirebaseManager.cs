@@ -33,7 +33,7 @@ public partial class FirebaseManager : MonoSingleton<FirebaseManager>
                 FirebaseAnalytics.SetAnalyticsCollectionEnabled(true);
 
                 isInitialized = true;
-                CDebug.Log("[FirebaseManager] Firebase initialized successfully");
+                CDebug.Log("[FirebaseManager] Firebase 초기화 성공");
                 OnFirebaseInitialized?.Invoke();
             }
             else
@@ -45,7 +45,7 @@ public partial class FirebaseManager : MonoSingleton<FirebaseManager>
         }
         catch (Exception e)
         {
-            CDebug.LogError($"[FirebaseManager] Firebase initialization failed: {e.Message}");
+            CDebug.LogError($"[FirebaseManager] Firebase 초기화 실패: {e.Message}");
             OnFirebaseInitFailed?.Invoke(e.Message);
         }
     }
