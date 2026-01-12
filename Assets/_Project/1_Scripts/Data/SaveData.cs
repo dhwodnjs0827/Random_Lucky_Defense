@@ -31,4 +31,5 @@ public struct HeroSaveData
     public List<int> OwnedHeroIDs;
     public List<int> SelectedHeroIDs;
     public Dictionary<int, int> HeroLevels; // <heroID, level>
+    public Dictionary<int, int> OwnedHeroStacks; // <heroID, stack>
 }

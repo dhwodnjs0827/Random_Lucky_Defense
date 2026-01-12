@@ -87,6 +87,11 @@ public class SaveLoadManager : Singleton<SaveLoadManager>
         {
             saveData.HeroData.HeroLevels.Add(ownedHeroID, 1);
         }
+        saveData.HeroData.OwnedHeroStacks = new();
+        foreach (var ownedHeroID in saveData.HeroData.OwnedHeroIDs)
+        {
+            saveData.HeroData.OwnedHeroStacks.Add(ownedHeroID, 0);
+        }
         await SaveAsync(saveData);
 
         CDebug.Log("[SaveLoadManager] 신규 플레이어 데이터 생성 및 저장");

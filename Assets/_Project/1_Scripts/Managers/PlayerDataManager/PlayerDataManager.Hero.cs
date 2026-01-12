@@ -7,10 +7,13 @@ public partial class PlayerDataManager
     
     private readonly Dictionary<HeroClassType, Dictionary<HeroGradeType, HeroDataSO>> ownedHeroes = new();
     private readonly Dictionary<HeroClassType, Dictionary<HeroGradeType, HeroDataSO>> selectedHeroes = new();
+    private readonly Dictionary<int, int> currentHeroLevels = new(); // <heroID, level>
+    private readonly Dictionary<int, int> currentHeroStacks = new();  // <heroID, stack>
 
     public IDictionary<HeroClassType, Dictionary<HeroGradeType, HeroDataSO>> OwnedHeroes => ownedHeroes;
-
     public IDictionary<HeroClassType, Dictionary<HeroGradeType, HeroDataSO>> SelectedHeroes => selectedHeroes;
+    public IDictionary<int, int> CurrentHeroLevels => currentHeroLevels;
+    public IDictionary<int, int> CurrentHeroStacks => currentHeroStacks;
 
     /// <summary>
     /// 초기 선택 영웅 데이터 초기화
@@ -40,6 +43,18 @@ public partial class PlayerDataManager
         {
             var so = ResourceManager.Instance.Load<HeroDataSO>($"{HERO_DATA_RESOURCE_PATH}{heroID}");
             ownedHeroes[so.ClassType].Add(so.GradeType, so);
+        }
+
+        currentHeroLevels.Clear();
+        foreach (var heroLevel in data.HeroLevels)
+        {
+            currentHeroLevels.Add(heroLevel.Key, heroLevel.Value);
+        }
+        
+        currentHeroStacks.Clear();
+        foreach (var heroStack in data.OwnedHeroStacks)
+        {
+            currentHeroStacks.Add(heroStack.Key, heroStack.Value);
         }
     }
 }

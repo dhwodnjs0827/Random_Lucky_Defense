@@ -1,3 +1,4 @@
+using System;
 using Generated;
 using TMPro;
 using UnityEngine;
@@ -31,15 +32,31 @@ public class HeroViewComponent : MonoBehaviour
     {
         currentHeroData = heroData;
         
-        //heroRankImage.sprite = 
+        //TODO: 임시 색 변경(추후 이미지 변경으로)
+        //heroRankImage.sprite =
+        switch (heroData.RankType)
+        {
+            case HeroRankType.B:
+                heroRankImage.color = Color.gray;
+                break;
+            case HeroRankType.A:
+                heroRankImage.color = Color.green;
+                break;
+            case HeroRankType.S:
+                heroRankImage.color = Color.orange;
+                break;
+        }
         heroGradeText.text = $"{heroData.GradeType}";
         heroImage.sprite = ResourceManager.Instance.Load<Sprite>($"Sprites/Hero/{heroData.ClassType}_{heroData.GradeType}");
         heroRankText.text = $"{heroData.RankType}";
         
         isSelectedImage.gameObject.SetActive(isSelected);
         
-        //heroLevelText.text =
-        //heroRequiredLevelSlider.value =
-        //heroRequiredLevelText.text = 
+        heroLevelText.text = $"레벨 {PlayerDataManager.Instance.CurrentHeroLevels[heroData.ID]}";
+
+        //TODO: 임시 요구치 10 할당
+        var currentStack = PlayerDataManager.Instance.CurrentHeroStacks[heroData.ID];
+        heroRequiredLevelSlider.value = currentStack / 10f;
+        heroRequiredLevelText.text = $"{currentStack}/10";
     }
 }
