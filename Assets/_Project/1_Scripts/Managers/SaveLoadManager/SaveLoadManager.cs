@@ -60,7 +60,11 @@ public class SaveLoadManager : Singleton<SaveLoadManager>
         saveData.CurrencyData.Gold = initialGameConfig.StartGold;
         saveData.CurrencyData.Gem = initialGameConfig.StartGem;
 
-        saveData.ProfileData.PlayerName = FirebaseManager.Instance.CurrentUser.UserId;
+#if FIREBASE_ENABLED
+        saveData.ProfileData.PlayerName = FirebaseManager.Instance.CurrentUser?.UserId ?? "Guest";
+#else
+        saveData.ProfileData.PlayerName = "Guest";
+#endif
         saveData.ProfileData.Level = initialGameConfig.StartLevel;
         saveData.ProfileData.Exp = initialGameConfig.StartEXP;
 

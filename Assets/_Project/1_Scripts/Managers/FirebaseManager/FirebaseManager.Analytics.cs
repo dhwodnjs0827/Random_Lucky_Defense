@@ -1,3 +1,4 @@
+#if FIREBASE_ENABLED
 using Firebase.Analytics;
 
 /// <summary>
@@ -50,3 +51,4 @@ public partial class FirebaseManager
         FirebaseAnalytics.SetUserProperty(name, value);
     }
 }
+#endif
