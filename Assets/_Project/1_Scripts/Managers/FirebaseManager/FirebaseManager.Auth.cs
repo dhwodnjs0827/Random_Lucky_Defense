@@ -1,3 +1,4 @@
+#if FIREBASE_ENABLED
 using System;
 using Cysharp.Threading.Tasks;
 using Firebase.Auth;
@@ -158,7 +159,9 @@ public partial class FirebaseManager
             {
                 CDebug.LogError($"[FirebaseManager] 계정 삭제 실패: {e.Message}");
             }
+
             return false;
         }
     }
 }
+#endif
