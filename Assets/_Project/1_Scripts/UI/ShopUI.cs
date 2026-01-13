@@ -4,13 +4,19 @@ using UnityEngine.UI;
 public class ShopUI : BaseUI
 {
     [SerializeField] private CloseButton closeButton;
-    [SerializeField] private Button heroGachaButton;
+    [SerializeField] private Button heroGachaOnceButton;
+    [SerializeField] private Button heroGachaTenButton;
 
     private void Awake()
     {
-        if (heroGachaButton != null)
+        if (heroGachaOnceButton != null)
         {
-            heroGachaButton.onClick.AddListener(OnClickHeroGachaButton);
+            heroGachaOnceButton.onClick.AddListener(() => OnClickHeroGachaButton(1));
+        }
+
+        if (heroGachaTenButton != null)
+        {
+            heroGachaTenButton.onClick.AddListener(() => OnClickHeroGachaButton(10));
         }
     }
 
@@ -22,8 +28,8 @@ public class ShopUI : BaseUI
     {
     }
 
-    private void OnClickHeroGachaButton()
+    private void OnClickHeroGachaButton(int gachaCount)
     {
-        UIManager.Instance.Open<HeroGachaUI>();
+        UIManager.Instance.Open<HeroGachaUI>(gachaCount);
     }
 }

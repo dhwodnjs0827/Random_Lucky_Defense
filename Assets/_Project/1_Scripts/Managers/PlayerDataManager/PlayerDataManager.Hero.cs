@@ -19,7 +19,10 @@ public partial class PlayerDataManager
 
     public void AcquireHero(int acquiredHeroID, bool isAutoSave = true)
     {
-        var heroGameData = acquiredHeroes[acquiredHeroID];
+        var index = acquiredHeroes.FindIndex(hero => hero.ID == acquiredHeroID);
+        if (index < 0) return;
+
+        var heroGameData = acquiredHeroes[index];
         if (!heroGameData.IsAcquiredHero)
         {
             heroGameData.IsAcquiredHero = true;
@@ -28,7 +31,7 @@ public partial class PlayerDataManager
         {
             heroGameData.AcquiredStack++;
         }
-        acquiredHeroes[acquiredHeroID] = heroGameData;
+        acquiredHeroes[index] = heroGameData;
 
         if (isAutoSave)
         {
@@ -38,18 +41,27 @@ public partial class PlayerDataManager
 
     public void ChangeSelectedHero(int currentHeroID, int newHeroID, bool isAutoSave = true)
     {
-         var currentHero = acquiredHeroes[currentHeroID];
-         currentHero.isSelected = false;
-         acquiredHeroes[currentHeroID] = currentHero;
-         
-         var newHero = acquiredHeroes[newHeroID];
-         newHero.isSelected = true;
-         acquiredHeroes[newHeroID] = newHero;
-         
-         if (isAutoSave)
-         {
-             SaveHeroData();
-         }
+        var currentIndex = acquiredHeroes.FindIndex(hero => hero.ID == currentHeroID);
+        var newIndex = acquiredHeroes.FindIndex(hero => hero.ID == newHeroID);
+        if (currentIndex < 0 || newIndex < 0) return;
+
+        var currentHero = acquiredHeroes[currentIndex];
+        currentHero.isSelected = false;
+        acquiredHeroes[currentIndex] = currentHero;
+
+        var newHero = acquiredHeroes[newIndex];
+        newHero.isSelected = true;
+        acquiredHeroes[newIndex] = newHero;
+
+        if (isAutoSave)
+        {
+            SaveHeroData();
+        }
+    }
+
+    public HeroGameData GetHeroData(HeroClassType heroClass, HeroGradeType heroGrade, HeroRankType heroRank)
+    {
+        return acquiredHeroes.Find(hero => hero.Class == heroClass && hero.Grade == heroGrade && hero.Rank == heroRank);
     }
     
     public void SaveHeroData()

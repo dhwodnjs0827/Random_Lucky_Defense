@@ -1,46 +1,109 @@
-using Generated;
+using System;
+using System.Collections.Generic;
+using System.Threading;
+using Cysharp.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class HeroGachaUI : BaseUI
 {
     [SerializeField] private CloseButton closeButton;
-    [SerializeField] private Button resultButton;
-    [SerializeField] private Image resultImage;
+    [SerializeField] private Button showResultButton;
+    [SerializeField] private Transform resultContainerTransform;
+
+    [SerializeField] private GachaResultContainer gachaResultPrefab;
+
+    private int gachaCount;
+    private List<HeroGachaResult> gachaResults = new();
+    private List<GachaResultContainer> currentGachaResultContainers = new();
+    private CancellationTokenSource gachaAnimationCancellationTokenSource = new();
 
     private void Awake()
     {
-        if (resultButton != null)
+        PreloadGachaResult();
+        if (showResultButton != null)
         {
-            resultButton.onClick.AddListener(OnClickResultButton);
+            showResultButton.onClick.AddListener(OnClickResultButton);
         }
     }
 
     protected override void Opened(params object[] args)
     {
-        resultButton.gameObject.SetActive(true);
+        gachaCount = (int)args[0];
+        gachaResults = HeroGachaUtil.Gacha(gachaCount);
+        foreach (var gachaResult in gachaResults)
+        {
+            var heroData =
+                PlayerDataManager.Instance.GetHeroData(gachaResult.Class, gachaResult.Grade, gachaResult.Rank);
+            PlayerDataManager.Instance.AcquireHero(heroData.ID, false);
+        }
+
+        PlayerDataManager.Instance.SaveHeroData();
+
+        currentGachaResultContainers.Clear();
+        showResultButton.gameObject.SetActive(true);
         closeButton.gameObject.SetActive(false);
-        resultImage.gameObject.SetActive(false);
-        
     }
 
     protected override void Closed(params object[] args)
     {
-    }
+        gachaAnimationCancellationTokenSource.Cancel();
+        gachaAnimationCancellationTokenSource.Dispose();
+        gachaAnimationCancellationTokenSource = new CancellationTokenSource();
 
-    private HeroGachaResult GetRandomHero()
-    {
-        var gachaResult = HeroGachaUtil.RollOnce();
-        CDebug.Log($"[HeroGachaUI] 뽑기 결과: {gachaResult.Grade}, {gachaResult.Rank}");
-        return gachaResult;
+        foreach (var container in currentGachaResultContainers)
+        {
+            container.KillTween();
+        }
+
+        currentGachaResultContainers.Clear();
+        ObjectPoolManager.Instance.Clear(gachaResultPrefab.gameObject);
+
+        gachaResults.Clear();
     }
 
     private void OnClickResultButton()
     {
-        resultButton.gameObject.SetActive(false);
-        var result = GetRandomHero();
+        showResultButton.gameObject.SetActive(false);
         closeButton.gameObject.SetActive(true);
-        resultImage.gameObject.SetActive(true);
-        resultImage.sprite = ResourceManager.Instance.Load<Sprite>($"Sprites/Hero/{result.Class}_{result.Grade}");
+
+        foreach (var result in gachaResults)
+        {
+            var resultContainer = ObjectPoolManager.Instance.Get(gachaResultPrefab);
+            resultContainer.transform.SetParent(resultContainerTransform.transform, true);
+            resultContainer.SetGachaResultInfo(result);
+            currentGachaResultContainers.Add(resultContainer);
+        }
+
+        GachaAnimation().Forget();
+    }
+
+    private void PreloadGachaResult()
+    {
+        ObjectPoolManager.Instance.Preload(gachaResultPrefab, 10, 600);
+    }
+
+    private async UniTaskVoid GachaAnimation()
+    {
+        gachaAnimationCancellationTokenSource.Cancel();
+        gachaAnimationCancellationTokenSource.Dispose();
+        gachaAnimationCancellationTokenSource = new CancellationTokenSource();
+
+        try
+        {
+            foreach (var currentGachaResultContainer in currentGachaResultContainers)
+            {
+                await currentGachaResultContainer.ResultAnimation();
+            }
+        }
+        catch (OperationCanceledException)
+        {
+            // 정상 취소
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            throw;
+        }
     }
 }
