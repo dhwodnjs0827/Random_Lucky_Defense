@@ -16,7 +16,7 @@ public class HeroSpawnPool : MonoBehaviour
     private void Awake()
     {
         // PlayerDataManager에서 선택한 영웅 정보 갖고오기
-        var acquiredHeroes = PlayerDataManager.Instance.AcquiredHeroes;
+        var allHeroes = PlayerDataManager.Instance.AllHeroes;
         heroDatas.Clear();
         heroDatas = new()
         {
@@ -24,9 +24,9 @@ public class HeroSpawnPool : MonoBehaviour
             { HeroClassType.Archer, new Dictionary<HeroGradeType, HeroDataSO>() },
             { HeroClassType.Warrior, new Dictionary<HeroGradeType, HeroDataSO>() },
         };
-        foreach (var heroData in acquiredHeroes)
+        foreach (var heroData in allHeroes)
         {
-            if (!heroData.isSelected)
+            if (!heroData.IsSelected)
             {
                 continue;
             }

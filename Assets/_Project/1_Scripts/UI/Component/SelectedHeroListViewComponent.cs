@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using Generated;
 using TMPro;
 using UnityEngine;
 
@@ -36,26 +35,26 @@ public class SelectedHeroListViewComponent : MonoBehaviour
 
     public void ChangeHeroView(HeroClassType heroClassViewType)
     {
-        var selectedHeroes = PlayerDataManager.Instance.AcquiredHeroes;
-        foreach (var heroData in selectedHeroes)
+        var allHeroes = PlayerDataManager.Instance.AllHeroes;
+        foreach (var heroData in allHeroes)
         {
-            if (heroData.Class == heroClassViewType && heroData.isSelected)
+            if (heroData.Class == heroClassViewType && heroData.IsSelected)
             {
                 heroViewComponents[heroData.Grade].UpdateView(heroData);
             }
         }
     }
-}
 
-[Serializable]
-public struct CurrentSelectedHeroView
-{
-    public TextMeshProUGUI HeroGradeText;
-    public HeroViewComponent Hero;
-
-    public void UpdateView(HeroGameData heroData)
+    [Serializable]
+    private struct CurrentSelectedHeroView
     {
-        HeroGradeText.text = $"{heroData.Grade}";
-        Hero.UpdateHeroViewUIComponent(heroData, true);
+        public TextMeshProUGUI HeroGradeText;
+        public HeroViewComponent Hero;
+
+        public void UpdateView(HeroRuntimeData heroData)
+        {
+            HeroGradeText.text = $"{heroData.Grade}";
+            Hero.UpdateHeroViewUIComponent(heroData, true);
+        }
     }
 }

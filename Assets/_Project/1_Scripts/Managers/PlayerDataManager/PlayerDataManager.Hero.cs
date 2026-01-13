@@ -1,37 +1,37 @@
 using System.Collections.Generic;
+using System.Linq;
 using Cysharp.Threading.Tasks;
 
 public partial class PlayerDataManager
 {
-    private const string HERO_DATA_RESOURCE_PATH = "Data/SO/HeroData/";
+    private List<HeroRuntimeData> allHeroes = new();
     
-    private List<HeroGameData> acquiredHeroes = new();
-    
-    public IList<HeroGameData> AcquiredHeroes => acquiredHeroes;
+    public IList<HeroRuntimeData> AllHeroes => allHeroes;
     
     /// <summary>
     /// 초기 선택 영웅 데이터 초기화
     /// </summary>
     private void InitializeHeroData(HeroSaveData data)
     {
-        acquiredHeroes = new(data.AcquiredHeroes);
+        foreach (var hero in data.AllHeroes)
+        {
+            allHeroes.Add(hero.Convert());
+        }
     }
 
     public void AcquireHero(int acquiredHeroID, bool isAutoSave = true)
     {
-        var index = acquiredHeroes.FindIndex(hero => hero.ID == acquiredHeroID);
+        var index = allHeroes.FindIndex(hero => hero.ID == acquiredHeroID);
         if (index < 0) return;
-
-        var heroGameData = acquiredHeroes[index];
-        if (!heroGameData.IsAcquiredHero)
+        
+        if (!allHeroes[index].IsAcquiredHero)
         {
-            heroGameData.IsAcquiredHero = true;
+            allHeroes[index].IsAcquiredHero = true;
         }
         else
         {
-            heroGameData.AcquiredStack++;
+            allHeroes[index].AcquiredStack++;
         }
-        acquiredHeroes[index] = heroGameData;
 
         if (isAutoSave)
         {
@@ -41,17 +41,12 @@ public partial class PlayerDataManager
 
     public void ChangeSelectedHero(int currentHeroID, int newHeroID, bool isAutoSave = true)
     {
-        var currentIndex = acquiredHeroes.FindIndex(hero => hero.ID == currentHeroID);
-        var newIndex = acquiredHeroes.FindIndex(hero => hero.ID == newHeroID);
+        var currentIndex = allHeroes.FindIndex(hero => hero.ID == currentHeroID);
+        var newIndex = allHeroes.FindIndex(hero => hero.ID == newHeroID);
         if (currentIndex < 0 || newIndex < 0) return;
 
-        var currentHero = acquiredHeroes[currentIndex];
-        currentHero.isSelected = false;
-        acquiredHeroes[currentIndex] = currentHero;
-
-        var newHero = acquiredHeroes[newIndex];
-        newHero.isSelected = true;
-        acquiredHeroes[newIndex] = newHero;
+        allHeroes[currentIndex].IsSelected = false;
+        allHeroes[newIndex].IsSelected = true;
 
         if (isAutoSave)
         {
@@ -59,15 +54,20 @@ public partial class PlayerDataManager
         }
     }
 
-    public HeroGameData GetHeroData(HeroClassType heroClass, HeroGradeType heroGrade, HeroRankType heroRank)
+    public HeroRuntimeData GetHeroData(HeroClassType heroClass, HeroGradeType heroGrade, HeroRankType heroRank)
     {
-        return acquiredHeroes.Find(hero => hero.Class == heroClass && hero.Grade == heroGrade && hero.Rank == heroRank);
+        return allHeroes.Find(hero => hero.Class == heroClass && hero.Grade == heroGrade && hero.Rank == heroRank);
     }
     
     public void SaveHeroData()
     {
         var saveData = SaveLoadManager.Instance.SaveData;
-        saveData.HeroData.AcquiredHeroes = acquiredHeroes;
+        List<PlayerHeroSaveData> playerHeroSaveData = new List<PlayerHeroSaveData>();
+        foreach (var hero in allHeroes)
+        {
+            playerHeroSaveData.Add(hero.Convert());
+        }
+        saveData.HeroData.AllHeroes = playerHeroSaveData;
         SaveLoadManager.Instance.SaveAsync(saveData).Forget();
     }
 }

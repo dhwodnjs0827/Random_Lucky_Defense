@@ -19,14 +19,14 @@ public class HeroViewComponent : MonoBehaviour
     [SerializeField] private Slider heroRequiredLevelSlider;
     [SerializeField] private TextMeshProUGUI heroRequiredLevelText;
     
-    private HeroGameData currentHeroData;
+    private HeroRuntimeData currentHeroData;
     
-    public HeroGameData CurrentHeroData => currentHeroData;
+    public HeroRuntimeData CurrentHeroData => currentHeroData;
 
     /// <summary>
     /// 영웅 정보에 맞게 UI 요소들 초기화
     /// </summary>
-    public void UpdateHeroViewUIComponent(HeroGameData heroData, bool isSelected)
+    public void UpdateHeroViewUIComponent(HeroRuntimeData heroData, bool isSelected)
     {
         currentHeroData = heroData;
         

@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Generated;
 
 [Serializable]
 public class SaveData
@@ -10,7 +11,7 @@ public class SaveData
 }
 
 [Serializable]
-public struct CurrencySaveData
+public class CurrencySaveData
 {
     public int Gold;
     public int Gem;
@@ -25,7 +26,7 @@ public enum CurrencyType
 }
 
 [Serializable]
-public struct ProfileSaveData
+public class ProfileSaveData
 {
     public string PlayerName;
     public int Level;
@@ -33,20 +34,31 @@ public struct ProfileSaveData
 }
 
 [Serializable]
-public struct HeroSaveData
+public class HeroSaveData
 {
-    public List<HeroGameData> AcquiredHeroes;
+    public List<PlayerHeroSaveData> AllHeroes;
 }
 
 [Serializable]
-public struct HeroGameData
+public class PlayerHeroSaveData
 {
     public int ID; // 영웅 ID
-    public HeroClassType Class;
-    public HeroGradeType Grade;
-    public HeroRankType Rank;
+    
     public bool IsAcquiredHero; // 영웅 획득 여부 
     public int Level; // 영웅 레벨
     public int AcquiredStack; // 영웅 획득 스택
-    public bool isSelected; // 사용 선택 여부
+    public bool IsSelected; // 사용 선택 여부
+    
+    public HeroRuntimeData Convert()
+    {
+        HeroRuntimeData data = new()
+        {
+            HeroData = ResourceManager.Instance.Load<HeroDataSO>($"Data/SO/HeroData/{ID}"),
+            IsAcquiredHero = IsAcquiredHero,
+            Level = Level,
+            AcquiredStack = AcquiredStack,
+            IsSelected = IsSelected
+        };
+        return data;
+    }
 }

@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using System.Linq;
-using Generated;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -41,7 +40,7 @@ public class HeroListViewComponent : MonoBehaviour
             currentHeroes.Remove(currentHeroes[i]);
         }
 
-        var acquiredHeroes = PlayerDataManager.Instance.AcquiredHeroes;
+        var acquiredHeroes = PlayerDataManager.Instance.AllHeroes;
         foreach (var hero in acquiredHeroes)
         {
             if (hero.Class != heroClassViewType || !hero.IsAcquiredHero)
@@ -50,7 +49,7 @@ public class HeroListViewComponent : MonoBehaviour
             }
             var heroView = ObjectPoolManager.Instance.Get(heroViewPrefab);
             heroView.transform.SetParent(scrollViewContent.transform, true);
-            heroView.UpdateHeroViewUIComponent(hero, hero.isSelected);
+            heroView.UpdateHeroViewUIComponent(hero, hero.IsSelected);
             currentHeroes.Add(heroView);
         }
         

@@ -21,11 +21,20 @@ public class SaveLoadManager : Singleton<SaveLoadManager>
 
     public async UniTask InitializeAsync()
     {
-        saveData = await LoadAsync();
-
-        if (saveData == null)
+        var newData = InitializeSaveData();
+        var loadedData = await LoadAsync();
+        if (loadedData != null)
         {
-            await InitializeNewPlayerAsync();
+            // 기존 유저
+            saveData = SaveDataFactory.MergeSaveData(newData, loadedData);
+            CDebug.Log("[SaveLoadManager] 기존 유저 데이터 초기화");
+        }
+        else
+        {
+            // 신규 유저
+            saveData = newData;
+            await SaveAsync(saveData);
+            CDebug.Log("[SaveLoadManager] 신규 유저 데이터 초기화");
         }
     }
 
@@ -48,16 +57,13 @@ public class SaveLoadManager : Singleton<SaveLoadManager>
         Application.Quit();
 #endif
     }
-    
-    private async UniTask InitializeNewPlayerAsync()
+
+    private SaveData InitializeSaveData()
     {
         var config = Resources.Load<InitialGameConfig>("Data/SO/InitialGameConfig");
         var playerName = GetPlayerName();
 
-        saveData = SaveDataFactory.CreateNewPlayerData(config, playerName);
-
-        await SaveAsync(saveData);
-        CDebug.Log("[SaveLoadManager] 신규 플레이어 데이터 생성 및 저장");
+        return SaveDataFactory.CreateNewSaveData(config, playerName);
     }
 
     private string GetPlayerName()
