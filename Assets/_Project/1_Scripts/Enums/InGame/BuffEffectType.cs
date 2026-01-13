@@ -5,7 +5,7 @@ public enum BuffEffectType
     /// </summary>
     IncreaseCriticalRate,
     /// <summary>
-    /// 크리팈컬 데미지 {value}% 증가
+    /// 크리티컬 데미지 {value}% 증가
     /// </summary>
     IncreaseCriticalDamage,
     /// <summary>
