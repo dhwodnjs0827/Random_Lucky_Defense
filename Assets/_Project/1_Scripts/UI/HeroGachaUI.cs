@@ -14,7 +14,7 @@ public class HeroGachaUI : BaseUI
     [SerializeField] private GachaResultContainer gachaResultPrefab;
 
     private int gachaCount;
-    private List<HeroGachaResult> gachaResults = new();
+    private List<HeroRuntimeData> gachaResults = new();
     private List<GachaResultContainer> currentGachaResultContainers = new();
     private CancellationTokenSource gachaAnimationCancellationTokenSource = new();
 
@@ -33,9 +33,7 @@ public class HeroGachaUI : BaseUI
         gachaResults = HeroGachaUtil.Gacha(gachaCount);
         foreach (var gachaResult in gachaResults)
         {
-            var heroData =
-                PlayerDataManager.Instance.GetHeroData(gachaResult.Class, gachaResult.Grade, gachaResult.Rank);
-            PlayerDataManager.Instance.AcquireHero(heroData.ID, false);
+            PlayerDataManager.Instance.AcquireHero(gachaResult.ID, false);
         }
 
         PlayerDataManager.Instance.SaveHeroData();

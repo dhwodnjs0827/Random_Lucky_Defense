@@ -1,8 +1,11 @@
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public static class HeroGachaUtil
 {
+    private static IList<HeroRuntimeData> HeroPool => PlayerDataManager.Instance.AllHeroes;
+
     private static readonly HeroClassType[] classTable =
     {
         HeroClassType.Magician,
@@ -30,9 +33,13 @@ public static class HeroGachaUtil
         (HeroRankType.S, GameConstants.RANK_S_CHANCE)
     };
 
-    public static List<HeroGachaResult> Gacha(int gachaCount)
+    /// <summary>
+    /// 영웅 랜덤 뽑기
+    /// </summary>
+    /// <param name="gachaCount">뽑기 횟수</param>
+    public static List<HeroRuntimeData> Gacha(int gachaCount)
     {
-        List<HeroGachaResult> results = new();
+        List<HeroRuntimeData> results = new();
 
         for (int i = 0; i < gachaCount; i++)
         {
@@ -66,22 +73,27 @@ public static class HeroGachaUtil
                 return entry.rank;
         }
 
-        return HeroRankType.B; // 안전장치
+        return HeroRankType.B;
     }
 
-    private static HeroGachaResult GachaOnce()
+    private static HeroRuntimeData GachaOnce()
     {
-        return new HeroGachaResult
-        {
-            Class = RollClass(),
-            Rank = RollRank(),
-            Grade = RollGrade()
-        };
+        var heroClass = RollClass();
+        var heroGrade = RollGrade();
+        var heroRank = RollRank();
+
+        var hero = HeroPool.FirstOrDefault(h =>
+            h.Class == heroClass &&
+            h.Grade == heroGrade &&
+            h.Rank == heroRank);
+
+        return hero;
     }
 }
 
 public struct HeroGachaResult
 {
+    public int HeroID;
     public HeroClassType Class;
     public HeroRankType Rank;
     public HeroGradeType Grade;

@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using System.Linq;
 using Cysharp.Threading.Tasks;
 
 public partial class PlayerDataManager
@@ -19,6 +18,9 @@ public partial class PlayerDataManager
         }
     }
 
+    /// <summary>
+    /// 영웅 획득
+    /// </summary>
     public void AcquireHero(int acquiredHeroID, bool isAutoSave = true)
     {
         var index = allHeroes.FindIndex(hero => hero.ID == acquiredHeroID);
@@ -39,6 +41,9 @@ public partial class PlayerDataManager
         }
     }
 
+    /// <summary>
+    /// 사용할 영웅 변경
+    /// </summary>
     public void ChangeSelectedHero(int currentHeroID, int newHeroID, bool isAutoSave = true)
     {
         var currentIndex = allHeroes.FindIndex(hero => hero.ID == currentHeroID);
@@ -53,12 +58,10 @@ public partial class PlayerDataManager
             SaveHeroData();
         }
     }
-
-    public HeroRuntimeData GetHeroData(HeroClassType heroClass, HeroGradeType heroGrade, HeroRankType heroRank)
-    {
-        return allHeroes.Find(hero => hero.Class == heroClass && hero.Grade == heroGrade && hero.Rank == heroRank);
-    }
     
+    /// <summary>
+    /// 영웅 데이터 저장
+    /// </summary>
     public void SaveHeroData()
     {
         var saveData = SaveLoadManager.Instance.SaveData;

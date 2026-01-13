@@ -6,10 +6,10 @@ using UnityEngine.UI;
 public class GachaResultContainer : MonoBehaviour, IPoolable
 {
     [SerializeField] private Image resultImage;
-    private HeroGachaResult heroData;
+    private HeroRuntimeData heroData;
     private Tween currentTween;
 
-    public void SetGachaResultInfo(HeroGachaResult resultHeroData)
+    public void SetGachaResultInfo(HeroRuntimeData resultHeroData)
     {
         heroData = resultHeroData;
         resultImage.sprite = ResourceManager.Instance.Load<Sprite>($"Sprites/Hero/{resultHeroData.Class}_{resultHeroData.Grade}");
