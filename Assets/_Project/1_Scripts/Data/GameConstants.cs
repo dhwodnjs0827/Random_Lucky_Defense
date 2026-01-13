@@ -34,4 +34,7 @@ public static class GameConstants
     public const int CARD_SELECTION_STAGE_INTERVAL = 7;
     // 카드 레벨 최대치
     public const int CARD_MAX_LEVEL = 5;
+    
+    // 인게임 최대 적 수
+    public const int MAX_ENEMY_COUNT = 100;
 }

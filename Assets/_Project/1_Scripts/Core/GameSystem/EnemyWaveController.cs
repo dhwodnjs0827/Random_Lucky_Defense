@@ -166,7 +166,7 @@ public class EnemyWaveController : MonoBehaviour, IEventListener
     
     private void CheckGameOver()
     {
-        if (spawnedEnemyCount == 100)
+        if (spawnedEnemyCount == GameConstants.MAX_ENEMY_COUNT)
         {
             EventManager.Dispatch(GameEventType.GameFinish, new GameFinishEventData(false));
         }
