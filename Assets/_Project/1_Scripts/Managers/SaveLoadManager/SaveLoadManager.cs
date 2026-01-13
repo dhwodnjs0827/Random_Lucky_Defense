@@ -49,77 +49,23 @@ public class SaveLoadManager : Singleton<SaveLoadManager>
 #endif
     }
     
-    /// <summary>
-    /// 초기 데이터 생성
-    /// </summary>
     private async UniTask InitializeNewPlayerAsync()
     {
-        saveData = new SaveData();
-        var initialGameConfig = Resources.Load<InitialGameConfig>("Data/SO/InitialGameConfig");
-        
-        // 재화
-        saveData.CurrencyData.Gold = initialGameConfig.StartGold;
-        saveData.CurrencyData.Gem = initialGameConfig.StartGem;
+        var config = Resources.Load<InitialGameConfig>("Data/SO/InitialGameConfig");
+        var playerName = GetPlayerName();
 
-        // 프로필
-#if FIREBASE_ENABLED
-        saveData.ProfileData.PlayerName = FirebaseManager.Instance.CurrentUser?.UserId ?? "Guest";
-#else
-        saveData.ProfileData.PlayerName = "Guest";
-#endif
-        saveData.ProfileData.Level = initialGameConfig.StartLevel;
-        saveData.ProfileData.Exp = initialGameConfig.StartEXP;
-        
-        // 영웅
-        saveData.HeroData.AcquiredHeroes = new();
-        foreach (var hero in initialGameConfig.Heroes.Magicians)
-        {
-            var heroGameData = new HeroGameData
-            {
-                ID = hero.HeroData.ID,
-                Class = hero.HeroData.ClassType,
-                Grade = hero.HeroData.GradeType,
-                Rank = hero.HeroData.RankType,
-                IsAcquiredHero = hero.IsAcquired,
-                Level = 1,
-                AcquiredStack = 0,
-                isSelected = hero.IsAcquired
-            };
-            saveData.HeroData.AcquiredHeroes.Add(heroGameData);
-        }
-        foreach (var hero in initialGameConfig.Heroes.Archers)
-        {
-            var heroGameData = new HeroGameData
-            {
-                ID = hero.HeroData.ID,
-                Class = hero.HeroData.ClassType,
-                Grade = hero.HeroData.GradeType,
-                Rank = hero.HeroData.RankType,
-                IsAcquiredHero = hero.IsAcquired,
-                Level = 1,
-                AcquiredStack = 0,
-                isSelected = hero.IsAcquired
-            };
-            saveData.HeroData.AcquiredHeroes.Add(heroGameData);
-        }
-        foreach (var hero in initialGameConfig.Heroes.Warriors)
-        {
-            var heroGameData = new HeroGameData
-            {
-                ID = hero.HeroData.ID,
-                Class = hero.HeroData.ClassType,
-                Grade = hero.HeroData.GradeType,
-                Rank = hero.HeroData.RankType,
-                IsAcquiredHero = hero.IsAcquired,
-                Level = 1,
-                AcquiredStack = 0,
-                isSelected = hero.IsAcquired
-            };
-            saveData.HeroData.AcquiredHeroes.Add(heroGameData);
-        }
-        
+        saveData = SaveDataFactory.CreateNewPlayerData(config, playerName);
+
         await SaveAsync(saveData);
-
         CDebug.Log("[SaveLoadManager] 신규 플레이어 데이터 생성 및 저장");
+    }
+
+    private string GetPlayerName()
+    {
+#if FIREBASE_ENABLED
+        return FirebaseManager.Instance.CurrentUser?.UserId ?? "Guest";
+#else
+        return "Guest";
+#endif
     }
 }
