@@ -2,6 +2,9 @@ using Generated;
 using UnityEngine;
 using UnityEngine.Splines;
 
+/// <summary>
+/// Enemy 생성 담당 클래스
+/// </summary>
 public class EnemySpawner : MonoBehaviour
 {
     [SerializeField] private SplineContainer splineContainer;

@@ -2,6 +2,9 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// 인게임 버프 카드 UI용 클래스
+/// </summary>
 public class BuffCardUIComponent : MonoBehaviour
 {
     [SerializeField] private Button selectButton;

@@ -1,5 +1,6 @@
-using UnityEngine;
-
+/// <summary>
+/// Boss 타입 Enemy 클래스
+/// </summary>
 public class BossEnemy : BaseEnemy
 {
     public override void Die()

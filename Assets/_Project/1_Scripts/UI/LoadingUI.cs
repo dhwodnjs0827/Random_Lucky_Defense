@@ -2,6 +2,9 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// 로딩 전용 UI 클래스
+/// </summary>
 public class LoadingUI : BaseUI
 {
     [SerializeField] private Slider progressBar;

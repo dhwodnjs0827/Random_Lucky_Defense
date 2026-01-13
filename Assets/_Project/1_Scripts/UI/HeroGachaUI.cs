@@ -5,6 +5,9 @@ using Cysharp.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// 영웅 가챠용 Popup UI 클래스
+/// </summary>
 public class HeroGachaUI : BaseUI
 {
     [SerializeField] private CloseButton closeButton;
@@ -36,7 +39,7 @@ public class HeroGachaUI : BaseUI
             PlayerDataManager.Instance.AcquireHero(gachaResult.ID, false);
         }
 
-        PlayerDataManager.Instance.SaveHeroData();
+        PlayerDataManager.Instance.SaveData(SaveDataType.Hero);
 
         currentGachaResultContainers.Clear();
         showResultButton.gameObject.SetActive(true);

@@ -2,6 +2,9 @@ using Cysharp.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// 인게임 게임 결과창 Popup UI 클래스
+/// </summary>
 public class GameResultUI : BaseUI
 {
     [SerializeField] private Button exitGameButton;

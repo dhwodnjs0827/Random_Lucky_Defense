@@ -2,6 +2,9 @@ using Cysharp.Threading.Tasks;
 using UnityEditor;
 using UnityEngine;
 
+/// <summary>
+/// 저장/불러오기 담당 클래스
+/// </summary>
 public class SaveLoadManager : Singleton<SaveLoadManager>
 {
     private InitialGameConfig gameConfig;

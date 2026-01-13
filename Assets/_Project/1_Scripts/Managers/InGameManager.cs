@@ -2,6 +2,9 @@ using System;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
 
+/// <summary>
+/// 인게임 관리 담당 클래스
+/// </summary>
 public class InGameManager : MonoSingleton<InGameManager>, IEventListener
 {
     protected override bool IsDontDestroyOnLoad => false;

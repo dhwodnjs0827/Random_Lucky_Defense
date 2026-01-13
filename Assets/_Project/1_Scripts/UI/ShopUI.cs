@@ -1,6 +1,9 @@
 using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// 로비 상점 UI 클래스
+/// </summary>
 public class ShopUI : BaseUI
 {
     [SerializeField] private CloseButton closeButton;

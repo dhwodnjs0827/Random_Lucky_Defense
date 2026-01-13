@@ -1,6 +1,9 @@
 using Cysharp.Threading.Tasks;
 using UnityEngine;
 
+/// <summary>
+/// 토스트 메세지 관리 담당 클래스
+/// </summary>
 public class ToastManager : MonoSingleton<ToastManager>
 {
     private bool isInitialized = false;

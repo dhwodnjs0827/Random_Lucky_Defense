@@ -1,5 +1,8 @@
 using UnityEngine;
 
+/// <summary>
+/// 로비에서 영웅 관리 UI 클래스
+/// </summary>
 public class HeroManageUI : BaseUI
 {
     [SerializeField] private CloseButton closeButton;

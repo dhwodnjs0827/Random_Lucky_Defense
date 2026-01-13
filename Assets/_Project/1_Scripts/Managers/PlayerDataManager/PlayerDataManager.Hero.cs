@@ -62,7 +62,7 @@ public partial class PlayerDataManager
     /// <summary>
     /// 영웅 데이터 저장
     /// </summary>
-    public void SaveHeroData()
+    private void SaveHeroData()
     {
         var saveData = SaveLoadManager.Instance.SaveData;
         List<PlayerHeroSaveData> playerHeroSaveData = new List<PlayerHeroSaveData>();

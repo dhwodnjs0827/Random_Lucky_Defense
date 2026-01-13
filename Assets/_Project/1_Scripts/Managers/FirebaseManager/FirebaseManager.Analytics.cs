@@ -1,9 +1,6 @@
 #if FIREBASE_ENABLED
 using Firebase.Analytics;
 
-/// <summary>
-/// Firebase Analytics
-/// </summary>
 public partial class FirebaseManager
 {
     /// <summary>

@@ -4,6 +4,9 @@ using Generated;
 using UniRx;
 using UnityEngine;
 
+/// <summary>
+/// 인게임 영웅 레벨 업 담당 클래스
+/// </summary>
 public class InGameHeroLevelUpController : IEventListener, IBuffCardEffect
 {
     private ReactiveProperty<int> currentSpawnPoint = new(); // 현재 영웅 소환 재화

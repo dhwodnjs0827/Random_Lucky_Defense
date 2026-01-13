@@ -3,6 +3,9 @@ using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// 뽑기 결과 UI용 클래스
+/// </summary>
 public class GachaResultContainer : MonoBehaviour, IPoolable
 {
     [SerializeField] private Image resultImage;

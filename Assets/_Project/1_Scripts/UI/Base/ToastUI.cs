@@ -5,6 +5,9 @@ using DG.Tweening;
 using TMPro;
 using UnityEngine;
 
+/// <summary>
+/// 토스트 UI 전용 클래스
+/// </summary>
 public class ToastUI : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI toastText;

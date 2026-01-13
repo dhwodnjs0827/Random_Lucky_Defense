@@ -2,6 +2,9 @@ using Cysharp.Threading.Tasks;
 using Newtonsoft.Json;
 using UnityEngine;
 
+/// <summary>
+/// PlayerPrefs 저장소 사용 핸들러
+/// </summary>
 public class PlayerPrefsHandler : IDataSaveLoadHandler
 {
     public UniTask SaveAsync(SaveData data)

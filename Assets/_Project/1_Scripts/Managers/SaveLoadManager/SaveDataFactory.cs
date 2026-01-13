@@ -1,8 +1,16 @@
 using System.Collections.Generic;
 using System.Linq;
 
+/// <summary>
+/// SaveData를 생성하고 초기 설정값과 저장된 진행도를 기준으로 변합하는 책임을 가진 팩토리 클래스
+/// </summary>
 public static class SaveDataFactory
 {
+    /// <summary>
+    /// SaveData 생성
+    /// </summary>
+    /// <param name="config">게임 초기 세팅 데이터</param>
+    /// <param name="playerName">플레이어 이름</param>
     public static SaveData CreateNewSaveData(InitialGameConfig config, string playerName)
     {
         var saveData = new SaveData();
@@ -14,6 +22,11 @@ public static class SaveDataFactory
         return saveData;
     }
 
+    /// <summary>
+    /// 불러온 데이터 연동 (진행도 덮어쓰기)
+    /// </summary>
+    /// <param name="template">기본 SaveData</param>
+    /// <param name="loaded">불러온 SaveData</param>
     public static SaveData MergeSaveData(SaveData template, SaveData loaded)
     {
         // 재화, 프로필은 저장된 값 사용
@@ -39,6 +52,9 @@ public static class SaveDataFactory
         return template;
     }
 
+    /// <summary>
+    /// 재화 데이터 초기화
+    /// </summary>
     private static void InitializeCurrency(SaveData data, InitialGameConfig config)
     {
         data.CurrencyData = new()
@@ -48,6 +64,9 @@ public static class SaveDataFactory
         };
     }
 
+    /// <summary>
+    /// 프로필 데이터 초기화
+    /// </summary>
     private static void InitializeProfile(SaveData data, InitialGameConfig config, string playerName)
     {
         data.ProfileData = new()
@@ -58,6 +77,9 @@ public static class SaveDataFactory
         };
     }
 
+    /// <summary>
+    /// 영웅 데이터 초기화
+    /// </summary>
     private static void InitializeHeroes(SaveData data, InitialGameConfig config)
     {
         data.HeroData = new()
@@ -65,11 +87,14 @@ public static class SaveDataFactory
             AllHeroes = new List<PlayerHeroSaveData>()
         };
 
-        AddHeroesFromList(data, config.Heroes.Magicians);
-        AddHeroesFromList(data, config.Heroes.Archers);
-        AddHeroesFromList(data, config.Heroes.Warriors);
+        AddHeroesFromList(data, config.Heroes.Magicians); // 마법사 초기화
+        AddHeroesFromList(data, config.Heroes.Archers); // 궁수 초기화
+        AddHeroesFromList(data, config.Heroes.Warriors); // 전사 초기화
     }
 
+    /// <summary>
+    /// 영웅 초기 세팅값 초기화 (획득 여부, 레벨 등)
+    /// </summary>
     private static void AddHeroesFromList(SaveData data, List<InitialHeroConfig> heroes)
     {
         foreach (var hero in heroes)

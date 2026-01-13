@@ -15,44 +15,44 @@ public static class EventManager
     /// <summary>
     /// 이벤트 구독 (매개변수 없음)
     /// </summary>
-    public static void Subscribe(GameEventType GameEventType, Action action)
+    public static void Subscribe(GameEventType gameEventType, Action action)
     {
-        if (events.TryGetValue(GameEventType, out var existingAction))
+        if (events.TryGetValue(gameEventType, out var existingAction))
         {
             // 중복 체크
             if (existingAction.GetInvocationList().Contains(action))
             {
-                CDebug.LogWarning($"[EventManager] 중복된 이벤트를 등록하려고 했습니다. GameEventType: {GameEventType}");
+                CDebug.LogWarning($"[EventManager] 중복된 이벤트를 등록하려고 했습니다. GameEventType: {gameEventType}");
                 return;
             }
 
-            events[GameEventType] = existingAction + action;
+            events[gameEventType] = existingAction + action;
         }
         else
         {
-            events[GameEventType] = action;
+            events[gameEventType] = action;
         }
     }
 
     /// <summary>
     /// 이벤트 구독 (매개변수 있음)
     /// </summary>
-    public static void Subscribe<T>(GameEventType GameEventType, Action<T> action)
+    public static void Subscribe<T>(GameEventType gameEventType, Action<T> action)
     {
-        if (genericEvents.TryGetValue(GameEventType, out var existingAction))
+        if (genericEvents.TryGetValue(gameEventType, out var existingAction))
         {
             // 중복 체크
             if (existingAction.GetInvocationList().Contains(action))
             {
-                CDebug.LogWarning($"[EventManager] 중복된 이벤트를 등록하려고 했습니다. GameEventType: {GameEventType}");
+                CDebug.LogWarning($"[EventManager] 중복된 이벤트를 등록하려고 했습니다. GameEventType: {gameEventType}");
                 return;
             }
 
-            genericEvents[GameEventType] = Delegate.Combine(existingAction, action);
+            genericEvents[gameEventType] = Delegate.Combine(existingAction, action);
         }
         else
         {
-            genericEvents[GameEventType] = action;
+            genericEvents[gameEventType] = action;
         }
     }
 
@@ -63,18 +63,18 @@ public static class EventManager
     /// <summary>
     /// 이벤트 구독 해제 (매개변수 없음)
     /// </summary>
-    public static void Unsubscribe(GameEventType GameEventType, Action action)
+    public static void Unsubscribe(GameEventType gameEventType, Action action)
     {
-        if (!events.TryGetValue(GameEventType, out var existingAction))
+        if (!events.TryGetValue(gameEventType, out var existingAction))
         {
-            CDebug.LogWarning($"[EventManager] 등록된 이벤트가 없습니다. GameEventType: {GameEventType}");
+            CDebug.LogWarning($"[EventManager] 등록된 이벤트가 없습니다. GameEventType: {gameEventType}");
             return;
         }
 
         // 등록된 메서드인지 체크
         if (!existingAction.GetInvocationList().Contains(action))
         {
-            CDebug.LogWarning($"[EventManager] 등록되지 않은 이벤트를 해제하려고 했습니다. GameEventType: {GameEventType}");
+            CDebug.LogWarning($"[EventManager] 등록되지 않은 이벤트를 해제하려고 했습니다. GameEventType: {gameEventType}");
             return;
         }
 
@@ -83,29 +83,29 @@ public static class EventManager
         // 남은 구독자가 없으면 딕셔너리에서 제거
         if (newAction == null)
         {
-            events.Remove(GameEventType);
+            events.Remove(gameEventType);
         }
         else
         {
-            events[GameEventType] = newAction;
+            events[gameEventType] = newAction;
         }
     }
 
     /// <summary>
     /// 이벤트 구독 해제 (매개변수 있음)
     /// </summary>
-    public static void Unsubscribe<T>(GameEventType GameEventType, Action<T> action)
+    public static void Unsubscribe<T>(GameEventType gameEventType, Action<T> action)
     {
-        if (!genericEvents.TryGetValue(GameEventType, out var existingAction))
+        if (!genericEvents.TryGetValue(gameEventType, out var existingAction))
         {
-            CDebug.LogWarning($"[EventManager] 등록된 이벤트가 없습니다. GameEventType: {GameEventType}");
+            CDebug.LogWarning($"[EventManager] 등록된 이벤트가 없습니다. GameEventType: {gameEventType}");
             return;
         }
 
         // 등록된 메서드인지 체크
         if (!existingAction.GetInvocationList().Contains(action))
         {
-            CDebug.LogWarning($"[EventManager] 등록되지 않은 이벤트를 해제하려고 했습니다. GameEventType: {GameEventType}");
+            CDebug.LogWarning($"[EventManager] 등록되지 않은 이벤트를 해제하려고 했습니다. GameEventType: {gameEventType}");
             return;
         }
 
@@ -114,11 +114,11 @@ public static class EventManager
         // 남은 구독자가 없으면 딕셔너리에서 제거
         if (newAction == null)
         {
-            genericEvents.Remove(GameEventType);
+            genericEvents.Remove(gameEventType);
         }
         else
         {
-            genericEvents[GameEventType] = newAction;
+            genericEvents[gameEventType] = newAction;
         }
     }
 
@@ -129,9 +129,9 @@ public static class EventManager
     /// <summary>
     /// 이벤트 발행 (매개변수 없음)
     /// </summary>
-    public static void Dispatch(GameEventType GameEventType)
+    public static void Dispatch(GameEventType gameEventType)
     {
-        if (events.TryGetValue(GameEventType, out var action))
+        if (events.TryGetValue(gameEventType, out var action))
         {
             action?.Invoke();
         }
@@ -140,17 +140,16 @@ public static class EventManager
     /// <summary>
     /// 이벤트 발행 (매개변수 있음)
     /// </summary>
-    public static void Dispatch<T>(GameEventType GameEventType, T eventData)
+    public static void Dispatch<T>(GameEventType gameEventType, T eventData)
     {
-        if (genericEvents.TryGetValue(GameEventType, out var action))
+        if (genericEvents.TryGetValue(gameEventType, out var action))
         {
             (action as Action<T>)?.Invoke(eventData);
         }
     }
 
     #endregion
-
-
+    
     #region Clear
 
     /// <summary>
@@ -165,10 +164,10 @@ public static class EventManager
     /// <summary>
     /// 특정 이벤트 초기화
     /// </summary>
-    public static void Clear(GameEventType GameEventType)
+    public static void Clear(GameEventType gameEventType)
     {
-        events.Remove(GameEventType);
-        genericEvents.Remove(GameEventType);
+        events.Remove(gameEventType);
+        genericEvents.Remove(gameEventType);
     }
 
     #endregion

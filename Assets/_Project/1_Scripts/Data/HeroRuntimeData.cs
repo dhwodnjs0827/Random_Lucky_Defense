@@ -1,5 +1,8 @@
 using Generated;
 
+/// <summary>
+/// 런타임 용 영웅 데이터
+/// </summary>
 public class HeroRuntimeData
 {
     public HeroDataSO HeroData;
@@ -15,6 +18,9 @@ public class HeroRuntimeData
     public HeroGradeType Grade => HeroData.GradeType;
     public HeroRankType Rank => HeroData.RankType;
 
+    /// <summary>
+    /// 데이터 저장용으로 변환
+    /// </summary>
     public PlayerHeroSaveData Convert()
     {
         PlayerHeroSaveData data = new()

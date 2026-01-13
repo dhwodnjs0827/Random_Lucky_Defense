@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
+/// <summary>
+/// HeroManagerUI에서 사용 선택 영웅 리스트 표시용 UI 클래스
+/// </summary>
 public class SelectedHeroListViewComponent : MonoBehaviour
 {
     [SerializeField] private CurrentSelectedHeroView normalHero;

@@ -2,6 +2,9 @@ using DG.Tweening;
 using TMPro;
 using UnityEngine;
 
+/// <summary>
+/// 데미지 표시용 클래스 (Pooling 사용)
+/// </summary>
 public class DamageText : MonoBehaviour, IPoolable
 {
     [SerializeField] TextMeshPro damageText;
@@ -35,6 +38,9 @@ public class DamageText : MonoBehaviour, IPoolable
             .Pause();
     }
 
+    /// <summary>
+    /// 데미지 표시 연출 재생
+    /// </summary>
     public void PlayDamageTextSequence(float damage, bool isCritical)
     {
         damageText.alpha = 1f;

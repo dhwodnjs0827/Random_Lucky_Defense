@@ -1,6 +1,9 @@
 using Cysharp.Threading.Tasks;
 using UnityEngine;
 
+/// <summary>
+/// VFX 관리 담당 클래스
+/// </summary>
 public class EffectManager : MonoSingleton<EffectManager>
 {
     private ResourceManager resourceManager;

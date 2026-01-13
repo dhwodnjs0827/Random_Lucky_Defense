@@ -2,6 +2,9 @@ using System;
 using System.Collections.Generic;
 using Generated;
 
+/// <summary>
+/// 게임 저장 데이터
+/// </summary>
 [Serializable]
 public class SaveData
 {
@@ -18,13 +21,6 @@ public class CurrencySaveData
     public int Diamond;
 }
 
-public enum CurrencyType
-{
-    Gold,
-    Gem,
-    Diamond
-}
-
 [Serializable]
 public class ProfileSaveData
 {
@@ -39,6 +35,9 @@ public class HeroSaveData
     public List<PlayerHeroSaveData> AllHeroes;
 }
 
+/// <summary>
+/// 영웅 데이터 저장용
+/// </summary>
 [Serializable]
 public class PlayerHeroSaveData
 {
@@ -49,6 +48,9 @@ public class PlayerHeroSaveData
     public int AcquiredStack; // 영웅 획득 스택
     public bool IsSelected; // 사용 선택 여부
     
+    /// <summary>
+    /// 런타임 용으로 변환
+    /// </summary>
     public HeroRuntimeData Convert()
     {
         HeroRuntimeData data = new()

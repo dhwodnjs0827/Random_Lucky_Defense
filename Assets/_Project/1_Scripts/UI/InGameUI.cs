@@ -2,6 +2,9 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// 인게임 정보 표시용 HUD UI 클래스
+/// </summary>
 public class InGameUI : BaseUI
 {
     [SerializeField] private Button pauseButton;

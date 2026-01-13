@@ -1,6 +1,9 @@
 using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// MainLobbyUI 하단에 있는 버튼 그룹 관리용 클래스
+/// </summary>
 public class LobbyBottomButtonGroups : MonoBehaviour
 {
     [SerializeField] private Button shopButton;

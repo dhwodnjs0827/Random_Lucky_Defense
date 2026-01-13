@@ -2,6 +2,9 @@ using System;
 using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// HeroManageUI 하단에 있는 영웅 View 변경 버튼 UI용 클래스
+/// </summary>
 public class ChangeHeroClassViewButtonComponent : MonoBehaviour
 {
     [SerializeField] private HeroClassType heroClassType;

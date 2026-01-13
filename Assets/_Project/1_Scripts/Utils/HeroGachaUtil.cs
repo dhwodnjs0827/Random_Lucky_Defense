@@ -2,6 +2,9 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
+/// <summary>
+/// 영웅 가챠 전용 유틸 클래스
+/// </summary>
 public static class HeroGachaUtil
 {
     private static IList<HeroRuntimeData> HeroPool => PlayerDataManager.Instance.AllHeroes;

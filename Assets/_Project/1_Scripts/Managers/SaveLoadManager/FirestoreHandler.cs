@@ -4,6 +4,9 @@ using Cysharp.Threading.Tasks;
 using Firebase.Firestore;
 using Newtonsoft.Json;
 
+/// <summary>
+/// Firebase Firestore 저장소 사용 핸들러
+/// </summary>
 public class FirestoreHandler : IDataSaveLoadHandler
 {
     private const string COLLECTION_USERS = "users";

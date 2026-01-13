@@ -1,5 +1,6 @@
-using UnityEngine;
-
+/// <summary>
+/// Normal 타입 Enemy 클래스
+/// </summary>
 public class NormalEnemy : BaseEnemy
 {
     public override void Die()

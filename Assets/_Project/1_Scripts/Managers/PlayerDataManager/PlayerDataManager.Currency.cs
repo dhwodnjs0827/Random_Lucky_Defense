@@ -20,6 +20,7 @@ public partial class PlayerDataManager
     /// <summary>
     /// 재화량 수정 (+: 증가, -: 감소)
     /// </summary>
+    /// <returns>수정 성공 여부(재화 감소 시, 감소량보다 적으면 재화 수정 안됨)</returns>
     public bool ChangeCurrency(CurrencyType type, int amount, bool isAutoSave = true)
     {
         var currentAmount = currency[type];
@@ -36,7 +37,10 @@ public partial class PlayerDataManager
         return true;
     }
 
-    public void SaveCurrencyData()
+    /// <summary>
+    /// 재화 데이터 저장
+    /// </summary>
+    private void SaveCurrencyData()
     {
         var saveData = SaveLoadManager.Instance.SaveData;
         saveData.CurrencyData.Gold = currency[CurrencyType.Gold];

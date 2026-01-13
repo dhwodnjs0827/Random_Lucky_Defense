@@ -4,6 +4,9 @@ using UniRx;
 using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// 인게임 영웅 레벨업 버튼용 클래스
+/// </summary>
 public class InGameLevelUpButtonComponent : MonoBehaviour, IEventListener
 {
     [Header("영웅 클래스 설정")]

@@ -3,9 +3,6 @@ using System;
 using Cysharp.Threading.Tasks;
 using Firebase.Auth;
 
-/// <summary>
-/// Firebase Auth
-/// </summary>
 public partial class FirebaseManager
 {
     private FirebaseAuth auth;

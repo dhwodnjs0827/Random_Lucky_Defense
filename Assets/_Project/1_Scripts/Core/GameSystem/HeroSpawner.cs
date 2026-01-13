@@ -1,5 +1,8 @@
 using UnityEngine;
 
+/// <summary>
+/// 영웅 소환 담당 클래스
+/// </summary>
 public class HeroSpawner : MonoBehaviour, IEventListener
 {
     [SerializeField] private HeroSpawnPool heroSpawnPool;

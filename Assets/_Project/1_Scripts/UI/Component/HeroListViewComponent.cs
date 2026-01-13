@@ -4,6 +4,9 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// HeroManagerUI에서 보유 영웅 리스트 표시용 UI 클래스
+/// </summary>
 public class HeroListViewComponent : MonoBehaviour
 {
     [Header("UI Components")] [SerializeField]

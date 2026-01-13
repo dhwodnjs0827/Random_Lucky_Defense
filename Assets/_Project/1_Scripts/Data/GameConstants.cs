@@ -6,21 +6,21 @@ public static class GameConstants
     // 게임 시작 씬
     public const SceneType START_SCENE = SceneType.TitleScene;
     
-    // 영웅 랭크 가챠 확률
-    public const int RANK_B_CHANCE = 72;
-    public const int RANK_A_CHANCE = 25;
-    public const int RANK_S_CHANCE = 3;
+    // 상점 영웅 가챠 랭크 확률
+    public const int RANK_B_CHANCE = 72; // B 랭크 - 72%
+    public const int RANK_A_CHANCE = 25; // A 랭크 - 25%
+    public const int RANK_S_CHANCE = 3; // S 랭크 - 3%
 
-    // 게임 내 영웅 소환 확률
-    public const int NORMAL_HERO_SPAWN_CHANCE = 5000; // 50%
-    public const int SUPERIOR_HERO_SPAWN_CHANCE = 3300; // 33%
-    public const int RARE_HERO_SPAWN_CHANCE = 1020; // 10.2%
-    public const int ANCIENT_HERO_SPAWN_CHANCE = 510; // 5.10%
-    public const int RELIC_HERO_SPAWN_CHANCE = 80; // 0.80%
-    public const int LEGEND_HERO_SPAWN_CHANCE = 50; // 0.50%
-    public const int EPIC_HERO_SPAWN_CHANCE = 20; // 0.20%
-    public const int MYTH_HERO_SPAWN_CHANCE = 8; // 0.08%
-    public const int GOD_HERO_SPAWN_CHANCE = 2; // 0.02%
+    // 인게임 내 영웅 소환 확률
+    public const int NORMAL_HERO_SPAWN_CHANCE = 5000; // 일반 - 50%
+    public const int SUPERIOR_HERO_SPAWN_CHANCE = 3300; // 고급 - 33%
+    public const int RARE_HERO_SPAWN_CHANCE = 1020; // 희귀 - 10.2%
+    public const int ANCIENT_HERO_SPAWN_CHANCE = 510; // - 고대 5.10%
+    public const int RELIC_HERO_SPAWN_CHANCE = 80; // 유물 - 0.80%
+    public const int LEGEND_HERO_SPAWN_CHANCE = 50; // 전설 - 0.50%
+    public const int EPIC_HERO_SPAWN_CHANCE = 20; // 에픽 - 0.20%
+    public const int MYTH_HERO_SPAWN_CHANCE = 8; // 신화 - 0.08%
+    public const int GOD_HERO_SPAWN_CHANCE = 2; // 태초 - 0.02%
     
     // 투사체 속도
     public const float PROJECTILE_SPEED = 20f;

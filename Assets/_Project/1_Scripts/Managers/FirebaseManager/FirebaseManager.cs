@@ -9,7 +9,7 @@ using Firebase.Firestore;
 /// <summary>
 /// Firebase 초기화 및 관리를 담당하는 매니저
 /// </summary>
-public partial class FirebaseManager : MonoSingleton<FirebaseManager>
+public partial class FirebaseManager : Singleton<FirebaseManager>
 {
     private bool isInitialized = false;
 

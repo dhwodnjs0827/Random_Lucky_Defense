@@ -147,6 +147,11 @@ public abstract class BaseEnemy : MonoBehaviour, IPoolable, IDetectable, IDamage
         previousPosition = currentPosition;
     }
 
+    /// <summary>
+    /// 데미지 표시 효과
+    /// </summary>
+    /// <param name="damage">받은 피해량</param>
+    /// <param name="isCritical">크리티컬 여부</param>
     private void DamageTextEffect(float damage, bool isCritical)
     {
         var text = ObjectPoolManager.Instance.Get(damageTextPrefab);
@@ -165,7 +170,7 @@ public abstract class BaseEnemy : MonoBehaviour, IPoolable, IDetectable, IDamage
         flashCts?.Cancel();
         flashCts?.Dispose();
         flashCts = null;
-        
+
         for (int i = 0; i < spriteRenderers.Length; i++)
         {
             spriteRenderers[i].color = originalColors[i];
@@ -178,13 +183,12 @@ public abstract class BaseEnemy : MonoBehaviour, IPoolable, IDetectable, IDamage
         {
             return;
         }
-        
-        
+
         var damageResult = DamageCalculator.CalculateDamage(damageContext, enemyData.MonsterType, defense);
         currentHealth -= damageResult.Damage;
         currentHealth = Mathf.Max(currentHealth, 0f);
         healthText.text = $"{currentHealth:N0}";
-        
+
         HitEffect();
         DamageTextEffect(damageResult.Damage, damageResult.IsCritical);
 
@@ -199,6 +203,9 @@ public abstract class BaseEnemy : MonoBehaviour, IPoolable, IDetectable, IDamage
         HitFlash().Forget();
     }
 
+    /// <summary>
+    /// 피격 시, 빨간색으로 변경 효과
+    /// </summary>
     private async UniTask HitFlash()
     {
         // 기존 플래시 취소

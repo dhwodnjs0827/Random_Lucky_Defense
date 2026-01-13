@@ -4,6 +4,9 @@ using System.Linq;
 using Generated;
 using Random = UnityEngine.Random;
 
+/// <summary>
+/// 버프 카드 시스템의 핵심 중개 클래스
+/// </summary>
 public class CardEffectFactory : IEventListener
 {
     private Dictionary<BuffEffectType, List<IBuffCardEffect>> effectHandlers = new();
@@ -31,6 +34,11 @@ public class CardEffectFactory : IEventListener
         onCardSelected -= SelectedCardProcess;
     }
 
+    /// <summary>
+    /// 가중치 기반 랜덤 버프 카드 불러오기
+    /// <remarks>5레벨 미만 카드만 필터링</remarks>
+    /// </summary>
+    /// <param name="count">카드 개수(기본값 3장)</param>
     public BuffCardContainer[] GetRandomCards(int count = 3)
     {
         // 5레벨 미만 카드 필터링
@@ -49,6 +57,9 @@ public class CardEffectFactory : IEventListener
         return selectedCards.ToArray();
     }
 
+    /// <summary>
+    /// 카드 효과 적용 대상 등록
+    /// </summary>
     public void RegisterCardEffectHandler(BuffEffectType type, IBuffCardEffect handler)
     {
         if (!effectHandlers.ContainsKey(type))
@@ -59,6 +70,9 @@ public class CardEffectFactory : IEventListener
         effectHandlers[type].Add(handler);
     }
 
+    /// <summary>
+    /// 카드 효과 적용 대상 해제
+    /// </summary>
     public void UnregisterCardEffectHandler(BuffEffectType type, IBuffCardEffect handler)
     {
         if (effectHandlers.TryGetValue(type, out var handlers))
@@ -66,8 +80,7 @@ public class CardEffectFactory : IEventListener
             handlers.Remove(handler);
         }
     }
-
-
+    
     private void InitializeData()
     {
         buffCardDatas = ResourceManager.Instance.LoadAll<BuffCardDataSO>("Data/SO/BuffCardData");
