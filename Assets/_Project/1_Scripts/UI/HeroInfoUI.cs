@@ -88,6 +88,9 @@ public class HeroInfoUI : BaseUI
         currentHeroData.AcquiredStack -= currentHeroData.LevelUpRequiredStack;
         currentHeroData.Level++;
         heroView.UpdateHeroViewUIComponent(currentHeroData, currentHeroData.IsSelected);
+
+        LevelUpHeroEventData data = new LevelUpHeroEventData(currentHeroData);
+        EventManager.Dispatch(GameEventType.ChangeSelectedHero, data);
         
         PlayerDataManager.Instance.SaveData(SaveDataType.Hero);
     }
