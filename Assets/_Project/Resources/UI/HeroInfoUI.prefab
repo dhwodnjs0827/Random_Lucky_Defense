@@ -196,7 +196,7 @@ MonoBehaviour:
   heroOwnedBonusDamageText: {fileID: 0}
   equipButton: {fileID: 6513570915338337930}
   equipButtonText: {fileID: 809647605183174696}
-  levelUpButton: {fileID: 6513570915338337930}
+  levelUpButton: {fileID: 9130753984186726274}
   levelUpRequiredGoldText: {fileID: 7162457747375382166}
 --- !u!1 &1029916832643476518
 GameObject:

@@ -80,5 +80,15 @@ public class HeroInfoUI : BaseUI
 
     private void OnClickLevelUpButton()
     {
+        if (currentHeroData.LevelUpRequiredStack > currentHeroData.AcquiredStack)
+        {
+            ToastManager.Instance.Show("요구량이 부족합니다");
+            return;
+        }
+        currentHeroData.AcquiredStack -= currentHeroData.LevelUpRequiredStack;
+        currentHeroData.Level++;
+        heroView.UpdateHeroViewUIComponent(currentHeroData, currentHeroData.IsSelected);
+        
+        PlayerDataManager.Instance.SaveData(SaveDataType.Hero);
     }
 }

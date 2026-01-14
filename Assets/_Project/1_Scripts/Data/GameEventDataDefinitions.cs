@@ -14,6 +14,16 @@ public struct ChangeSelectedHeroEventData
     }
 }
 
+public struct LevelUpHeroEventData
+{
+    public readonly HeroRuntimeData LevelUpHeroData;
+
+    public LevelUpHeroEventData(HeroRuntimeData levelUpHeroData)
+    {
+        LevelUpHeroData = levelUpHeroData;
+    }
+}
+
 public struct HeroSpawnEventData
 {
     public readonly BaseHero SpawnedHero;

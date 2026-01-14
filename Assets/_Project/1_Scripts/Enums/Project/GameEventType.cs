@@ -9,6 +9,7 @@ public enum GameEventType
     ApplicationQuit, // 앱 종료
     
     ChangeSelectedHero, // 선택 영웅 변경
+    LevelUpHero, // 영웅 레벨 업
     
     WaveStart, // 웨이브 시작
     

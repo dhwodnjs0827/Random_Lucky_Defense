@@ -60,10 +60,9 @@ public class HeroViewComponent : MonoBehaviour
         isSelectedImage.gameObject.SetActive(isSelected);
 
         heroLevelText.text = $"레벨 {heroData.Level}";
-
-        //TODO: 임시 요구치 10 할당
-        heroRequiredLevelSlider.value = heroData.AcquiredStack / 10f;
-        heroRequiredLevelText.text = $"{heroData.AcquiredStack}/10";
+        
+        heroRequiredLevelText.text = $"{heroData.AcquiredStack}/ {heroData.LevelUpRequiredStack}";
+        heroRequiredLevelSlider.value = (float)heroData.AcquiredStack / heroData.LevelUpRequiredStack;
     }
 
     private void OnClickHeroInfoButton()

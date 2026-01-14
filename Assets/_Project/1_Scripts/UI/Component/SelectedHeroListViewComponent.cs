@@ -19,8 +19,9 @@ public class SelectedHeroListViewComponent : MonoBehaviour, IEventListener
     [SerializeField] private CurrentSelectedHeroView godHero;
 
     private Dictionary<HeroGradeType, CurrentSelectedHeroView> heroViewComponents;
-    
+
     private Action<ChangeSelectedHeroEventData> onChangeSelectedHero;
+    private Action<LevelUpHeroEventData> onLevelUpHero;
 
     private void Awake()
     {
@@ -59,6 +60,32 @@ public class SelectedHeroListViewComponent : MonoBehaviour, IEventListener
             }
         }
     }
+    
+    private void ChangeSelectedHero(ChangeSelectedHeroEventData eventData)
+    {
+        heroViewComponents[eventData.OldHeroData.Grade].UpdateView(eventData.NewHeroData);
+    }
+
+    private void LevelUpHero(LevelUpHeroEventData eventData)
+    {
+        heroViewComponents[eventData.LevelUpHeroData.Grade].UpdateView(eventData.LevelUpHeroData);
+    }
+
+    public void SubscribeEvents()
+    {
+        onChangeSelectedHero += ChangeSelectedHero;
+        EventManager.Subscribe(GameEventType.ChangeSelectedHero, onChangeSelectedHero);
+        onLevelUpHero += LevelUpHero;
+        EventManager.Subscribe(GameEventType.LevelUpHero, onLevelUpHero);
+    }
+
+    public void UnsubscribeEvents()
+    {
+        EventManager.Unsubscribe(GameEventType.ChangeSelectedHero, onChangeSelectedHero);
+        onChangeSelectedHero -= ChangeSelectedHero;
+        EventManager.Unsubscribe(GameEventType.LevelUpHero, onLevelUpHero);
+        onLevelUpHero -= LevelUpHero;
+    }
 
     [Serializable]
     private struct CurrentSelectedHeroView
@@ -71,22 +98,5 @@ public class SelectedHeroListViewComponent : MonoBehaviour, IEventListener
             HeroGradeText.text = $"{heroData.Grade}";
             Hero.UpdateHeroViewUIComponent(heroData, true);
         }
-    }
-
-    private void ChangeSelectedHero(ChangeSelectedHeroEventData eventData)
-    {
-        heroViewComponents[eventData.OldHeroData.Grade].UpdateView(eventData.NewHeroData);
-    }
-
-    public void SubscribeEvents()
-    {
-        onChangeSelectedHero += ChangeSelectedHero;
-        EventManager.Subscribe(GameEventType.ChangeSelectedHero, onChangeSelectedHero);
-    }
-
-    public void UnsubscribeEvents()
-    {
-        EventManager.Unsubscribe(GameEventType.ChangeSelectedHero, onChangeSelectedHero);
-        onChangeSelectedHero -= ChangeSelectedHero;
     }
 }

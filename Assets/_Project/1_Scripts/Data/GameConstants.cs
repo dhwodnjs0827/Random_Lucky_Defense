@@ -6,6 +6,16 @@ public static class GameConstants
     // 게임 시작 씬
     public const SceneType START_SCENE = SceneType.TitleScene;
     
+    // 랭크별 레벨 업 요구 초기 스택
+    public const int INITAIL_RANK_B_LEVEL_UP_REQUIRMENT_STACK = 5;
+    public const int INITAIL_RANK_A_LEVEL_UP_REQUIRMENT_STACK = 3;
+    public const int INITAIL_RANK_S_LEVEL_UP_REQUIRMENT_STACK = 1;
+    
+    // 랭크별 레벨 업 요구 스택 증가량
+    public const int INCREASE_RANK_B_LEVEL_UP_REQUIRMENT_STACK = 3;
+    public const int INCREASE_RANK_A_LEVEL_UP_REQUIRMENT_STACK = 1;
+    public const int INCREASE_RANK_S_LEVEL_UP_REQUIRMENT_STACK = 0;
+    
     // 상점 영웅 가챠 랭크 확률
     public const int RANK_B_CHANCE = 72; // B 랭크 - 72%
     public const int RANK_A_CHANCE = 25; // A 랭크 - 25%

@@ -24,6 +24,7 @@ public class HeroListViewComponent : MonoBehaviour, IEventListener
     private HeroAlignmentType heroAlignmentType;
     
     private Action<ChangeSelectedHeroEventData> onChangeSelectedHero;
+    private Action<LevelUpHeroEventData> onLevelUpHero;
 
     private void Awake()
     {
@@ -116,15 +117,25 @@ public class HeroListViewComponent : MonoBehaviour, IEventListener
         currentHeroes[newHeroIndex].UpdateHeroViewUIComponent(eventData.NewHeroData, eventData.NewHeroData.IsSelected);
     }
 
+    private void LevelUpHero(LevelUpHeroEventData eventData)
+    {
+        var newHeroIndex = currentHeroes.FindIndex(heroView => heroView.CurrentHeroData == eventData.LevelUpHeroData);
+        currentHeroes[newHeroIndex].UpdateHeroViewUIComponent(eventData.LevelUpHeroData, eventData.LevelUpHeroData.IsSelected);
+    }
+
     public void SubscribeEvents()
     {
         onChangeSelectedHero += ChangeSelectedHero;
         EventManager.Subscribe(GameEventType.ChangeSelectedHero, onChangeSelectedHero);
+        onLevelUpHero += LevelUpHero;
+        EventManager.Subscribe(GameEventType.LevelUpHero, onLevelUpHero);
     }
 
     public void UnsubscribeEvents()
     {
         EventManager.Unsubscribe(GameEventType.ChangeSelectedHero, onChangeSelectedHero);
         onChangeSelectedHero -= ChangeSelectedHero;
+        EventManager.Unsubscribe(GameEventType.LevelUpHero, onLevelUpHero);
+        onLevelUpHero -= LevelUpHero;
     }
 }
