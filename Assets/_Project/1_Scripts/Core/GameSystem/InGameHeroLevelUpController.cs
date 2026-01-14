@@ -58,7 +58,7 @@ public class InGameHeroLevelUpController : IEventListener, IBuffCardEffect
     {
         currentSpawnPoint.Value -= levelUpDataDict[classType][currentLevelDict[classType].Value].LevelUpCost;
         currentLevelDict[classType].Value++;
-        EventManager.Dispatch(GameEventType.InGameHeroLevelUpCompleted, new GameInGameLevelUpEventData(classType, levelUpDataDict[classType][currentLevelDict[classType].Value].AttackPowerMultiplier));
+        EventManager.Dispatch(GameEventType.InGameHeroLevelUpCompleted, new InGameLevelUpEventData(classType, levelUpDataDict[classType][currentLevelDict[classType].Value].AttackPowerMultiplier));
         CDebug.Log($"[InGameHeroLevelUpController] {classType} 레벨 업, 현재 레벨: {currentLevelDict[classType].Value}");
     }
     

@@ -34,45 +34,45 @@ public struct HeroSpawnEventData
     }
 }
 
-public struct GameFinishEventData
+public struct InGameFinishEventData
 {
     public readonly bool IsGameVictory;
 
-    public GameFinishEventData(bool isGameVictory)
+    public InGameFinishEventData(bool isGameVictory)
     {
         IsGameVictory = isGameVictory;
     }
 }
 
-public struct GameWaveStartEventData
+public struct WaveStartEventData
 {
     public readonly WaveDataSO CurrentWaveData;
     public readonly EnemyDataSO CurrentEnemyData;
 
-    public GameWaveStartEventData(WaveDataSO currentWaveData, EnemyDataSO currentEnemyData)
+    public WaveStartEventData(WaveDataSO currentWaveData, EnemyDataSO currentEnemyData)
     {
         CurrentWaveData = currentWaveData;
         CurrentEnemyData = currentEnemyData;
     }
 }
 
-public struct GameInGameLevelUpEventData
+public struct InGameLevelUpEventData
 {
     public readonly HeroClassType TargetClass;
     public readonly float DamageMultiplier;
 
-    public GameInGameLevelUpEventData(HeroClassType targetClass, float damageMultiplier)
+    public InGameLevelUpEventData(HeroClassType targetClass, float damageMultiplier)
     {
         TargetClass = targetClass;
         DamageMultiplier = damageMultiplier;
     }
 }
 
-public struct GameBuffCardSelectEventData
+public struct BuffCardSelectEventData
 {
     public readonly BuffCardContainer SelectedCard;
 
-    public GameBuffCardSelectEventData(BuffCardContainer selectedCard)
+    public BuffCardSelectEventData(BuffCardContainer selectedCard)
     {
         SelectedCard = selectedCard;
     }

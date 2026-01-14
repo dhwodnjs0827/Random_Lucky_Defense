@@ -15,7 +15,7 @@ public class CardEffectFactory : IEventListener
     private readonly Dictionary<string, List<BuffCardLevelDataSO>> buffCardLevelDatas = new();
     private readonly Dictionary<string, int> currentCardLevels = new();
 
-    private Action<GameBuffCardSelectEventData> onCardSelected;
+    private Action<BuffCardSelectEventData> onCardSelected;
 
     public CardEffectFactory()
     {
@@ -129,7 +129,7 @@ public class CardEffectFactory : IEventListener
         return cards.Last();
     }
 
-    private void SelectedCardProcess(GameBuffCardSelectEventData data)
+    private void SelectedCardProcess(BuffCardSelectEventData data)
     {
         if (currentCardLevels.ContainsKey(data.SelectedCard.CardData.ID))
         {

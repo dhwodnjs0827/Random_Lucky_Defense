@@ -12,7 +12,7 @@ public class InGameHeroBuffController : IEventListener, IBuffCardEffect
     public Dictionary<HeroClassType, HeroStat> LevelUpStats => levelUpStats;
     public Dictionary<HeroClassType, HeroStat> CardEffectStats => cardEffectStats;
     
-    private Action<GameInGameLevelUpEventData> onLevelUp;
+    private Action<InGameLevelUpEventData> onLevelUp;
 
     public InGameHeroBuffController()
     {
@@ -37,7 +37,7 @@ public class InGameHeroBuffController : IEventListener, IBuffCardEffect
         onLevelUp -= LevelUp;
     }
 
-    private void LevelUp(GameInGameLevelUpEventData eventData)
+    private void LevelUp(InGameLevelUpEventData eventData)
     {
         levelUpStats[eventData.TargetClass].IncreaseAttackPowerMultiplier(eventData.DamageMultiplier);
     }

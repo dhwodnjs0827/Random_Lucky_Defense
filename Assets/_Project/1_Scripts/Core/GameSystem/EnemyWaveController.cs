@@ -147,7 +147,7 @@ public class EnemyWaveController : MonoBehaviour, IEventListener
         spawn = currentWaveData.WaveType == WaveType.Normal ? SpawnNormalEnemy : SpawnBossEnemy;
         
         currentWaveDataIndex++;
-        EventManager.Dispatch(GameEventType.WaveStart, new GameWaveStartEventData(currentWaveData, currentSpawnEnemyData));
+        EventManager.Dispatch(GameEventType.WaveStart, new WaveStartEventData(currentWaveData, currentSpawnEnemyData));
     }
     
     private void DecreaseEnemyCount()
@@ -160,7 +160,7 @@ public class EnemyWaveController : MonoBehaviour, IEventListener
     {
         if (currentWaveDataIndex >= waveDatas.Length && spawnedEnemyCount == 0)
         {
-            EventManager.Dispatch(GameEventType.GameFinish, new GameFinishEventData(false));
+            EventManager.Dispatch(GameEventType.InGameFinish, new InGameFinishEventData(false));
         }
     }
     
@@ -168,7 +168,7 @@ public class EnemyWaveController : MonoBehaviour, IEventListener
     {
         if (spawnedEnemyCount == GameConstants.MAX_ENEMY_COUNT)
         {
-            EventManager.Dispatch(GameEventType.GameFinish, new GameFinishEventData(false));
+            EventManager.Dispatch(GameEventType.InGameFinish, new InGameFinishEventData(false));
         }
     }
 }

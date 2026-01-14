@@ -4,12 +4,13 @@
 public enum GameEventType
 {
     ApplicationStart, // 앱 시작
-    GameStart, // 게임 시작
-    GameFinish, // 게임 종료
     ApplicationQuit, // 앱 종료
     
     ChangeSelectedHero, // 선택 영웅 변경
     LevelUpHero, // 영웅 레벨 업
+    
+    InGameStart, // 게임 시작
+    InGameFinish, // 게임 종료
     
     WaveStart, // 웨이브 시작
     

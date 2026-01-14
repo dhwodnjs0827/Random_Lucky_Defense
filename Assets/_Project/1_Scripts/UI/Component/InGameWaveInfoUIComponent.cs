@@ -15,7 +15,7 @@ public class InGameWaveInfoUIComponent : MonoBehaviour, IEventListener
     [SerializeField] private TextMeshProUGUI enemyTypeText;
     [SerializeField] private TextMeshProUGUI monsterTypeText;
     
-    private Action<GameWaveStartEventData> onWaveStart;
+    private Action<WaveStartEventData> onWaveStart;
 
     public void SubscribeWaveTimer(ReactiveProperty<float> waveTimer)
     {
@@ -45,7 +45,7 @@ public class InGameWaveInfoUIComponent : MonoBehaviour, IEventListener
         onWaveStart -= SetWaveDate;
     }
 
-    private void SetWaveDate(GameWaveStartEventData data)
+    private void SetWaveDate(WaveStartEventData data)
     {
         enemyImage.sprite = ResourceManager.Instance.Load<Sprite>($"Sprites/Enemy/{data.CurrentEnemyData.MonsterType}_{data.CurrentEnemyData.EnemyType}");
         currentWaveText.text = $"WAVE {data.CurrentWaveData.WaveIndex}/101";

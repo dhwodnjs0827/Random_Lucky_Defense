@@ -23,7 +23,7 @@ public class InGameLevelUpButtonComponent : MonoBehaviour, IEventListener
     private InGameHeroLevelUpController levelUpController;
     private readonly ReactiveProperty<int> heroCount = new();
     private Action<HeroSpawnEventData> onSpawnedHero;
-    private Action<GameWaveStartEventData> onWaveStart;
+    private Action<WaveStartEventData> onWaveStart;
 
     private void Awake()
     {
@@ -91,7 +91,7 @@ public class InGameLevelUpButtonComponent : MonoBehaviour, IEventListener
         }
     }
 
-    private void ChangeDamageRate(GameWaveStartEventData data)
+    private void ChangeDamageRate(WaveStartEventData data)
     {
         var currentEnemyData = data.CurrentEnemyData;
         switch (currentEnemyData.MonsterType)

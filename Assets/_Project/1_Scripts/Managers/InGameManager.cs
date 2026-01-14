@@ -17,7 +17,7 @@ public class InGameManager : MonoSingleton<InGameManager>, IEventListener
     private readonly float[] gameSpeeds = { 1f, 1.5f, 2f };
     private int currentGameSpeedIndex;
     
-    private Action<GameFinishEventData> onGameFinish;
+    private Action<InGameFinishEventData> onGameFinish;
     
     public CardEffectFactory CardEffectFactory => cardEffectFactory;
     public InGameHeroLevelUpController HeroLevelUpController => heroLevelUpController;
@@ -63,7 +63,7 @@ public class InGameManager : MonoSingleton<InGameManager>, IEventListener
     public void SubscribeEvents()
     {
         onGameFinish += GameFinish;
-        EventManager.Subscribe(GameEventType.GameFinish, onGameFinish);
+        EventManager.Subscribe(GameEventType.InGameFinish, onGameFinish);
         
         cardEffectFactory.SubscribeEvents();
         heroLevelUpController.SubscribeEvents();
@@ -80,7 +80,7 @@ public class InGameManager : MonoSingleton<InGameManager>, IEventListener
         heroLevelUpController.UnsubscribeEvents();
         cardEffectFactory.UnsubscribeEvents();
         
-        EventManager.Unsubscribe(GameEventType.GameFinish, onGameFinish);
+        EventManager.Unsubscribe(GameEventType.InGameFinish, onGameFinish);
         onGameFinish -= GameFinish;
     }
 
@@ -120,7 +120,7 @@ public class InGameManager : MonoSingleton<InGameManager>, IEventListener
     /// <summary>
     /// 게임 종료
     /// </summary>
-    private void GameFinish(GameFinishEventData eventData)
+    private void GameFinish(InGameFinishEventData eventData)
     {
         PauseGame();
         UIManager.Instance.Open<GameResultUI>();

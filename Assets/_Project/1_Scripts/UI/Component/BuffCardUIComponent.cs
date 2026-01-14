@@ -36,7 +36,7 @@ public class BuffCardUIComponent : MonoBehaviour
 
     private void OnClickSelect()
     {
-        EventManager.Dispatch(GameEventType.BuffCardSelected, new GameBuffCardSelectEventData(currentCard));
+        EventManager.Dispatch(GameEventType.BuffCardSelected, new BuffCardSelectEventData(currentCard));
         UIManager.Instance.Close(parentUI);
     }
     
