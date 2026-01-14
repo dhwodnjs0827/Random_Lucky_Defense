@@ -90,7 +90,7 @@ public class HeroInfoUI : BaseUI
         heroView.UpdateHeroViewUIComponent(currentHeroData, currentHeroData.IsSelected);
 
         LevelUpHeroEventData data = new LevelUpHeroEventData(currentHeroData);
-        EventManager.Dispatch(GameEventType.ChangeSelectedHero, data);
+        EventManager.Dispatch(GameEventType.LevelUpHero, data);
         
         PlayerDataManager.Instance.SaveData(SaveDataType.Hero);
     }
