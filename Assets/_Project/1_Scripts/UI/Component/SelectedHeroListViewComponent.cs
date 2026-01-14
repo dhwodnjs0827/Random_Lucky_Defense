@@ -6,7 +6,7 @@ using UnityEngine;
 /// <summary>
 /// HeroManagerUI에서 사용 선택 영웅 리스트 표시용 UI 클래스
 /// </summary>
-public class SelectedHeroListViewComponent : MonoBehaviour
+public class SelectedHeroListViewComponent : MonoBehaviour, IEventListener
 {
     [SerializeField] private CurrentSelectedHeroView normalHero;
     [SerializeField] private CurrentSelectedHeroView superiorHero;
@@ -19,6 +19,8 @@ public class SelectedHeroListViewComponent : MonoBehaviour
     [SerializeField] private CurrentSelectedHeroView godHero;
 
     private Dictionary<HeroGradeType, CurrentSelectedHeroView> heroViewComponents;
+    
+    private Action<ChangeSelectedHeroEventData> onChangeSelectedHero;
 
     private void Awake()
     {
@@ -34,6 +36,16 @@ public class SelectedHeroListViewComponent : MonoBehaviour
             { HeroGradeType.Myth, mythHero },
             { HeroGradeType.God, godHero }
         };
+    }
+
+    private void OnEnable()
+    {
+        SubscribeEvents();
+    }
+
+    private void OnDisable()
+    {
+        UnsubscribeEvents();
     }
 
     public void ChangeHeroView(HeroClassType heroClassViewType)
@@ -59,5 +71,22 @@ public class SelectedHeroListViewComponent : MonoBehaviour
             HeroGradeText.text = $"{heroData.Grade}";
             Hero.UpdateHeroViewUIComponent(heroData, true);
         }
+    }
+
+    private void ChangeSelectedHero(ChangeSelectedHeroEventData eventData)
+    {
+        heroViewComponents[eventData.OldHeroData.Grade].UpdateView(eventData.NewHeroData);
+    }
+
+    public void SubscribeEvents()
+    {
+        onChangeSelectedHero += ChangeSelectedHero;
+        EventManager.Subscribe(GameEventType.ChangeSelectedHero, onChangeSelectedHero);
+    }
+
+    public void UnsubscribeEvents()
+    {
+        EventManager.Unsubscribe(GameEventType.ChangeSelectedHero, onChangeSelectedHero);
+        onChangeSelectedHero -= ChangeSelectedHero;
     }
 }

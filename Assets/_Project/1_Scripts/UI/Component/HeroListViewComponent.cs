@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using TMPro;
@@ -7,7 +8,7 @@ using UnityEngine.UI;
 /// <summary>
 /// HeroManagerUI에서 보유 영웅 리스트 표시용 UI 클래스
 /// </summary>
-public class HeroListViewComponent : MonoBehaviour
+public class HeroListViewComponent : MonoBehaviour, IEventListener
 {
     [Header("UI Components")] [SerializeField]
     private TextMeshProUGUI heroCollectionDamageBonusText;
@@ -22,12 +23,23 @@ public class HeroListViewComponent : MonoBehaviour
     private List<HeroViewComponent> currentHeroes = new();
     private HeroAlignmentType heroAlignmentType;
     
+    private Action<ChangeSelectedHeroEventData> onChangeSelectedHero;
 
     private void Awake()
     {
         PreloadHeroViewComponentPool();
         
         alignmentButton.onClick.AddListener(ChangeAlignmentType);
+    }
+
+    private void OnEnable()
+    {
+        SubscribeEvents();
+    }
+
+    private void OnDisable()
+    {
+        UnsubscribeEvents();
     }
 
     public void ResetAlignmentType()
@@ -94,5 +106,25 @@ public class HeroListViewComponent : MonoBehaviour
     {
         A,
         B,
+    }
+
+    private void ChangeSelectedHero(ChangeSelectedHeroEventData eventData)
+    {
+        var oldHeroIndex = currentHeroes.FindIndex(heroView => heroView.CurrentHeroData == eventData.OldHeroData);
+        currentHeroes[oldHeroIndex].UpdateHeroViewUIComponent(eventData.OldHeroData, eventData.OldHeroData.IsSelected);
+        var newHeroIndex = currentHeroes.FindIndex(heroView => heroView.CurrentHeroData == eventData.NewHeroData);
+        currentHeroes[newHeroIndex].UpdateHeroViewUIComponent(eventData.NewHeroData, eventData.NewHeroData.IsSelected);
+    }
+
+    public void SubscribeEvents()
+    {
+        onChangeSelectedHero += ChangeSelectedHero;
+        EventManager.Subscribe(GameEventType.ChangeSelectedHero, onChangeSelectedHero);
+    }
+
+    public void UnsubscribeEvents()
+    {
+        EventManager.Unsubscribe(GameEventType.ChangeSelectedHero, onChangeSelectedHero);
+        onChangeSelectedHero -= ChangeSelectedHero;
     }
 }

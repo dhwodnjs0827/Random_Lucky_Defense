@@ -8,6 +8,8 @@ public enum GameEventType
     GameFinish, // 게임 종료
     ApplicationQuit, // 앱 종료
     
+    ChangeSelectedHero, // 선택 영웅 변경
+    
     WaveStart, // 웨이브 시작
     
     SpawnHero, // 영웅 소환

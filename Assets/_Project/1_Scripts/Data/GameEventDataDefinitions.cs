@@ -2,6 +2,18 @@
 
 using Generated;
 
+public struct ChangeSelectedHeroEventData
+{
+    public readonly HeroRuntimeData OldHeroData;
+    public readonly HeroRuntimeData NewHeroData;
+
+    public ChangeSelectedHeroEventData(HeroRuntimeData oldHeroData, HeroRuntimeData newHeroData)
+    {
+        OldHeroData = oldHeroData;
+        NewHeroData = newHeroData;
+    }
+}
+
 public struct HeroSpawnEventData
 {
     public readonly BaseHero SpawnedHero;
