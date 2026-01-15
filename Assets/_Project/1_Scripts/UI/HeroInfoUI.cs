@@ -46,6 +46,9 @@ public class HeroInfoUI : BaseUI
         heroInfoText.text =
             $"공격력 : {currentHeroData.HeroData.AttackPower}\n공격속도 : {currentHeroData.HeroData.AttackSpeed}\n공격범위 : {currentHeroData.HeroData.AttackRange}\n스플래쉬 범위 : {currentHeroData.HeroData.SplashRange}";
         equipButtonText.text = currentHeroData.IsSelected ? "장착취소" : "장착";
+
+        levelUpButton.interactable = PlayerDataManager.Instance.Currency[CurrencyType.Gold] >= currentHeroData.LevelUpRequiredGold;
+        levelUpRequiredGoldText.text = $"레벨업\n골드: {currentHeroData.LevelUpRequiredGold}";
     }
 
     private void InitializeButtons()
@@ -66,10 +69,10 @@ public class HeroInfoUI : BaseUI
         var selectedHero = PlayerDataManager.Instance.AllHeroes.First(data =>
             data.IsSelected == true && data.Class == currentHeroData.Class && data.Grade == currentHeroData.Grade);
         PlayerDataManager.Instance.ChangeSelectedHero(selectedHero.ID, currentHeroData.ID);
-        
+
         heroView.UpdateHeroViewUIComponent(currentHeroData, currentHeroData.IsSelected);
         equipButtonText.text = currentHeroData.IsSelected ? "장착취소" : "장착";
-        
+
         ChangeSelectedHeroEventData data = new ChangeSelectedHeroEventData
         (
             selectedHero,
@@ -85,13 +88,21 @@ public class HeroInfoUI : BaseUI
             ToastManager.Instance.Show("요구량이 부족합니다");
             return;
         }
+
+        if (!PlayerDataManager.Instance.ChangeCurrency(CurrencyType.Gold, -currentHeroData.LevelUpRequiredGold))
+        {
+            return;
+        }
         currentHeroData.AcquiredStack -= currentHeroData.LevelUpRequiredStack;
         currentHeroData.Level++;
         heroView.UpdateHeroViewUIComponent(currentHeroData, currentHeroData.IsSelected);
+        
+        levelUpButton.interactable = PlayerDataManager.Instance.Currency[CurrencyType.Gold] >= currentHeroData.LevelUpRequiredGold;
+        levelUpRequiredGoldText.text = $"레벨업\n골드: {currentHeroData.LevelUpRequiredGold}";
 
         LevelUpHeroEventData data = new LevelUpHeroEventData(currentHeroData);
         EventManager.Dispatch(GameEventType.LevelUpHero, data);
-        
+
         PlayerDataManager.Instance.SaveData(SaveDataType.Hero);
     }
 }

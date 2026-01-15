@@ -16,6 +16,14 @@ public static class GameConstants
     public const int INCREASE_RANK_A_LEVEL_UP_REQUIRMENT_STACK = 1;
     public const int INCREASE_RANK_S_LEVEL_UP_REQUIRMENT_STACK = 0;
     
+    // 레벨 업 초기 골드 요구량
+    public const int INITIAL_LEVEL_UP_REQUIRMENT_GOLD = 500;
+    
+    // 랭크별 레벨 업 골드 요구 증가량
+    public const int INCREASE_RANK_B_LEVEL_UP_REQUIRMENT_GOLD = 200;
+    public const int INCREASE_RANK_A_LEVEL_UP_REQUIRMENT_GOLD = 250;
+    public const int INCREASE_RANK_S_LEVEL_UP_REQUIRMENT_GOLD = 300;
+    
     // 상점 영웅 가챠 랭크 확률
     public const int RANK_B_CHANCE = 72; // B 랭크 - 72%
     public const int RANK_A_CHANCE = 25; // A 랭크 - 25%
