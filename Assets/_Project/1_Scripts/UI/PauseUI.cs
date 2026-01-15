@@ -35,6 +35,8 @@ public class PauseUI : BaseUI
 
     private void OnClickExitGame()
     {
-        SceneLoadManager.Instance.LoadSceneAsync(SceneType.LobbyScene).Forget();
+        UIManager.Instance.Close(this);
+        EventManager.Dispatch(GameEventType.InGameFinish, new InGameFinishEventData(false));
+        FirebaseManager.Instance.LogEvent(nameof(GameEventType.InGameFinish), "isStageCleared", "false");
     }
 }
