@@ -102,10 +102,10 @@ public static class SaveDataFactory
             var heroGameData = new PlayerHeroSaveData
             {
                 ID = hero.HeroData.ID,
-                IsAcquiredHero = hero.IsAcquired,
+                IsAcquiredHero = hero.IsDefaultHero,
                 Level = 1,
                 AcquiredStack = 0,
-                IsSelected = hero.IsAcquired
+                IsSelected = hero.IsDefaultHero
             };
             data.HeroData.AllHeroes.Add(heroGameData);
         }

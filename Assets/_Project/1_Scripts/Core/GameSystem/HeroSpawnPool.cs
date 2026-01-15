@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Generated;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -33,6 +34,8 @@ public class HeroSpawnPool : MonoBehaviour
             
             heroDatas[heroData.Class].Add(heroData.Grade, heroData);
         }
+
+        CheckEmptyEquippedHeroes();
 
         InitializeClassPool(HeroClassType.Magician);
         InitializeClassPool(HeroClassType.Archer);
@@ -131,11 +134,35 @@ public class HeroSpawnPool : MonoBehaviour
         return HeroGradeType.Normal;
     }
     
+    /// <summary>
+    /// 빈 슬롯 체크 후 기본 영웅으로 할당
+    /// </summary>
     private void CheckEmptyEquippedHeroes()
     {
-        foreach (var kvp in heroDatas)
+        var initialConfig = ResourceManager.Instance.Load<InitialGameConfig>("Data/SO/InitialGameConfig");
+        var defaultHeroes = initialConfig.defaultHeroes;
+        var allGrades = Enum.GetValues(typeof(HeroGradeType));
+
+        foreach (var heroClassKvp in heroDatas)
         {
-            
+            var classType = heroClassKvp.Key;
+            var gradeDict = heroClassKvp.Value;
+
+            foreach (HeroGradeType grade in allGrades)
+            {
+                if (!gradeDict.ContainsKey(grade))
+                {
+                    var defaultHeroData = defaultHeroes.FirstOrDefault(h => h.ClassType == classType && h.GradeType == grade);
+                    if (defaultHeroData != null)
+                    {
+                        var heroRuntimeData = PlayerDataManager.Instance.AllHeroes.FirstOrDefault(h => h.HeroData == defaultHeroData);
+                        if (heroRuntimeData != null)
+                        {
+                            gradeDict.Add(grade, heroRuntimeData);
+                        }
+                    }
+                }
+            }
         }
     }
 }

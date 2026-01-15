@@ -20,7 +20,7 @@ public class InitialGameConfig : ScriptableObject
     [Header("Starting Heroes")]
     [Tooltip("직접 수정 금지!, 데이터 확인용"), SerializeField] public HeroConfigGroup Heroes;
     [SerializeField] private List<HeroDataSO> allHeroes;
-    [SerializeField] private List<HeroDataSO> initialHeroes;
+    public List<HeroDataSO> defaultHeroes;
     
     private void OnValidate()
     {
@@ -36,10 +36,10 @@ public class InitialGameConfig : ScriptableObject
         foreach (HeroDataSO hero in allHeroes)
         {
             var heroConfig = new InitialHeroConfig
-            {
-                HeroData = hero,
-                IsAcquired = initialHeroes != null && initialHeroes.Contains(hero)
-            };
+            (
+                hero,
+                defaultHeroes != null && defaultHeroes.Contains(hero)
+            );
 
             switch (hero.ClassType)
             {
@@ -71,5 +71,11 @@ public class HeroConfigGroup
 public struct InitialHeroConfig
 {
     public HeroDataSO HeroData;
-    public bool IsAcquired;
+    public bool IsDefaultHero;
+
+    public InitialHeroConfig(HeroDataSO heroData, bool isDefaultHero)
+    {
+        HeroData = heroData;
+        IsDefaultHero = isDefaultHero;
+    }
 }
