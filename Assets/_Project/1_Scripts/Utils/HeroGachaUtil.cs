@@ -84,20 +84,10 @@ public static class HeroGachaUtil
         var heroClass = RollClass();
         var heroGrade = RollGrade();
         var heroRank = RollRank();
-
-        var hero = HeroPool.FirstOrDefault(h =>
-            h.Class == heroClass &&
-            h.Grade == heroGrade &&
-            h.Rank == heroRank);
+        
+        var heroes = HeroPool.Where(h => h.Class == heroClass && h.Grade == heroGrade && h.Rank == heroRank).ToArray();
+        var hero = heroes[Random.Range(0, heroes.Length)];
 
         return hero;
     }
-}
-
-public struct HeroGachaResult
-{
-    public int HeroID;
-    public HeroClassType Class;
-    public HeroRankType Rank;
-    public HeroGradeType Grade;
 }

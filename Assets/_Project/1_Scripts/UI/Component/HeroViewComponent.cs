@@ -54,7 +54,7 @@ public class HeroViewComponent : MonoBehaviour
         }
 
         heroGradeText.text = $"{heroData.Grade}";
-        heroImage.sprite = ResourceManager.Instance.Load<Sprite>($"Sprites/Hero/{heroData.Class}_{heroData.Grade}");
+        heroImage.sprite = ResourceManager.Instance.Load<Sprite>($"Sprites/Hero/{heroData.Name}");
         heroRankText.text = $"{heroData.Rank}";
 
         isSelectedImage.gameObject.SetActive(isSelected);

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6720991023837117618}
   - component: {fileID: 7321370437756128148}
   m_Layer: 0
-  m_Name: Archer_Ancinet_Special
+  m_Name: Archer_Ancinet_Slow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
