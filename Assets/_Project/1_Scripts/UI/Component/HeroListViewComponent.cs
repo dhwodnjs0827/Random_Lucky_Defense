@@ -60,7 +60,7 @@ public class HeroListViewComponent : MonoBehaviour, IEventListener
             currentHeroes.Remove(currentHeroes[i]);
         }
 
-        var acquiredHeroes = PlayerDataManager.Instance.AllHeroes;
+        var acquiredHeroes = PlayerDataManager.Instance.HeroDB.AllHeroes;
         foreach (var hero in acquiredHeroes)
         {
             if (hero.Class != heroClassViewType || !hero.IsAcquiredHero)

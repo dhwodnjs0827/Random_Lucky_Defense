@@ -7,7 +7,7 @@ using UnityEngine;
 /// </summary>
 public static class HeroGachaUtil
 {
-    private static IList<HeroRuntimeData> HeroPool => PlayerDataManager.Instance.AllHeroes;
+    private static IList<HeroRuntimeData> HeroPool => PlayerDataManager.Instance.HeroDB.AllHeroes;
 
     private static readonly HeroClassType[] classTable =
     {

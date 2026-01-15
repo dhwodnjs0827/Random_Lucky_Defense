@@ -1,4 +1,3 @@
-using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -72,8 +71,7 @@ public class HeroInfoUI : BaseUI
 
     private void OnClickEquipButton()
     {
-        var selectedHero = PlayerDataManager.Instance.AllHeroes.FirstOrDefault(data =>
-            data.IsSelected && data.Class == currentHeroData.Class && data.Grade == currentHeroData.Grade);
+        var selectedHero = PlayerDataManager.Instance.HeroDB.GetSelectedHero(currentHeroData.Class, currentHeroData.Grade);
         PlayerDataManager.Instance.ChangeSelectedHero(selectedHero, currentHeroData);
 
         heroView.UpdateHeroViewUIComponent(currentHeroData, currentHeroData.IsSelected);

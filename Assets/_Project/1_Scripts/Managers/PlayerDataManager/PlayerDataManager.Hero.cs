@@ -1,22 +1,22 @@
 using System.Collections.Generic;
-using System.Linq;
 using Cysharp.Threading.Tasks;
 
 public partial class PlayerDataManager
 {
-    private List<HeroRuntimeData> allHeroes = new();
-
-    public IList<HeroRuntimeData> AllHeroes => allHeroes;
+    public HeroRuntimeDB HeroDB { get; private set; }
 
     /// <summary>
     /// 초기 선택 영웅 데이터 초기화
     /// </summary>
     private void InitializeHeroData(HeroSaveData data)
     {
+        var heroes = new List<HeroRuntimeData>();
         foreach (var hero in data.AllHeroes)
         {
-            allHeroes.Add(hero.Convert());
+            heroes.Add(hero.Convert());
         }
+
+        HeroDB = new HeroRuntimeDB(heroes);
     }
 
     /// <summary>
@@ -54,6 +54,8 @@ public partial class PlayerDataManager
             equipHero.IsSelected = true;
         }
 
+        HeroDB.UpdateSelectedHero(unequipHero, equipHero);
+
         if (isAutoSave)
         {
             SaveHeroData();
@@ -67,7 +69,7 @@ public partial class PlayerDataManager
     {
         var saveData = SaveLoadManager.Instance.SaveData;
         List<PlayerHeroSaveData> playerHeroSaveData = new List<PlayerHeroSaveData>();
-        foreach (var hero in allHeroes)
+        foreach (var hero in HeroDB.AllHeroes)
         {
             playerHeroSaveData.Add(hero.Convert());
         }
@@ -83,8 +85,7 @@ public partial class PlayerDataManager
     public float CalculateHeroAcquiredBonusDamage(HeroClassType heroClassType)
     {
         float bonusDamage = 0;
-        var acquiredHeroes = allHeroes.Where(hero => hero.Class == heroClassType).Where(hero => hero.IsAcquiredHero)
-            .ToArray();
+        var acquiredHeroes = HeroDB.GetAcquiredHeroesByClass(heroClassType);
         foreach (var hero in acquiredHeroes)
         {
             switch (hero.Rank)

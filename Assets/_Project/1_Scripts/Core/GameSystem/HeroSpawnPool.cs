@@ -17,7 +17,7 @@ public class HeroSpawnPool : MonoBehaviour
     private void Awake()
     {
         // PlayerDataManager에서 선택한 영웅 정보 갖고오기
-        var allHeroes = PlayerDataManager.Instance.AllHeroes;
+        var allHeroes = PlayerDataManager.Instance.HeroDB.AllHeroes;
         heroDatas.Clear();
         heroDatas = new()
         {
@@ -155,7 +155,7 @@ public class HeroSpawnPool : MonoBehaviour
                     var defaultHeroData = defaultHeroes.FirstOrDefault(h => h.ClassType == classType && h.GradeType == grade);
                     if (defaultHeroData != null)
                     {
-                        var heroRuntimeData = PlayerDataManager.Instance.AllHeroes.FirstOrDefault(h => h.HeroData == defaultHeroData);
+                        var heroRuntimeData = PlayerDataManager.Instance.HeroDB.GetByID(defaultHeroData.ID);
                         if (heroRuntimeData != null)
                         {
                             gradeDict.Add(grade, heroRuntimeData);

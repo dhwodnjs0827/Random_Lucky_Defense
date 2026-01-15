@@ -1,7 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using TMPro;
 using UnityEngine;
 
 /// <summary>
@@ -54,9 +52,7 @@ public class SelectedHeroListViewComponent : MonoBehaviour, IEventListener
     public void ChangeHeroView(HeroClassType heroClassViewType)
     {
         currentHeroViewType = heroClassViewType;
-        var equippedHeroes = PlayerDataManager.Instance.AllHeroes
-            .Where(h => h.Class == heroClassViewType && h.IsSelected)
-            .ToDictionary(h => h.Grade);
+        var equippedHeroes = PlayerDataManager.Instance.HeroDB.GetSelectedHeroesByClass(heroClassViewType);
 
         foreach (var (grade, viewComponent) in heroViewComponents)
         {
