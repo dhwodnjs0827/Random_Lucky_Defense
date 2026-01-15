@@ -6,6 +6,11 @@ public static class GameConstants
     // 게임 시작 씬
     public const SceneType START_SCENE = SceneType.TitleScene;
     
+    // 영웅 보유 효과
+    public const float RANK_B_ACQUIRED_BONUS_DAMAGE = 0.002f;
+    public const float RANK_A_ACQUIRED_BONUS_DAMAGE = 0.006f;
+    public const float RANK_S_ACQUIRED_BONUS_DAMAGE = 0.02f;
+    
     // 랭크별 레벨 업 요구 초기 스택
     public const int INITAIL_RANK_B_LEVEL_UP_REQUIRMENT_STACK = 5;
     public const int INITAIL_RANK_A_LEVEL_UP_REQUIRMENT_STACK = 3;

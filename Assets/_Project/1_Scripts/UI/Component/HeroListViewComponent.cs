@@ -19,7 +19,8 @@ public class HeroListViewComponent : MonoBehaviour, IEventListener
 
     [Header("Hero View Prefab")] [SerializeField]
     private HeroViewComponent heroViewPrefab;
-    
+
+    private HeroClassType currentHeroViewType;
     private List<HeroViewComponent> currentHeroes = new();
     private HeroAlignmentType heroAlignmentType;
     
@@ -50,6 +51,9 @@ public class HeroListViewComponent : MonoBehaviour, IEventListener
 
     public void ChangeHeroView(HeroClassType heroClassViewType)
     {
+        currentHeroViewType = heroClassViewType;
+        heroCollectionDamageBonusText.text = $"영웅 보유 데미지 증가 : {PlayerDataManager.Instance.CalculateHeroAcquiredBonusDamage(heroClassViewType) * 100:N1}%";
+        
         for (var i = currentHeroes.Count - 1; i >= 0; i--)
         {
             ObjectPoolManager.Instance.Release(currentHeroes[i]);
@@ -121,6 +125,8 @@ public class HeroListViewComponent : MonoBehaviour, IEventListener
     {
         var newHeroIndex = currentHeroes.FindIndex(heroView => heroView.CurrentHeroData == eventData.LevelUpHeroData);
         currentHeroes[newHeroIndex].UpdateHeroViewUIComponent(eventData.LevelUpHeroData, eventData.LevelUpHeroData.IsSelected);
+        
+        heroCollectionDamageBonusText.text = $"영웅 보유 데미지 증가 : {PlayerDataManager.Instance.CalculateHeroAcquiredBonusDamage(currentHeroViewType) * 100:N1}%";
     }
 
     public void SubscribeEvents()

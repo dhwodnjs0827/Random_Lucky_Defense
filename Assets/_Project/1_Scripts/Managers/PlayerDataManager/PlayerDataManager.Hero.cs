@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using Cysharp.Threading.Tasks;
 
 public partial class PlayerDataManager
@@ -72,5 +73,31 @@ public partial class PlayerDataManager
         }
         saveData.HeroData.AllHeroes = playerHeroSaveData;
         SaveLoadManager.Instance.SaveAsync(saveData).Forget();
+    }
+
+    /// <summary>
+    /// 영웅 보유 데미지 증가 계산
+    /// </summary>
+    /// <returns>보너스 데미지 증가 배율(% 아님!)</returns>
+    public float CalculateHeroAcquiredBonusDamage(HeroClassType heroClassType)
+    {
+        float bonusDamage = 0;
+        var acquiredHeroes = allHeroes.Where(hero => hero.Class == heroClassType).Where(hero => hero.IsAcquiredHero).ToArray();
+        foreach (var hero in acquiredHeroes)
+        {
+            switch (hero.Rank)
+            {
+                case HeroRankType.B:
+                    bonusDamage += hero.Level * GameConstants.RANK_B_ACQUIRED_BONUS_DAMAGE;
+                    break;
+                case HeroRankType.A:
+                    bonusDamage += hero.Level * GameConstants.RANK_A_ACQUIRED_BONUS_DAMAGE;
+                    break;
+                case HeroRankType.S:
+                    bonusDamage += hero.Level * GameConstants.RANK_S_ACQUIRED_BONUS_DAMAGE;
+                    break;
+            }
+        }
+        return bonusDamage;
     }
 }
