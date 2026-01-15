@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using UnityEngine;
 
@@ -8,17 +9,18 @@ using UnityEngine;
 /// </summary>
 public class SelectedHeroListViewComponent : MonoBehaviour, IEventListener
 {
-    [SerializeField] private CurrentSelectedHeroView normalHero;
-    [SerializeField] private CurrentSelectedHeroView superiorHero;
-    [SerializeField] private CurrentSelectedHeroView rareHero;
-    [SerializeField] private CurrentSelectedHeroView ancientHero;
-    [SerializeField] private CurrentSelectedHeroView relicHero;
-    [SerializeField] private CurrentSelectedHeroView legendHero;
-    [SerializeField] private CurrentSelectedHeroView epicHero;
-    [SerializeField] private CurrentSelectedHeroView mythHero;
-    [SerializeField] private CurrentSelectedHeroView godHero;
+    [SerializeField] private HeroViewComponent normalHero;
+    [SerializeField] private HeroViewComponent superiorHero;
+    [SerializeField] private HeroViewComponent rareHero;
+    [SerializeField] private HeroViewComponent ancientHero;
+    [SerializeField] private HeroViewComponent relicHero;
+    [SerializeField] private HeroViewComponent legendHero;
+    [SerializeField] private HeroViewComponent epicHero;
+    [SerializeField] private HeroViewComponent mythHero;
+    [SerializeField] private HeroViewComponent godHero;
 
-    private Dictionary<HeroGradeType, CurrentSelectedHeroView> heroViewComponents;
+    private Dictionary<HeroGradeType, HeroViewComponent> heroViewComponents;
+    private HeroClassType currentHeroViewType;
 
     private Action<ChangeSelectedHeroEventData> onChangeSelectedHero;
     private Action<LevelUpHeroEventData> onLevelUpHero;
@@ -51,24 +53,41 @@ public class SelectedHeroListViewComponent : MonoBehaviour, IEventListener
 
     public void ChangeHeroView(HeroClassType heroClassViewType)
     {
-        var allHeroes = PlayerDataManager.Instance.AllHeroes;
-        foreach (var heroData in allHeroes)
+        currentHeroViewType = heroClassViewType;
+        var equippedHeroes = PlayerDataManager.Instance.AllHeroes
+            .Where(h => h.Class == heroClassViewType && h.IsSelected)
+            .ToDictionary(h => h.Grade);
+
+        foreach (var (grade, viewComponent) in heroViewComponents)
         {
-            if (heroData.Class == heroClassViewType && heroData.IsSelected)
+            if (equippedHeroes.TryGetValue(grade, out var heroData))
             {
-                heroViewComponents[heroData.Grade].UpdateView(heroData);
+                viewComponent.gameObject.SetActive(true);
+                viewComponent.UpdateHeroViewUIComponent(heroData, true);
+            }
+            else
+            {
+                viewComponent.gameObject.SetActive(false);
             }
         }
     }
-    
+
     private void ChangeSelectedHero(ChangeSelectedHeroEventData eventData)
     {
-        heroViewComponents[eventData.OldHeroData.Grade].UpdateView(eventData.NewHeroData);
+        if (eventData.EquipHeroData != null)
+        {
+            heroViewComponents[eventData.EquipHeroData.Grade].gameObject.SetActive(true);
+            heroViewComponents[eventData.EquipHeroData.Grade].UpdateHeroViewUIComponent(eventData.EquipHeroData, true);
+        }
+        else
+        {
+            heroViewComponents[eventData.UnequipHeroData.Grade].gameObject.SetActive(false);
+        }
     }
 
     private void LevelUpHero(LevelUpHeroEventData eventData)
     {
-        heroViewComponents[eventData.LevelUpHeroData.Grade].UpdateView(eventData.LevelUpHeroData);
+        heroViewComponents[eventData.LevelUpHeroData.Grade].UpdateHeroViewUIComponent(eventData.LevelUpHeroData, true);
     }
 
     public void SubscribeEvents()
@@ -85,18 +104,5 @@ public class SelectedHeroListViewComponent : MonoBehaviour, IEventListener
         onChangeSelectedHero -= ChangeSelectedHero;
         EventManager.Unsubscribe(GameEventType.LevelUpHero, onLevelUpHero);
         onLevelUpHero -= LevelUpHero;
-    }
-
-    [Serializable]
-    private struct CurrentSelectedHeroView
-    {
-        public TextMeshProUGUI HeroGradeText;
-        public HeroViewComponent Hero;
-
-        public void UpdateView(HeroRuntimeData heroData)
-        {
-            HeroGradeText.text = $"{heroData.Grade}";
-            Hero.UpdateHeroViewUIComponent(heroData, true);
-        }
     }
 }

@@ -4,13 +4,13 @@ using Generated;
 
 public struct ChangeSelectedHeroEventData
 {
-    public readonly HeroRuntimeData OldHeroData;
-    public readonly HeroRuntimeData NewHeroData;
+    public readonly HeroRuntimeData UnequipHeroData;
+    public readonly HeroRuntimeData EquipHeroData;
 
-    public ChangeSelectedHeroEventData(HeroRuntimeData oldHeroData, HeroRuntimeData newHeroData)
+    public ChangeSelectedHeroEventData(HeroRuntimeData unequipHeroData, HeroRuntimeData equipHeroData)
     {
-        OldHeroData = oldHeroData;
-        NewHeroData = newHeroData;
+        UnequipHeroData = unequipHeroData;
+        EquipHeroData = equipHeroData;
     }
 }
 

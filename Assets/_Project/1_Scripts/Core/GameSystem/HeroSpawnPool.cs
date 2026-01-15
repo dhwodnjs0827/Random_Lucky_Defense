@@ -9,8 +9,8 @@ using Random = UnityEngine.Random;
 /// </summary>
 public class HeroSpawnPool : MonoBehaviour
 {
-    private Dictionary<HeroClassType, Dictionary<HeroGradeType, HeroDataSO>> heroDatas = new();
-    private Dictionary<HeroClassType, Dictionary<HeroGradeType, BaseHero>> heroPrefabs = new();
+    private Dictionary<HeroClassType, Dictionary<HeroGradeType, HeroRuntimeData>> heroDatas = new();
+    private readonly Dictionary<HeroClassType, Dictionary<HeroGradeType, BaseHero>> heroPrefabs = new();
     private List<(HeroGradeType, int)> heroSpawnChance;
 
     private void Awake()
@@ -20,9 +20,9 @@ public class HeroSpawnPool : MonoBehaviour
         heroDatas.Clear();
         heroDatas = new()
         {
-            { HeroClassType.Magician, new Dictionary<HeroGradeType, HeroDataSO>() },
-            { HeroClassType.Archer, new Dictionary<HeroGradeType, HeroDataSO>() },
-            { HeroClassType.Warrior, new Dictionary<HeroGradeType, HeroDataSO>() },
+            { HeroClassType.Magician, new Dictionary<HeroGradeType, HeroRuntimeData>() },
+            { HeroClassType.Archer, new Dictionary<HeroGradeType, HeroRuntimeData>() },
+            { HeroClassType.Warrior, new Dictionary<HeroGradeType, HeroRuntimeData>() },
         };
         foreach (var heroData in allHeroes)
         {
@@ -30,9 +30,8 @@ public class HeroSpawnPool : MonoBehaviour
             {
                 continue;
             }
-
-            var so = ResourceManager.Instance.Load<HeroDataSO>($"Data/SO/HeroData/{heroData.ID}");
-            heroDatas[heroData.Class].Add(heroData.Grade, so);
+            
+            heroDatas[heroData.Class].Add(heroData.Grade, heroData);
         }
 
         InitializeClassPool(HeroClassType.Magician);
@@ -51,7 +50,7 @@ public class HeroSpawnPool : MonoBehaviour
         var randomGrade = GetRandomGrade();
         var classPrefabDict = heroPrefabs[randomClass];
         var hero = ObjectPoolManager.Instance.Get(classPrefabDict[randomGrade]);
-        hero.Initialize(heroDatas[randomClass][randomGrade]);
+        hero.Initialize(heroDatas[randomClass][randomGrade].HeroData);
         return hero;
     }
 
@@ -130,5 +129,13 @@ public class HeroSpawnPool : MonoBehaviour
         }
 
         return HeroGradeType.Normal;
+    }
+    
+    private void CheckEmptyEquippedHeroes()
+    {
+        foreach (var kvp in heroDatas)
+        {
+            
+        }
     }
 }

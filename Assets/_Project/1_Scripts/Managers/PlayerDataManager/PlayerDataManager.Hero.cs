@@ -5,9 +5,9 @@ using Cysharp.Threading.Tasks;
 public partial class PlayerDataManager
 {
     private List<HeroRuntimeData> allHeroes = new();
-    
+
     public IList<HeroRuntimeData> AllHeroes => allHeroes;
-    
+
     /// <summary>
     /// 초기 선택 영웅 데이터 초기화
     /// </summary>
@@ -22,18 +22,15 @@ public partial class PlayerDataManager
     /// <summary>
     /// 영웅 획득
     /// </summary>
-    public void AcquireHero(int acquiredHeroID, bool isAutoSave = true)
+    public void AcquireHero(HeroRuntimeData acquiredHero, bool isAutoSave = true)
     {
-        var index = allHeroes.FindIndex(hero => hero.ID == acquiredHeroID);
-        if (index < 0) return;
-        
-        if (!allHeroes[index].IsAcquiredHero)
+        if (!acquiredHero.IsAcquiredHero)
         {
-            allHeroes[index].IsAcquiredHero = true;
+            acquiredHero.IsAcquiredHero = true;
         }
         else
         {
-            allHeroes[index].AcquiredStack++;
+            acquiredHero.AcquiredStack++;
         }
 
         if (isAutoSave)
@@ -45,21 +42,24 @@ public partial class PlayerDataManager
     /// <summary>
     /// 사용할 영웅 변경
     /// </summary>
-    public void ChangeSelectedHero(int currentHeroID, int newHeroID, bool isAutoSave = true)
+    public void ChangeSelectedHero(HeroRuntimeData unequipHero, HeroRuntimeData equipHero, bool isAutoSave = true)
     {
-        var currentIndex = allHeroes.FindIndex(hero => hero.ID == currentHeroID);
-        var newIndex = allHeroes.FindIndex(hero => hero.ID == newHeroID);
-        if (currentIndex < 0 || newIndex < 0) return;
+        if (unequipHero != null)
+        {
+            unequipHero.IsSelected = false;
+        }
 
-        allHeroes[currentIndex].IsSelected = false;
-        allHeroes[newIndex].IsSelected = true;
+        if (equipHero != null)
+        {
+            equipHero.IsSelected = true;
+        }
 
         if (isAutoSave)
         {
             SaveHeroData();
         }
     }
-    
+
     /// <summary>
     /// 영웅 데이터 저장
     /// </summary>
@@ -71,6 +71,7 @@ public partial class PlayerDataManager
         {
             playerHeroSaveData.Add(hero.Convert());
         }
+
         saveData.HeroData.AllHeroes = playerHeroSaveData;
         SaveLoadManager.Instance.SaveAsync(saveData).Forget();
     }
@@ -82,7 +83,8 @@ public partial class PlayerDataManager
     public float CalculateHeroAcquiredBonusDamage(HeroClassType heroClassType)
     {
         float bonusDamage = 0;
-        var acquiredHeroes = allHeroes.Where(hero => hero.Class == heroClassType).Where(hero => hero.IsAcquiredHero).ToArray();
+        var acquiredHeroes = allHeroes.Where(hero => hero.Class == heroClassType).Where(hero => hero.IsAcquiredHero)
+            .ToArray();
         foreach (var hero in acquiredHeroes)
         {
             switch (hero.Rank)
@@ -98,6 +100,7 @@ public partial class PlayerDataManager
                     break;
             }
         }
+
         return bonusDamage;
     }
 }

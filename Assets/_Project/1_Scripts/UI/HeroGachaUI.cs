@@ -36,7 +36,7 @@ public class HeroGachaUI : BaseUI
         gachaResults = HeroGachaUtil.Gacha(gachaCount);
         foreach (var gachaResult in gachaResults)
         {
-            PlayerDataManager.Instance.AcquireHero(gachaResult.ID, false);
+            PlayerDataManager.Instance.AcquireHero(gachaResult, false);
         }
 
         PlayerDataManager.Instance.SaveData(SaveDataType.Hero);

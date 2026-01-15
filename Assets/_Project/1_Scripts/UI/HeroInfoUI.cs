@@ -10,7 +10,7 @@ public class HeroInfoUI : BaseUI
     [SerializeField] private TextMeshProUGUI heroInfoText;
     [SerializeField] private TextMeshProUGUI heroOwnedBonusDamageText;
     [SerializeField] private Button equipButton;
-    [SerializeField] private TextMeshProUGUI equipButtonText;
+    [SerializeField] private Button unequipButton;
     [SerializeField] private Button levelUpButton;
     [SerializeField] private TextMeshProUGUI levelUpRequiredGoldText;
 
@@ -45,8 +45,9 @@ public class HeroInfoUI : BaseUI
         heroView.UpdateHeroViewUIComponent(currentHeroData, currentHeroData.IsSelected);
         heroInfoText.text =
             $"공격력 : {currentHeroData.HeroData.AttackPower}\n공격속도 : {currentHeroData.HeroData.AttackSpeed}\n공격범위 : {currentHeroData.HeroData.AttackRange}\n스플래쉬 범위 : {currentHeroData.HeroData.SplashRange}";
-        equipButtonText.text = currentHeroData.IsSelected ? "장착취소" : "장착";
 
+        equipButton.gameObject.SetActive(!currentHeroData.IsSelected);
+        unequipButton.gameObject.SetActive(currentHeroData.IsSelected);
         levelUpButton.interactable = PlayerDataManager.Instance.Currency[CurrencyType.Gold] >= currentHeroData.LevelUpRequiredGold;
         levelUpRequiredGoldText.text = $"레벨업\n골드: {currentHeroData.LevelUpRequiredGold}";
     }
@@ -58,6 +59,11 @@ public class HeroInfoUI : BaseUI
             equipButton.onClick.AddListener(OnClickEquipButton);
         }
 
+        if (unequipButton != null)
+        {
+            unequipButton.onClick.AddListener(OnClickUnequipButton);
+        }
+
         if (levelUpButton != null)
         {
             levelUpButton.onClick.AddListener(OnClickLevelUpButton);
@@ -66,17 +72,36 @@ public class HeroInfoUI : BaseUI
 
     private void OnClickEquipButton()
     {
-        var selectedHero = PlayerDataManager.Instance.AllHeroes.First(data =>
-            data.IsSelected == true && data.Class == currentHeroData.Class && data.Grade == currentHeroData.Grade);
-        PlayerDataManager.Instance.ChangeSelectedHero(selectedHero.ID, currentHeroData.ID);
+        var selectedHero = PlayerDataManager.Instance.AllHeroes.FirstOrDefault(data =>
+            data.IsSelected && data.Class == currentHeroData.Class && data.Grade == currentHeroData.Grade);
+        PlayerDataManager.Instance.ChangeSelectedHero(selectedHero, currentHeroData);
 
         heroView.UpdateHeroViewUIComponent(currentHeroData, currentHeroData.IsSelected);
-        equipButtonText.text = currentHeroData.IsSelected ? "장착취소" : "장착";
+
+        equipButton.gameObject.SetActive(false);
+        unequipButton.gameObject.SetActive(true);
 
         ChangeSelectedHeroEventData data = new ChangeSelectedHeroEventData
         (
             selectedHero,
             currentHeroData
+        );
+        EventManager.Dispatch(GameEventType.ChangeSelectedHero, data);
+    }
+
+    private void OnClickUnequipButton()
+    {
+        PlayerDataManager.Instance.ChangeSelectedHero(currentHeroData, null);
+
+        heroView.UpdateHeroViewUIComponent(currentHeroData, currentHeroData.IsSelected);
+        
+        equipButton.gameObject.SetActive(true);
+        unequipButton.gameObject.SetActive(false);
+        
+        ChangeSelectedHeroEventData data = new ChangeSelectedHeroEventData
+        (
+            currentHeroData,
+            null
         );
         EventManager.Dispatch(GameEventType.ChangeSelectedHero, data);
     }

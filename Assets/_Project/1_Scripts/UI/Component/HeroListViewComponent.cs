@@ -115,10 +115,17 @@ public class HeroListViewComponent : MonoBehaviour, IEventListener
 
     private void ChangeSelectedHero(ChangeSelectedHeroEventData eventData)
     {
-        var oldHeroIndex = currentHeroes.FindIndex(heroView => heroView.CurrentHeroData == eventData.OldHeroData);
-        currentHeroes[oldHeroIndex].UpdateHeroViewUIComponent(eventData.OldHeroData, eventData.OldHeroData.IsSelected);
-        var newHeroIndex = currentHeroes.FindIndex(heroView => heroView.CurrentHeroData == eventData.NewHeroData);
-        currentHeroes[newHeroIndex].UpdateHeroViewUIComponent(eventData.NewHeroData, eventData.NewHeroData.IsSelected);
+        if (eventData.UnequipHeroData != null)
+        {
+            var unequipHeroIndex = currentHeroes.FindIndex(heroView => heroView.CurrentHeroData == eventData.UnequipHeroData);
+            currentHeroes[unequipHeroIndex].UpdateHeroViewUIComponent(eventData.UnequipHeroData, eventData.UnequipHeroData.IsSelected);
+        }
+
+        if (eventData.EquipHeroData != null)
+        {
+            var equipHeroIndex = currentHeroes.FindIndex(heroView => heroView.CurrentHeroData == eventData.EquipHeroData);
+            currentHeroes[equipHeroIndex].UpdateHeroViewUIComponent(eventData.EquipHeroData, eventData.EquipHeroData.IsSelected);
+        }
     }
 
     private void LevelUpHero(LevelUpHeroEventData eventData)
