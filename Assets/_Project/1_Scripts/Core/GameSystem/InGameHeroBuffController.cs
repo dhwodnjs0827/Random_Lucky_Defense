@@ -8,9 +8,11 @@ public class InGameHeroBuffController : IEventListener, IBuffCardEffect
 {
     private Dictionary<HeroClassType, HeroStat> levelUpStats = new();
     private Dictionary<HeroClassType, HeroStat> cardEffectStats = new();
+    private Dictionary<HeroClassType, float> acquiredHeroBonusDamages = new();
     
     public Dictionary<HeroClassType, HeroStat> LevelUpStats => levelUpStats;
     public Dictionary<HeroClassType, HeroStat> CardEffectStats => cardEffectStats;
+    public Dictionary<HeroClassType, float> AcquiredHeroBonusDamages => acquiredHeroBonusDamages;
     
     private Action<InGameLevelUpEventData> onLevelUp;
 
@@ -23,6 +25,10 @@ public class InGameHeroBuffController : IEventListener, IBuffCardEffect
         cardEffectStats.Add(HeroClassType.Magician, new HeroStat());
         cardEffectStats.Add(HeroClassType.Archer, new HeroStat());
         cardEffectStats.Add(HeroClassType.Warrior, new HeroStat());
+        
+        acquiredHeroBonusDamages.Add(HeroClassType.Magician, 1f + PlayerDataManager.Instance.CalculateHeroAcquiredBonusDamage(HeroClassType.Magician));
+        acquiredHeroBonusDamages.Add(HeroClassType.Archer, 1f + PlayerDataManager.Instance.CalculateHeroAcquiredBonusDamage(HeroClassType.Archer));
+        acquiredHeroBonusDamages.Add(HeroClassType.Warrior, 1f + PlayerDataManager.Instance.CalculateHeroAcquiredBonusDamage(HeroClassType.Warrior));
     }
 
     public void SubscribeEvents()

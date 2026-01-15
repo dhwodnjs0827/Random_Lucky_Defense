@@ -73,6 +73,7 @@ public class HeroAttackState : BaseHeroState
             hero.BaseStat,
             hero.LevelUpStat,
             hero.CardEffectStat,
+            hero.AcquiredHeroBonusDamage,
             hero.ClassType
         );
         projectile.Initialize(projectileData);
