@@ -139,8 +139,6 @@ public class EnemyWaveController : MonoBehaviour, IEventListener
         spawnInterval = currentWaveData.SpawnInterval;
         spawnTimer = 0f;
         
-        //TODO: 추후 변경하기
-        //currentSpawnEnemyPrefab = resourceManager.Load<BaseEnemy>($"Prefabs/Enemy/{currentWaveData.SpawnEnemyID}");
         currentSpawnEnemyData = resourceManager.Load<EnemyDataSO>($"Data/SO/EnemyData/{currentWaveData.SpawnEnemyID}");
         currentSpawnEnemyPrefab = resourceManager.Load<BaseEnemy>($"Prefabs/Enemy/{currentSpawnEnemyData.MonsterType}_{currentSpawnEnemyData.EnemyType}");
 
@@ -160,7 +158,8 @@ public class EnemyWaveController : MonoBehaviour, IEventListener
     {
         if (currentWaveDataIndex >= waveDatas.Length && spawnedEnemyCount == 0)
         {
-            EventManager.Dispatch(GameEventType.InGameFinish, new InGameFinishEventData(false));
+            EventManager.Dispatch(GameEventType.InGameFinish, new InGameFinishEventData(true));
+            FirebaseManager.Instance.LogEvent(nameof(GameEventType.InGameFinish), "isStageCleared", "true");
         }
     }
     
@@ -169,6 +168,7 @@ public class EnemyWaveController : MonoBehaviour, IEventListener
         if (spawnedEnemyCount == GameConstants.MAX_ENEMY_COUNT)
         {
             EventManager.Dispatch(GameEventType.InGameFinish, new InGameFinishEventData(false));
+            FirebaseManager.Instance.LogEvent(nameof(GameEventType.InGameFinish), "isStageCleared", "false");
         }
     }
 }

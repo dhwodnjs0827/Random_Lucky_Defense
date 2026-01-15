@@ -10,6 +10,7 @@ public partial class FirebaseManager
     {
         if (!isInitialized) return;
         FirebaseAnalytics.LogEvent(eventName);
+        CDebug.Log($"[Firebase Analytics] eventName: {eventName}");
     }
 
     /// <summary>
@@ -19,6 +20,7 @@ public partial class FirebaseManager
     {
         if (!isInitialized) return;
         FirebaseAnalytics.LogEvent(eventName, paramName, paramValue);
+        CDebug.Log($"[Firebase Analytics] eventName: {eventName}, paramName: {paramName}, paramValue: {paramValue}");
     }
 
     /// <summary>
@@ -28,6 +30,7 @@ public partial class FirebaseManager
     {
         if (!isInitialized) return;
         FirebaseAnalytics.LogEvent(eventName, paramName, paramValue);
+        CDebug.Log($"[Firebase Analytics] eventName: {eventName}, paramName: {paramName}, paramValue: {paramValue}");
     }
 
     /// <summary>
