@@ -12,7 +12,7 @@ public class HeroSpawnPool : MonoBehaviour
 {
     private Dictionary<HeroClassType, Dictionary<HeroGradeType, HeroRuntimeData>> heroDatas = new();
     private readonly Dictionary<HeroClassType, Dictionary<HeroGradeType, BaseHero>> heroPrefabs = new();
-    private List<(HeroGradeType, int)> heroSpawnChance;
+    private List<(HeroGradeType Grade, int Chance)> heroSpawnChance;
 
     private void Awake()
     {
@@ -117,17 +117,17 @@ public class HeroSpawnPool : MonoBehaviour
         int totalChance = 0;
         foreach (var pair in heroSpawnChance)
         {
-            totalChance += pair.Item2;
+            totalChance += pair.Chance;
         }
 
         int rand = Random.Range(0, totalChance);
         int accumulation = 0;
         foreach (var pair in heroSpawnChance)
         {
-            accumulation += pair.Item2;
+            accumulation += pair.Chance;
             if (rand < accumulation)
             {
-                return pair.Item1;
+                return pair.Grade;
             }
         }
 
