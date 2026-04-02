@@ -13,11 +13,15 @@ public class ChangeHeroClassViewButtonComponent : MonoBehaviour
     
     public event Action<HeroClassType> OnChangeHeroClassViewType;
 
+    #region Unity
+    
     private void Awake()
     {
         InitializeButton();
     }
-
+    
+    #endregion Unity
+    
     public void ActiveIndicator(HeroClassType selectedHeroClassType)
     {
         indicator.SetActive(selectedHeroClassType == heroClassType);

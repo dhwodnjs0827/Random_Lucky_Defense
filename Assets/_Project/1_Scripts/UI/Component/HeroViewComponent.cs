@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 /// <summary>
-/// HeroManagerUI에서 영웅 표시용 UI 클래스
+/// HeroManagerUI에서 각각의 영웅 표시용 UI 클래스
 /// </summary>
 public class HeroViewComponent : MonoBehaviour
 {

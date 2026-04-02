@@ -17,11 +17,12 @@ public class SelectedHeroListViewComponent : MonoBehaviour, IEventListener
     [SerializeField] private HeroViewComponent mythHero;
     [SerializeField] private HeroViewComponent godHero;
 
-    private Dictionary<HeroGradeType, HeroViewComponent> heroViewComponents;
-    private HeroClassType currentHeroViewType;
+    private Dictionary<HeroGradeType, HeroViewComponent> heroViewComponents; // 영웅 등급과 1대1 매칭을 위한 Dictionary
 
     private Action<ChangeSelectedHeroEventData> onChangeSelectedHero;
     private Action<LevelUpHeroEventData> onLevelUpHero;
+
+    #region Unity
 
     private void Awake()
     {
@@ -49,25 +50,36 @@ public class SelectedHeroListViewComponent : MonoBehaviour, IEventListener
         UnsubscribeEvents();
     }
 
+    #endregion Unity
+    
+    /// <summary>
+    /// 유저가 선택한 영웅 데이터로 UI 변경
+    /// </summary>
+    /// <param name="heroClassViewType">보여질 영웅 클래스 타입</param>
     public void ChangeHeroView(HeroClassType heroClassViewType)
     {
-        currentHeroViewType = heroClassViewType;
+        // 유저가 선택한 영웅 클래스 타입에 맞는 영웅들의 데이터 가져오기
         var equippedHeroes = PlayerDataManager.Instance.HeroDB.GetSelectedHeroesByClass(heroClassViewType);
 
-        foreach (var (grade, viewComponent) in heroViewComponents)
+        // 등급에 맞게 ViewComponent에 데이터 넣기
+        foreach (var (gradeType, viewComponent) in heroViewComponents)
         {
-            if (equippedHeroes.TryGetValue(grade, out var heroData))
+            if (equippedHeroes.TryGetValue(gradeType, out var heroData)) // 영웅 데이터가 있으면 ViewComponent 활성화 및 데이터 세팅
             {
                 viewComponent.gameObject.SetActive(true);
                 viewComponent.UpdateHeroViewUIComponent(heroData, true);
             }
-            else
+            else // 영웅 데이터가 없으면 ViewComponent 비활성화
             {
                 viewComponent.gameObject.SetActive(false);
             }
         }
     }
 
+    /// <summary>
+    /// 사용할 영웅 변경 이벤트
+    /// </summary>
+    /// <param name="eventData">변경할 영웅 데이터</param>
     private void ChangeSelectedHero(ChangeSelectedHeroEventData eventData)
     {
         if (eventData.EquipHeroData != null)
@@ -81,6 +93,10 @@ public class SelectedHeroListViewComponent : MonoBehaviour, IEventListener
         }
     }
 
+    /// <summary>
+    /// 현재 선택된 영웅 레벨업 이벤트
+    /// </summary>
+    /// <param name="eventData">레벨 업 할 영웅 데이터</param>
     private void LevelUpHero(LevelUpHeroEventData eventData)
     {
         heroViewComponents[eventData.LevelUpHeroData.Grade].UpdateHeroViewUIComponent(eventData.LevelUpHeroData, true);

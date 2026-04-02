@@ -27,6 +27,8 @@ public class HeroListViewComponent : MonoBehaviour, IEventListener
     private Action<ChangeSelectedHeroEventData> onChangeSelectedHero;
     private Action<LevelUpHeroEventData> onLevelUpHero;
 
+    #region Unity
+
     private void Awake()
     {
         PreloadHeroViewComponentPool();
@@ -44,11 +46,20 @@ public class HeroListViewComponent : MonoBehaviour, IEventListener
         UnsubscribeEvents();
     }
 
+    #endregion Unity
+    
+    /// <summary>
+    /// 정렬 방법 기본값으로 초기화
+    /// </summary>
     public void ResetAlignmentType()
     {
         heroAlignmentType = HeroAlignmentType.A;
     }
 
+    /// <summary>
+    /// 보여지는 영웅 리스트 뷰 변경
+    /// </summary>
+    /// <param name="heroClassViewType">보여질 영웅 클래스 타입</param>
     public void ChangeHeroView(HeroClassType heroClassViewType)
     {
         currentHeroViewType = heroClassViewType;
@@ -76,17 +87,27 @@ public class HeroListViewComponent : MonoBehaviour, IEventListener
         AlignmentHeroList(heroAlignmentType);
     }
 
+    /// <summary>
+    /// 영웅 슬롯 UI 컴포넌트 프리팹 풀 초기화
+    /// </summary>
     private void PreloadHeroViewComponentPool()
     {
         ObjectPoolManager.Instance.Preload(heroViewPrefab, 9, 36);
     }
 
+    /// <summary>
+    /// 영웅 정렬 방법 변경
+    /// </summary>
     private void ChangeAlignmentType()
     {
         heroAlignmentType = heroAlignmentType.Next();
         AlignmentHeroList(heroAlignmentType);
     }
 
+    /// <summary>
+    /// 영웅 슬롯 정렬
+    /// </summary>
+    /// <param name="alignmentType">정렬 방법 타입</param>
     private void AlignmentHeroList(HeroAlignmentType alignmentType)
     {
         switch (alignmentType)
@@ -105,12 +126,6 @@ public class HeroListViewComponent : MonoBehaviour, IEventListener
         {
             hero.transform.SetAsLastSibling();
         }
-    }
-
-    private enum HeroAlignmentType
-    {
-        A,
-        B,
     }
 
     private void ChangeSelectedHero(ChangeSelectedHeroEventData eventData)
@@ -150,5 +165,11 @@ public class HeroListViewComponent : MonoBehaviour, IEventListener
         onChangeSelectedHero -= ChangeSelectedHero;
         EventManager.Unsubscribe(GameEventType.LevelUpHero, onLevelUpHero);
         onLevelUpHero -= LevelUpHero;
+    }
+    
+    private enum HeroAlignmentType
+    {
+        A,
+        B,
     }
 }

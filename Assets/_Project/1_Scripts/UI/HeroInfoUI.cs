@@ -2,6 +2,9 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// 각각의 영웅 세부 정보를 보여주는 UI
+/// </summary>
 public class HeroInfoUI : BaseUI
 {
     [SerializeField] private TextMeshProUGUI heroNameText;
@@ -79,7 +82,7 @@ public class HeroInfoUI : BaseUI
         equipButton.gameObject.SetActive(false);
         unequipButton.gameObject.SetActive(true);
 
-        ChangeSelectedHeroEventData data = new ChangeSelectedHeroEventData
+        var data = new ChangeSelectedHeroEventData
         (
             selectedHero,
             currentHeroData
