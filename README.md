@@ -169,4 +169,4 @@ Assets/_Project/
 **개발자**: [오재원]
 **개발 기간**: 2025.12.23 ~
 
-*이 문서는 AI로 작성된 Random Lucky Defense 프로젝트의 README 입니다.*
+*이 문서는 AI로 작성된 Random Lucky Defense 프로젝트의 임시 README 입니다.*

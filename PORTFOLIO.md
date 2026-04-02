@@ -555,6 +555,7 @@ Assets/_Project/
 │   ├── Data/
 │   │   ├── SaveData.cs
 │   │   ├── HeroRuntimeData.cs
+│   │   ├── HeroRuntimeDB.cs
 │   │   ├── GameEventDataDefinitions.cs
 │   │   ├── GameConstants.cs
 │   │   ├── Generated/
@@ -642,6 +643,54 @@ Assets/_Project/
 **해결**: Partial Class 분리
 - 기능별로 파일 분리 (Currency, Profile, Heroes)
 - 단일 클래스의 논리적 분리로 유지보수성 향상
+
+### 6. 영웅 데이터 조회 성능 최적화
+
+**문제**: List 기반 영웅 데이터를 LINQ로 조회하여 매번 O(n) 순회 발생
+
+```csharp
+// 변경 전: 매번 전체 리스트 순회 O(n)
+var selectedHero = AllHeroes.FirstOrDefault(h =>
+    h.IsSelected && h.Class == classType && h.Grade == grade);
+
+var acquiredHeroes = AllHeroes
+    .Where(h => h.Class == classType && h.IsAcquiredHero)
+    .ToList();
+```
+
+**해결**: Dictionary 기반 `HeroRuntimeDB` 클래스 도입으로 O(1) 조회
+
+```csharp
+// HeroRuntimeDB - Dictionary 기반 O(1) 조회 제공
+public class HeroRuntimeDB
+{
+    private readonly Dictionary<int, HeroRuntimeData> heroByID;
+    private readonly Dictionary<HeroClassType, List<HeroRuntimeData>> heroesByClass;
+    private readonly Dictionary<HeroClassType, Dictionary<HeroGradeType, HeroRuntimeData>> selectedHeroes;
+
+    // O(1) 조회
+    public HeroRuntimeData GetByID(int id);
+    public HeroRuntimeData GetSelectedHero(HeroClassType classType, HeroGradeType grade);
+    public List<HeroRuntimeData> GetByClass(HeroClassType classType);
+    public Dictionary<HeroGradeType, HeroRuntimeData> GetSelectedHeroesByClass(HeroClassType classType);
+}
+
+// 변경 후: Dictionary 조회 O(1)
+var selectedHero = PlayerDataManager.Instance.HeroDB.GetSelectedHero(classType, grade);
+var acquiredHeroes = PlayerDataManager.Instance.HeroDB.GetAcquiredHeroesByClass(classType);
+```
+
+**설계 포인트**:
+- `PlayerDataManager`가 `HeroDB` 인스턴스를 소유하여 명확한 생명주기 관리
+- 영웅 선택 상태 변경 시 `UpdateSelectedHero()` 메서드로 인덱스 동기화
+- 조회 로직 중앙화로 코드 중복 제거
+
+**성능 개선**:
+| 조회 유형 | 변경 전 (List + LINQ) | 변경 후 (Dictionary) |
+|----------|----------------------|---------------------|
+| ID로 조회 | O(n) | O(1) |
+| 클래스별 조회 | O(n) | O(1) |
+| 선택된 영웅 조회 | O(n) | O(1) |
 
 ---
 

@@ -123,14 +123,7 @@ public class InGameManager : MonoSingleton<InGameManager>, IEventListener
     private void GameFinish(InGameFinishEventData eventData)
     {
         PauseGame();
-        UIManager.Instance.Open<GameResultUI>();
-        if (eventData.IsGameVictory)
-        {
-            CDebug.Log("[InGameManager] 게임 승리");
-        }
-        else
-        {
-            CDebug.Log("[InGameManager] 게임 패배");
-        }
+        UIManager.Instance.Open<GameResultUI>(eventData);
+        CDebug.Log(eventData.IsGameVictory ? "[InGameManager] 게임 승리" : "[InGameManager] 게임 패배");
     }
 }
