@@ -17,7 +17,7 @@ public class InitialGameConfig : ScriptableObject
     public int StartLevel;
     public int StartEXP;
 
-    [Header("Starting Heroes")]
+    [Header("Starting Heroes (직접 수정 금지!, 데이터 확인용)")]
     [Tooltip("직접 수정 금지!, 데이터 확인용"), SerializeField] public HeroConfigGroup Heroes;
     [SerializeField] private List<HeroDataSO> allHeroes;
     public List<HeroDataSO> defaultHeroes;

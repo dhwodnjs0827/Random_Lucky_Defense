@@ -74,14 +74,18 @@ public class HeroInfoUI : BaseUI
 
     private void OnClickEquipButton()
     {
+        // 현재 선택한 영웅 정보 갖고오기
         var selectedHero = PlayerDataManager.Instance.HeroDB.GetSelectedHero(currentHeroData.Class, currentHeroData.Grade);
+        // 사용 중인 영웅과 선택한 영웅 데이터 스왑
         PlayerDataManager.Instance.ChangeSelectedHero(selectedHero, currentHeroData);
 
+        // 영웅 뷰 변경하기
         heroView.UpdateHeroViewUIComponent(currentHeroData, currentHeroData.IsSelected);
 
         equipButton.gameObject.SetActive(false);
         unequipButton.gameObject.SetActive(true);
 
+        // 이벤트 발송
         var data = new ChangeSelectedHeroEventData
         (
             selectedHero,
