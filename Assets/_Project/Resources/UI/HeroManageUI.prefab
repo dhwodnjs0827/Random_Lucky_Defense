@@ -447,7 +447,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uD568\uAED8 \uCD9C\uC804\uD560 \uC601\uC6C5\uB4E4"
+  m_text: "@\uD568\uAED8 \uCD9C\uC804\uD560 \uC601\uC6C5\uB4E4"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 26e405e1c9110c94f9d6368f98c32a34, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: 4c3a72a85454bbf4cb226a04cb60f14a, type: 2}
@@ -961,7 +961,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uD76C\uADC0"
+  m_text: "@\uD76C\uADC0"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 26e405e1c9110c94f9d6368f98c32a34, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: 4c3a72a85454bbf4cb226a04cb60f14a, type: 2}
@@ -1272,7 +1272,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uC77C\uBC18"
+  m_text: "@\uC77C\uBC18"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 26e405e1c9110c94f9d6368f98c32a34, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: 4c3a72a85454bbf4cb226a04cb60f14a, type: 2}
@@ -1863,7 +1863,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uC2E0\uD654"
+  m_text: "@\uC2E0\uD654"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 26e405e1c9110c94f9d6368f98c32a34, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: 4c3a72a85454bbf4cb226a04cb60f14a, type: 2}
@@ -2366,7 +2366,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uACE0\uAE09"
+  m_text: "@\uACE0\uAE09"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 26e405e1c9110c94f9d6368f98c32a34, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: 4c3a72a85454bbf4cb226a04cb60f14a, type: 2}
@@ -2540,7 +2540,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uC601\uC6C5 \uBCF4\uC720 \uB370\uBBF8\uC9C0 \uC99D\uAC00 : 0.0%"
+  m_text: "@\uC601\uC6C5 \uBCF4\uC720 \uB370\uBBF8\uC9C0 \uC99D\uAC00 : 0.0%"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 26e405e1c9110c94f9d6368f98c32a34, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: 4c3a72a85454bbf4cb226a04cb60f14a, type: 2}
@@ -2920,7 +2920,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uC815\uB82C\uBC29\uC2DD 1"
+  m_text: "@\uC815\uB82C\uBC29\uC2DD 1"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 26e405e1c9110c94f9d6368f98c32a34, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: 4c3a72a85454bbf4cb226a04cb60f14a, type: 2}
@@ -3306,7 +3306,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uACE0\uB300"
+  m_text: "@\uACE0\uB300"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 26e405e1c9110c94f9d6368f98c32a34, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: 4c3a72a85454bbf4cb226a04cb60f14a, type: 2}
@@ -3580,7 +3580,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uC804\uC124"
+  m_text: "@\uC804\uC124"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 26e405e1c9110c94f9d6368f98c32a34, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: 4c3a72a85454bbf4cb226a04cb60f14a, type: 2}
@@ -4400,7 +4400,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uC720\uBB3C"
+  m_text: "@\uC720\uBB3C"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 26e405e1c9110c94f9d6368f98c32a34, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: 4c3a72a85454bbf4cb226a04cb60f14a, type: 2}
@@ -4627,7 +4627,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uC5D0\uD53D"
+  m_text: "@\uC5D0\uD53D"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 26e405e1c9110c94f9d6368f98c32a34, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: 4c3a72a85454bbf4cb226a04cb60f14a, type: 2}
@@ -4764,7 +4764,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uD0DC\uCD08"
+  m_text: "@\uD0DC\uCD08"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 26e405e1c9110c94f9d6368f98c32a34, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: 4c3a72a85454bbf4cb226a04cb60f14a, type: 2}
@@ -4969,8 +4969,16 @@ PrefabInstance:
       value: HeroViewComponent
       objectReference: {fileID: 0}
     - target: {fileID: 3219265621754114271, guid: 69b9540d86d25450c88a95c69aa1c57d, type: 3}
+      propertyPath: m_text
+      value: "@\uB808\uBCA8 1"
+      objectReference: {fileID: 0}
+    - target: {fileID: 3219265621754114271, guid: 69b9540d86d25450c88a95c69aa1c57d, type: 3}
       propertyPath: m_fontSize
       value: 4.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 4438268249708933731, guid: 69b9540d86d25450c88a95c69aa1c57d, type: 3}
+      propertyPath: m_text
+      value: "@\uC77C\uBC18"
       objectReference: {fileID: 0}
     - target: {fileID: 4756976076380408837, guid: 69b9540d86d25450c88a95c69aa1c57d, type: 3}
       propertyPath: m_AnchorMax.x
@@ -5102,8 +5110,16 @@ PrefabInstance:
       value: HeroViewComponent
       objectReference: {fileID: 0}
     - target: {fileID: 3219265621754114271, guid: 69b9540d86d25450c88a95c69aa1c57d, type: 3}
+      propertyPath: m_text
+      value: "@\uB808\uBCA8 1"
+      objectReference: {fileID: 0}
+    - target: {fileID: 3219265621754114271, guid: 69b9540d86d25450c88a95c69aa1c57d, type: 3}
       propertyPath: m_fontSize
       value: 4.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 4438268249708933731, guid: 69b9540d86d25450c88a95c69aa1c57d, type: 3}
+      propertyPath: m_text
+      value: "@\uC77C\uBC18"
       objectReference: {fileID: 0}
     - target: {fileID: 4756976076380408837, guid: 69b9540d86d25450c88a95c69aa1c57d, type: 3}
       propertyPath: m_AnchorMax.x
@@ -5235,8 +5251,16 @@ PrefabInstance:
       value: HeroViewComponent
       objectReference: {fileID: 0}
     - target: {fileID: 3219265621754114271, guid: 69b9540d86d25450c88a95c69aa1c57d, type: 3}
+      propertyPath: m_text
+      value: "@\uB808\uBCA8 1"
+      objectReference: {fileID: 0}
+    - target: {fileID: 3219265621754114271, guid: 69b9540d86d25450c88a95c69aa1c57d, type: 3}
       propertyPath: m_fontSize
       value: 4.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 4438268249708933731, guid: 69b9540d86d25450c88a95c69aa1c57d, type: 3}
+      propertyPath: m_text
+      value: "@\uC77C\uBC18"
       objectReference: {fileID: 0}
     - target: {fileID: 4756976076380408837, guid: 69b9540d86d25450c88a95c69aa1c57d, type: 3}
       propertyPath: m_AnchorMax.x
@@ -5368,8 +5392,16 @@ PrefabInstance:
       value: HeroViewComponent
       objectReference: {fileID: 0}
     - target: {fileID: 3219265621754114271, guid: 69b9540d86d25450c88a95c69aa1c57d, type: 3}
+      propertyPath: m_text
+      value: "@\uB808\uBCA8 1"
+      objectReference: {fileID: 0}
+    - target: {fileID: 3219265621754114271, guid: 69b9540d86d25450c88a95c69aa1c57d, type: 3}
       propertyPath: m_fontSize
       value: 4.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 4438268249708933731, guid: 69b9540d86d25450c88a95c69aa1c57d, type: 3}
+      propertyPath: m_text
+      value: "@\uC77C\uBC18"
       objectReference: {fileID: 0}
     - target: {fileID: 4756976076380408837, guid: 69b9540d86d25450c88a95c69aa1c57d, type: 3}
       propertyPath: m_AnchorMax.x
@@ -5501,8 +5533,16 @@ PrefabInstance:
       value: HeroViewComponent
       objectReference: {fileID: 0}
     - target: {fileID: 3219265621754114271, guid: 69b9540d86d25450c88a95c69aa1c57d, type: 3}
+      propertyPath: m_text
+      value: "@\uB808\uBCA8 1"
+      objectReference: {fileID: 0}
+    - target: {fileID: 3219265621754114271, guid: 69b9540d86d25450c88a95c69aa1c57d, type: 3}
       propertyPath: m_fontSize
       value: 4.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 4438268249708933731, guid: 69b9540d86d25450c88a95c69aa1c57d, type: 3}
+      propertyPath: m_text
+      value: "@\uC77C\uBC18"
       objectReference: {fileID: 0}
     - target: {fileID: 4756976076380408837, guid: 69b9540d86d25450c88a95c69aa1c57d, type: 3}
       propertyPath: m_AnchorMax.x
@@ -5634,8 +5674,16 @@ PrefabInstance:
       value: HeroViewComponent
       objectReference: {fileID: 0}
     - target: {fileID: 3219265621754114271, guid: 69b9540d86d25450c88a95c69aa1c57d, type: 3}
+      propertyPath: m_text
+      value: "@\uB808\uBCA8 1"
+      objectReference: {fileID: 0}
+    - target: {fileID: 3219265621754114271, guid: 69b9540d86d25450c88a95c69aa1c57d, type: 3}
       propertyPath: m_fontSize
       value: 4.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 4438268249708933731, guid: 69b9540d86d25450c88a95c69aa1c57d, type: 3}
+      propertyPath: m_text
+      value: "@\uC77C\uBC18"
       objectReference: {fileID: 0}
     - target: {fileID: 4756976076380408837, guid: 69b9540d86d25450c88a95c69aa1c57d, type: 3}
       propertyPath: m_AnchorMax.x
@@ -5767,8 +5815,16 @@ PrefabInstance:
       value: HeroViewComponent
       objectReference: {fileID: 0}
     - target: {fileID: 3219265621754114271, guid: 69b9540d86d25450c88a95c69aa1c57d, type: 3}
+      propertyPath: m_text
+      value: "@\uB808\uBCA8 1"
+      objectReference: {fileID: 0}
+    - target: {fileID: 3219265621754114271, guid: 69b9540d86d25450c88a95c69aa1c57d, type: 3}
       propertyPath: m_fontSize
       value: 4.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 4438268249708933731, guid: 69b9540d86d25450c88a95c69aa1c57d, type: 3}
+      propertyPath: m_text
+      value: "@\uC77C\uBC18"
       objectReference: {fileID: 0}
     - target: {fileID: 4756976076380408837, guid: 69b9540d86d25450c88a95c69aa1c57d, type: 3}
       propertyPath: m_AnchorMax.x
@@ -5900,8 +5956,16 @@ PrefabInstance:
       value: HeroViewComponent
       objectReference: {fileID: 0}
     - target: {fileID: 3219265621754114271, guid: 69b9540d86d25450c88a95c69aa1c57d, type: 3}
+      propertyPath: m_text
+      value: "@\uB808\uBCA8 1"
+      objectReference: {fileID: 0}
+    - target: {fileID: 3219265621754114271, guid: 69b9540d86d25450c88a95c69aa1c57d, type: 3}
       propertyPath: m_fontSize
       value: 4.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 4438268249708933731, guid: 69b9540d86d25450c88a95c69aa1c57d, type: 3}
+      propertyPath: m_text
+      value: "@\uC77C\uBC18"
       objectReference: {fileID: 0}
     - target: {fileID: 4756976076380408837, guid: 69b9540d86d25450c88a95c69aa1c57d, type: 3}
       propertyPath: m_AnchorMax.x
@@ -6037,8 +6101,16 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3219265621754114271, guid: 69b9540d86d25450c88a95c69aa1c57d, type: 3}
+      propertyPath: m_text
+      value: "@\uB808\uBCA8 1"
+      objectReference: {fileID: 0}
+    - target: {fileID: 3219265621754114271, guid: 69b9540d86d25450c88a95c69aa1c57d, type: 3}
       propertyPath: m_fontSize
       value: 4.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 4438268249708933731, guid: 69b9540d86d25450c88a95c69aa1c57d, type: 3}
+      propertyPath: m_text
+      value: "@\uC77C\uBC18"
       objectReference: {fileID: 0}
     - target: {fileID: 4756976076380408837, guid: 69b9540d86d25450c88a95c69aa1c57d, type: 3}
       propertyPath: m_AnchorMax.x
