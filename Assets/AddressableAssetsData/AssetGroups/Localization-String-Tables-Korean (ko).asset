@@ -14,8 +14,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: Unity.Addressables.Editor::UnityEditor.AddressableAssets.Settings.AddressableAssetGroup
   m_GroupName: Localization-String-Tables-Korean (ko)
   m_GUID: eac31fcf8c3db4c7b969620331f17374
-  m_SerializeEntries: []
+  m_SerializeEntries:
+  - m_GUID: fbc78ef32964b42d4a1a1922ef660949
+    m_Address: Localization_ko
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-ko
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 1
   m_Settings: {fileID: 11400000, guid: afc9af10e32f547b2a51550412362a7e, type: 2}
   m_SchemaSet:
-    m_Schemas: []
+    m_Schemas:
+    - {fileID: 11400000, guid: 25b1b7cacf44f4eed961fc6bb7ed8650, type: 2}
+    - {fileID: 11400000, guid: 69c48efdd24c64dc5a717828203766b9, type: 2}
