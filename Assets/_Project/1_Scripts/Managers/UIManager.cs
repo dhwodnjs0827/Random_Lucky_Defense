@@ -11,8 +11,8 @@ public class UIManager : MonoSingleton<UIManager>
     private const string UI_RESOURCE_PATH = "UI/";
 
     private Dictionary<UIType, Canvas> canvases;
-    private Dictionary<string, BaseUI> openedUI = new();
-    private Dictionary<string, BaseUI> closedUI = new();
+    private Dictionary<string, UIBase> openedUI = new();
+    private Dictionary<string, UIBase> closedUI = new();
 
     private bool isInitialized = false;
 
@@ -38,10 +38,10 @@ public class UIManager : MonoSingleton<UIManager>
         isInitialized = true;
     }
 
-    public T Open<T>(params object[] args) where T : BaseUI
+    public T Open<T>(params object[] args) where T : UIBase
     {
         // UI가 열려있으면 해당 UI 반환
-        BaseUI ui = GetUI<T>();
+        UIBase ui = GetUI<T>();
         if (ui != null)
         {
             return (T)ui;
@@ -97,10 +97,10 @@ public class UIManager : MonoSingleton<UIManager>
     /// <summary>
     /// UI 열기 (비동기)
     /// </summary>
-    public async UniTask<T> OpenAsync<T>(params object[] args) where T : BaseUI
+    public async UniTask<T> OpenAsync<T>(params object[] args) where T : UIBase
     {
         // UI가 열려있으면 해당 UI 반환
-        BaseUI ui = GetUI<T>();
+        UIBase ui = GetUI<T>();
         if (ui != null)
         {
             return (T)ui;
@@ -156,7 +156,7 @@ public class UIManager : MonoSingleton<UIManager>
     /// <summary>
     /// UI 닫기
     /// </summary>
-    public void Close<T>(params object[] args) where T : BaseUI
+    public void Close<T>(params object[] args) where T : UIBase
     {
         var uiName = typeof(T).Name;
         var ui = GetUI<T>();
@@ -179,7 +179,7 @@ public class UIManager : MonoSingleton<UIManager>
         }
     }
     
-    public void Close(BaseUI ui, params object[] args)
+    public void Close(UIBase ui, params object[] args)
     {
         var uiName = ui.GetType().Name;
         if (!openedUI.ContainsKey(uiName))
@@ -204,7 +204,7 @@ public class UIManager : MonoSingleton<UIManager>
     /// <summary>
     /// 열려있는 UI 가져오기
     /// </summary>
-    public T GetUI<T>() where T : BaseUI
+    public T GetUI<T>() where T : UIBase
     {
         openedUI.TryGetValue(typeof(T).Name, out var ui);
         return ui as T;

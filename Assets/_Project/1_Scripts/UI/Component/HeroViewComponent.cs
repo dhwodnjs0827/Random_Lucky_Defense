@@ -67,6 +67,6 @@ public class HeroViewComponent : MonoBehaviour
 
     private void OnClickHeroInfoButton()
     {
-        UIManager.Instance.Open<HeroInfoUI>(currentHeroData);
+        UIManager.Instance.Open<UIHeroInfo>(currentHeroData);
     }
 }

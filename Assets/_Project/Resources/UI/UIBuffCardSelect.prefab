@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6972634478508086419}
   - component: {fileID: 3147663522509513795}
   m_Layer: 5
-  m_Name: BuffCardSelectUI
+  m_Name: UIBuffCardSelect
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

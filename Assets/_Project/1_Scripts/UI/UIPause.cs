@@ -1,11 +1,10 @@
-using Cysharp.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.UI;
 
 /// <summary>
 /// 인게임 일시정지 Popup UI 클래스 
 /// </summary>
-public class PauseUI : BaseUI
+public class UIPause : UIBase
 {
     [SerializeField] private CloseButton closeButton;
     [SerializeField] private Button exitGameButton;

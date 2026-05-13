@@ -38,7 +38,7 @@ public class InGameManager : MonoSingleton<InGameManager>, IEventListener
         heroLevelUpController =  new InGameHeroLevelUpController();
         heroBuffController = new InGameHeroBuffController();
         
-        UIManager.Instance.Open<InGameUI>();
+        UIManager.Instance.Open<UIInGame>();
         var backgroundPrefab = ResourceManager.Instance.Load<GameObject>("Prefabs/Background");
         Instantiate(backgroundPrefab);
         
@@ -123,7 +123,7 @@ public class InGameManager : MonoSingleton<InGameManager>, IEventListener
     private void GameFinish(InGameFinishEventData eventData)
     {
         PauseGame();
-        UIManager.Instance.Open<GameResultUI>(eventData);
+        UIManager.Instance.Open<UIGameResult>(eventData);
         CDebug.Log(eventData.IsGameVictory ? "[InGameManager] 게임 승리" : "[InGameManager] 게임 패배");
     }
 }

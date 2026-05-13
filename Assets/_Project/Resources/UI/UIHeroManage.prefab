@@ -1987,7 +1987,7 @@ GameObject:
   - component: {fileID: 6795115554874726465}
   - component: {fileID: 6873690652182090094}
   m_Layer: 5
-  m_Name: HeroManageUI
+  m_Name: UIHeroManage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

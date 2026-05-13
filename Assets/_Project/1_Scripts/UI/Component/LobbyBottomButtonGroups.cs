@@ -47,12 +47,12 @@ public class LobbyBottomButtonGroups : MonoBehaviour
 
     private void OnClickShopButton()
     {
-        UIManager.Instance.Open<ShopUI>();
+        UIManager.Instance.Open<UIShop>();
     }
 
     private void OnClickHeroButton()
     {
-        UIManager.Instance.Open<HeroManageUI>();
+        UIManager.Instance.Open<UIHeroManage>();
     }
 
     private void OnClickLockButton()

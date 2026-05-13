@@ -3,7 +3,7 @@ using UnityEngine;
 /// <summary>
 /// 모든 UI의 기본 클래스
 /// </summary>
-public abstract class BaseUI : MonoBehaviour
+public abstract class UIBase : MonoBehaviour
 {
     [Header("UI Config")]
     [SerializeField] private UIType uiType = UIType.UI; // UI 종류

@@ -150,7 +150,7 @@ GameObject:
   - component: {fileID: 4208353516393621038}
   - component: {fileID: 2195013098611426366}
   m_Layer: 5
-  m_Name: ToastUI
+  m_Name: UIToast
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

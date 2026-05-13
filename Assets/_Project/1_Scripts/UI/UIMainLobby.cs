@@ -5,7 +5,7 @@ using UnityEngine;
 /// <summary>
 /// LobbyScene의 첫 등장 기본 UI 클래스
 /// </summary>
-public class MainLobbyUI : BaseUI
+public class UIMainLobby : UIBase
 {
     //TODO: 임시
     [SerializeField] private TextMeshProUGUI userNameText;

@@ -8,12 +8,12 @@ using UnityEngine.UI;
 public class CloseButton : MonoBehaviour
 {
     [SerializeField] private Button button;
-    [SerializeField] private BaseUI targetUI; // 닫을 UI (없으면 부모에서 찾음)
+    [SerializeField] private UIBase targetUI; // 닫을 UI (없으면 부모에서 찾음)
 
     private void Awake()
     {
         button ??= GetComponent<Button>();
-        targetUI ??= GetComponentInParent<BaseUI>();
+        targetUI ??= GetComponentInParent<UIBase>();
 
         button.onClick.AddListener(OnClick);
     }

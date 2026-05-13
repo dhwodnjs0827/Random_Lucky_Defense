@@ -6,7 +6,7 @@ public class LobbyScene : BaseScene
 
     public override async UniTask InitializeAsync()
     {
-        await UIManager.Instance.OpenAsync<MainLobbyUI>();
+        await UIManager.Instance.OpenAsync<UIMainLobby>();
         
         await base.InitializeAsync();
     }

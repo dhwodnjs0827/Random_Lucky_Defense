@@ -13,10 +13,10 @@ public class BuffCardUIComponent : MonoBehaviour
     [SerializeField] private TextMeshProUGUI cardDescription;
     [SerializeField] private Image[] levelIcons;
     
-    private BaseUI parentUI;
+    private UIBase parentUI;
     private BuffCardContainer currentCard;
     
-    public void InitializeCard(BaseUI ui)
+    public void InitializeCard(UIBase ui)
     {
         parentUI = ui;
         selectButton.onClick.AddListener(OnClickSelect);

@@ -64,8 +64,8 @@ public class SceneLoadManager : MonoSingleton<SceneLoadManager>
             }
 
             // 2. 로딩 UI 표시
-            //TODO: LoadingUI 활성화, 필요 시, Fade 연출 추가
-            var loadingUI = await UIManager.Instance.OpenAsync<LoadingUI>();
+            //TODO: UILoading 활성화, 필요 시, Fade 연출 추가
+            var loadingUI = await UIManager.Instance.OpenAsync<UILoading>();
             // await FadeOut();
 
             // 3. 씬 로드
@@ -110,9 +110,9 @@ public class SceneLoadManager : MonoSingleton<SceneLoadManager>
             currentScene = scene;
             await currentScene.InitializeAsync();
 
-            // 6. LoadingUI 닫기
+            // 6. UILoading 닫기
             // await FadeIn();
-            UIManager.Instance.Close<LoadingUI>(loadingUI);
+            UIManager.Instance.Close<UILoading>(loadingUI);
         }
         catch (Exception e)
         {

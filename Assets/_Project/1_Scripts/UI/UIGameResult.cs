@@ -5,7 +5,7 @@ using UnityEngine.UI;
 /// <summary>
 /// 인게임 게임 결과창 Popup UI 클래스
 /// </summary>
-public class GameResultUI : BaseUI
+public class UIGameResult : UIBase
 {
     [SerializeField] private Button exitGameButton;
     
@@ -15,7 +15,7 @@ public class GameResultUI : BaseUI
     {
         if (args[0] is not InGameFinishEventData)
         {
-            CDebug.LogError("[GameResultUI] 잘못된 매개변수 전달!");
+            CDebug.LogError("[UIGameResult] 잘못된 매개변수 전달!");
             return;
         }
         InitializeButtons();

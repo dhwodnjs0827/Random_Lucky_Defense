@@ -1045,7 +1045,7 @@ MonoBehaviour:
     m_TableReference:
       m_TableCollectionName: GUID:10de03729c0fc4ace91635554bdd9ed9
     m_TableEntryReference:
-      m_KeyId: 2139693768704
+      m_KeyId: 343273162924032
       m_Key: 
     m_FallbackState: 0
     m_WaitForCompletion: 0
@@ -2288,7 +2288,7 @@ GameObject:
   - component: {fileID: 6373790363076897336}
   - component: {fileID: -3110406652582696877}
   m_Layer: 5
-  m_Name: MainLobbyUI
+  m_Name: UIMainLobby
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

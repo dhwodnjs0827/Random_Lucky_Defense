@@ -223,7 +223,7 @@ GameObject:
   - component: {fileID: 5509576617388175689}
   - component: {fileID: 6301172755376292183}
   m_Layer: 5
-  m_Name: GameResultUI
+  m_Name: UIGameResult
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

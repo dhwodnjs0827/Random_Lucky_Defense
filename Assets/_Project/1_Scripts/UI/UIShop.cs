@@ -4,7 +4,7 @@ using UnityEngine.UI;
 /// <summary>
 /// 로비 상점 UI 클래스
 /// </summary>
-public class ShopUI : BaseUI
+public class UIShop : UIBase
 {
     [SerializeField] private CloseButton closeButton;
     [SerializeField] private Button heroGachaOnceButton;
@@ -33,6 +33,6 @@ public class ShopUI : BaseUI
 
     private void OnClickHeroGachaButton(int gachaCount)
     {
-        UIManager.Instance.Open<HeroGachaUI>(gachaCount);
+        UIManager.Instance.Open<UIHeroGacha>(gachaCount);
     }
 }

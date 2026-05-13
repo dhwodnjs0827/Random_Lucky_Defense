@@ -8,7 +8,7 @@ using UnityEngine.UI;
 /// <summary>
 /// 영웅 가챠용 Popup UI 클래스
 /// </summary>
-public class HeroGachaUI : BaseUI
+public class UIHeroGacha : UIBase
 {
     [SerializeField] private CloseButton closeButton;
     [SerializeField] private Button showResultButton;

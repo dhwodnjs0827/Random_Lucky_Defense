@@ -4,7 +4,7 @@ using UnityEngine.UI;
 /// <summary>
 /// 인게임 버프 카드 표시용 Popup UI 클래스
 /// </summary>
-public class BuffCardSelectUI : BaseUI
+public class UIBuffCardSelect : UIBase
 {
     [SerializeField] private BuffCardUIComponent[] cards;
     [SerializeField] private Button refreshButton;

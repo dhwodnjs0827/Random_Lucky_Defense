@@ -5,7 +5,7 @@ using UnityEngine.UI;
 /// <summary>
 /// 인게임 정보 표시용 HUD UI 클래스
 /// </summary>
-public class InGameUI : BaseUI
+public class UIInGame : UIBase
 {
     [SerializeField] private Button pauseButton;
     [SerializeField] private Button gameSpeedButton;
@@ -54,7 +54,7 @@ public class InGameUI : BaseUI
 
     private void OnClickPauseButton()
     {
-        UIManager.Instance.Open<PauseUI>();
+        UIManager.Instance.Open<UIPause>();
     }
 
     private void OnClickGameSpeedButton()

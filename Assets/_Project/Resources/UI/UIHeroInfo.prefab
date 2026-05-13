@@ -148,7 +148,7 @@ GameObject:
   - component: {fileID: 2042024796694972895}
   - component: {fileID: 418558070484525154}
   m_Layer: 5
-  m_Name: HeroInfoUI
+  m_Name: UIHeroInfo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

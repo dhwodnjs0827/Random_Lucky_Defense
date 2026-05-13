@@ -42,7 +42,7 @@ public class EnemyWaveController : MonoBehaviour, IEventListener
 
     private void Start()
     {
-        var waveInfoUI = UIManager.Instance.GetUI<InGameUI>().WaveInfoUI;
+        var waveInfoUI = UIManager.Instance.GetUI<UIInGame>().WaveInfoUI;
         waveInfoUI.SubscribeWaveTimer(currentWaveTime);
         
         // 첫 웨이브 설정
@@ -57,7 +57,7 @@ public class EnemyWaveController : MonoBehaviour, IEventListener
             // 7의 배수 스테이지 끝날 시, 카드 선택 UI 등장
             if (currentWaveData.WaveIndex % GameConstants.CARD_SELECTION_STAGE_INTERVAL == 0)
             {
-                UIManager.Instance.Open<BuffCardSelectUI>();
+                UIManager.Instance.Open<UIBuffCardSelect>();
             }
             
             // 다음 웨이브 설정

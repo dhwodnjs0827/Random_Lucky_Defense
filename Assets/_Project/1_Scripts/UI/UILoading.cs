@@ -5,7 +5,7 @@ using UnityEngine.UI;
 /// <summary>
 /// 로딩 전용 UI 클래스
 /// </summary>
-public class LoadingUI : BaseUI
+public class UILoading : UIBase
 {
     [SerializeField] private Slider progressBar;
     [SerializeField] private TextMeshProUGUI progressText;

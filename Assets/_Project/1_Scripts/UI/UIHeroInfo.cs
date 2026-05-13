@@ -5,7 +5,7 @@ using UnityEngine.UI;
 /// <summary>
 /// 각각의 영웅 세부 정보를 보여주는 UI
 /// </summary>
-public class HeroInfoUI : BaseUI
+public class UIHeroInfo : UIBase
 {
     [SerializeField] private TextMeshProUGUI heroNameText;
     [SerializeField] private HeroViewComponent heroView;
@@ -32,7 +32,7 @@ public class HeroInfoUI : BaseUI
         }
         else
         {
-            CDebug.LogError("[HeroInfoUI] 잘못된 매개변수 전달");
+            CDebug.LogError("[UIHeroInfo] 잘못된 매개변수 전달");
         }
     }
 
