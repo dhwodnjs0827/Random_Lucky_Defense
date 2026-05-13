@@ -15,16 +15,16 @@ MonoBehaviour:
   m_TableCollectionName: Localization
   m_TableCollectionNameGuidString: 10de03729c0fc4ace91635554bdd9ed9
   m_Entries:
-  - m_Id: 343273162924032
-    m_Key: game_start
+  - m_Id: 378084803993600
+    m_Key: hero_class_wizard
     m_Metadata:
       m_Items: []
-  - m_Id: 343273183895552
-    m_Key: loading
+  - m_Id: 378084816576512
+    m_Key: hero_class_archer
     m_Metadata:
       m_Items: []
-  - m_Id: 343273183895553
-    m_Key: hero_manage_title
+  - m_Id: 378084816576513
+    m_Key: hero_class_knight
     m_Metadata:
       m_Items: []
   - m_Id: 343273183895554
@@ -61,6 +61,174 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 343273183895562
     m_Key: hero_grade_god
+    m_Metadata:
+      m_Items: []
+  - m_Id: 378084820770816
+    m_Key: monster_troll
+    m_Metadata:
+      m_Items: []
+  - m_Id: 378084820770817
+    m_Key: monster_undead
+    m_Metadata:
+      m_Items: []
+  - m_Id: 378084820770818
+    m_Key: monster_orc
+    m_Metadata:
+      m_Items: []
+  - m_Id: 378084820770819
+    m_Key: ability_critical_rate
+    m_Metadata:
+      m_Items: []
+  - m_Id: 378084820770820
+    m_Key: ability_critical_rate_desc
+    m_Metadata:
+      m_Items: []
+  - m_Id: 343273188089857
+    m_Key: ability_critical_damage
+    m_Metadata:
+      m_Items: []
+  - m_Id: 343273188089858
+    m_Key: ability_critical_damage_desc
+    m_Metadata:
+      m_Items: []
+  - m_Id: 378084820770821
+    m_Key: ability_damage
+    m_Metadata:
+      m_Items: []
+  - m_Id: 378084820770822
+    m_Key: ability_damage_desc
+    m_Metadata:
+      m_Items: []
+  - m_Id: 378084820770823
+    m_Key: ability_attack_range
+    m_Metadata:
+      m_Items: []
+  - m_Id: 378084820770824
+    m_Key: ability_attack_range_desc
+    m_Metadata:
+      m_Items: []
+  - m_Id: 378084820770825
+    m_Key: ability_splash_range
+    m_Metadata:
+      m_Items: []
+  - m_Id: 378084820770826
+    m_Key: ability_splash_range_desc
+    m_Metadata:
+      m_Items: []
+  - m_Id: 378084820770827
+    m_Key: ability_penetration
+    m_Metadata:
+      m_Items: []
+  - m_Id: 378084820770828
+    m_Key: ability_penetration_desc
+    m_Metadata:
+      m_Items: []
+  - m_Id: 378084820770829
+    m_Key: ability_lucky_stone_acquired
+    m_Metadata:
+      m_Items: []
+  - m_Id: 378084820770830
+    m_Key: ability_lucky_stone_acquired_desc
+    m_Metadata:
+      m_Items: []
+  - m_Id: 378084820770831
+    m_Key: ability_luck
+    m_Metadata:
+      m_Items: []
+  - m_Id: 378084820770832
+    m_Key: ability_luck_desc
+    m_Metadata:
+      m_Items: []
+  - m_Id: 378084820770833
+    m_Key: ability_greed
+    m_Metadata:
+      m_Items: []
+  - m_Id: 378084820770834
+    m_Key: ability_greed_desc
+    m_Metadata:
+      m_Items: []
+  - m_Id: 343273188089865
+    m_Key: ability_wizard_attack_power
+    m_Metadata:
+      m_Items: []
+  - m_Id: 343273188089866
+    m_Key: ability_wizard_attack_power_desc
+    m_Metadata:
+      m_Items: []
+  - m_Id: 343273188089859
+    m_Key: ability_wizard_movement_speed
+    m_Metadata:
+      m_Items: []
+  - m_Id: 343273188089860
+    m_Key: ability_wizard_movement_speed_desc
+    m_Metadata:
+      m_Items: []
+  - m_Id: 343273183895573
+    m_Key: ability_red_dragon
+    m_Metadata:
+      m_Items: []
+  - m_Id: 343273188089856
+    m_Key: ability_red_dragon_desc
+    m_Metadata:
+      m_Items: []
+  - m_Id: 343273188089867
+    m_Key: ability_archer_attack_power
+    m_Metadata:
+      m_Items: []
+  - m_Id: 343273188089868
+    m_Key: ability_archer_attack_power_desc
+    m_Metadata:
+      m_Items: []
+  - m_Id: 343273188089861
+    m_Key: ability_archer_movement_speed
+    m_Metadata:
+      m_Items: []
+  - m_Id: 343273188089862
+    m_Key: ability_archer_movement_speed_desc
+    m_Metadata:
+      m_Items: []
+  - m_Id: 378084820770835
+    m_Key: ability_ancient_statue
+    m_Metadata:
+      m_Items: []
+  - m_Id: 378084820770836
+    m_Key: ability_ancient_statue_desc
+    m_Metadata:
+      m_Items: []
+  - m_Id: 343273188089869
+    m_Key: ability_knight_attack_power
+    m_Metadata:
+      m_Items: []
+  - m_Id: 343273188089870
+    m_Key: ability_knight_attack_power_desc
+    m_Metadata:
+      m_Items: []
+  - m_Id: 343273188089863
+    m_Key: ability_knight_movement_speed
+    m_Metadata:
+      m_Items: []
+  - m_Id: 343273188089864
+    m_Key: ability_knight_movement_speed_desc
+    m_Metadata:
+      m_Items: []
+  - m_Id: 378084820770837
+    m_Key: ability_lightning
+    m_Metadata:
+      m_Items: []
+  - m_Id: 378084820770838
+    m_Key: ability_lightning_desc
+    m_Metadata:
+      m_Items: []
+  - m_Id: 343273162924032
+    m_Key: game_start
+    m_Metadata:
+      m_Items: []
+  - m_Id: 343273183895552
+    m_Key: loading
+    m_Metadata:
+      m_Items: []
+  - m_Id: 343273183895553
+    m_Key: hero_manage_title
     m_Metadata:
       m_Items: []
   - m_Id: 343273183895563
@@ -103,70 +271,6 @@ MonoBehaviour:
     m_Key: refresh
     m_Metadata:
       m_Items: []
-  - m_Id: 343273183895573
-    m_Key: ability_red_dragon
-    m_Metadata:
-      m_Items: []
-  - m_Id: 343273188089856
-    m_Key: ability_red_dragon_desc
-    m_Metadata:
-      m_Items: []
-  - m_Id: 343273188089857
-    m_Key: ability_critical_damage
-    m_Metadata:
-      m_Items: []
-  - m_Id: 343273188089858
-    m_Key: ability_critical_damage_desc
-    m_Metadata:
-      m_Items: []
-  - m_Id: 343273188089859
-    m_Key: ability_wizard_movement_speed
-    m_Metadata:
-      m_Items: []
-  - m_Id: 343273188089860
-    m_Key: ability_wizard_movement_speed_desc
-    m_Metadata:
-      m_Items: []
-  - m_Id: 343273188089861
-    m_Key: ability_archer_movement_speed
-    m_Metadata:
-      m_Items: []
-  - m_Id: 343273188089862
-    m_Key: ability_archer_movement_speed_desc
-    m_Metadata:
-      m_Items: []
-  - m_Id: 343273188089863
-    m_Key: ability_knight_movement_speed
-    m_Metadata:
-      m_Items: []
-  - m_Id: 343273188089864
-    m_Key: ability_knight_movement_speed_desc
-    m_Metadata:
-      m_Items: []
-  - m_Id: 343273188089865
-    m_Key: ability_wizard_attack_power
-    m_Metadata:
-      m_Items: []
-  - m_Id: 343273188089866
-    m_Key: ability_wizard_attack_power_desc
-    m_Metadata:
-      m_Items: []
-  - m_Id: 343273188089867
-    m_Key: ability_archer_attack_power
-    m_Metadata:
-      m_Items: []
-  - m_Id: 343273188089868
-    m_Key: ability_archer_attack_power_desc
-    m_Metadata:
-      m_Items: []
-  - m_Id: 343273188089869
-    m_Key: ability_knight_attack_power
-    m_Metadata:
-      m_Items: []
-  - m_Id: 343273188089870
-    m_Key: ability_knight_attack_power_desc
-    m_Metadata:
-      m_Items: []
   - m_Id: 343273188089871
     m_Key: ui_summon
     m_Metadata:
@@ -201,22 +305,6 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 343273188089879
     m_Key: rate
-    m_Metadata:
-      m_Items: []
-  - m_Id: 343273188089880
-    m_Key: hero_wizard
-    m_Metadata:
-      m_Items: []
-  - m_Id: 343273188089881
-    m_Key: hero_archer
-    m_Metadata:
-      m_Items: []
-  - m_Id: 343273188089882
-    m_Key: hero_knight
-    m_Metadata:
-      m_Items: []
-  - m_Id: 343273188089883
-    m_Key: new_record
     m_Metadata:
       m_Items: []
   - m_Id: 343273188089884

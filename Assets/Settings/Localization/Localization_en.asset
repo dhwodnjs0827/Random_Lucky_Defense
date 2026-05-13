@@ -111,8 +111,8 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 343273188089856
-    m_Localized: A Red Dragon appears, dealing 130 splash damage every 3seconds (Wizard
-      upgrades apply)
+    m_Localized: A Red Dragon appears, dealing {value1} splash damage every {value}seconds
+      (Wizard upgrades apply)
     m_Metadata:
       m_Items: []
   - m_Id: 343273188089857
@@ -120,7 +120,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 343273188089858
-    m_Localized: Critical damage increased by 20%
+    m_Localized: Critical damage increased by {value}%
     m_Metadata:
       m_Items: []
   - m_Id: 343273188089859
@@ -128,7 +128,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 343273188089860
-    m_Localized: Wizard movement speed increased by 20%
+    m_Localized: Wizard movement speed increased by {value}%
     m_Metadata:
       m_Items: []
   - m_Id: 343273188089861
@@ -136,7 +136,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 343273188089862
-    m_Localized: Archer movement speed increased by 20%
+    m_Localized: Archer movement speed increased by {value}%
     m_Metadata:
       m_Items: []
   - m_Id: 343273188089863
@@ -144,7 +144,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 343273188089864
-    m_Localized: Knight movement speed increased by 20%
+    m_Localized: Knight movement speed increased by {value}%
     m_Metadata:
       m_Items: []
   - m_Id: 343273188089865
@@ -152,7 +152,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 343273188089866
-    m_Localized: Wizard basic attack power increased by 100%
+    m_Localized: Wizard basic attack power increased by {value}%
     m_Metadata:
       m_Items: []
   - m_Id: 343273188089867
@@ -160,7 +160,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 343273188089868
-    m_Localized: Archer basic attack power increased by 100%
+    m_Localized: Archer basic attack power increased by {value}%
     m_Metadata:
       m_Items: []
   - m_Id: 343273188089869
@@ -168,7 +168,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 343273188089870
-    m_Localized: Knight basic attack power increased by 100%
+    m_Localized: Knight basic attack power increased by {value}%
     m_Metadata:
       m_Items: []
   - m_Id: 343273188089871
@@ -207,22 +207,6 @@ MonoBehaviour:
     m_Localized: Rate
     m_Metadata:
       m_Items: []
-  - m_Id: 343273188089880
-    m_Localized: Wizard
-    m_Metadata:
-      m_Items: []
-  - m_Id: 343273188089881
-    m_Localized: Archer
-    m_Metadata:
-      m_Items: []
-  - m_Id: 343273188089882
-    m_Localized: Knight
-    m_Metadata:
-      m_Items: []
-  - m_Id: 343273188089883
-    m_Localized: NEW RECORD!
-    m_Metadata:
-      m_Items: []
   - m_Id: 343273188089884
     m_Localized: Reward
     m_Metadata:
@@ -245,6 +229,113 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 343273188089889
     m_Localized: Previous Best Record
+    m_Metadata:
+      m_Items: []
+  - m_Id: 378084803993600
+    m_Localized: Wizard
+    m_Metadata:
+      m_Items: []
+  - m_Id: 378084816576512
+    m_Localized: Archer
+    m_Metadata:
+      m_Items: []
+  - m_Id: 378084816576513
+    m_Localized: Knight
+    m_Metadata:
+      m_Items: []
+  - m_Id: 378084820770816
+    m_Localized: Troll
+    m_Metadata:
+      m_Items: []
+  - m_Id: 378084820770817
+    m_Localized: Undead
+    m_Metadata:
+      m_Items: []
+  - m_Id: 378084820770818
+    m_Localized: Orc
+    m_Metadata:
+      m_Items: []
+  - m_Id: 378084820770819
+    m_Localized: Critical Rate
+    m_Metadata:
+      m_Items: []
+  - m_Id: 378084820770820
+    m_Localized: Critical rate increased by {value}%
+    m_Metadata:
+      m_Items: []
+  - m_Id: 378084820770821
+    m_Localized: Damage
+    m_Metadata:
+      m_Items: []
+  - m_Id: 378084820770822
+    m_Localized: Damage Increased by {value}%
+    m_Metadata:
+      m_Items: []
+  - m_Id: 378084820770823
+    m_Localized: Attack Range
+    m_Metadata:
+      m_Items: []
+  - m_Id: 378084820770824
+    m_Localized: All classes' attack range increased by {value}
+    m_Metadata:
+      m_Items: []
+  - m_Id: 378084820770825
+    m_Localized: Splash Range
+    m_Metadata:
+      m_Items: []
+  - m_Id: 378084820770826
+    m_Localized: Splash damage range increased by {value} (applies only to splash
+      attacks)
+    m_Metadata:
+      m_Items: []
+  - m_Id: 378084820770827
+    m_Localized: Penetration
+    m_Metadata:
+      m_Items: []
+  - m_Id: 378084820770828
+    m_Localized: Ignores {value}% of enemy defense
+    m_Metadata:
+      m_Items: []
+  - m_Id: 378084820770829
+    m_Localized: Lucky Stone Acquired
+    m_Metadata:
+      m_Items: []
+  - m_Id: 378084820770830
+    m_Localized: Instantly acquire {value} Lucky Stones
+    m_Metadata:
+      m_Items: []
+  - m_Id: 378084820770831
+    m_Localized: Luck
+    m_Metadata:
+      m_Items: []
+  - m_Id: 378084820770832
+    m_Localized: Hero summon rate increased by {value}%
+    m_Metadata:
+      m_Items: []
+  - m_Id: 378084820770833
+    m_Localized: Greed
+    m_Metadata:
+      m_Items: []
+  - m_Id: 378084820770834
+    m_Localized: Gain SP {value1} every {value} seconds
+    m_Metadata:
+      m_Items: []
+  - m_Id: 378084820770835
+    m_Localized: Ancient Statue
+    m_Metadata:
+      m_Items: []
+  - m_Id: 378084820770836
+    m_Localized: An Ancient Statue appears, dealing {value1} damage to enemies with
+      a laser every {value} seconds (Ignores defense) (Archer upgrades apply)
+    m_Metadata:
+      m_Items: []
+  - m_Id: 378084820770837
+    m_Localized: Lightning
+    m_Metadata:
+      m_Items: []
+  - m_Id: 378084820770838
+    m_Localized: Strikes a random enemy with lightning every {value} seconds, dealing
+      {value1} splash damage (Knight upgrades apply)
     m_Metadata:
       m_Items: []
   references:
