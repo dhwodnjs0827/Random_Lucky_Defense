@@ -18,8 +18,233 @@ MonoBehaviour:
   m_Metadata:
     m_Items: []
   m_TableData:
-  - m_Id: 2139693768704
+  - m_Id: 343273162924032
     m_Localized: Game Start
+    m_Metadata:
+      m_Items: []
+  - m_Id: 343273183895552
+    m_Localized: Loading...
+    m_Metadata:
+      m_Items: []
+  - m_Id: 343273183895553
+    m_Localized: Heroes on the battlefield
+    m_Metadata:
+      m_Items: []
+  - m_Id: 343273183895554
+    m_Localized: Noraml
+    m_Metadata:
+      m_Items: []
+  - m_Id: 343273183895555
+    m_Localized: Superior
+    m_Metadata:
+      m_Items: []
+  - m_Id: 343273183895556
+    m_Localized: Rare
+    m_Metadata:
+      m_Items: []
+  - m_Id: 343273183895557
+    m_Localized: Ancient
+    m_Metadata:
+      m_Items: []
+  - m_Id: 343273183895558
+    m_Localized: Relic
+    m_Metadata:
+      m_Items: []
+  - m_Id: 343273183895559
+    m_Localized: Legend
+    m_Metadata:
+      m_Items: []
+  - m_Id: 343273183895560
+    m_Localized: Epic
+    m_Metadata:
+      m_Items: []
+  - m_Id: 343273183895561
+    m_Localized: Myth
+    m_Metadata:
+      m_Items: []
+  - m_Id: 343273183895562
+    m_Localized: God
+    m_Metadata:
+      m_Items: []
+  - m_Id: 343273183895563
+    m_Localized: Damage increase for owned heroes
+    m_Metadata:
+      m_Items: []
+  - m_Id: 343273183895564
+    m_Localized: Sort type
+    m_Metadata:
+      m_Items: []
+  - m_Id: 343273183895565
+    m_Localized: Equip
+    m_Metadata:
+      m_Items: []
+  - m_Id: 343273183895566
+    m_Localized: Unequip
+    m_Metadata:
+      m_Items: []
+  - m_Id: 343273183895567
+    m_Localized: Level Up
+    m_Metadata:
+      m_Items: []
+  - m_Id: 343273183895568
+    m_Localized: Game Results
+    m_Metadata:
+      m_Items: []
+  - m_Id: 343273183895569
+    m_Localized: Exit
+    m_Metadata:
+      m_Items: []
+  - m_Id: 343273183895570
+    m_Localized: Select Ability
+    m_Metadata:
+      m_Items: []
+  - m_Id: 343273183895571
+    m_Localized: Please select an ability
+    m_Metadata:
+      m_Items: []
+  - m_Id: 343273183895572
+    m_Localized: Refresh
+    m_Metadata:
+      m_Items: []
+  - m_Id: 343273183895573
+    m_Localized: Red Dragon
+    m_Metadata:
+      m_Items: []
+  - m_Id: 343273188089856
+    m_Localized: A Red Dragon appears, dealing 130 splash damage every 3seconds (Wizard
+      upgrades apply)
+    m_Metadata:
+      m_Items: []
+  - m_Id: 343273188089857
+    m_Localized: Critical Damage
+    m_Metadata:
+      m_Items: []
+  - m_Id: 343273188089858
+    m_Localized: Critical damage increased by 20%
+    m_Metadata:
+      m_Items: []
+  - m_Id: 343273188089859
+    m_Localized: Wizard Movement Speed
+    m_Metadata:
+      m_Items: []
+  - m_Id: 343273188089860
+    m_Localized: Wizard movement speed increased by 20%
+    m_Metadata:
+      m_Items: []
+  - m_Id: 343273188089861
+    m_Localized: Archer Movement Speed
+    m_Metadata:
+      m_Items: []
+  - m_Id: 343273188089862
+    m_Localized: Archer movement speed increased by 20%
+    m_Metadata:
+      m_Items: []
+  - m_Id: 343273188089863
+    m_Localized: Knight Movement Speed
+    m_Metadata:
+      m_Items: []
+  - m_Id: 343273188089864
+    m_Localized: Knight movement speed increased by 20%
+    m_Metadata:
+      m_Items: []
+  - m_Id: 343273188089865
+    m_Localized: Wizard Attack Power
+    m_Metadata:
+      m_Items: []
+  - m_Id: 343273188089866
+    m_Localized: Wizard basic attack power increased by 100%
+    m_Metadata:
+      m_Items: []
+  - m_Id: 343273188089867
+    m_Localized: Archer Attack Power
+    m_Metadata:
+      m_Items: []
+  - m_Id: 343273188089868
+    m_Localized: Archer basic attack power increased by 100%
+    m_Metadata:
+      m_Items: []
+  - m_Id: 343273188089869
+    m_Localized: Knight Attack Power
+    m_Metadata:
+      m_Items: []
+  - m_Id: 343273188089870
+    m_Localized: Knight basic attack power increased by 100%
+    m_Metadata:
+      m_Items: []
+  - m_Id: 343273188089871
+    m_Localized: Summon
+    m_Metadata:
+      m_Items: []
+  - m_Id: 343273188089872
+    m_Localized: Exchange
+    m_Metadata:
+      m_Items: []
+  - m_Id: 343273188089873
+    m_Localized: Sell
+    m_Metadata:
+      m_Items: []
+  - m_Id: 343273188089874
+    m_Localized: Lucky Summon
+    m_Metadata:
+      m_Items: []
+  - m_Id: 343273188089875
+    m_Localized: chance to obtain
+    m_Metadata:
+      m_Items: []
+  - m_Id: 343273188089876
+    m_Localized: Help
+    m_Metadata:
+      m_Items: []
+  - m_Id: 343273188089877
+    m_Localized: Puase
+    m_Metadata:
+      m_Items: []
+  - m_Id: 343273188089878
+    m_Localized: Settings
+    m_Metadata:
+      m_Items: []
+  - m_Id: 343273188089879
+    m_Localized: Rate
+    m_Metadata:
+      m_Items: []
+  - m_Id: 343273188089880
+    m_Localized: Wizard
+    m_Metadata:
+      m_Items: []
+  - m_Id: 343273188089881
+    m_Localized: Archer
+    m_Metadata:
+      m_Items: []
+  - m_Id: 343273188089882
+    m_Localized: Knight
+    m_Metadata:
+      m_Items: []
+  - m_Id: 343273188089883
+    m_Localized: NEW RECORD!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 343273188089884
+    m_Localized: Reward
+    m_Metadata:
+      m_Items: []
+  - m_Id: 343273188089885
+    m_Localized: Retry
+    m_Metadata:
+      m_Items: []
+  - m_Id: 343273188089886
+    m_Localized: Go To Lobby
+    m_Metadata:
+      m_Items: []
+  - m_Id: 343273188089887
+    m_Localized: Continue
+    m_Metadata:
+      m_Items: []
+  - m_Id: 343273188089888
+    m_Localized: This Record
+    m_Metadata:
+      m_Items: []
+  - m_Id: 343273188089889
+    m_Localized: Previous Best Record
     m_Metadata:
       m_Items: []
   references:

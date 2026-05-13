@@ -15,8 +15,232 @@ MonoBehaviour:
   m_TableCollectionName: Localization
   m_TableCollectionNameGuidString: 10de03729c0fc4ace91635554bdd9ed9
   m_Entries:
-  - m_Id: 2139693768704
-    m_Key: start_game
+  - m_Id: 343273162924032
+    m_Key: game_start
+    m_Metadata:
+      m_Items: []
+  - m_Id: 343273183895552
+    m_Key: loading
+    m_Metadata:
+      m_Items: []
+  - m_Id: 343273183895553
+    m_Key: hero_manage_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 343273183895554
+    m_Key: hero_grade_normal
+    m_Metadata:
+      m_Items: []
+  - m_Id: 343273183895555
+    m_Key: hero_grade_superior
+    m_Metadata:
+      m_Items: []
+  - m_Id: 343273183895556
+    m_Key: hero_grade_rare
+    m_Metadata:
+      m_Items: []
+  - m_Id: 343273183895557
+    m_Key: hero_grade_ancient
+    m_Metadata:
+      m_Items: []
+  - m_Id: 343273183895558
+    m_Key: hero_grade_relic
+    m_Metadata:
+      m_Items: []
+  - m_Id: 343273183895559
+    m_Key: hero_grade_legend
+    m_Metadata:
+      m_Items: []
+  - m_Id: 343273183895560
+    m_Key: hero_grade_epic
+    m_Metadata:
+      m_Items: []
+  - m_Id: 343273183895561
+    m_Key: hero_grade_myth
+    m_Metadata:
+      m_Items: []
+  - m_Id: 343273183895562
+    m_Key: hero_grade_god
+    m_Metadata:
+      m_Items: []
+  - m_Id: 343273183895563
+    m_Key: hero_collection_damage_bonus
+    m_Metadata:
+      m_Items: []
+  - m_Id: 343273183895564
+    m_Key: hero_sort_type
+    m_Metadata:
+      m_Items: []
+  - m_Id: 343273183895565
+    m_Key: hero_equip
+    m_Metadata:
+      m_Items: []
+  - m_Id: 343273183895566
+    m_Key: hero_unequip
+    m_Metadata:
+      m_Items: []
+  - m_Id: 343273183895567
+    m_Key: level_up
+    m_Metadata:
+      m_Items: []
+  - m_Id: 343273183895568
+    m_Key: game_result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 343273183895569
+    m_Key: exit
+    m_Metadata:
+      m_Items: []
+  - m_Id: 343273183895570
+    m_Key: ability_select_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 343273183895571
+    m_Key: ability_select_desc
+    m_Metadata:
+      m_Items: []
+  - m_Id: 343273183895572
+    m_Key: refresh
+    m_Metadata:
+      m_Items: []
+  - m_Id: 343273183895573
+    m_Key: ability_red_dragon
+    m_Metadata:
+      m_Items: []
+  - m_Id: 343273188089856
+    m_Key: ability_red_dragon_desc
+    m_Metadata:
+      m_Items: []
+  - m_Id: 343273188089857
+    m_Key: ability_critical_damage
+    m_Metadata:
+      m_Items: []
+  - m_Id: 343273188089858
+    m_Key: ability_critical_damage_desc
+    m_Metadata:
+      m_Items: []
+  - m_Id: 343273188089859
+    m_Key: ability_wizard_movement_speed
+    m_Metadata:
+      m_Items: []
+  - m_Id: 343273188089860
+    m_Key: ability_wizard_movement_speed_desc
+    m_Metadata:
+      m_Items: []
+  - m_Id: 343273188089861
+    m_Key: ability_archer_movement_speed
+    m_Metadata:
+      m_Items: []
+  - m_Id: 343273188089862
+    m_Key: ability_archer_movement_speed_desc
+    m_Metadata:
+      m_Items: []
+  - m_Id: 343273188089863
+    m_Key: ability_knight_movement_speed
+    m_Metadata:
+      m_Items: []
+  - m_Id: 343273188089864
+    m_Key: ability_knight_movement_speed_desc
+    m_Metadata:
+      m_Items: []
+  - m_Id: 343273188089865
+    m_Key: ability_wizard_attack_power
+    m_Metadata:
+      m_Items: []
+  - m_Id: 343273188089866
+    m_Key: ability_wizard_attack_power_desc
+    m_Metadata:
+      m_Items: []
+  - m_Id: 343273188089867
+    m_Key: ability_archer_attack_power
+    m_Metadata:
+      m_Items: []
+  - m_Id: 343273188089868
+    m_Key: ability_archer_attack_power_desc
+    m_Metadata:
+      m_Items: []
+  - m_Id: 343273188089869
+    m_Key: ability_knight_attack_power
+    m_Metadata:
+      m_Items: []
+  - m_Id: 343273188089870
+    m_Key: ability_knight_attack_power_desc
+    m_Metadata:
+      m_Items: []
+  - m_Id: 343273188089871
+    m_Key: ui_summon
+    m_Metadata:
+      m_Items: []
+  - m_Id: 343273188089872
+    m_Key: ui_exchange
+    m_Metadata:
+      m_Items: []
+  - m_Id: 343273188089873
+    m_Key: ui_sell
+    m_Metadata:
+      m_Items: []
+  - m_Id: 343273188089874
+    m_Key: ui_lucky_summon
+    m_Metadata:
+      m_Items: []
+  - m_Id: 343273188089875
+    m_Key: ui_chance_to_obtain
+    m_Metadata:
+      m_Items: []
+  - m_Id: 343273188089876
+    m_Key: ui_help
+    m_Metadata:
+      m_Items: []
+  - m_Id: 343273188089877
+    m_Key: ui_pause_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 343273188089878
+    m_Key: ui_settings
+    m_Metadata:
+      m_Items: []
+  - m_Id: 343273188089879
+    m_Key: rate
+    m_Metadata:
+      m_Items: []
+  - m_Id: 343273188089880
+    m_Key: hero_wizard
+    m_Metadata:
+      m_Items: []
+  - m_Id: 343273188089881
+    m_Key: hero_archer
+    m_Metadata:
+      m_Items: []
+  - m_Id: 343273188089882
+    m_Key: hero_knight
+    m_Metadata:
+      m_Items: []
+  - m_Id: 343273188089883
+    m_Key: new_record
+    m_Metadata:
+      m_Items: []
+  - m_Id: 343273188089884
+    m_Key: reward
+    m_Metadata:
+      m_Items: []
+  - m_Id: 343273188089885
+    m_Key: retry
+    m_Metadata:
+      m_Items: []
+  - m_Id: 343273188089886
+    m_Key: go_to_lobby
+    m_Metadata:
+      m_Items: []
+  - m_Id: 343273188089887
+    m_Key: continue
+    m_Metadata:
+      m_Items: []
+  - m_Id: 343273188089888
+    m_Key: this_record
+    m_Metadata:
+      m_Items: []
+  - m_Id: 343273188089889
+    m_Key: previous_best_record
     m_Metadata:
       m_Items: []
   m_Metadata:
