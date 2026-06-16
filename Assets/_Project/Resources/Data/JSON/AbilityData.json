@@ -1,0 +1,128 @@
+[
+  {
+    "ID": "CriticalRate",
+    "Name": "크리티컬 확률",
+    "Description": "크리티컬 확률 {value}% 증가",
+    "AbilityEffectType": "IncreaseCriticalRate",
+    "Weight": 10
+  },
+  {
+    "ID": "CriticalDamage",
+    "Name": "크리티컬 데미지",
+    "Description": "크리티컬 데미지 {value}% 증가",
+    "AbilityEffectType": "IncreaseCriticalDamage",
+    "Weight": 10
+  },
+  {
+    "ID": "Damage",
+    "Name": "피해량",
+    "Description": "피해량 {value}% 증가",
+    "AbilityEffectType": "IncreaseDamage",
+    "Weight": 10
+  },
+  {
+    "ID": "AttackRange",
+    "Name": "공격 범위",
+    "Description": "모든 클래스 공격 범위 {value} 증가",
+    "AbilityEffectType": "IncreaseAttackRange",
+    "Weight": 10
+  },
+  {
+    "ID": "SplashRange",
+    "Name": "스플래시 범위",
+    "Description": "스플래시 데미지 범위 {value} 증가 (스플래시 공격만 해당)",
+    "AbilityEffectType": "IncreaseSplashRange",
+    "Weight": 10
+  },
+  {
+    "ID": "Penetration",
+    "Name": "관통력",
+    "Description": "적 방어력 {value}% 무시함",
+    "AbilityEffectType": "IncreasePenetratingPower",
+    "Weight": 10
+  },
+  {
+    "ID": "LuckyStone",
+    "Name": "행운석",
+    "Description": "즉시 행운석을 {value}개 획득",
+    "AbilityEffectType": "AcquireLuckyStone",
+    "Weight": 10
+  },
+  {
+    "ID": "Luck",
+    "Name": "행운",
+    "Description": "영웅뽑기 확률 {value}% 증가",
+    "AbilityEffectType": "IncreaseSummonRate",
+    "Weight": 10
+  },
+  {
+    "ID": "Greed",
+    "Name": "탐욕",
+    "Description": "{value}초 마다 SP {value1} 획득",
+    "AbilityEffectType": "IncreaseSpawnPointGainRate",
+    "Weight": 10
+  },
+  {
+    "ID": "MagicianAttackPower",
+    "Name": "마법사 공격력",
+    "Description": "마법사 기본 공격력의 {value}% 증가",
+    "AbilityEffectType": "MagicianIncreaseAttackPower",
+    "Weight": 10
+  },
+  {
+    "ID": "MagicianMoveSpeed",
+    "Name": "마법사 이동속도",
+    "Description": "마법사 이동속도 {value}% 증가",
+    "AbilityEffectType": "MagicianIncreaseMoveSpeed",
+    "Weight": 10
+  },
+  {
+    "ID": "RedDragon",
+    "Name": "레드 드래곤",
+    "Description": "레드 드래곤이 출현하여 {value}초마다 {value1} 스플래시 데미지를 가함 (마법사 업그레이드 적용)",
+    "AbilityEffectType": "MagicianSummonRedDragon",
+    "Weight": 10
+  },
+  {
+    "ID": "ArcherAttackPower",
+    "Name": "궁수 공격력",
+    "Description": "궁수 기본 공격력의 {value}% 증가",
+    "AbilityEffectType": "ArcherIncreaseAttackPower",
+    "Weight": 10
+  },
+  {
+    "ID": "ArcherMoveSpeed",
+    "Name": "궁수 이동속도",
+    "Description": "궁수 이동속도 {value}% 증가",
+    "AbilityEffectType": "ArcherIncreaseMoveSpeed",
+    "Weight": 10
+  },
+  {
+    "ID": "AncientStatue",
+    "Name": "고대석상",
+    "Description": "고대석상이 출현하여 적에게 {value}초마다 레이저로 {value1} 데미지를 가함 (방어력 무시) (궁수 업그레이드 적용)",
+    "AbilityEffectType": "ArcherSummonAncientStatue",
+    "Weight": 10
+  },
+  {
+    "ID": "KnightAttackPower",
+    "Name": "전사 공격력",
+    "Description": "전사 기본 공격력의 {value}% 증가",
+    "AbilityEffectType": "KnightIncreaseAttackPower",
+    "Weight": 10
+  },
+  {
+    "ID": "KnightMoveSpeed",
+    "Name": "전사 이동속도",
+    "Description": "전사 이동속도 {value}% 증가",
+    "AbilityEffectType": "KnightIncreaseMoveSpeed",
+    "Weight": 10
+  },
+  {
+    "ID": "Lightning",
+    "Name": "번개",
+    "Description": "{value}초마다 번개를 무작위 적에게 내리쳐 {value1} 스플래시 데미지를 가함 (전사 업그레이드 적용)",
+    "AbilityEffectType": "KnightLightning",
+    "Weight": 10
+  }
+]

@@ -12,7 +12,7 @@ namespace Generated
         public float SpawnInterval; // 스폰 주기
         public float WaveTime; // 웨이브 시간
         public float WaveHpCoefficients; // 웨이브 체력 계수
-        public float AttackSpeed; // 웨이브 이동속도 계수
+        public float WaveSpeedCoefficients; // 웨이브 이동속도 계수
         public float WaveDefenseCoefficients; // 웨이브 방어력 계수
     }
 }
