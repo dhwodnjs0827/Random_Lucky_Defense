@@ -50,7 +50,7 @@ public class InGameManager : MonoSingleton<InGameManager>, IEventListener
 
     private void Update()
     {
-        heroLevelUpController?.GainSpawnPointCardEffect();
+        heroLevelUpController?.GainSpawnPointAbilityEffect();
     }
 
     protected override void OnDestroy()

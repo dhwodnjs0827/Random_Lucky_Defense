@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 
 /// <summary>
-/// 인게임 영웅 버프 효과(카드, 레벨) 관리 담당 클래스
+/// 인게임 영웅 버프 효과(재능, 레벨) 관리 담당 클래스
 /// </summary>
 public class InGameHeroBuffController : IEventListener, IAbilityEffect
 {

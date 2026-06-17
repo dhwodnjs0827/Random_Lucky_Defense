@@ -21,7 +21,7 @@ public abstract class BaseHero : MonoBehaviour, IPoolable
     public HeroGradeType GradeType => heroData.GradeType;
     public HeroStat BaseStat => baseStat;
     public HeroStat LevelUpStat => InGameManager.Instance.HeroBuffController.LevelUpStats[ClassType];
-    public HeroStat CardEffectStat => InGameManager.Instance.HeroBuffController.AbilityEffectStats[ClassType];
+    public HeroStat AbilityEffectStat => InGameManager.Instance.HeroBuffController.AbilityEffectStats[ClassType];
     public float AcquiredHeroBonusDamage => InGameManager.Instance.HeroBuffController.AcquiredHeroBonusDamages[ClassType];
 
     protected virtual void Awake()
@@ -66,7 +66,7 @@ public abstract class BaseHero : MonoBehaviour, IPoolable
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, DamageCalculator.CalculateMultipliers(baseStat.AttackRange, LevelUpStat.AttackRangeMultiplier, CardEffectStat.AttackRangeMultiplier));
+        Gizmos.DrawWireSphere(transform.position, DamageCalculator.CalculateMultipliers(baseStat.AttackRange, LevelUpStat.AttackRangeMultiplier, AbilityEffectStat.AttackRangeMultiplier));
     }
 #endif
 }

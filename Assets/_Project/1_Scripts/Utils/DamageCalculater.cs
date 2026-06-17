@@ -33,7 +33,7 @@ public static class DamageCalculator
     /// </summary>
     public static DamageResult CalculateDamage(DamageContext damageContext, MonsterType monsterType, float defense)
     {
-        // 기본 공격력 (영웅 기본 공격력 * 레벨 업 공격력 배율 * 카드 효과 공격력 배율)
+        // 기본 공격력 (영웅 기본 공격력 * 레벨 업 공격력 배율 * 재능 효과 공격력 배율)
         var baseDamage = damageContext.BaseDamage;
 
         // 클래스-몬스터별 데미지 배율 계산

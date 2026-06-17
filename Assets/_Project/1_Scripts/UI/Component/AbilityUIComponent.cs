@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 /// <summary>
-/// 인게임 버프 카드 UI용 클래스
+/// 인게임 재능 UI용 클래스
 /// </summary>
 public class AbilityUIComponent : MonoBehaviour
 {

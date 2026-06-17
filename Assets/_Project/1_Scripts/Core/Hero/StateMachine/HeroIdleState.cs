@@ -31,7 +31,7 @@ public class HeroIdleState : BaseHeroState
     private void FindTarget()
     {
         var attackRange = DamageCalculator.CalculateMultipliers(hero.BaseStat.AttackRange,
-            hero.LevelUpStat.AttackRangeMultiplier, hero.CardEffectStat.AttackRangeMultiplier);
+            hero.LevelUpStat.AttackRangeMultiplier, hero.AbilityEffectStat.AttackRangeMultiplier);
         var hits = Physics2D.OverlapCircleAll(hero.transform.position, attackRange, enemyLayerMask);
 
         foreach (var hit in hits)

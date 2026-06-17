@@ -139,22 +139,22 @@ public readonly struct ProjectileData
     public readonly IDetectable Target;
     private readonly HeroStat HeroStat;
     private readonly HeroStat LevelUpStat;
-    private readonly HeroStat CardEffectStat;
+    private readonly HeroStat AbilityEffectStat;
     private readonly float AcquiredHeroBonusDamage;
     public readonly HeroClassType HeroClass;
 
     public float AttackPower => DamageCalculator.CalculateMultipliers(HeroStat.AttackPower,
-        LevelUpStat.AttackPowerMultiplier, CardEffectStat.AttackPowerMultiplier, AcquiredHeroBonusDamage);
+        LevelUpStat.AttackPowerMultiplier, AbilityEffectStat.AttackPowerMultiplier, AcquiredHeroBonusDamage);
 
     public float CriticalRate =>
         DamageCalculator.CalculateAdditives(HeroStat.CriticalRate, LevelUpStat.CriticalRate,
-            CardEffectStat.CriticalRate);
+            AbilityEffectStat.CriticalRate);
 
     public float CriticalDamage => DamageCalculator.CalculateAdditives(HeroStat.CriticalDamage,
-        LevelUpStat.CriticalDamage, CardEffectStat.CriticalDamage);
+        LevelUpStat.CriticalDamage, AbilityEffectStat.CriticalDamage);
 
     public float SplashRange => DamageCalculator.CalculateMultipliers(HeroStat.SplashRange,
-        LevelUpStat.SplashRangeMultiplier, CardEffectStat.SplashRangeMultiplier);
+        LevelUpStat.SplashRangeMultiplier, AbilityEffectStat.SplashRangeMultiplier);
 
     public ProjectileData(IDetectable target, HeroStat heroStat, HeroStat levelUpStat, HeroStat cardEffectStat, float acquiredHeroBonusDamage,
         HeroClassType heroClassType)
@@ -162,7 +162,7 @@ public readonly struct ProjectileData
         Target = target;
         HeroStat = heroStat;
         LevelUpStat = levelUpStat;
-        CardEffectStat = cardEffectStat;
+        AbilityEffectStat = cardEffectStat;
         AcquiredHeroBonusDamage = acquiredHeroBonusDamage;
         HeroClass = heroClassType;
     }

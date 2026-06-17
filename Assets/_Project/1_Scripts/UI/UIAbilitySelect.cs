@@ -2,9 +2,9 @@ using UnityEngine;
 using UnityEngine.UI;
 
 /// <summary>
-/// 인게임 버프 카드 표시용 Popup UI 클래스
+/// 인게임 재능 표시용 Popup UI 클래스
 /// </summary>
-public class UIBuffCardSelect : UIBase
+public class UIAbilitySelect : UIBase
 {
     [SerializeField] private AbilityUIComponent[] abilities;
     [SerializeField] private Button refreshButton;

@@ -90,7 +90,7 @@ public class InGameHeroLevelUpController : IEventListener, IAbilityEffect
         currentSpawnPoint.Value += 10;
     }
 
-    public void GainSpawnPointCardEffect()
+    public void GainSpawnPointAbilityEffect()
     {
         if (!isActiveSPGainRateEffect)
         {

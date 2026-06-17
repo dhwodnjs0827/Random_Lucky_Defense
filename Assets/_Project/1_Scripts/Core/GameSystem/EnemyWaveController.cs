@@ -54,10 +54,10 @@ public class EnemyWaveController : MonoBehaviour, IEventListener
         currentWaveTime.Value -= Time.deltaTime;
         if (currentWaveTime.Value <= 0)
         {
-            // 7의 배수 스테이지 끝날 시, 카드 선택 UI 등장
+            // 7의 배수 스테이지 끝날 시, 재능 선택 UI 등장
             if (currentWaveData.WaveIndex % GameConstants.ABILITY_SELECTION_STAGE_INTERVAL == 0)
             {
-                UIManager.Instance.Open<UIBuffCardSelect>();
+                UIManager.Instance.Open<UIAbilitySelect>();
             }
             
             // 다음 웨이브 설정

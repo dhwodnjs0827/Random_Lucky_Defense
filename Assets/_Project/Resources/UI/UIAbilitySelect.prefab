@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6972634478508086419}
   - component: {fileID: 3147663522509513795}
   m_Layer: 5
-  m_Name: UIBuffCardSelect
+  m_Name: UIAbilitySelect
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -55,10 +55,7 @@ MonoBehaviour:
   uiType: 200
   isActiveOnLoad: 1
   isDestroyOnClose: 0
-  cards:
-  - {fileID: 629936279758256624}
-  - {fileID: 2333705510389229229}
-  - {fileID: 1411893761765241474}
+  abilities: []
   refreshButton: {fileID: 4967444734974764914}
 --- !u!1 &986190481075606318
 GameObject:
@@ -617,7 +614,7 @@ GameObject:
   - component: {fileID: 1525003752868065505}
   - component: {fileID: 5632496198865083095}
   m_Layer: 5
-  m_Name: CardContainer
+  m_Name: AbilityContainer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -841,24 +838,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8502495061594131066, guid: 80efa0d6ff7ae461fb715a3c5be11d6f, type: 3}
       propertyPath: m_Name
-      value: BuffCardUIComponent (2)
+      value: AbilityUIComponent (2)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 80efa0d6ff7ae461fb715a3c5be11d6f, type: 3}
---- !u!114 &1411893761765241474 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1740731532102626424, guid: 80efa0d6ff7ae461fb715a3c5be11d6f, type: 3}
-  m_PrefabInstance: {fileID: 842278676435771130}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e5d09ac7b80904917b4afd5835c2ea14, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::GlobalBuffCard
 --- !u!224 &4761669502598051670 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 5306514495151925676, guid: 80efa0d6ff7ae461fb715a3c5be11d6f, type: 3}
@@ -1034,24 +1020,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8502495061594131066, guid: 80efa0d6ff7ae461fb715a3c5be11d6f, type: 3}
       propertyPath: m_Name
-      value: BuffCardUIComponent
+      value: AbilityUIComponent
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 80efa0d6ff7ae461fb715a3c5be11d6f, type: 3}
---- !u!114 &629936279758256624 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1740731532102626424, guid: 80efa0d6ff7ae461fb715a3c5be11d6f, type: 3}
-  m_PrefabInstance: {fileID: 1195047842911311240}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e5d09ac7b80904917b4afd5835c2ea14, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::GlobalBuffCard
 --- !u!224 &6426970365753211940 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 5306514495151925676, guid: 80efa0d6ff7ae461fb715a3c5be11d6f, type: 3}
@@ -1227,24 +1202,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8502495061594131066, guid: 80efa0d6ff7ae461fb715a3c5be11d6f, type: 3}
       propertyPath: m_Name
-      value: BuffCardUIComponent (1)
+      value: AbilityUIComponent (1)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 80efa0d6ff7ae461fb715a3c5be11d6f, type: 3}
---- !u!114 &2333705510389229229 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1740731532102626424, guid: 80efa0d6ff7ae461fb715a3c5be11d6f, type: 3}
-  m_PrefabInstance: {fileID: 4056246653266643669}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e5d09ac7b80904917b4afd5835c2ea14, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::GlobalBuffCard
 --- !u!224 &8209543178851623801 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 5306514495151925676, guid: 80efa0d6ff7ae461fb715a3c5be11d6f, type: 3}
