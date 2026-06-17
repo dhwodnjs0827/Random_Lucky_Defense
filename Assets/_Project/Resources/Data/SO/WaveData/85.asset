@@ -18,5 +18,5 @@ MonoBehaviour:
   SpawnInterval: 0.5
   WaveTime: 30
   WaveHpCoefficients: 9
-  AttackSpeed: 0
+  WaveSpeedCoefficients: 1
   WaveDefenseCoefficients: 1
