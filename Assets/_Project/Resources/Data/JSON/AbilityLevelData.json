@@ -24,14 +24,14 @@
     "ID": "CriticalRate_4",
     "AbilityID": "CriticalRate",
     "Level": 4,
-    "value": null,
+    "value": 0,
     "value1": 0.0
   },
   {
     "ID": "CriticalRate_5",
     "AbilityID": "CriticalRate",
     "Level": 5,
-    "value": null,
+    "value": 0,
     "value1": 0.0
   },
   {
@@ -45,28 +45,28 @@
     "ID": "CriticalDamage_2",
     "AbilityID": "CriticalDamage",
     "Level": 2,
-    "value": null,
+    "value": 0,
     "value1": 0.0
   },
   {
     "ID": "CriticalDamage_3",
     "AbilityID": "CriticalDamage",
     "Level": 3,
-    "value": null,
+    "value": 0,
     "value1": 0.0
   },
   {
     "ID": "CriticalDamage_4",
     "AbilityID": "CriticalDamage",
     "Level": 4,
-    "value": null,
+    "value": 0,
     "value1": 0.0
   },
   {
     "ID": "CriticalDamage_5",
     "AbilityID": "CriticalDamage",
     "Level": 5,
-    "value": null,
+    "value": 0,
     "value1": 0.0
   },
   {
@@ -87,22 +87,22 @@
     "ID": "Damage_3",
     "AbilityID": "Damage",
     "Level": 3,
-    "value": null,
-    "value1": null
+    "value": 0,
+    "value1": 0
   },
   {
     "ID": "Damage_4",
     "AbilityID": "Damage",
     "Level": 4,
-    "value": null,
-    "value1": null
+    "value": 0,
+    "value1": 0
   },
   {
     "ID": "Damage_5",
     "AbilityID": "Damage",
     "Level": 5,
-    "value": null,
-    "value1": null
+    "value": 0,
+    "value1": 0
   },
   {
     "ID": "AttackRange_1",
@@ -129,14 +129,14 @@
     "ID": "AttackRange_4",
     "AbilityID": "AttackRange",
     "Level": 4,
-    "value": null,
+    "value": 0,
     "value1": 0.0
   },
   {
     "ID": "AttackRange_5",
     "AbilityID": "AttackRange",
     "Level": 5,
-    "value": null,
+    "value": 0,
     "value1": 0.0
   },
   {
@@ -171,7 +171,7 @@
     "ID": "SplashRange_5",
     "AbilityID": "SplashRange",
     "Level": 5,
-    "value": null,
+    "value": 0,
     "value1": 0.0
   },
   {
@@ -192,22 +192,22 @@
     "ID": "Penetration_3",
     "AbilityID": "Penetration",
     "Level": 3,
-    "value": null,
-    "value1": null
+    "value": 0,
+    "value1": 0
   },
   {
     "ID": "Penetration_4",
     "AbilityID": "Penetration",
     "Level": 4,
-    "value": null,
-    "value1": null
+    "value": 0,
+    "value1": 0
   },
   {
     "ID": "Penetration_5",
     "AbilityID": "Penetration",
     "Level": 5,
-    "value": null,
-    "value1": null
+    "value": 0,
+    "value1": 0
   },
   {
     "ID": "LuckyStone_1",
@@ -228,21 +228,21 @@
     "AbilityID": "LuckyStone",
     "Level": 3,
     "value": 5.0,
-    "value1": null
+    "value1": 0
   },
   {
     "ID": "LuckyStone_4",
     "AbilityID": "LuckyStone",
     "Level": 4,
     "value": 6.0,
-    "value1": null
+    "value1": 0
   },
   {
     "ID": "LuckyStone_5",
     "AbilityID": "LuckyStone",
     "Level": 5,
-    "value": null,
-    "value1": null
+    "value": 0,
+    "value1": 0
   },
   {
     "ID": "Luck_1",
@@ -255,28 +255,28 @@
     "ID": "Luck_2",
     "AbilityID": "Luck",
     "Level": 2,
-    "value": null,
+    "value": 0,
     "value1": 0.0
   },
   {
     "ID": "Luck_3",
     "AbilityID": "Luck",
     "Level": 3,
-    "value": null,
+    "value": 0,
     "value1": 0.0
   },
   {
     "ID": "Luck_4",
     "AbilityID": "Luck",
     "Level": 4,
-    "value": null,
+    "value": 0,
     "value1": 0.0
   },
   {
     "ID": "Luck_5",
     "AbilityID": "Luck",
     "Level": 5,
-    "value": null,
+    "value": 0,
     "value1": 0.0
   },
   {
@@ -290,29 +290,29 @@
     "ID": "Greed_2",
     "AbilityID": "Greed",
     "Level": 2,
-    "value": null,
-    "value1": null
+    "value": 0,
+    "value1": 0
   },
   {
     "ID": "Greed_3",
     "AbilityID": "Greed",
     "Level": 3,
-    "value": null,
-    "value1": null
+    "value": 0,
+    "value1": 0
   },
   {
     "ID": "Greed_4",
     "AbilityID": "Greed",
     "Level": 4,
-    "value": null,
-    "value1": null
+    "value": 0,
+    "value1": 0
   },
   {
     "ID": "Greed_5",
     "AbilityID": "Greed",
     "Level": 5,
-    "value": null,
-    "value1": null
+    "value": 0,
+    "value1": 0
   },
   {
     "ID": "MagicianAttackPower_1",
@@ -332,21 +332,21 @@
     "ID": "MagicianAttackPower_3",
     "AbilityID": "MagicianAttackPower",
     "Level": 3,
-    "value": null,
+    "value": 0,
     "value1": 0.0
   },
   {
     "ID": "MagicianAttackPower_4",
     "AbilityID": "MagicianAttackPower",
     "Level": 4,
-    "value": null,
+    "value": 0,
     "value1": 0.0
   },
   {
     "ID": "MagicianAttackPower_5",
     "AbilityID": "MagicianAttackPower",
     "Level": 5,
-    "value": null,
+    "value": 0,
     "value1": 0.0
   },
   {
@@ -367,21 +367,21 @@
     "ID": "MagicianMoveSpeed_3",
     "AbilityID": "MagicianMoveSpeed",
     "Level": 3,
-    "value": null,
+    "value": 0,
     "value1": 0.0
   },
   {
     "ID": "MagicianMoveSpeed_4",
     "AbilityID": "MagicianMoveSpeed",
     "Level": 4,
-    "value": null,
+    "value": 0,
     "value1": 0.0
   },
   {
     "ID": "MagicianMoveSpeed_5",
     "AbilityID": "MagicianMoveSpeed",
     "Level": 5,
-    "value": null,
+    "value": 0,
     "value1": 0.0
   },
   {
@@ -395,29 +395,29 @@
     "ID": "RedDragon_2",
     "AbilityID": "RedDragon",
     "Level": 2,
-    "value": null,
-    "value1": null
+    "value": 0,
+    "value1": 0
   },
   {
     "ID": "RedDragon_3",
     "AbilityID": "RedDragon",
     "Level": 3,
-    "value": null,
-    "value1": null
+    "value": 0,
+    "value1": 0
   },
   {
     "ID": "RedDragon_4",
     "AbilityID": "RedDragon",
     "Level": 4,
-    "value": null,
-    "value1": null
+    "value": 0,
+    "value1": 0
   },
   {
     "ID": "RedDragon_5",
     "AbilityID": "RedDragon",
     "Level": 5,
-    "value": null,
-    "value1": null
+    "value": 0,
+    "value1": 0
   },
   {
     "ID": "ArcherAttackPower_1",
@@ -437,21 +437,21 @@
     "ID": "ArcherAttackPower_3",
     "AbilityID": "ArcherAttackPower",
     "Level": 3,
-    "value": null,
+    "value": 0,
     "value1": 0.0
   },
   {
     "ID": "ArcherAttackPower_4",
     "AbilityID": "ArcherAttackPower",
     "Level": 4,
-    "value": null,
+    "value": 0,
     "value1": 0.0
   },
   {
     "ID": "ArcherAttackPower_5",
     "AbilityID": "ArcherAttackPower",
     "Level": 5,
-    "value": null,
+    "value": 0,
     "value1": 0.0
   },
   {
@@ -472,21 +472,21 @@
     "ID": "ArcherMoveSpeed_3",
     "AbilityID": "ArcherMoveSpeed",
     "Level": 3,
-    "value": null,
+    "value": 0,
     "value1": 0.0
   },
   {
     "ID": "ArcherMoveSpeed_4",
     "AbilityID": "ArcherMoveSpeed",
     "Level": 4,
-    "value": null,
+    "value": 0,
     "value1": 0.0
   },
   {
     "ID": "ArcherMoveSpeed_5",
     "AbilityID": "ArcherMoveSpeed",
     "Level": 5,
-    "value": null,
+    "value": 0,
     "value1": 0.0
   },
   {
@@ -500,29 +500,29 @@
     "ID": "AncientStatue_2",
     "AbilityID": "AncientStatue",
     "Level": 2,
-    "value": null,
-    "value1": null
+    "value": 0,
+    "value1": 0
   },
   {
     "ID": "AncientStatue_3",
     "AbilityID": "AncientStatue",
     "Level": 3,
-    "value": null,
-    "value1": null
+    "value": 0,
+    "value1": 0
   },
   {
     "ID": "AncientStatue_4",
     "AbilityID": "AncientStatue",
     "Level": 4,
-    "value": null,
-    "value1": null
+    "value": 0,
+    "value1": 0
   },
   {
     "ID": "AncientStatue_5",
     "AbilityID": "AncientStatue",
     "Level": 5,
-    "value": null,
-    "value1": null
+    "value": 0,
+    "value1": 0
   },
   {
     "ID": "KnightAttackPower_1",
@@ -542,21 +542,21 @@
     "ID": "KnightAttackPower_3",
     "AbilityID": "KnightAttackPower",
     "Level": 3,
-    "value": null,
+    "value": 0,
     "value1": 0.0
   },
   {
     "ID": "KnightAttackPower_4",
     "AbilityID": "KnightAttackPower",
     "Level": 4,
-    "value": null,
+    "value": 0,
     "value1": 0.0
   },
   {
     "ID": "KnightAttackPower_5",
     "AbilityID": "KnightAttackPower",
     "Level": 5,
-    "value": null,
+    "value": 0,
     "value1": 0.0
   },
   {
@@ -577,21 +577,21 @@
     "ID": "KnightMoveSpeed_3",
     "AbilityID": "KnightMoveSpeed",
     "Level": 3,
-    "value": null,
+    "value": 0,
     "value1": 0.0
   },
   {
     "ID": "KnightMoveSpeed_4",
     "AbilityID": "KnightMoveSpeed",
     "Level": 4,
-    "value": null,
+    "value": 0,
     "value1": 0.0
   },
   {
     "ID": "KnightMoveSpeed_5",
     "AbilityID": "KnightMoveSpeed",
     "Level": 5,
-    "value": null,
+    "value": 0,
     "value1": 0.0
   },
   {
@@ -612,21 +612,21 @@
     "ID": "Lightning_3",
     "AbilityID": "Lightning",
     "Level": 3,
-    "value": null,
-    "value1": null
+    "value": 0,
+    "value1": 0
   },
   {
     "ID": "Lightning_4",
     "AbilityID": "Lightning",
     "Level": 4,
-    "value": null,
-    "value1": null
+    "value": 0,
+    "value1": 0
   },
   {
     "ID": "Lightning_5",
     "AbilityID": "Lightning",
     "Level": 5,
-    "value": null,
-    "value1": null
+    "value": 0,
+    "value1": 0
   }
 ]
