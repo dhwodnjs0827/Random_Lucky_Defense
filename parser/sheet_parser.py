@@ -76,19 +76,25 @@ def parse_sheet(worksheet):
 
 def parse_value(value, value_type):
     """값을 타입에 맞게 변환"""
-    if value == '':
-        return None
 
     if value_type == 'int':
+        if not value:
+            return 0
         return int(value)
 
     if value_type == 'float':
+        if not value:
+            return 0
         return float(value)
 
     if value_type == 'string':
+        if not value:
+            return None
         return value
 
     if value_type == 'bool':
+        if not value:
+            return None
         return value.lower() in ('true', '1', 'yes')
 
     if value_type in ('List<int>', 'int[]'):
