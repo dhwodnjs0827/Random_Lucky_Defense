@@ -4,14 +4,14 @@ using System.Collections.Generic;
 /// <summary>
 /// 인게임 영웅 버프 효과(카드, 레벨) 관리 담당 클래스
 /// </summary>
-public class InGameHeroBuffController : IEventListener, IBuffCardEffect
+public class InGameHeroBuffController : IEventListener, IAbilityEffect
 {
     private Dictionary<HeroClassType, HeroStat> levelUpStats = new();
-    private Dictionary<HeroClassType, HeroStat> cardEffectStats = new();
+    private Dictionary<HeroClassType, HeroStat> abilityEffectStats = new();
     private Dictionary<HeroClassType, float> acquiredHeroBonusDamages = new();
     
     public Dictionary<HeroClassType, HeroStat> LevelUpStats => levelUpStats;
-    public Dictionary<HeroClassType, HeroStat> CardEffectStats => cardEffectStats;
+    public Dictionary<HeroClassType, HeroStat> AbilityEffectStats => abilityEffectStats;
     public Dictionary<HeroClassType, float> AcquiredHeroBonusDamages => acquiredHeroBonusDamages;
     
     private Action<InGameLevelUpEventData> onLevelUp;
@@ -20,15 +20,15 @@ public class InGameHeroBuffController : IEventListener, IBuffCardEffect
     {
         levelUpStats.Add(HeroClassType.Magician, new HeroStat());
         levelUpStats.Add(HeroClassType.Archer, new HeroStat());
-        levelUpStats.Add(HeroClassType.Warrior, new HeroStat());
+        levelUpStats.Add(HeroClassType.Knight, new HeroStat());
         
-        cardEffectStats.Add(HeroClassType.Magician, new HeroStat());
-        cardEffectStats.Add(HeroClassType.Archer, new HeroStat());
-        cardEffectStats.Add(HeroClassType.Warrior, new HeroStat());
+        abilityEffectStats.Add(HeroClassType.Magician, new HeroStat());
+        abilityEffectStats.Add(HeroClassType.Archer, new HeroStat());
+        abilityEffectStats.Add(HeroClassType.Knight, new HeroStat());
         
         acquiredHeroBonusDamages.Add(HeroClassType.Magician, 1f + PlayerDataManager.Instance.CalculateHeroAcquiredBonusDamage(HeroClassType.Magician));
         acquiredHeroBonusDamages.Add(HeroClassType.Archer, 1f + PlayerDataManager.Instance.CalculateHeroAcquiredBonusDamage(HeroClassType.Archer));
-        acquiredHeroBonusDamages.Add(HeroClassType.Warrior, 1f + PlayerDataManager.Instance.CalculateHeroAcquiredBonusDamage(HeroClassType.Warrior));
+        acquiredHeroBonusDamages.Add(HeroClassType.Knight, 1f + PlayerDataManager.Instance.CalculateHeroAcquiredBonusDamage(HeroClassType.Knight));
     }
 
     public void SubscribeEvents()
@@ -48,50 +48,50 @@ public class InGameHeroBuffController : IEventListener, IBuffCardEffect
         levelUpStats[eventData.TargetClass].IncreaseAttackPowerMultiplier(eventData.DamageMultiplier);
     }
 
-    public void RegisterCardEffect(CardEffectFactory cardEffectFactory)
+    public void RegisterAbilityEffect(AbilityEffectFactory abilityEffectFactory)
     {
-        cardEffectFactory.RegisterCardEffectHandler(BuffEffectType.IncreaseCriticalRate, this);
-        cardEffectFactory.RegisterCardEffectHandler(BuffEffectType.IncreaseCriticalDamage, this);
-        cardEffectFactory.RegisterCardEffectHandler(BuffEffectType.MagicianIncreaseMoveSpeed, this);
-        cardEffectFactory.RegisterCardEffectHandler(BuffEffectType.ArcherIncreaseMoveSpeed, this);
-        cardEffectFactory.RegisterCardEffectHandler(BuffEffectType.ArcherSummonAncientStatue, this);
-        cardEffectFactory.RegisterCardEffectHandler(BuffEffectType.WarriorIncreaseMoveSpeed, this);
+        abilityEffectFactory.RegisterAbilityEffectHandler(AbilityEffectType.IncreaseCriticalRate, this);
+        abilityEffectFactory.RegisterAbilityEffectHandler(AbilityEffectType.IncreaseCriticalDamage, this);
+        abilityEffectFactory.RegisterAbilityEffectHandler(AbilityEffectType.MagicianIncreaseMoveSpeed, this);
+        abilityEffectFactory.RegisterAbilityEffectHandler(AbilityEffectType.ArcherIncreaseMoveSpeed, this);
+        abilityEffectFactory.RegisterAbilityEffectHandler(AbilityEffectType.ArcherSummonAncientStatue, this);
+        abilityEffectFactory.RegisterAbilityEffectHandler(AbilityEffectType.KnightIncreaseMoveSpeed, this);
     }
 
-    public void UnregisterCardEffect(CardEffectFactory cardEffectFactory)
+    public void UnregisterAbilityEffect(AbilityEffectFactory abilityEffectFactory)
     {
-        cardEffectFactory.UnregisterCardEffectHandler(BuffEffectType.IncreaseCriticalRate, this);
-        cardEffectFactory.UnregisterCardEffectHandler(BuffEffectType.IncreaseCriticalDamage, this);
-        cardEffectFactory.UnregisterCardEffectHandler(BuffEffectType.MagicianIncreaseMoveSpeed, this);
-        cardEffectFactory.UnregisterCardEffectHandler(BuffEffectType.ArcherIncreaseMoveSpeed, this);
-        cardEffectFactory.UnregisterCardEffectHandler(BuffEffectType.ArcherSummonAncientStatue, this);
-        cardEffectFactory.UnregisterCardEffectHandler(BuffEffectType.WarriorIncreaseMoveSpeed, this);
+        abilityEffectFactory.UnregisterAbilityEffectHandler(AbilityEffectType.IncreaseCriticalRate, this);
+        abilityEffectFactory.UnregisterAbilityEffectHandler(AbilityEffectType.IncreaseCriticalDamage, this);
+        abilityEffectFactory.UnregisterAbilityEffectHandler(AbilityEffectType.MagicianIncreaseMoveSpeed, this);
+        abilityEffectFactory.UnregisterAbilityEffectHandler(AbilityEffectType.ArcherIncreaseMoveSpeed, this);
+        abilityEffectFactory.UnregisterAbilityEffectHandler(AbilityEffectType.ArcherSummonAncientStatue, this);
+        abilityEffectFactory.UnregisterAbilityEffectHandler(AbilityEffectType.KnightIncreaseMoveSpeed, this);
     }
 
-    public void ApplyCardEffect(BuffCardContainer cardContainer)
+    public void ApplyAbilityEffect(AbilityContainer abilityContainer)
     {
-        switch (cardContainer.CardData.BuffEffectType)
+        switch (abilityContainer.AbilityData.AbilityEffectType)
         {
-            case BuffEffectType.IncreaseCriticalRate:
-                cardEffectStats[HeroClassType.Magician].IncreaseCriticalRate(cardContainer.CardLevelData.value / 100f);
-                cardEffectStats[HeroClassType.Archer].IncreaseCriticalRate(cardContainer.CardLevelData.value / 100f);
-                cardEffectStats[HeroClassType.Warrior].IncreaseCriticalRate(cardContainer.CardLevelData.value / 100f);
+            case AbilityEffectType.IncreaseCriticalRate:
+                abilityEffectStats[HeroClassType.Magician].IncreaseCriticalRate(abilityContainer.AbilityLevelData.value / 100f);
+                abilityEffectStats[HeroClassType.Archer].IncreaseCriticalRate(abilityContainer.AbilityLevelData.value / 100f);
+                abilityEffectStats[HeroClassType.Knight].IncreaseCriticalRate(abilityContainer.AbilityLevelData.value / 100f);
                 break;
-            case BuffEffectType.IncreaseCriticalDamage:
-                cardEffectStats[HeroClassType.Magician].IncreaseCriticalDamage(cardContainer.CardLevelData.value / 100f);
-                cardEffectStats[HeroClassType.Archer].IncreaseCriticalDamage(cardContainer.CardLevelData.value / 100f);
-                cardEffectStats[HeroClassType.Warrior].IncreaseCriticalDamage(cardContainer.CardLevelData.value / 100f);
+            case AbilityEffectType.IncreaseCriticalDamage:
+                abilityEffectStats[HeroClassType.Magician].IncreaseCriticalDamage(abilityContainer.AbilityLevelData.value / 100f);
+                abilityEffectStats[HeroClassType.Archer].IncreaseCriticalDamage(abilityContainer.AbilityLevelData.value / 100f);
+                abilityEffectStats[HeroClassType.Knight].IncreaseCriticalDamage(abilityContainer.AbilityLevelData.value / 100f);
                 break;
-            case BuffEffectType.MagicianIncreaseMoveSpeed:
-                cardEffectStats[HeroClassType.Magician].IncreaseMoveSpeedMultiplier(cardContainer.CardLevelData.value / 100f);
+            case AbilityEffectType.MagicianIncreaseMoveSpeed:
+                abilityEffectStats[HeroClassType.Magician].IncreaseMoveSpeedMultiplier(abilityContainer.AbilityLevelData.value / 100f);
                 break;
-            case BuffEffectType.ArcherIncreaseMoveSpeed:
-                cardEffectStats[HeroClassType.Archer].IncreaseMoveSpeedMultiplier(cardContainer.CardLevelData.value / 100f);
+            case AbilityEffectType.ArcherIncreaseMoveSpeed:
+                abilityEffectStats[HeroClassType.Archer].IncreaseMoveSpeedMultiplier(abilityContainer.AbilityLevelData.value / 100f);
                 break;
-            case BuffEffectType.WarriorIncreaseMoveSpeed:
-                cardEffectStats[HeroClassType.Warrior].IncreaseMoveSpeedMultiplier(cardContainer.CardLevelData.value / 100f);
+            case AbilityEffectType.KnightIncreaseMoveSpeed:
+                abilityEffectStats[HeroClassType.Knight].IncreaseMoveSpeedMultiplier(abilityContainer.AbilityLevelData.value / 100f);
                 break;
-            case BuffEffectType.ArcherSummonAncientStatue:
+            case AbilityEffectType.ArcherSummonAncientStatue:
                 CDebug.Log("[ArcherCardEffectHandler] 고대 석상 소환]");
                 break;
             default:

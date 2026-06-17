@@ -1,0 +1,162 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using Generated;
+using Random = UnityEngine.Random;
+
+/// <summary>
+/// 재능 시스템의 핵심 중개 클래스
+/// </summary>
+public class AbilityEffectFactory : IEventListener
+{
+    private Dictionary<AbilityEffectType, List<IAbilityEffect>> effectHandlers = new();
+
+    private AbilityDataSO[] abilityDatas;
+    private readonly Dictionary<string, List<AbilityLevelDataSO>> abilityLevelDataDic = new();
+    private readonly Dictionary<string, int> currentAbilityLevelDic = new();
+
+    private Action<AbilitySelectEventData> onAbilitySelected;
+
+    public AbilityEffectFactory()
+    {
+        InitializeData();
+    }
+
+    public void SubscribeEvents()
+    {
+        onAbilitySelected += SelectedAbilityProcess;
+        EventManager.Subscribe(GameEventType.AbilitySelected, onAbilitySelected);
+    }
+
+    public void UnsubscribeEvents()
+    {
+        EventManager.Unsubscribe(GameEventType.AbilitySelected, onAbilitySelected);
+        onAbilitySelected -= SelectedAbilityProcess;
+    }
+
+    /// <summary>
+    /// 가중치 기반 랜덤 재능 불러오기
+    /// <remarks>5레벨 미만 재능만 필터링</remarks>
+    /// </summary>
+    /// <param name="count">재능 개수(기본값 3장)</param>
+    public AbilityContainer[] GetRandomAbilities(int count = 3)
+    {
+        // 5레벨 미만 재능 필터링
+        var availableAbilities = abilityDatas.Where(ability => GetAbilityLevel(ability.ID) < GameConstants.ABILITY_MAX_LEVEL).ToList();
+
+        // 가중치 기반 랜덤 선택(중복 없이 count 개수만큼)
+        var selectedAbilities = new List<AbilityContainer>();
+        for (var i = 0; i < count && availableAbilities.Count > 0; i++)
+        {
+            var selectedAbility = SelectByWeight(availableAbilities);
+            var selectedAbilityCurrentLevel = GetAbilityLevel(selectedAbility.ID);
+            selectedAbilities.Add(CreateContainer(selectedAbility, selectedAbilityCurrentLevel));
+            availableAbilities.Remove(selectedAbility);
+        }
+
+        return selectedAbilities.ToArray();
+    }
+
+    /// <summary>
+    /// 재능 효과 적용 대상 등록
+    /// </summary>
+    public void RegisterAbilityEffectHandler(AbilityEffectType type, IAbilityEffect handler)
+    {
+        if (!effectHandlers.ContainsKey(type))
+        {
+            effectHandlers[type] = new List<IAbilityEffect>();
+        }
+
+        effectHandlers[type].Add(handler);
+    }
+
+    /// <summary>
+    /// 재능 효과 적용 대상 해제
+    /// </summary>
+    public void UnregisterAbilityEffectHandler(AbilityEffectType type, IAbilityEffect handler)
+    {
+        if (effectHandlers.TryGetValue(type, out var handlers))
+        {
+            handlers.Remove(handler);
+        }
+    }
+    
+    private void InitializeData()
+    {
+        abilityDatas = ResourceManager.Instance.LoadAll<AbilityDataSO>("Data/SO/AbilityCardData");
+        foreach (var abilityData in abilityDatas)
+        {
+            var list = new List<AbilityLevelDataSO>();
+            abilityLevelDataDic.TryAdd(abilityData.ID, list);
+            currentAbilityLevelDic.TryAdd(abilityData.ID, 0);
+        }
+
+        var abilityLevelDatas = ResourceManager.Instance.LoadAll<AbilityLevelDataSO>("Data/SO/AbilityLevelData");
+        foreach (var abilityLevelData in abilityLevelDatas)
+        {
+            if (abilityLevelDataDic.TryGetValue(abilityLevelData.AbilityID, out var list))
+            {
+                list.Add(abilityLevelData);
+            }
+        }
+    }
+
+    private int GetAbilityLevel(string abilityID)
+    {
+        return currentAbilityLevelDic.GetValueOrDefault(abilityID, 0);
+    }
+
+    private AbilityContainer CreateContainer(AbilityDataSO abilityData, int level)
+    {
+        var levelData = abilityLevelDataDic[abilityData.ID][level];
+        var container = new AbilityContainer(abilityData, levelData);
+        return container;
+    }
+
+    private AbilityDataSO SelectByWeight(List<AbilityDataSO> abilities)
+    {
+        var totalWeight = abilities.Sum(c => c.Weight);
+        var random = Random.Range(0, totalWeight);
+
+        var cumulative = 0;
+        foreach (var ability in abilities)
+        {
+            cumulative += ability.Weight;
+            if (random < cumulative)
+                return ability;
+        }
+
+        return abilities.Last();
+    }
+
+    private void SelectedAbilityProcess(AbilitySelectEventData data)
+    {
+        if (currentAbilityLevelDic.ContainsKey(data.SelectedAbility.AbilityData.ID))
+        {
+            currentAbilityLevelDic[data.SelectedAbility.AbilityData.ID]++;
+        }
+        
+        var effectType = data.SelectedAbility.AbilityData.AbilityEffectType;
+        if (effectHandlers.TryGetValue(effectType, out var handlers))
+        {
+            foreach (var handler in handlers)
+            {
+                handler.ApplyAbilityEffect(data.SelectedAbility);
+            }
+        }
+        
+        CDebug.Log($"[AbilityEffectFactory] 선택한 재능: {data.SelectedAbility.AbilityData.Name}, 재능 레벨: {currentAbilityLevelDic[data.SelectedAbility.AbilityData.ID]}");
+    }
+}
+
+public struct AbilityContainer
+{
+    public AbilityDataSO AbilityData;
+    public AbilityLevelDataSO AbilityLevelData;
+
+    public AbilityContainer(AbilityDataSO abilityData, AbilityLevelDataSO levelData)
+    {
+        AbilityData = abilityData;
+        AbilityLevelData = levelData;
+    }
+}

@@ -6,5 +6,5 @@ public enum HeroClassType
     None = 0,
     Magician, // 마법사
     Archer, // 궁수
-    Warrior, // 전사
+    Knight, // 전사
 }

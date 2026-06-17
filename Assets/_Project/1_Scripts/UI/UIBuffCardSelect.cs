@@ -6,23 +6,23 @@ using UnityEngine.UI;
 /// </summary>
 public class UIBuffCardSelect : UIBase
 {
-    [SerializeField] private BuffCardUIComponent[] cards;
+    [SerializeField] private AbilityUIComponent[] abilities;
     [SerializeField] private Button refreshButton;
 
     private void Awake()
     {
         refreshButton.onClick.AddListener(OnClickRefreshButton);
         
-        foreach (var card in cards)
+        foreach (var ability in abilities)
         {
-            card.InitializeCard(this);
+            ability.InitializeAbility(this);
         }
     }
 
     protected override void Opened(params object[] args)
     {
         InGameManager.Instance.PauseGame();
-        SetCards();
+        SetAbilities();
     }
 
     protected override void Closed(params object[] args)
@@ -32,15 +32,15 @@ public class UIBuffCardSelect : UIBase
     
     private void OnClickRefreshButton()
     {
-        SetCards();
+        SetAbilities();
     }
 
-    private void SetCards()
+    private void SetAbilities()
     {
-        var randomCards = InGameManager.Instance.CardEffectFactory.GetRandomCards();
-        for (var i = 0; i < cards.Length && i < randomCards.Length; i++)
+        var randomAbilities = InGameManager.Instance.AbilityEffectFactory.GetRandomAbilities();
+        for (var i = 0; i < abilities.Length && i < randomAbilities.Length; i++)
         {
-            cards[i].SetBuffCardData(randomCards[i]);
+            abilities[i].SetAbilityData(randomAbilities[i]);
         }
     }
 }

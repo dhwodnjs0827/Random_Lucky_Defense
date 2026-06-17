@@ -23,7 +23,7 @@ public class HeroSpawnPool : MonoBehaviour
         {
             { HeroClassType.Magician, new Dictionary<HeroGradeType, HeroRuntimeData>() },
             { HeroClassType.Archer, new Dictionary<HeroGradeType, HeroRuntimeData>() },
-            { HeroClassType.Warrior, new Dictionary<HeroGradeType, HeroRuntimeData>() },
+            { HeroClassType.Knight, new Dictionary<HeroGradeType, HeroRuntimeData>() },
         };
         foreach (var heroData in allHeroes)
         {
@@ -39,7 +39,7 @@ public class HeroSpawnPool : MonoBehaviour
 
         InitializeClassPool(HeroClassType.Magician);
         InitializeClassPool(HeroClassType.Archer);
-        InitializeClassPool(HeroClassType.Warrior);
+        InitializeClassPool(HeroClassType.Knight);
 
         InitializeSpawnChance();
     }

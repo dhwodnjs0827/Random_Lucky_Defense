@@ -7,7 +7,7 @@ using UnityEngine;
 /// <summary>
 /// 인게임 영웅 레벨 업 담당 클래스
 /// </summary>
-public class InGameHeroLevelUpController : IEventListener, IBuffCardEffect
+public class InGameHeroLevelUpController : IEventListener, IAbilityEffect
 {
     private ReactiveProperty<int> currentSpawnPoint = new(); // 현재 영웅 소환 재화
 
@@ -66,12 +66,12 @@ public class InGameHeroLevelUpController : IEventListener, IBuffCardEffect
     {
         currentLevelDict.Add(HeroClassType.Magician, new ReactiveProperty<int>(1));
         currentLevelDict.Add(HeroClassType.Archer, new ReactiveProperty<int>(1));
-        currentLevelDict.Add(HeroClassType.Warrior, new ReactiveProperty<int>(1));
+        currentLevelDict.Add(HeroClassType.Knight, new ReactiveProperty<int>(1));
         
         var datas = ResourceManager.Instance.LoadAll<InGameLevelUpDataSO>("Data/SO/InGameLevelUpData");
         levelUpDataDict.Add(HeroClassType.Magician, new Dictionary<int, ClassLevelUpData>());
         levelUpDataDict.Add(HeroClassType.Archer, new Dictionary<int, ClassLevelUpData>());
-        levelUpDataDict.Add(HeroClassType.Warrior, new Dictionary<int, ClassLevelUpData>());
+        levelUpDataDict.Add(HeroClassType.Knight, new Dictionary<int, ClassLevelUpData>());
         foreach (var data in datas)
         {
             var dict = levelUpDataDict[data.HeroClassType];
@@ -101,27 +101,27 @@ public class InGameHeroLevelUpController : IEventListener, IBuffCardEffect
         {
             currentSpawnPoint.Value += spGainAmount;
             spGainTimer = 0;
-            CDebug.Log($"[InGameHeroLevelUpController] 현재 카드 효과 간격: {spGainInterval}, 획득량: {spGainAmount}");
+            CDebug.Log($"[InGameHeroLevelUpController] 현재 재능 효과 간격: {spGainInterval}, 획득량: {spGainAmount}");
         }
     }
 
-    public void RegisterCardEffect(CardEffectFactory cardEffectFactory)
+    public void RegisterAbilityEffect(AbilityEffectFactory abilityEffectFactory)
     {
-        cardEffectFactory.RegisterCardEffectHandler(BuffEffectType.IncreaseSpawnPointGainRate, this);
+        abilityEffectFactory.RegisterAbilityEffectHandler(AbilityEffectType.IncreaseSpawnPointGainRate, this);
     }
 
-    public void UnregisterCardEffect(CardEffectFactory cardEffectFactory)
+    public void UnregisterAbilityEffect(AbilityEffectFactory abilityEffectFactory)
     {
-        cardEffectFactory.UnregisterCardEffectHandler(BuffEffectType.IncreaseSpawnPointGainRate, this);
+        abilityEffectFactory.UnregisterAbilityEffectHandler(AbilityEffectType.IncreaseSpawnPointGainRate, this);
     }
 
-    public void ApplyCardEffect(BuffCardContainer cardContainer)
+    public void ApplyAbilityEffect(AbilityContainer abilityContainer)
     {
-        if (cardContainer.CardData.BuffEffectType == BuffEffectType.IncreaseSpawnPointGainRate)
+        if (abilityContainer.AbilityData.AbilityEffectType == AbilityEffectType.IncreaseSpawnPointGainRate)
         {
             isActiveSPGainRateEffect =  true;
-            spGainInterval = cardContainer.CardLevelData.value;
-            spGainAmount = (int)cardContainer.CardLevelData.value1;
+            spGainInterval = abilityContainer.AbilityLevelData.value;
+            spGainAmount = (int)abilityContainer.AbilityLevelData.value1;
         }
     }
 }

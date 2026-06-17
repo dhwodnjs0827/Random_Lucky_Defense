@@ -53,10 +53,10 @@ public static class GameConstants
     // 게임 내 영웅 소환 비용
     public const int HERO_SPAWN_POINT_COST = 20;
 
-    // 카드 선택 등장 웨이브 배수 값
-    public const int CARD_SELECTION_STAGE_INTERVAL = 7;
-    // 카드 레벨 최대치
-    public const int CARD_MAX_LEVEL = 5;
+    // 재능 선택 등장 웨이브 배수 값
+    public const int ABILITY_SELECTION_STAGE_INTERVAL = 7;
+    // 재능 레벨 최대치
+    public const int ABILITY_MAX_LEVEL = 5;
     
     // 인게임 최대 적 수
     public const int MAX_ENEMY_COUNT = 100;

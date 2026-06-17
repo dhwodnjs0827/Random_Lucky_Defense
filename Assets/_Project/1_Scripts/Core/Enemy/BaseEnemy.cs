@@ -30,7 +30,7 @@ public abstract class BaseEnemy : MonoBehaviour, IPoolable, IDetectable, IDamage
     private Vector3 previousPosition;
     private const float FLIP_THRESHOLD = 0.01f;
 
-    protected EnemyDataSO enemyData;
+    protected MonsterDataSO enemyData;
     protected float maxHealth;
     protected float currentHealth;
     protected float defense;
@@ -54,7 +54,7 @@ public abstract class BaseEnemy : MonoBehaviour, IPoolable, IDetectable, IDamage
     /// <summary>
     /// 적 초기화
     /// </summary>
-    public virtual void Initialize(EnemyDataSO data, SplineContainer splineContainer)
+    public virtual void Initialize(MonsterDataSO data, SplineContainer splineContainer)
     {
         InitializeSpline(splineContainer);
         InitializeEnemyData(data);
@@ -116,7 +116,7 @@ public abstract class BaseEnemy : MonoBehaviour, IPoolable, IDetectable, IDamage
     /// <summary>
     /// 적 데이터 초기화
     /// </summary>
-    private void InitializeEnemyData(EnemyDataSO data)
+    private void InitializeEnemyData(MonsterDataSO data)
     {
         enemyData = data;
         maxHealth = data.Health;

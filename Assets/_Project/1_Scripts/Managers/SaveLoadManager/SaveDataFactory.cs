@@ -89,7 +89,7 @@ public static class SaveDataFactory
 
         AddHeroesFromList(data, config.Heroes.Magicians); // 마법사 초기화
         AddHeroesFromList(data, config.Heroes.Archers); // 궁수 초기화
-        AddHeroesFromList(data, config.Heroes.Warriors); // 전사 초기화
+        AddHeroesFromList(data, config.Heroes.Knights); // 전사 초기화
     }
 
     /// <summary>

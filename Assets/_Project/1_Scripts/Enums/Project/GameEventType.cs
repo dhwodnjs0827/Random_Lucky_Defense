@@ -25,5 +25,5 @@ public enum GameEventType
     
     InGameHeroLevelUpRequest, // 영웅 레벨 업 요청
     InGameHeroLevelUpCompleted, // 영웅 레벨 업 완료
-    BuffCardSelected, // 버프 카드 선택
+    AbilitySelected, // 재능 선택
 }

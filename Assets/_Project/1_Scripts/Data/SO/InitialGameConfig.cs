@@ -51,8 +51,8 @@ public class InitialGameConfig : ScriptableObject
                     Heroes.Archers.Add(heroConfig);
                     break;
 
-                case HeroClassType.Warrior:
-                    Heroes.Warriors.Add(heroConfig);
+                case HeroClassType.Knight:
+                    Heroes.Knights.Add(heroConfig);
                     break;
             }
         }
@@ -64,7 +64,7 @@ public class HeroConfigGroup
 {
     public List<InitialHeroConfig> Magicians = new();
     public List<InitialHeroConfig> Archers = new();
-    public List<InitialHeroConfig> Warriors = new();
+    public List<InitialHeroConfig> Knights = new();
 }
 
 [Serializable]

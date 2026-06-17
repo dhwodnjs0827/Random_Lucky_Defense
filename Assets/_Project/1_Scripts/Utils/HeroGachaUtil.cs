@@ -13,7 +13,7 @@ public static class HeroGachaUtil
     {
         HeroClassType.Magician,
         HeroClassType.Archer,
-        HeroClassType.Warrior
+        HeroClassType.Knight
     };
 
     private static readonly HeroGradeType[] gradeTable =

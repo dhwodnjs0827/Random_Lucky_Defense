@@ -68,12 +68,12 @@ public struct InGameLevelUpEventData
     }
 }
 
-public struct BuffCardSelectEventData
+public struct AbilitySelectEventData
 {
-    public readonly BuffCardContainer SelectedCard;
+    public readonly AbilityContainer SelectedAbility;
 
-    public BuffCardSelectEventData(BuffCardContainer selectedCard)
+    public AbilitySelectEventData(AbilityContainer selectedAbility)
     {
-        SelectedCard = selectedCard;
+        SelectedAbility = selectedAbility;
     }
 }
