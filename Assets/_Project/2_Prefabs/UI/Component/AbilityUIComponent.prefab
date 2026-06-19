@@ -1005,9 +1005,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GlobalBuffCard
   selectButton: {fileID: 659957729147329672}
-  abilityName: {fileID: 0}
-  abilityImage: {fileID: 0}
-  abilityDescription: {fileID: 0}
+  abilityName: {fileID: 5492405263933245450}
+  abilityImage: {fileID: 9158506576010373507}
+  abilityDescription: {fileID: 9096407724482524736}
   levelIcons:
   - {fileID: 786211439322716595}
   - {fileID: 4147599599685566554}
