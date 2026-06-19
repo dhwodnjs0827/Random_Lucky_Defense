@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8655079212112843175}
   - component: {fileID: 1286025631049846099}
   m_Layer: 0
-  m_Name: Warrior_Ancient
+  m_Name: Knight_Ancient
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

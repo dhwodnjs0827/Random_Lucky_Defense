@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8423537442430711490}
   - component: {fileID: 8204432436512801840}
   m_Layer: 0
-  m_Name: Warrior_Ancient_FatalInjury
+  m_Name: Knight_Ancient_FatalInjury
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
