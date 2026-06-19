@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa285922e33db4ce1bfeb5e1dc93ef17, type: 3}
   m_Name: Luck
   m_EditorClassIdentifier: Assembly-CSharp::Generated.AbilityDataSO
-  ID: 
-  Name: 
-  Description: 
-  AbilityEffectType: 0
-  Weight: 0
+  ID: Luck
+  Name: "\uD589\uC6B4"
+  Description: "\uC601\uC6C5\uBF51\uAE30 \uD655\uB960 {value}% \uC99D\uAC00"
+  AbilityEffectType: 7
+  Weight: 10

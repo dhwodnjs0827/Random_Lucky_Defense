@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc1ef52a3c78c4bbabafa20b2aa5fd8e, type: 3}
   m_Name: 20079
   m_EditorClassIdentifier: Assembly-CSharp::Generated.EnemyDataSO
-  ID: 0
-  Name: 
-  EnemyType: 0
+  ID: 20079
+  Name: "\uC5B8\uB370\uB4DC"
+  EnemyType: 1
   MonsterType: 0
-  Health: 0
-  Defense: 0
-  MoveSpeed: 0
+  Health: 48600
+  Defense: 7
+  MoveSpeed: 1

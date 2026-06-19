@@ -12,8 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa285922e33db4ce1bfeb5e1dc93ef17, type: 3}
   m_Name: RedDragon
   m_EditorClassIdentifier: Assembly-CSharp::Generated.AbilityDataSO
-  ID: 
-  Name: 
-  Description: 
-  AbilityEffectType: 0
-  Weight: 0
+  ID: RedDragon
+  Name: "\uB808\uB4DC \uB4DC\uB798\uACE4"
+  Description: "\uB808\uB4DC \uB4DC\uB798\uACE4\uC774 \uCD9C\uD604\uD558\uC5EC {value}\uCD08\uB9C8\uB2E4
+    {value1} \uC2A4\uD50C\uB798\uC2DC \uB370\uBBF8\uC9C0\uB97C \uAC00\uD568 (\uB9C8\uBC95\uC0AC
+    \uC5C5\uADF8\uB808\uC774\uB4DC \uC801\uC6A9)"
+  AbilityEffectType: 11
+  Weight: 10

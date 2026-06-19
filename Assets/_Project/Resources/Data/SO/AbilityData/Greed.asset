@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa285922e33db4ce1bfeb5e1dc93ef17, type: 3}
   m_Name: Greed
   m_EditorClassIdentifier: Assembly-CSharp::Generated.AbilityDataSO
-  ID: 
-  Name: 
-  Description: 
-  AbilityEffectType: 0
-  Weight: 0
+  ID: Greed
+  Name: "\uD0D0\uC695"
+  Description: "{value}\uCD08 \uB9C8\uB2E4 SP {value1} \uD68D\uB4DD"
+  AbilityEffectType: 8
+  Weight: 10

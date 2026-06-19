@@ -12,13 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 933c1a9067b604f0bbfb755cf581685d, type: 3}
   m_Name: 10240
   m_EditorClassIdentifier: Assembly-CSharp::Generated.HeroDataSO
-  ID: 0
-  Name: 
-  ClassType: 0
-  GradeType: 0
+  ID: 10240
+  Name: Knight_Relic
+  ClassType: 3
+  GradeType: 4
   RankType: 0
   SkillType: 0
-  AttackPower: 0
-  AttackSpeed: 0
-  AttackRange: 0
-  SplashRange: 0
+  AttackPower: 520
+  AttackSpeed: 2.5
+  AttackRange: 400
+  SplashRange: 80

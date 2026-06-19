@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa285922e33db4ce1bfeb5e1dc93ef17, type: 3}
   m_Name: CriticalDamage
   m_EditorClassIdentifier: Assembly-CSharp::Generated.AbilityDataSO
-  ID: 
-  Name: 
-  Description: 
-  AbilityEffectType: 0
-  Weight: 0
+  ID: CriticalDamage
+  Name: "\uD06C\uB9AC\uD2F0\uCEEC \uB370\uBBF8\uC9C0"
+  Description: "\uD06C\uB9AC\uD2F0\uCEEC \uB370\uBBF8\uC9C0 {value}% \uC99D\uAC00"
+  AbilityEffectType: 1
+  Weight: 10

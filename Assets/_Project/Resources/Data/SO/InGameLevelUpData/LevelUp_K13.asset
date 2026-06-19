@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aec437cbf2b724201bf74471e4147f07, type: 3}
   m_Name: LevelUp_K13
   m_EditorClassIdentifier: Assembly-CSharp::Generated.InGameLevelUpDataSO
-  ID: 
-  Level: 0
-  HeroClassType: 0
-  Cost: 0
-  AttackPowerMultiplier: 0
+  ID: LevelUp_K13
+  Level: 13
+  HeroClassType: 3
+  Cost: 58
+  AttackPowerMultiplier: 1.8

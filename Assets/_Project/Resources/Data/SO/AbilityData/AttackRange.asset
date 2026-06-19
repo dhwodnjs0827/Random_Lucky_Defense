@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa285922e33db4ce1bfeb5e1dc93ef17, type: 3}
   m_Name: AttackRange
   m_EditorClassIdentifier: Assembly-CSharp::Generated.AbilityDataSO
-  ID: 
-  Name: 
-  Description: 
-  AbilityEffectType: 0
-  Weight: 0
+  ID: AttackRange
+  Name: "\uACF5\uACA9 \uBC94\uC704"
+  Description: "\uBAA8\uB4E0 \uD074\uB798\uC2A4 \uACF5\uACA9 \uBC94\uC704 {value}
+    \uC99D\uAC00"
+  AbilityEffectType: 3
+  Weight: 10
