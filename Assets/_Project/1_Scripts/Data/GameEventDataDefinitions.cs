@@ -60,11 +60,13 @@ public struct InGameLevelUpEventData
 {
     public readonly HeroClassType TargetClass;
     public readonly float DamageMultiplier;
+    public readonly int LevelUpCost;
 
-    public InGameLevelUpEventData(HeroClassType targetClass, float damageMultiplier)
+    public InGameLevelUpEventData(HeroClassType targetClass, float damageMultiplier, int levelUpCost)
     {
         TargetClass = targetClass;
         DamageMultiplier = damageMultiplier;
+        LevelUpCost = levelUpCost;
     }
 }
 

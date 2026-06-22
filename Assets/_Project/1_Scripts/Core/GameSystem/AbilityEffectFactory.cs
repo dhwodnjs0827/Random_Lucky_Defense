@@ -9,13 +9,16 @@ using Random = UnityEngine.Random;
 /// </summary>
 public class AbilityEffectFactory : IEventListener
 {
-    private Dictionary<AbilityEffectType, List<IAbilityEffect>> effectHandlers = new();
+    private readonly Dictionary<AbilityEffectType, List<IAbilityEffect>> effectHandlers = new();
 
     private AbilityDataSO[] abilityDatas;
     private readonly Dictionary<string, List<AbilityLevelDataSO>> abilityLevelDataDic = new();
     private readonly Dictionary<string, int> currentAbilityLevelDic = new();
 
     private Action<AbilitySelectEventData> onAbilitySelected;
+    
+    private const string ABILITY_DATA_SO_PATH = "Data/SO/AbilityData";
+    private const string ABILITY_LEVEL_DATA_SO_PATH = "Data/SO/AbilityLevelData";
 
     public AbilityEffectFactory()
     {
@@ -81,9 +84,12 @@ public class AbilityEffectFactory : IEventListener
         }
     }
     
+    /// <summary>
+    /// 재능 및 재능별 레벨 데이터 초기화
+    /// </summary>
     private void InitializeData()
     {
-        abilityDatas = ResourceManager.Instance.LoadAll<AbilityDataSO>("Data/SO/AbilityCardData");
+        abilityDatas = ResourceManager.Instance.LoadAll<AbilityDataSO>(ABILITY_DATA_SO_PATH);
         foreach (var abilityData in abilityDatas)
         {
             var list = new List<AbilityLevelDataSO>();
@@ -91,7 +97,7 @@ public class AbilityEffectFactory : IEventListener
             currentAbilityLevelDic.TryAdd(abilityData.ID, 0);
         }
 
-        var abilityLevelDatas = ResourceManager.Instance.LoadAll<AbilityLevelDataSO>("Data/SO/AbilityLevelData");
+        var abilityLevelDatas = ResourceManager.Instance.LoadAll<AbilityLevelDataSO>(ABILITY_LEVEL_DATA_SO_PATH);
         foreach (var abilityLevelData in abilityLevelDatas)
         {
             if (abilityLevelDataDic.TryGetValue(abilityLevelData.AbilityID, out var list))
@@ -101,11 +107,21 @@ public class AbilityEffectFactory : IEventListener
         }
     }
 
+    /// <summary>
+    /// 특정 재능의 현재 레벨 불러오기
+    /// </summary>
+    /// <param name="abilityID">특정 재능의 ID</param>
+    /// <returns>현재 재능 레벨</returns>
     private int GetAbilityLevel(string abilityID)
     {
         return currentAbilityLevelDic.GetValueOrDefault(abilityID, 0);
     }
 
+    /// <summary>
+    /// 특정 레벨의 재능 데이터 컨테이너 만들기
+    /// </summary>
+    /// <param name="abilityData">재능 SO 데이터</param>
+    /// <param name="level">재능 레벨</param>
     private AbilityContainer CreateContainer(AbilityDataSO abilityData, int level)
     {
         var levelData = abilityLevelDataDic[abilityData.ID][level];
@@ -113,6 +129,10 @@ public class AbilityEffectFactory : IEventListener
         return container;
     }
 
+    /// <summary>
+    /// 가중치 기반 재능 데이터 선별
+    /// </summary>
+    /// <param name="abilities">선별 가능한 재능 데이터 리스트</param>
     private AbilityDataSO SelectByWeight(List<AbilityDataSO> abilities)
     {
         var totalWeight = abilities.Sum(c => c.Weight);
@@ -129,6 +149,9 @@ public class AbilityEffectFactory : IEventListener
         return abilities.Last();
     }
 
+    /// <summary>
+    /// 재능 선택 프로세스 처리
+    /// </summary>
     private void SelectedAbilityProcess(AbilitySelectEventData data)
     {
         if (currentAbilityLevelDic.ContainsKey(data.SelectedAbility.AbilityData.ID))
@@ -151,8 +174,8 @@ public class AbilityEffectFactory : IEventListener
 
 public struct AbilityContainer
 {
-    public AbilityDataSO AbilityData;
-    public AbilityLevelDataSO AbilityLevelData;
+    public readonly AbilityDataSO AbilityData;
+    public readonly AbilityLevelDataSO AbilityLevelData;
 
     public AbilityContainer(AbilityDataSO abilityData, AbilityLevelDataSO levelData)
     {

@@ -35,7 +35,7 @@ public class InGameHeroControlUIComponent : MonoBehaviour, IEventListener
 
     private void Start()
     {
-        SubscribeLevelUpController(InGameManager.Instance.HeroLevelUpController);
+        SubscribeController(InGameManager.Instance.HeroLevelUpController, InGameManager.Instance.CurrencyController);
     }
 
     private void OnDisable()
@@ -107,16 +107,16 @@ public class InGameHeroControlUIComponent : MonoBehaviour, IEventListener
         EventManager.Unsubscribe(GameEventType.EnemyDie, DecreaseEnemyCount);
     }
 
-    private void SubscribeLevelUpController(InGameHeroLevelUpController levelUpController)
+    private void SubscribeController(InGameHeroLevelUpController levelUp, InGameCurrencyController currency)
     {
-        levelUpController.CurrentSpawnPoint.Subscribe(sp => spawnButton.interactable = sp >= GameConstants.HERO_SPAWN_POINT_COST).AddTo(this);
-        levelUpController.CurrentSpawnPoint.Subscribe(sp => currentSpawnPointText.text = $"영웅 소환 재화: {sp}").AddTo(this);
+        currency.CurrentSpawnPoint.Subscribe(sp => spawnButton.interactable = sp >= GameConstants.HERO_SPAWN_POINT_COST).AddTo(this);
+        currency.CurrentSpawnPoint.Subscribe(sp => currentSpawnPointText.text = $"영웅 소환 재화: {sp}").AddTo(this);
         
         if (levelUpButtons != null)
         {
             foreach (var levelUpButton in levelUpButtons)
             {
-                levelUpButton.SubscribeLevelUpController(levelUpController);
+                levelUpButton.SubscribeController(levelUp, currency);
             }
         }
     }

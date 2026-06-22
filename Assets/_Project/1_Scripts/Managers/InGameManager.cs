@@ -13,8 +13,9 @@ public class InGameManager : MonoSingleton<InGameManager>, IEventListener
     private AbilityEffectFactory abilityEffectFactory;
     private InGameHeroLevelUpController heroLevelUpController;
     private InGameHeroBuffController heroBuffController;
+    private InGameCurrencyController currencyController;
 
-    private readonly float[] gameSpeeds = { 1f, 1.5f, 2f };
+    private readonly float[] gameSpeeds = { 1f, 2f, 3f };
     private int currentGameSpeedIndex;
     
     private Action<InGameFinishEventData> onGameFinish;
@@ -22,6 +23,7 @@ public class InGameManager : MonoSingleton<InGameManager>, IEventListener
     public AbilityEffectFactory AbilityEffectFactory => abilityEffectFactory;
     public InGameHeroLevelUpController HeroLevelUpController => heroLevelUpController;
     public InGameHeroBuffController HeroBuffController => heroBuffController;
+    public InGameCurrencyController CurrencyController => currencyController;
     public float CurrentGameSpeed => gameSpeeds[currentGameSpeedIndex];
 
     public async UniTask InitializeAsync()
@@ -31,16 +33,16 @@ public class InGameManager : MonoSingleton<InGameManager>, IEventListener
             return;
         }
 
-        ResetTimeScale();
-        currentGameSpeedIndex = 0;
+        ResetGameSpeed();
         
         abilityEffectFactory = new AbilityEffectFactory();
         heroLevelUpController =  new InGameHeroLevelUpController();
         heroBuffController = new InGameHeroBuffController();
+        currencyController = new InGameCurrencyController();
         
         UIManager.Instance.Open<UIInGame>();
-        var backgroundPrefab = ResourceManager.Instance.Load<GameObject>("Prefabs/Background");
-        Instantiate(backgroundPrefab);
+        
+        CreateBackground();
         
         SubscribeEvents();
         
@@ -50,12 +52,12 @@ public class InGameManager : MonoSingleton<InGameManager>, IEventListener
 
     private void Update()
     {
-        heroLevelUpController?.GainSpawnPointAbilityEffect();
+        currencyController?.GainSpawnPointAbilityEffect();
     }
 
     protected override void OnDestroy()
     {
-        ResetTimeScale();
+        ResetGameSpeed();
         UnsubscribeEvents();
         base.OnDestroy();
     }
@@ -66,18 +68,26 @@ public class InGameManager : MonoSingleton<InGameManager>, IEventListener
         EventManager.Subscribe(GameEventType.InGameFinish, onGameFinish);
         
         abilityEffectFactory.SubscribeEvents();
+        
         heroLevelUpController.SubscribeEvents();
+        
         heroBuffController.SubscribeEvents();
-        heroLevelUpController.RegisterAbilityEffect(abilityEffectFactory);
         heroBuffController.RegisterAbilityEffect(abilityEffectFactory);
+        
+        currencyController.SubscribeEvents();
+        currencyController.RegisterAbilityEffect(abilityEffectFactory);
     }
 
     public void UnsubscribeEvents()
     {
+        currencyController.UnregisterAbilityEffect(abilityEffectFactory);
+        currencyController.UnsubscribeEvents();
+        
         heroBuffController.UnregisterAbilityEffect(abilityEffectFactory);
         heroBuffController.UnsubscribeEvents();
-        heroLevelUpController.UnregisterAbilityEffect(abilityEffectFactory);
+        
         heroLevelUpController.UnsubscribeEvents();
+        
         abilityEffectFactory.UnsubscribeEvents();
         
         EventManager.Unsubscribe(GameEventType.InGameFinish, onGameFinish);
@@ -110,11 +120,12 @@ public class InGameManager : MonoSingleton<InGameManager>, IEventListener
     }
     
     /// <summary>
-    /// TimeScale 복구
+    /// 게임 속도 리셋 (TimeScale = 1f)
     /// </summary>
-    private void ResetTimeScale()
+    private void ResetGameSpeed()
     {
-        Time.timeScale = 1f;
+        currentGameSpeedIndex = 0;
+        Time.timeScale = gameSpeeds[currentGameSpeedIndex];
     }
 
     /// <summary>
@@ -125,5 +136,15 @@ public class InGameManager : MonoSingleton<InGameManager>, IEventListener
         PauseGame();
         UIManager.Instance.Open<UIGameResult>(eventData);
         CDebug.Log(eventData.IsGameVictory ? "[InGameManager] 게임 승리" : "[InGameManager] 게임 패배");
+    }
+
+    /// <summary>
+    /// 인게임 스테이지 백그라운드 오브젝트 생성
+    /// </summary>
+    private void CreateBackground()
+    {
+        var backgroundPrefab = ResourceManager.Instance.Load<GameObject>("Prefabs/Background");
+        var background = Instantiate(backgroundPrefab);
+        background.transform.position = Vector3.zero;
     }
 }

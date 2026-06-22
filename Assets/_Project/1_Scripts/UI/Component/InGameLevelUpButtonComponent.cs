@@ -20,7 +20,6 @@ public class InGameLevelUpButtonComponent : MonoBehaviour, IEventListener
     [SerializeField] private TextMeshProUGUI levelText;
     [SerializeField] private TextMeshProUGUI levelUpCostText;
     
-    private InGameHeroLevelUpController levelUpController;
     private readonly ReactiveProperty<int> heroCount = new();
     private Action<HeroSpawnEventData> onSpawnedHero;
     private Action<WaveStartEventData> onWaveStart;
@@ -50,13 +49,12 @@ public class InGameLevelUpButtonComponent : MonoBehaviour, IEventListener
         levelUpButton.onClick.RemoveListener(OnClick);
     }
     
-    public void SubscribeLevelUpController(InGameHeroLevelUpController controller)
+    public void SubscribeController(InGameHeroLevelUpController levelUp, InGameCurrencyController currency)
     {
-        levelUpController = controller;
-        levelUpController.CurrentSpawnPoint.Subscribe(sp => levelUpButton.interactable = sp >= levelUpController.LevelUpDataDict[classType][levelUpController.CurrentLevelDict[classType].Value].LevelUpCost && heroCount.Value > 0).AddTo(this);
-        levelUpController.CurrentLevelDict[classType].Subscribe(level => levelText.text = $"Lv: {level.ToString()}")
+        currency.CurrentSpawnPoint.Subscribe(sp => levelUpButton.interactable = sp >= levelUp.LevelUpDataDict[classType][levelUp.CurrentLevelDict[classType].Value].LevelUpCost && heroCount.Value > 0).AddTo(this);
+        levelUp.CurrentLevelDict[classType].Subscribe(level => levelText.text = $"Lv: {level.ToString()}")
             .AddTo(this);
-        levelUpController.CurrentLevelDict[classType].Subscribe(level => levelUpCostText.text = $"비용: {levelUpController.LevelUpDataDict[classType][level].LevelUpCost}")
+        levelUp.CurrentLevelDict[classType].Subscribe(level => levelUpCostText.text = $"비용: {levelUp.LevelUpDataDict[classType][level].LevelUpCost}")
             .AddTo(this);
     }
 

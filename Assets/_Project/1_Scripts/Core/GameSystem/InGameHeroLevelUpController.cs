@@ -7,27 +7,20 @@ using UnityEngine;
 /// <summary>
 /// 인게임 영웅 레벨 업 담당 클래스
 /// </summary>
-public class InGameHeroLevelUpController : IEventListener, IAbilityEffect
+public class InGameHeroLevelUpController : IEventListener
 {
-    private ReactiveProperty<int> currentSpawnPoint = new(); // 현재 영웅 소환 재화
-
     private readonly Dictionary<HeroClassType, Dictionary<int, ClassLevelUpData>> levelUpDataDict = new(); // 클래스 별 레벨 업 데이터
     private readonly Dictionary<HeroClassType, ReactiveProperty<int>> currentLevelDict = new(); // 클래스 별 현재 레벨
-
-    private bool isActiveSPGainRateEffect = false;
-    private float spGainInterval;
-    private int spGainAmount;
-    private float spGainTimer;
     
     private Action<HeroClassType> onLevelUp;
     
-    public IReadOnlyReactiveProperty<int> CurrentSpawnPoint => currentSpawnPoint;
+    private const string IN_GAME_HERO_LEVEL_UP_DATA_SO_PATH = "Data/SO/InGameLevelUpData";
+    
     public IDictionary<HeroClassType, Dictionary<int, ClassLevelUpData>> LevelUpDataDict => levelUpDataDict;
     public IDictionary<HeroClassType, ReactiveProperty<int>> CurrentLevelDict => currentLevelDict;
     
     public InGameHeroLevelUpController()
     {
-        currentSpawnPoint.Value = GameConstants.INITIAL_HERO_SPAWN_POINT;
         InitializeLevelUpData();
     }
     
@@ -35,40 +28,37 @@ public class InGameHeroLevelUpController : IEventListener, IAbilityEffect
     {
         onLevelUp += LevelUp;
         EventManager.Subscribe(GameEventType.InGameHeroLevelUpRequest, onLevelUp);
-        EventManager.Subscribe(GameEventType.SpawnHero, OnSpawnHero);
-        EventManager.Subscribe(GameEventType.NormalEnemyDie, OnNormalEnemyDie);
-        EventManager.Subscribe(GameEventType.BossEnemyDie, OnBossEnemyDie);
     }
 
     public void UnsubscribeEvents()
     {
         EventManager.Unsubscribe(GameEventType.InGameHeroLevelUpRequest, onLevelUp);
         onLevelUp -= LevelUp;
-        EventManager.Unsubscribe(GameEventType.SpawnHero, OnSpawnHero);
-        EventManager.Unsubscribe(GameEventType.NormalEnemyDie, OnNormalEnemyDie);
-        EventManager.Unsubscribe(GameEventType.BossEnemyDie, OnBossEnemyDie);
-    }
-    
-    private void OnSpawnHero()
-    {
-        currentSpawnPoint.Value -= GameConstants.HERO_SPAWN_POINT_COST;
     }
 
     private void LevelUp(HeroClassType classType)
     {
-        currentSpawnPoint.Value -= levelUpDataDict[classType][currentLevelDict[classType].Value].LevelUpCost;
+        var currentLevel = currentLevelDict[classType].Value;
+        var levelUpCost = levelUpDataDict[classType][currentLevel].LevelUpCost;
+
         currentLevelDict[classType].Value++;
-        EventManager.Dispatch(GameEventType.InGameHeroLevelUpCompleted, new InGameLevelUpEventData(classType, levelUpDataDict[classType][currentLevelDict[classType].Value].AttackPowerMultiplier));
-        CDebug.Log($"[InGameHeroLevelUpController] {classType} 레벨 업, 현재 레벨: {currentLevelDict[classType].Value}");
+
+        var newLevel = currentLevelDict[classType].Value;
+        var newLevelData = levelUpDataDict[classType][newLevel];
+        EventManager.Dispatch(GameEventType.InGameHeroLevelUpCompleted, new InGameLevelUpEventData(classType, newLevelData.AttackPowerMultiplier, levelUpCost));
+        CDebug.Log($"[InGameHeroLevelUpController] {classType} 레벨 업, 현재 레벨: {newLevel}");
     }
     
+    /// <summary>
+    /// 인게임 영웅 레벨업 데이터 초기화
+    /// </summary>
     private void InitializeLevelUpData()
     {
         currentLevelDict.Add(HeroClassType.Magician, new ReactiveProperty<int>(1));
         currentLevelDict.Add(HeroClassType.Archer, new ReactiveProperty<int>(1));
         currentLevelDict.Add(HeroClassType.Knight, new ReactiveProperty<int>(1));
         
-        var datas = ResourceManager.Instance.LoadAll<InGameLevelUpDataSO>("Data/SO/InGameLevelUpData");
+        var datas = ResourceManager.Instance.LoadAll<InGameLevelUpDataSO>(IN_GAME_HERO_LEVEL_UP_DATA_SO_PATH);
         levelUpDataDict.Add(HeroClassType.Magician, new Dictionary<int, ClassLevelUpData>());
         levelUpDataDict.Add(HeroClassType.Archer, new Dictionary<int, ClassLevelUpData>());
         levelUpDataDict.Add(HeroClassType.Knight, new Dictionary<int, ClassLevelUpData>());
@@ -79,57 +69,12 @@ public class InGameHeroLevelUpController : IEventListener, IAbilityEffect
             dict.Add(data.Level, levelUpData);
         }
     }
-    
-    private void OnNormalEnemyDie()
-    {
-        currentSpawnPoint.Value += 1;
-    }
-
-    private void OnBossEnemyDie()
-    {
-        currentSpawnPoint.Value += 10;
-    }
-
-    public void GainSpawnPointAbilityEffect()
-    {
-        if (!isActiveSPGainRateEffect)
-        {
-            return;
-        }
-        spGainTimer += Time.deltaTime;
-        if (spGainTimer >= spGainInterval)
-        {
-            currentSpawnPoint.Value += spGainAmount;
-            spGainTimer = 0;
-            CDebug.Log($"[InGameHeroLevelUpController] 현재 재능 효과 간격: {spGainInterval}, 획득량: {spGainAmount}");
-        }
-    }
-
-    public void RegisterAbilityEffect(AbilityEffectFactory abilityEffectFactory)
-    {
-        abilityEffectFactory.RegisterAbilityEffectHandler(AbilityEffectType.IncreaseSpawnPointGainRate, this);
-    }
-
-    public void UnregisterAbilityEffect(AbilityEffectFactory abilityEffectFactory)
-    {
-        abilityEffectFactory.UnregisterAbilityEffectHandler(AbilityEffectType.IncreaseSpawnPointGainRate, this);
-    }
-
-    public void ApplyAbilityEffect(AbilityContainer abilityContainer)
-    {
-        if (abilityContainer.AbilityData.AbilityEffectType == AbilityEffectType.IncreaseSpawnPointGainRate)
-        {
-            isActiveSPGainRateEffect =  true;
-            spGainInterval = abilityContainer.AbilityLevelData.value;
-            spGainAmount = (int)abilityContainer.AbilityLevelData.value1;
-        }
-    }
 }
 
 public struct ClassLevelUpData
 {
-    public int LevelUpCost;
-    public float AttackPowerMultiplier;
+    public readonly int LevelUpCost;
+    public readonly float AttackPowerMultiplier;
 
     public ClassLevelUpData(int levelUpCost, float attackPowerMultiplier)
     {
