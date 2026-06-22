@@ -14,7 +14,7 @@ public class InGameHeroLevelUpController : IEventListener
     
     private Action<HeroClassType> onLevelUp;
     
-    private const string IN_GAME_HERO_LEVEL_UP_DATA_SO_PATH = "Data/SO/InGameLevelUpData";
+    private const string IN_GAME_HERO_LEVEL_UP_DATA_SO_PATH = "Data/SO/InGameHeroLevelUpData";
     
     public IDictionary<HeroClassType, Dictionary<int, ClassLevelUpData>> LevelUpDataDict => levelUpDataDict;
     public IDictionary<HeroClassType, ReactiveProperty<int>> CurrentLevelDict => currentLevelDict;
@@ -58,7 +58,7 @@ public class InGameHeroLevelUpController : IEventListener
         currentLevelDict.Add(HeroClassType.Archer, new ReactiveProperty<int>(1));
         currentLevelDict.Add(HeroClassType.Knight, new ReactiveProperty<int>(1));
         
-        var datas = ResourceManager.Instance.LoadAll<InGameLevelUpDataSO>(IN_GAME_HERO_LEVEL_UP_DATA_SO_PATH);
+        var datas = ResourceManager.Instance.LoadAll<InGameHeroLevelUpDataSO>(IN_GAME_HERO_LEVEL_UP_DATA_SO_PATH);
         levelUpDataDict.Add(HeroClassType.Magician, new Dictionary<int, ClassLevelUpData>());
         levelUpDataDict.Add(HeroClassType.Archer, new Dictionary<int, ClassLevelUpData>());
         levelUpDataDict.Add(HeroClassType.Knight, new Dictionary<int, ClassLevelUpData>());
