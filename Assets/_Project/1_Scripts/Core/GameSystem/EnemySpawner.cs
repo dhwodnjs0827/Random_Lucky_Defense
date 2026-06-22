@@ -28,12 +28,13 @@ public class EnemySpawner : MonoBehaviour
     /// </summary>
     /// <param name="spawnEnemy">생성할 적 Prefab</param>
     /// <param name="spawnEnemyData">생성할 적 데이터</param>
-    public void Spawn(BaseEnemy spawnEnemy, EnemyDataSO spawnEnemyData)
+    /// <param name="waveData">웨이브 데이터</param>
+    public void Spawn(BaseEnemy spawnEnemy, EnemyDataSO spawnEnemyData, WaveDataSO waveData)
     {
         var enemy = objectPoolManager.Get(spawnEnemy);
         enemy.transform.SetParent(transform);
         enemy.transform.position = spawnPoint;
-        enemy.Initialize(spawnEnemyData, splineContainer);
+        enemy.Initialize(spawnEnemyData, waveData, splineContainer);
         enemy.StartMove();
     }
 

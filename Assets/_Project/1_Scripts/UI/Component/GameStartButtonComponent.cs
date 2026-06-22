@@ -26,6 +26,8 @@ public class GameStartButtonComponent : MonoBehaviour
             return;
         }
         isGameStartClicked = true;
+        //TODO: 아직 난이도 별 설정 미구현.
+        InGameManager.Instance.SetGameDifficulty(GameDifficultyType.Easy);
         SceneLoadManager.Instance.LoadSceneAsync(SceneType.GameScene).Forget();
     }
 }

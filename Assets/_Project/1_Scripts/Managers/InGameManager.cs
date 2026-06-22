@@ -18,6 +18,8 @@ public class InGameManager : MonoSingleton<InGameManager>, IEventListener
     private readonly float[] gameSpeeds = { 1f, 2f, 3f };
     private int currentGameSpeedIndex;
     
+    private GameDifficultyType gameDifficulty;
+    
     private Action<InGameFinishEventData> onGameFinish;
     
     public AbilityEffectFactory AbilityEffectFactory => abilityEffectFactory;
@@ -92,6 +94,15 @@ public class InGameManager : MonoSingleton<InGameManager>, IEventListener
         
         EventManager.Unsubscribe(GameEventType.InGameFinish, onGameFinish);
         onGameFinish -= GameFinish;
+    }
+
+    /// <summary>
+    /// 게임 난이도 설정
+    /// </summary>
+    public void SetGameDifficulty(GameDifficultyType difficulty)
+    {
+        gameDifficulty = difficulty;
+        CDebug.Log($"[InGameManager] 게임 난이도: {gameDifficulty}");
     }
 
     /// <summary>

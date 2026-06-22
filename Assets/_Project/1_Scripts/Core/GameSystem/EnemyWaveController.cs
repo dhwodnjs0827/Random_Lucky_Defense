@@ -11,8 +11,6 @@ public class EnemyWaveController : MonoBehaviour, IEventListener
     [SerializeField] private EnemySpawner spawner;
     private WaveDataSO[] waveDatas;
 
-    private ResourceManager resourceManager;
-
     private WaveDataSO currentWaveData;
     private readonly ReactiveProperty<float> currentWaveTime = new();
     private BaseEnemy currentSpawnEnemyPrefab;
@@ -23,6 +21,10 @@ public class EnemyWaveController : MonoBehaviour, IEventListener
     
     private int spawnedEnemyCount;
     
+    private const string WAVE_DATA_SO_PATH = "Data/SO/WaveData";
+    private const string ENEMY_DATA_SO_DIR_PATH = "Data/SO/EnemyData/";
+    private const string ENEMY_PREFAB_DIR_PATH = "Prefabs/Enemy/";
+    
     private delegate void SpawnMethod();
     private SpawnMethod spawn;
     
@@ -30,9 +32,7 @@ public class EnemyWaveController : MonoBehaviour, IEventListener
 
     private void Awake()
     {
-        resourceManager = ResourceManager.Instance;
-        //TODO: 나중에 외부에서 WaveData 할당으로 변경
-        waveDatas = resourceManager.LoadAll<WaveDataSO>("Data/SO/WaveData").OrderBy(i => i.WaveIndex).ToArray();
+        waveDatas = ResourceManager.Instance.LoadAll<WaveDataSO>(WAVE_DATA_SO_PATH).OrderBy(i => i.WaveIndex).ToArray();
     }
 
     private void OnEnable()
@@ -89,7 +89,7 @@ public class EnemyWaveController : MonoBehaviour, IEventListener
         spawnTimer += Time.deltaTime;
         if (spawnTimer >= spawnInterval)
         {
-            spawner.Spawn(currentSpawnEnemyPrefab, currentSpawnEnemyData);
+            spawner.Spawn(currentSpawnEnemyPrefab, currentSpawnEnemyData, currentWaveData);
             spawnTimer = 0f;
             spawnedEnemyCount++;
             EventManager.Dispatch(GameEventType.SpawnEnemy);
@@ -104,7 +104,7 @@ public class EnemyWaveController : MonoBehaviour, IEventListener
     /// </summary>
     private void SpawnBossEnemy()
     {
-        spawner.Spawn(currentSpawnEnemyPrefab, currentSpawnEnemyData);
+        spawner.Spawn(currentSpawnEnemyPrefab, currentSpawnEnemyData, currentWaveData);
         spawnTimer = 0f;
         spawnedEnemyCount++;
         EventManager.Dispatch(GameEventType.SpawnEnemy);
@@ -139,8 +139,8 @@ public class EnemyWaveController : MonoBehaviour, IEventListener
         spawnInterval = currentWaveData.SpawnInterval;
         spawnTimer = 0f;
         
-        currentSpawnEnemyData = resourceManager.Load<EnemyDataSO>($"Data/SO/EnemyData/{currentWaveData.SpawnEnemyID}");
-        currentSpawnEnemyPrefab = resourceManager.Load<BaseEnemy>($"Prefabs/Enemy/{currentSpawnEnemyData.MonsterType}_{currentSpawnEnemyData.EnemyType}");
+        currentSpawnEnemyData = ResourceManager.Instance.Load<EnemyDataSO>($"{ENEMY_DATA_SO_DIR_PATH}{currentWaveData.SpawnEnemyID}");
+        currentSpawnEnemyPrefab = ResourceManager.Instance.Load<BaseEnemy>($"{ENEMY_PREFAB_DIR_PATH}{currentSpawnEnemyData.MonsterType}_{currentSpawnEnemyData.EnemyType}");
 
         spawn = currentWaveData.WaveType == WaveType.Normal ? SpawnNormalEnemy : SpawnBossEnemy;
         

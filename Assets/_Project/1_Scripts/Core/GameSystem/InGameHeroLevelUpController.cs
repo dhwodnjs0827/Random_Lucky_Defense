@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using Generated;
 using UniRx;
-using UnityEngine;
 
 /// <summary>
 /// 인게임 영웅 레벨 업 담당 클래스

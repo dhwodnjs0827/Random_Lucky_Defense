@@ -54,10 +54,10 @@ public abstract class BaseEnemy : MonoBehaviour, IPoolable, IDetectable, IDamage
     /// <summary>
     /// 적 초기화
     /// </summary>
-    public virtual void Initialize(EnemyDataSO data, SplineContainer splineContainer)
+    public void Initialize(EnemyDataSO data, WaveDataSO waveData, SplineContainer splineContainer)
     {
         InitializeSpline(splineContainer);
-        InitializeEnemyData(data);
+        InitializeEnemyData(data, waveData);
     }
 
     /// <summary>
@@ -116,15 +116,15 @@ public abstract class BaseEnemy : MonoBehaviour, IPoolable, IDetectable, IDamage
     /// <summary>
     /// 적 데이터 초기화
     /// </summary>
-    private void InitializeEnemyData(EnemyDataSO data)
+    private void InitializeEnemyData(EnemyDataSO data, WaveDataSO waveData)
     {
         enemyData = data;
-        maxHealth = data.Health;
+        maxHealth = data.Health * waveData.WaveHpCoefficients;
         currentHealth = maxHealth;
         healthText.text = $"{currentHealth:N0}";
-        moveSpeed = data.MoveSpeed;
+        moveSpeed = data.MoveSpeed * waveData.WaveSpeedCoefficients;
         splineAnimate.MaxSpeed = moveSpeed;
-        defense = data.Defense;
+        defense = data.Defense * waveData.WaveDefenseCoefficients;
     }
 
     /// <summary>
