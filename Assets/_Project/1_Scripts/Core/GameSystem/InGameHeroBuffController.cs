@@ -59,13 +59,10 @@ public class InGameHeroBuffController : IEventListener, IAbilityEffect
         abilityEffectFactory.RegisterAbilityEffectHandler(AbilityEffectType.IncreasePenetratingPower, this);
         abilityEffectFactory.RegisterAbilityEffectHandler(AbilityEffectType.MagicianIncreaseAttackPower, this);
         abilityEffectFactory.RegisterAbilityEffectHandler(AbilityEffectType.MagicianIncreaseMoveSpeed, this);
-        abilityEffectFactory.RegisterAbilityEffectHandler(AbilityEffectType.MagicianSummonRedDragon, this);
         abilityEffectFactory.RegisterAbilityEffectHandler(AbilityEffectType.ArcherIncreaseAttackPower, this);
         abilityEffectFactory.RegisterAbilityEffectHandler(AbilityEffectType.ArcherIncreaseMoveSpeed, this);
-        abilityEffectFactory.RegisterAbilityEffectHandler(AbilityEffectType.ArcherSummonAncientStatue, this);
         abilityEffectFactory.RegisterAbilityEffectHandler(AbilityEffectType.KnightIncreaseAttackPower, this);
         abilityEffectFactory.RegisterAbilityEffectHandler(AbilityEffectType.KnightIncreaseMoveSpeed, this);
-        abilityEffectFactory.RegisterAbilityEffectHandler(AbilityEffectType.KnightLightning, this);
     }
 
     public void UnregisterAbilityEffect(AbilityEffectFactory abilityEffectFactory)
@@ -78,13 +75,10 @@ public class InGameHeroBuffController : IEventListener, IAbilityEffect
         abilityEffectFactory.UnregisterAbilityEffectHandler(AbilityEffectType.IncreasePenetratingPower, this);
         abilityEffectFactory.UnregisterAbilityEffectHandler(AbilityEffectType.MagicianIncreaseAttackPower, this);
         abilityEffectFactory.UnregisterAbilityEffectHandler(AbilityEffectType.MagicianIncreaseMoveSpeed, this);
-        abilityEffectFactory.UnregisterAbilityEffectHandler(AbilityEffectType.MagicianSummonRedDragon, this);
         abilityEffectFactory.UnregisterAbilityEffectHandler(AbilityEffectType.ArcherIncreaseAttackPower, this);
         abilityEffectFactory.UnregisterAbilityEffectHandler(AbilityEffectType.ArcherIncreaseMoveSpeed, this);
-        abilityEffectFactory.UnregisterAbilityEffectHandler(AbilityEffectType.ArcherSummonAncientStatue, this);
         abilityEffectFactory.UnregisterAbilityEffectHandler(AbilityEffectType.KnightIncreaseAttackPower, this);
         abilityEffectFactory.UnregisterAbilityEffectHandler(AbilityEffectType.KnightIncreaseMoveSpeed, this);
-        abilityEffectFactory.UnregisterAbilityEffectHandler(AbilityEffectType.KnightLightning, this);
     }
 
     public void ApplyAbilityEffect(AbilityContainer abilityContainer)
@@ -135,9 +129,6 @@ public class InGameHeroBuffController : IEventListener, IAbilityEffect
                 abilityEffectStats[HeroClassType.Magician].IncreaseMoveSpeedMultiplier(abilityContainer.AbilityLevelData.value / 100f);
                 CDebug.Log($"[InGameHeroBuffController] 마법사 이동속도 {abilityContainer.AbilityLevelData.value}% 증가");
                 break;
-            case AbilityEffectType.MagicianSummonRedDragon:
-                CDebug.Log($"[InGameHeroBuffController] 레드 드래곤 소환");
-                break;
             case AbilityEffectType.ArcherIncreaseAttackPower:
                 abilityEffectStats[HeroClassType.Archer].IncreaseAttackPowerMultiplier(abilityContainer.AbilityLevelData.value / 100f);
                 CDebug.Log($"[InGameHeroBuffController] 궁수 기본 공격력의 {abilityContainer.AbilityLevelData.value}% 증가");
@@ -146,9 +137,6 @@ public class InGameHeroBuffController : IEventListener, IAbilityEffect
                 abilityEffectStats[HeroClassType.Archer].IncreaseMoveSpeedMultiplier(abilityContainer.AbilityLevelData.value / 100f);
                 CDebug.Log($"[InGameHeroBuffController] 궁수 이동속도 {abilityContainer.AbilityLevelData.value}% 증가");
                 break;
-            case AbilityEffectType.ArcherSummonAncientStatue:
-                CDebug.Log("[InGameHeroBuffController] 고대 석상 소환");
-                break;
             case AbilityEffectType.KnightIncreaseAttackPower:
                 abilityEffectStats[HeroClassType.Knight].IncreaseAttackPowerMultiplier(abilityContainer.AbilityLevelData.value / 100f);
                 CDebug.Log($"[InGameHeroBuffController] 전사 기본 공격력의 {abilityContainer.AbilityLevelData.value}% 증가");
@@ -156,9 +144,6 @@ public class InGameHeroBuffController : IEventListener, IAbilityEffect
             case AbilityEffectType.KnightIncreaseMoveSpeed:
                 abilityEffectStats[HeroClassType.Knight].IncreaseMoveSpeedMultiplier(abilityContainer.AbilityLevelData.value / 100f);
                 CDebug.Log($"[InGameHeroBuffController] 전사 이동속도 {abilityContainer.AbilityLevelData.value}% 증가");
-                break;
-            case AbilityEffectType.KnightLightning:
-                CDebug.Log("[InGameHeroBuffController] 번개 소환");
                 break;
             default:
                 throw new ArgumentOutOfRangeException();
