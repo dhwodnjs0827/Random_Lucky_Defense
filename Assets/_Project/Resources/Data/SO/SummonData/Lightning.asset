@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3584dbf43bb154739ba2df34016dfc61, type: 3}
-  m_Name: 10000
+  m_Name: Lightning
   m_EditorClassIdentifier: Assembly-CSharp::Generated.SummonDataSO
-  ID: 10000
-  Name: Red_Dragon
-  ClassType: 1
+  ID: Lightning
+  ClassType: 3
   AttackPower: 0
   AttackSpeed: 0
   AttackRange: 200
   SplashRange: 10
+  Penetration: 0

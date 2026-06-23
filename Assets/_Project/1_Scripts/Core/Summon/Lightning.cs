@@ -13,7 +13,7 @@ public class Lightning : MonoBehaviour
     private int enemyLayerMask;
     private BaseEnemy targetEnemy;
     
-    private const string LIGHTNING_DATA_SO_PATH = "Data/SO/SummonData/30000";
+    private const string LIGHTNING_DATA_SO_PATH = "Data/SO/SummonData/Lightning";
 
     private HeroStat LevelUpStat => InGameManager.Instance.HeroBuffController.LevelUpStats[classType];
     private HeroStat AbilityEffectStat => InGameManager.Instance.HeroBuffController.AbilityEffectStats[classType];

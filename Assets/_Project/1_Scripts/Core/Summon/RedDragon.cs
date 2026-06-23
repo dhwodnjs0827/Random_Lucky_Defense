@@ -17,7 +17,7 @@ public class RedDragon : MonoBehaviour
     private int enemyLayerMask;
     private BaseEnemy targetEnemy;
     
-    private const string RED_DRAGON_DATA_SO_PATH = "Data/SO/SummonData/10000";
+    private const string RED_DRAGON_DATA_SO_PATH = "Data/SO/SummonData/Red_Dragon";
 
     private HeroStat LevelUpStat => InGameManager.Instance.HeroBuffController.LevelUpStats[classType];
     private HeroStat AbilityEffectStat => InGameManager.Instance.HeroBuffController.AbilityEffectStats[classType];

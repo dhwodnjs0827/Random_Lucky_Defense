@@ -17,7 +17,7 @@ public class AncientStatue : MonoBehaviour
     private int enemyLayerMask;
     private BaseEnemy targetEnemy;
     
-    private const string ANCIENT_STATUE_DATA_SO_PATH = "Data/SO/SummonData/20000";
+    private const string ANCIENT_STATUE_DATA_SO_PATH = "Data/SO/SummonData/Ancient_Statue";
 
     private HeroStat LevelUpStat => InGameManager.Instance.HeroBuffController.LevelUpStats[classType];
     private HeroStat AbilityEffectStat => InGameManager.Instance.HeroBuffController.AbilityEffectStats[classType];
