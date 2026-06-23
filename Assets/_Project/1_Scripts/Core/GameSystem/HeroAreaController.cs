@@ -23,6 +23,8 @@ public class HeroAreaController : MonoBehaviour
     
     public Transform SpawnPoint => spawnPoint;
 
+    #region Unity Methods
+
     private void Awake()
     {
         mainCamera = Camera.main;
@@ -35,6 +37,8 @@ public class HeroAreaController : MonoBehaviour
         HandleInput();
     }
 
+    #endregion
+    
     /// <summary>
     /// 영역 초기화
     /// </summary>

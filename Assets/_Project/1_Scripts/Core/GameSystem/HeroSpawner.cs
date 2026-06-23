@@ -8,6 +8,8 @@ public class HeroSpawner : MonoBehaviour, IEventListener
     [SerializeField] private HeroSpawnPool heroSpawnPool;
     [SerializeField] private HeroAreaController areaController;
 
+    #region Unity Methods
+
     private void Awake()
     {
         SubscribeEvents();
@@ -18,6 +20,10 @@ public class HeroSpawner : MonoBehaviour, IEventListener
         UnsubscribeEvents();
     }
 
+    #endregion
+
+    #region IEventListener implementation
+
     public void SubscribeEvents()
     {
         EventManager.Subscribe(GameEventType.SpawnHero, SpawnHero);
@@ -27,6 +33,8 @@ public class HeroSpawner : MonoBehaviour, IEventListener
     {
         EventManager.Unsubscribe(GameEventType.SpawnHero, SpawnHero);
     }
+
+    #endregion
 
     /// <summary>
     /// 영웅 소환

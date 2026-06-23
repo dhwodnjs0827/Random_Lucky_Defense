@@ -25,6 +25,8 @@ public class AbilityEffectFactory : IEventListener
         InitializeData();
     }
 
+    #region IEventListener implementation
+
     public void SubscribeEvents()
     {
         onAbilitySelected += SelectedAbilityProcess;
@@ -36,6 +38,8 @@ public class AbilityEffectFactory : IEventListener
         EventManager.Unsubscribe(GameEventType.AbilitySelected, onAbilitySelected);
         onAbilitySelected -= SelectedAbilityProcess;
     }
+
+    #endregion
 
     /// <summary>
     /// 가중치 기반 랜덤 재능 불러오기

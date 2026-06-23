@@ -95,47 +95,67 @@ public class InGameHeroBuffController : IEventListener, IAbilityEffect
                 abilityEffectStats[HeroClassType.Magician].IncreaseCriticalRate(abilityContainer.AbilityLevelData.value / 100f);
                 abilityEffectStats[HeroClassType.Archer].IncreaseCriticalRate(abilityContainer.AbilityLevelData.value / 100f);
                 abilityEffectStats[HeroClassType.Knight].IncreaseCriticalRate(abilityContainer.AbilityLevelData.value / 100f);
+                CDebug.Log($"[InGameHeroBuffController] 크리티컬 확률 {abilityContainer.AbilityLevelData.value}% 증가");
                 break;
             case AbilityEffectType.IncreaseCriticalDamage:
                 abilityEffectStats[HeroClassType.Magician].IncreaseCriticalDamage(abilityContainer.AbilityLevelData.value / 100f);
                 abilityEffectStats[HeroClassType.Archer].IncreaseCriticalDamage(abilityContainer.AbilityLevelData.value / 100f);
                 abilityEffectStats[HeroClassType.Knight].IncreaseCriticalDamage(abilityContainer.AbilityLevelData.value / 100f);
+                CDebug.Log($"[InGameHeroBuffController] 크리티컬 데미지 {abilityContainer.AbilityLevelData.value}% 증가");
                 break;
             case AbilityEffectType.IncreaseDamage:
+                abilityEffectStats[HeroClassType.Magician].IncreaseAttackPowerMultiplier(abilityContainer.AbilityLevelData.value / 100f);
+                abilityEffectStats[HeroClassType.Archer].IncreaseAttackPowerMultiplier(abilityContainer.AbilityLevelData.value / 100f);
+                abilityEffectStats[HeroClassType.Knight].IncreaseAttackPowerMultiplier(abilityContainer.AbilityLevelData.value / 100f);
                 CDebug.Log($"[InGameHeroBuffController] 피해량 {abilityContainer.AbilityLevelData.value}% 증가");
                 break;
             case AbilityEffectType.IncreaseAttackRange:
+                abilityEffectStats[HeroClassType.Magician].IncreaseAttackRangeMultiplier(abilityContainer.AbilityLevelData.value / 100f);
+                abilityEffectStats[HeroClassType.Archer].IncreaseAttackRangeMultiplier(abilityContainer.AbilityLevelData.value / 100f);
+                abilityEffectStats[HeroClassType.Knight].IncreaseAttackRangeMultiplier(abilityContainer.AbilityLevelData.value / 100f);
                 CDebug.Log($"[InGameHeroBuffController] 모든 클래스 공격 범위 {abilityContainer.AbilityLevelData.value} 증가");
                 break;
             case AbilityEffectType.IncreaseSplashRange:
+                abilityEffectStats[HeroClassType.Magician].IncreaseSplashRangeMultiplier(abilityContainer.AbilityLevelData.value / 100f);
+                abilityEffectStats[HeroClassType.Archer].IncreaseSplashRangeMultiplier(abilityContainer.AbilityLevelData.value / 100f);
+                abilityEffectStats[HeroClassType.Knight].IncreaseSplashRangeMultiplier(abilityContainer.AbilityLevelData.value / 100f);
                 CDebug.Log($"[InGameHeroBuffController] 스플래시 데미지 범위{abilityContainer.AbilityLevelData.value} 증가");
                 break;
             case AbilityEffectType.IncreasePenetratingPower:
+                //abilityEffectStats[HeroClassType.Magician].(abilityContainer.AbilityLevelData.value / 100f);
+                //abilityEffectStats[HeroClassType.Archer].(abilityContainer.AbilityLevelData.value / 100f);
+                //abilityEffectStats[HeroClassType.Knight].(abilityContainer.AbilityLevelData.value / 100f);
                 CDebug.Log($"[InGameHeroBuffController] 적 방어력 {abilityContainer.AbilityLevelData.value}% 무시함");
                 break;
             case AbilityEffectType.MagicianIncreaseAttackPower:
+                abilityEffectStats[HeroClassType.Magician].IncreaseAttackPowerMultiplier(abilityContainer.AbilityLevelData.value / 100f);
                 CDebug.Log($"[InGameHeroBuffController] 마법사 기본 공격력의 {abilityContainer.AbilityLevelData.value}% 증가");
                 break;
             case AbilityEffectType.MagicianIncreaseMoveSpeed:
                 abilityEffectStats[HeroClassType.Magician].IncreaseMoveSpeedMultiplier(abilityContainer.AbilityLevelData.value / 100f);
+                CDebug.Log($"[InGameHeroBuffController] 마법사 이동속도 {abilityContainer.AbilityLevelData.value}% 증가");
                 break;
             case AbilityEffectType.MagicianSummonRedDragon:
                 CDebug.Log($"[InGameHeroBuffController] 레드 드래곤 소환");
                 break;
             case AbilityEffectType.ArcherIncreaseAttackPower:
+                abilityEffectStats[HeroClassType.Archer].IncreaseAttackPowerMultiplier(abilityContainer.AbilityLevelData.value / 100f);
                 CDebug.Log($"[InGameHeroBuffController] 궁수 기본 공격력의 {abilityContainer.AbilityLevelData.value}% 증가");
                 break;
             case AbilityEffectType.ArcherIncreaseMoveSpeed:
                 abilityEffectStats[HeroClassType.Archer].IncreaseMoveSpeedMultiplier(abilityContainer.AbilityLevelData.value / 100f);
+                CDebug.Log($"[InGameHeroBuffController] 궁수 이동속도 {abilityContainer.AbilityLevelData.value}% 증가");
                 break;
             case AbilityEffectType.ArcherSummonAncientStatue:
                 CDebug.Log("[InGameHeroBuffController] 고대 석상 소환");
                 break;
             case AbilityEffectType.KnightIncreaseAttackPower:
+                abilityEffectStats[HeroClassType.Knight].IncreaseAttackPowerMultiplier(abilityContainer.AbilityLevelData.value / 100f);
                 CDebug.Log($"[InGameHeroBuffController] 전사 기본 공격력의 {abilityContainer.AbilityLevelData.value}% 증가");
                 break;
             case AbilityEffectType.KnightIncreaseMoveSpeed:
                 abilityEffectStats[HeroClassType.Knight].IncreaseMoveSpeedMultiplier(abilityContainer.AbilityLevelData.value / 100f);
+                CDebug.Log($"[InGameHeroBuffController] 전사 이동속도 {abilityContainer.AbilityLevelData.value}% 증가");
                 break;
             case AbilityEffectType.KnightLightning:
                 CDebug.Log("[InGameHeroBuffController] 번개 소환");

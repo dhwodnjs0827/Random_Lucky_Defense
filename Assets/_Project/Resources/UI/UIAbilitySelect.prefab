@@ -55,7 +55,10 @@ MonoBehaviour:
   uiType: 200
   isActiveOnLoad: 1
   isDestroyOnClose: 0
-  abilities: []
+  abilities:
+  - {fileID: 629936279758256624}
+  - {fileID: 2333705510389229229}
+  - {fileID: 1411893761765241474}
   refreshButton: {fileID: 4967444734974764914}
 --- !u!1 &986190481075606318
 GameObject:
@@ -845,6 +848,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 80efa0d6ff7ae461fb715a3c5be11d6f, type: 3}
+--- !u!114 &1411893761765241474 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1740731532102626424, guid: 80efa0d6ff7ae461fb715a3c5be11d6f, type: 3}
+  m_PrefabInstance: {fileID: 842278676435771130}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5d09ac7b80904917b4afd5835c2ea14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GlobalBuffCard
 --- !u!224 &4761669502598051670 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 5306514495151925676, guid: 80efa0d6ff7ae461fb715a3c5be11d6f, type: 3}
@@ -1027,6 +1041,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 80efa0d6ff7ae461fb715a3c5be11d6f, type: 3}
+--- !u!114 &629936279758256624 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1740731532102626424, guid: 80efa0d6ff7ae461fb715a3c5be11d6f, type: 3}
+  m_PrefabInstance: {fileID: 1195047842911311240}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5d09ac7b80904917b4afd5835c2ea14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GlobalBuffCard
 --- !u!224 &6426970365753211940 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 5306514495151925676, guid: 80efa0d6ff7ae461fb715a3c5be11d6f, type: 3}
@@ -1209,6 +1234,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 80efa0d6ff7ae461fb715a3c5be11d6f, type: 3}
+--- !u!114 &2333705510389229229 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1740731532102626424, guid: 80efa0d6ff7ae461fb715a3c5be11d6f, type: 3}
+  m_PrefabInstance: {fileID: 4056246653266643669}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5d09ac7b80904917b4afd5835c2ea14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GlobalBuffCard
 --- !u!224 &8209543178851623801 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 5306514495151925676, guid: 80efa0d6ff7ae461fb715a3c5be11d6f, type: 3}
