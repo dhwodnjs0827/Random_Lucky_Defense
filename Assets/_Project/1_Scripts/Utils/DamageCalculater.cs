@@ -8,6 +8,8 @@ using UnityEngine;
 /// </summary>
 public static class DamageCalculator
 {
+    private const string DAMAGE_RATE_BY_CLASS_DATA_SO_PATH = "Data/SO/DamageRateByClassData";
+    
     private static Dictionary<(HeroClassType, MonsterType), DamageRateByClassDataSO> damageRateByClassData = new();
 
     public static IDictionary<(HeroClassType, MonsterType), DamageRateByClassDataSO> DamageRateByClassData =>
@@ -18,7 +20,7 @@ public static class DamageCalculator
     /// </summary>
     static DamageCalculator()
     {
-        var datas = ResourceManager.Instance.LoadAll<DamageRateByClassDataSO>("Data/SO/DamageRateByClassData");
+        var datas = ResourceManager.Instance.LoadAll<DamageRateByClassDataSO>(DAMAGE_RATE_BY_CLASS_DATA_SO_PATH);
         foreach (var data in datas)
         {
             if (!damageRateByClassData.ContainsKey((data.ClassType, data.MonsterType)))
@@ -43,8 +45,11 @@ public static class DamageCalculator
         var isCritical = TryCalculateCriticalDamage(baseDamage, damageContext.CriticalRate,
             damageContext.CriticalDamage, out baseDamage);
 
+        // 방어력 관통 적용
+        var effectiveDefense = ApplyPenetration(defense, damageContext.Penetration);
+
         // 방어력 적용
-        ApplyDefense(baseDamage, defense, out baseDamage);
+        ApplyDefense(baseDamage, effectiveDefense, out baseDamage);
 
         // 음수 방지 및 최소 데미지 적용
         baseDamage = Mathf.Max(baseDamage, 0.1f);
@@ -71,6 +76,15 @@ public static class DamageCalculator
         // 공식 예시: 데미지 감소율 = 방어력 / (방어력 + 100)
         var reduction = defense / (defense + 100f);
         finalDamage = damage * (1f - reduction);
+    }
+
+    /// <summary>
+    /// 방어력 관통 적용 (관통률만큼 방어력 무시)
+    /// </summary>
+    public static float ApplyPenetration(float defense, float penetration)
+    {
+        // penetration이 0.3이면 30% 방어력 무시 -> 실제 방어력 70%
+        return defense * (1f - Mathf.Clamp01(penetration));
     }
 
     /// <summary>
@@ -141,13 +155,15 @@ public readonly struct DamageContext
     public readonly float BaseDamage;
     public readonly float CriticalRate;
     public readonly float CriticalDamage;
+    public readonly float Penetration;
     public readonly HeroClassType HeroClass;
 
-    public DamageContext(float baseDamage, float criticalRate, float criticalDamage, HeroClassType heroClass)
+    public DamageContext(float baseDamage, float criticalRate, float criticalDamage, float penetration, HeroClassType heroClass)
     {
         BaseDamage = baseDamage;
         CriticalRate = criticalRate;
         CriticalDamage = criticalDamage;
+        Penetration = penetration;
         HeroClass = heroClass;
     }
 }

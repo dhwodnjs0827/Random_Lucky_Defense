@@ -9,6 +9,7 @@ public class HeroStat
     public float CriticalRate { get; private set; } // 크리티컬 확률
     public float CriticalDamage { get; private set; } // 크리티컬 데미지
     public float MoveSpeed { get; private set; } // 이동속도
+    public float Penetration { get; private set; } // 방어력 관통 (0.0 ~ 1.0)
 
     public float AttackPowerMultiplier { get; private set; } // 공격력 배율
     public float AttackSpeedMultiplier { get; private set; } // 공격속도 배율
@@ -25,6 +26,7 @@ public class HeroStat
         CriticalRate = 0f;
         CriticalDamage = 0f;
         MoveSpeed = 0f;
+        Penetration = 0f;
 
         AttackPowerMultiplier = 1f;
         AttackSpeedMultiplier = 1f;
@@ -42,6 +44,7 @@ public class HeroStat
         CriticalRate = 0f;
         CriticalDamage = 0f;
         MoveSpeed = 5f;
+        Penetration = 0f;
 
         AttackPowerMultiplier = 1f;
         AttackSpeedMultiplier = 1f;
@@ -120,5 +123,11 @@ public class HeroStat
     {
         MoveSpeedMultiplier += value;
         CDebug.Log($"[HeroStat] IncreaseMoveSpeedMultiplier {value} 적용 전: {MoveSpeedMultiplier - value} 적용 후: {MoveSpeedMultiplier}");
+    }
+
+    public void IncreasePenetration(float value)
+    {
+        Penetration += value;
+        CDebug.Log($"[HeroStat] IncreasePenetration {value} 적용 전: {Penetration - value} 적용 후: {Penetration}");
     }
 }

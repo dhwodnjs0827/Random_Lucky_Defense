@@ -77,6 +77,7 @@ public class BaseProjectile : MonoBehaviour, IPoolable
             projectileData.AttackPower,
             projectileData.CriticalRate,
             projectileData.CriticalDamage,
+            projectileData.Penetration,
             projectileData.HeroClass
         );
         target.TakeDamage(damageContext);
@@ -109,6 +110,7 @@ public class BaseProjectile : MonoBehaviour, IPoolable
                     projectileData.AttackPower,
                     projectileData.CriticalRate,
                     projectileData.CriticalDamage,
+                    projectileData.Penetration,
                     projectileData.HeroClass
                 );
                 damageable.TakeDamage(damageContext);
@@ -155,6 +157,9 @@ public readonly struct ProjectileData
 
     public float SplashRange => DamageCalculator.CalculateMultipliers(HeroStat.SplashRange,
         LevelUpStat.SplashRangeMultiplier, AbilityEffectStat.SplashRangeMultiplier);
+
+    public float Penetration => DamageCalculator.CalculateAdditives(HeroStat.Penetration,
+        LevelUpStat.Penetration, AbilityEffectStat.Penetration);
 
     public ProjectileData(IDetectable target, HeroStat heroStat, HeroStat levelUpStat, HeroStat cardEffectStat, float acquiredHeroBonusDamage,
         HeroClassType heroClassType)

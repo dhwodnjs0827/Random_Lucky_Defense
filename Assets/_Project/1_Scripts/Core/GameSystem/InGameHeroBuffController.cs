@@ -122,9 +122,9 @@ public class InGameHeroBuffController : IEventListener, IAbilityEffect
                 CDebug.Log($"[InGameHeroBuffController] 스플래시 데미지 범위{abilityContainer.AbilityLevelData.value} 증가");
                 break;
             case AbilityEffectType.IncreasePenetratingPower:
-                //abilityEffectStats[HeroClassType.Magician].(abilityContainer.AbilityLevelData.value / 100f);
-                //abilityEffectStats[HeroClassType.Archer].(abilityContainer.AbilityLevelData.value / 100f);
-                //abilityEffectStats[HeroClassType.Knight].(abilityContainer.AbilityLevelData.value / 100f);
+                abilityEffectStats[HeroClassType.Magician].IncreasePenetration(abilityContainer.AbilityLevelData.value / 100f);
+                abilityEffectStats[HeroClassType.Archer].IncreasePenetration(abilityContainer.AbilityLevelData.value / 100f);
+                abilityEffectStats[HeroClassType.Knight].IncreasePenetration(abilityContainer.AbilityLevelData.value / 100f);
                 CDebug.Log($"[InGameHeroBuffController] 적 방어력 {abilityContainer.AbilityLevelData.value}% 무시함");
                 break;
             case AbilityEffectType.MagicianIncreaseAttackPower:
