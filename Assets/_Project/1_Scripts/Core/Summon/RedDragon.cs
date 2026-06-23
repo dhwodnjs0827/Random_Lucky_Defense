@@ -9,7 +9,7 @@ public class RedDragon : MonoBehaviour
     private float attackCooldown;
 
     //TODO: 아직 애니메이터 없음
-    //private Animator animator;
+    //[SerializeField] private Animator animator;
     private static readonly int AttackAnimParam = Animator.StringToHash("2_Attack");
 
     private BaseProjectile projectilePrefab;
@@ -17,7 +17,7 @@ public class RedDragon : MonoBehaviour
     private int enemyLayerMask;
     private BaseEnemy targetEnemy;
     
-    private const string SUMMON_DATA_SO_PATH = "Data/SO/SummonData/10000";
+    private const string RED_DRAGON_DATA_SO_PATH = "Data/SO/SummonData/10000";
 
     private HeroStat LevelUpStat => InGameManager.Instance.HeroBuffController.LevelUpStats[classType];
     private HeroStat AbilityEffectStat => InGameManager.Instance.HeroBuffController.AbilityEffectStats[classType];
@@ -27,8 +27,8 @@ public class RedDragon : MonoBehaviour
 
     private void Awake()
     {
-        classType = HeroClassType.Magician;
-        var redDragonData = ResourceManager.Instance.Load<SummonDataSO>(SUMMON_DATA_SO_PATH);
+        var redDragonData = ResourceManager.Instance.Load<SummonDataSO>(RED_DRAGON_DATA_SO_PATH);
+        classType = redDragonData.ClassType;
         baseStat = new HeroStat(redDragonData);
         enemyLayerMask = LayerMask.GetMask("Enemy");
         projectilePrefab = ResourceManager.Instance.Load<BaseProjectile>("Prefabs/Projectile/BaseProjectile");

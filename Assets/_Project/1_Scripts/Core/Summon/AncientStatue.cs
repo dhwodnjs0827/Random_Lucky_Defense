@@ -1,27 +1,35 @@
+using Generated;
 using UnityEngine;
 
 public class AncientStatue : MonoBehaviour
 {
     private HeroClassType classType;
-    
+
     private HeroStat baseStat;
     private float attackCooldown;
-    
-    private Animator animator;
+
+    //TODO: 아직 애니메이터 없음
+    //[SerializeField] private Animator animator;
     private static readonly int AttackAnimParam = Animator.StringToHash("2_Attack");
-    
+
     private BaseProjectile projectilePrefab;
-    
+
     private int enemyLayerMask;
     private BaseEnemy targetEnemy;
     
+    private const string ANCIENT_STATUE_DATA_SO_PATH = "Data/SO/SummonData/20000";
+
     private HeroStat LevelUpStat => InGameManager.Instance.HeroBuffController.LevelUpStats[classType];
     private HeroStat AbilityEffectStat => InGameManager.Instance.HeroBuffController.AbilityEffectStats[classType];
-    private float AcquiredHeroBonusDamage => InGameManager.Instance.HeroBuffController.AcquiredHeroBonusDamages[classType];
+
+    private float AcquiredHeroBonusDamage =>
+        InGameManager.Instance.HeroBuffController.AcquiredHeroBonusDamages[classType];
 
     private void Awake()
     {
-        classType = HeroClassType.Archer;
+        var ancientStatueData = ResourceManager.Instance.Load<SummonDataSO>(ANCIENT_STATUE_DATA_SO_PATH);
+        classType = ancientStatueData.ClassType;
+        baseStat = new HeroStat(ancientStatueData);
         enemyLayerMask = LayerMask.GetMask("Enemy");
         projectilePrefab = ResourceManager.Instance.Load<BaseProjectile>("Prefabs/Projectile/BaseProjectile");
     }
@@ -29,8 +37,15 @@ public class AncientStatue : MonoBehaviour
     private void Update()
     {
         attackCooldown += Time.deltaTime;
-        
-        FindTarget();
+
+        if (targetEnemy == null)
+        {
+            FindTarget();
+        }
+        else
+        {
+            Attack();
+        }
     }
 
     public void IncreaseStat(AbilityContainer abilityContainer)
@@ -53,11 +68,10 @@ public class AncientStatue : MonoBehaviour
             if (hit.TryGetComponent<IDetectable>(out var target))
             {
                 SetTarget(target);
-                Attack();
             }
         }
     }
-    
+
     /// <summary>
     /// 공격할 타겟 설정
     /// </summary>
@@ -74,18 +88,21 @@ public class AncientStatue : MonoBehaviour
         // 타겟 유효성 검사
         if (!IsTargetValidity())
         {
+            targetEnemy = null;
             return;
         }
-        
-        var attackSpeed = DamageCalculator.CalculateMultipliers(baseStat.AttackSpeed, LevelUpStat.AttackSpeedMultiplier, AbilityEffectStat.AttackSpeedMultiplier);
+
+        var attackSpeed = DamageCalculator.CalculateMultipliers(baseStat.AttackSpeed, LevelUpStat.AttackSpeedMultiplier,
+            AbilityEffectStat.AttackSpeedMultiplier);
         if (attackCooldown >= attackSpeed)
         {
-            animator.SetTrigger(AttackAnimParam);
+            //TODO: 아직 애니메이터 없음
+            //animator.SetTrigger(AttackAnimParam);
             CreateProjectile();
             attackCooldown = 0f;
         }
     }
-    
+
     private void CreateProjectile()
     {
         var projectile = ObjectPoolManager.Instance.Get(projectilePrefab);
@@ -102,7 +119,7 @@ public class AncientStatue : MonoBehaviour
         projectile.Initialize(projectileData);
         projectile.Fire();
     }
-    
+
     /// <summary>
     /// 타겟의 유효성 검사
     /// </summary>
@@ -114,7 +131,8 @@ public class AncientStatue : MonoBehaviour
         }
 
         var distance = Vector2.Distance(transform.position, targetEnemy.transform.position);
-        var attackRange = DamageCalculator.CalculateMultipliers(baseStat.AttackRange, LevelUpStat.AttackRangeMultiplier, AbilityEffectStat.AttackRangeMultiplier);
+        var attackRange = DamageCalculator.CalculateMultipliers(baseStat.AttackRange, LevelUpStat.AttackRangeMultiplier,
+            AbilityEffectStat.AttackRangeMultiplier);
         if (distance > attackRange)
         {
             return false;
