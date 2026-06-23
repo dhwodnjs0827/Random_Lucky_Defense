@@ -1,3 +1,4 @@
+using Generated;
 using UnityEngine;
 
 public class RedDragon : MonoBehaviour
@@ -15,6 +16,8 @@ public class RedDragon : MonoBehaviour
 
     private int enemyLayerMask;
     private BaseEnemy targetEnemy;
+    
+    private const string SUMMON_DATA_SO_PATH = "Data/SO/SummonData/10000";
 
     private HeroStat LevelUpStat => InGameManager.Instance.HeroBuffController.LevelUpStats[classType];
     private HeroStat AbilityEffectStat => InGameManager.Instance.HeroBuffController.AbilityEffectStats[classType];
@@ -25,9 +28,8 @@ public class RedDragon : MonoBehaviour
     private void Awake()
     {
         classType = HeroClassType.Magician;
-        baseStat = new HeroStat();
-        baseStat.IncreaseSplashRange(10);
-        baseStat.IncreaseAttackRange(200);
+        var redDragonData = ResourceManager.Instance.Load<SummonDataSO>(SUMMON_DATA_SO_PATH);
+        baseStat = new HeroStat(redDragonData);
         enemyLayerMask = LayerMask.GetMask("Enemy");
         projectilePrefab = ResourceManager.Instance.Load<BaseProjectile>("Prefabs/Projectile/BaseProjectile");
     }

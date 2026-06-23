@@ -52,6 +52,24 @@ public class HeroStat
         SplashRangeMultiplier = 1f;
         MoveSpeedMultiplier = 1f;
     }
+    
+    public HeroStat(SummonDataSO summonData)
+    {
+        AttackPower = summonData.AttackPower;
+        AttackSpeed = summonData.AttackSpeed;
+        AttackRange = summonData.AttackRange / 50f;
+        SplashRange = summonData.SplashRange / 50f;
+        CriticalRate = 0f;
+        CriticalDamage = 0f;
+        MoveSpeed = 0f;
+        Penetration = 0f;
+
+        AttackPowerMultiplier = 1f;
+        AttackSpeedMultiplier = 1f;
+        AttackRangeMultiplier = 1f;
+        SplashRangeMultiplier = 1f;
+        MoveSpeedMultiplier = 1f;
+    }
 
     public void IncreaseAttackPower(float value)
     {
