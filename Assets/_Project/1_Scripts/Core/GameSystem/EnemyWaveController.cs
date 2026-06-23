@@ -30,6 +30,8 @@ public class EnemyWaveController : MonoBehaviour, IEventListener
     
     public IReadOnlyReactiveProperty<float> CurrentWaveTime => currentWaveTime;
 
+    #region Unity Methods
+
     private void Awake()
     {
         waveDatas = ResourceManager.Instance.LoadAll<WaveDataSO>(WAVE_DATA_SO_PATH).OrderBy(i => i.WaveIndex).ToArray();
@@ -70,17 +72,25 @@ public class EnemyWaveController : MonoBehaviour, IEventListener
     {
         UnsubscribeEvents();
     }
-    
+
+    #endregion
+
+    #region IEventListener Implementation
+
     public void SubscribeEvents()
     {
         EventManager.Subscribe(GameEventType.EnemyDie, DecreaseEnemyCount);
+        EventManager.Subscribe(GameEventType.GameExit, GameExit);
     }
 
     public void UnsubscribeEvents()
     {
+        EventManager.Unsubscribe(GameEventType.GameExit, GameExit);
         EventManager.Unsubscribe(GameEventType.EnemyDie, DecreaseEnemyCount);
     }
 
+    #endregion
+    
     /// <summary>
     /// 일반 적 스폰 (주기적 스폰)
     /// </summary>
@@ -158,8 +168,8 @@ public class EnemyWaveController : MonoBehaviour, IEventListener
     {
         if (currentWaveDataIndex >= waveDatas.Length && spawnedEnemyCount == 0)
         {
-            EventManager.Dispatch(GameEventType.InGameFinish, new InGameFinishEventData(true));
-            FirebaseManager.Instance.LogEvent(nameof(GameEventType.InGameFinish), "isStageCleared", "true");
+            EventManager.Dispatch(GameEventType.GameFinish, new InGameFinishEventData(true, currentWaveData.WaveIndex));
+            FirebaseManager.Instance.LogEvent(nameof(GameEventType.GameFinish), "isStageCleared", "true");
         }
     }
     
@@ -167,8 +177,15 @@ public class EnemyWaveController : MonoBehaviour, IEventListener
     {
         if (spawnedEnemyCount == GameConstants.MAX_ENEMY_COUNT)
         {
-            EventManager.Dispatch(GameEventType.InGameFinish, new InGameFinishEventData(false));
-            FirebaseManager.Instance.LogEvent(nameof(GameEventType.InGameFinish), "isStageCleared", "false");
+            EventManager.Dispatch(GameEventType.GameFinish, new InGameFinishEventData(false, currentWaveData.WaveIndex));
+            FirebaseManager.Instance.LogEvent(nameof(GameEventType.GameFinish), "isStageCleared", "false");
         }
+    }
+
+    private void GameExit()
+    {
+        EventManager.Dispatch(GameEventType.GameFinish, new InGameFinishEventData(false, currentWaveData.WaveIndex));
+        FirebaseManager.Instance.LogEvent(nameof(GameEventType.GameFinish), "isStageCleared", "false");
+        CDebug.Log("[EnemyWaveController] 게임 나가기");
     }
 }

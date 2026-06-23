@@ -34,8 +34,7 @@ public class UIPause : UIBase
 
     private void OnClickExitGame()
     {
+        EventManager.Dispatch(GameEventType.GameExit);
         UIManager.Instance.Close(this);
-        EventManager.Dispatch(GameEventType.InGameFinish, new InGameFinishEventData(false));
-        FirebaseManager.Instance.LogEvent(nameof(GameEventType.InGameFinish), "isStageCleared", "false");
     }
 }

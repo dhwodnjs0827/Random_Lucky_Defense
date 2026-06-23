@@ -9,8 +9,9 @@ public enum GameEventType
     ChangeSelectedHero, // 선택 영웅 변경
     LevelUpHero, // 영웅 레벨 업
     
-    InGameStart, // 게임 시작
-    InGameFinish, // 게임 종료
+    GameStart, // 게임 시작
+    GameFinish, // 게임 종료
+    GameExit, // 게임 나가기
     
     WaveStart, // 웨이브 시작
     

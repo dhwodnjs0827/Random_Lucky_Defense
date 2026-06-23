@@ -31,6 +31,8 @@ public class InGameHeroBuffController : IEventListener, IAbilityEffect
         acquiredHeroBonusDamages.Add(HeroClassType.Knight, 1f + PlayerDataManager.Instance.CalculateHeroAcquiredBonusDamage(HeroClassType.Knight));
     }
 
+    #region IEventListener implementation
+
     public void SubscribeEvents()
     {
         onLevelUp += LevelUp;
@@ -43,10 +45,9 @@ public class InGameHeroBuffController : IEventListener, IAbilityEffect
         onLevelUp -= LevelUp;
     }
 
-    private void LevelUp(InGameLevelUpEventData eventData)
-    {
-        levelUpStats[eventData.TargetClass].IncreaseAttackPowerMultiplier(eventData.DamageMultiplier);
-    }
+    #endregion
+
+    #region IAbilityEffect implementation
 
     public void RegisterAbilityEffect(AbilityEffectFactory abilityEffectFactory)
     {
@@ -142,5 +143,12 @@ public class InGameHeroBuffController : IEventListener, IAbilityEffect
             default:
                 throw new ArgumentOutOfRangeException();
         }
+    }
+
+    #endregion
+
+    private void LevelUp(InGameLevelUpEventData eventData)
+    {
+        levelUpStats[eventData.TargetClass].IncreaseAttackPowerMultiplier(eventData.DamageMultiplier);
     }
 }

@@ -22,8 +22,6 @@ public class InGameCurrencyController : IEventListener, IAbilityEffect
     {
         currentSpawnPoint.Value = GameConstants.INITIAL_HERO_SPAWN_POINT;
     }
-    
-    #region Interface
 
     #region IEvenetListener implementation
 
@@ -68,8 +66,6 @@ public class InGameCurrencyController : IEventListener, IAbilityEffect
             spGainAmount = (int)abilityContainer.AbilityLevelData.value1;
         }
     }
-
-    #endregion
 
     #endregion
     

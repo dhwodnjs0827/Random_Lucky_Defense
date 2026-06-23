@@ -22,7 +22,9 @@ public class InGameHeroLevelUpController : IEventListener
     {
         InitializeLevelUpData();
     }
-    
+
+    #region IEventListener implementation
+
     public void SubscribeEvents()
     {
         onLevelUp += LevelUp;
@@ -34,6 +36,8 @@ public class InGameHeroLevelUpController : IEventListener
         EventManager.Unsubscribe(GameEventType.InGameHeroLevelUpRequest, onLevelUp);
         onLevelUp -= LevelUp;
     }
+
+    #endregion
 
     private void LevelUp(HeroClassType classType)
     {

@@ -37,10 +37,12 @@ public struct HeroSpawnEventData
 public struct InGameFinishEventData
 {
     public readonly bool IsGameVictory;
+    public readonly int WaveIndex;
 
-    public InGameFinishEventData(bool isGameVictory)
+    public InGameFinishEventData(bool isGameVictory, int waveIndex)
     {
         IsGameVictory = isGameVictory;
+        WaveIndex = waveIndex;
     }
 }
 

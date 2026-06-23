@@ -8,19 +8,12 @@ using UnityEngine.Splines;
 public class EnemySpawner : MonoBehaviour
 {
     [SerializeField] private SplineContainer splineContainer;
-    
-    private ObjectPoolManager objectPoolManager;
 
     private Vector3 spawnPoint;
 
     private void Awake()
     {
         Initialize();
-    }
-
-    private void Start()
-    {
-        objectPoolManager = ObjectPoolManager.Instance;
     }
 
     /// <summary>
@@ -31,7 +24,7 @@ public class EnemySpawner : MonoBehaviour
     /// <param name="waveData">웨이브 데이터</param>
     public void Spawn(BaseEnemy spawnEnemy, EnemyDataSO spawnEnemyData, WaveDataSO waveData)
     {
-        var enemy = objectPoolManager.Get(spawnEnemy);
+        var enemy = ObjectPoolManager.Instance.Get(spawnEnemy);
         enemy.transform.SetParent(transform);
         enemy.transform.position = spawnPoint;
         enemy.Initialize(spawnEnemyData, waveData, splineContainer);

@@ -14,6 +14,7 @@ public class InGameManager : MonoSingleton<InGameManager>, IEventListener
     private InGameHeroLevelUpController heroLevelUpController;
     private InGameHeroBuffController heroBuffController;
     private InGameCurrencyController currencyController;
+    private InGameRewardController rewardController;
 
     private readonly float[] gameSpeeds = { 1f, 2f, 3f };
     private int currentGameSpeedIndex;
@@ -41,6 +42,7 @@ public class InGameManager : MonoSingleton<InGameManager>, IEventListener
         heroLevelUpController =  new InGameHeroLevelUpController();
         heroBuffController = new InGameHeroBuffController();
         currencyController = new InGameCurrencyController();
+        rewardController = new InGameRewardController();
         
         UIManager.Instance.Open<UIInGame>();
         
@@ -51,6 +53,8 @@ public class InGameManager : MonoSingleton<InGameManager>, IEventListener
         isInitialized = true;
         await UniTask.CompletedTask;
     }
+
+    #region Unity Methods
 
     private void Update()
     {
@@ -64,10 +68,14 @@ public class InGameManager : MonoSingleton<InGameManager>, IEventListener
         base.OnDestroy();
     }
 
+    #endregion
+    
+    #region IEventListener implementation
+    
     public void SubscribeEvents()
     {
         onGameFinish += GameFinish;
-        EventManager.Subscribe(GameEventType.InGameFinish, onGameFinish);
+        EventManager.Subscribe(GameEventType.GameFinish, onGameFinish);
         
         abilityEffectFactory.SubscribeEvents();
         
@@ -92,9 +100,11 @@ public class InGameManager : MonoSingleton<InGameManager>, IEventListener
         
         abilityEffectFactory.UnsubscribeEvents();
         
-        EventManager.Unsubscribe(GameEventType.InGameFinish, onGameFinish);
+        EventManager.Unsubscribe(GameEventType.GameFinish, onGameFinish);
         onGameFinish -= GameFinish;
     }
+    
+    #endregion
 
     /// <summary>
     /// 게임 난이도 설정
