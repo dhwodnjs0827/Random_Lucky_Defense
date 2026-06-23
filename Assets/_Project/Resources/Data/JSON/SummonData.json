@@ -1,29 +1,29 @@
 [
   {
-    "ID": 10000,
-    "Name": "Red_Dragon",
+    "ID": "Red_Dragon",
     "ClassType": "Magician",
     "AttackPower": 0.0,
     "AttackSpeed": 0.0,
     "AttackRange": 200.0,
-    "SplashRange": 10.0
+    "SplashRange": 10.0,
+    "Penetration": 0.0
   },
   {
-    "ID": 20000,
-    "Name": "Ancient_Statue",
+    "ID": "Ancient_Statue",
     "ClassType": "Archer",
     "AttackPower": 0.0,
     "AttackSpeed": 0.0,
     "AttackRange": 200.0,
-    "SplashRange": 0.0
+    "SplashRange": 0.0,
+    "Penetration": 100.0
   },
   {
-    "ID": 30000,
-    "Name": "Lightning",
+    "ID": "Lightning",
     "ClassType": "Knight",
     "AttackPower": 0.0,
     "AttackSpeed": 0.0,
     "AttackRange": 200.0,
-    "SplashRange": 10.0
+    "SplashRange": 10.0,
+    "Penetration": 0.0
   }
 ]
