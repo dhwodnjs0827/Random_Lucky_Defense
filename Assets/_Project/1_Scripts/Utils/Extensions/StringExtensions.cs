@@ -50,4 +50,20 @@ public static class StringExtensions
         return StrBuilder.Append($"<color=#{ColorUtility.ToHtmlStringRGBA(color)}>").Append(s)
             .Append("</color>").ToString();
     }
+
+    /// <summary>
+    /// 플레이스홀더를 실제 값으로 치환
+    /// </summary>
+    /// <example>
+    /// "공격력이 {value}% 증가".ReplaceValues(("{value}", 10));
+    /// "공격력 {atk}, 방어력 {def}".ReplaceValues(("{atk}", 100), ("{def}", 50));
+    /// </example>
+    public static string ReplaceValues(this string str, params (string key, object value)[] replacements)
+    {
+        foreach (var (key, value) in replacements)
+        {
+            str = str.Replace(key, value.ToString());
+        }
+        return str;
+    }
 }
