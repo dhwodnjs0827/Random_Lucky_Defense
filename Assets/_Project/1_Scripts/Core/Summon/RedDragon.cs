@@ -7,10 +7,9 @@ public class RedDragon : MonoBehaviour
 
     private HeroStat baseStat;
     private float attackCooldown;
-
-    //TODO: 아직 애니메이터 없음
-    //[SerializeField] private Animator animator;
-    private static readonly int AttackAnimParam = Animator.StringToHash("2_Attack");
+    
+    [SerializeField] private Animator animator;
+    private static readonly int AttackAnimParam = Animator.StringToHash("Attack");
 
     private BaseProjectile projectilePrefab;
 
@@ -96,8 +95,7 @@ public class RedDragon : MonoBehaviour
             AbilityEffectStat.AttackSpeedMultiplier);
         if (attackCooldown >= attackSpeed)
         {
-            //TODO: 아직 애니메이터 없음
-            //animator.SetTrigger(AttackAnimParam);
+            animator.SetTrigger(AttackAnimParam);
             CreateProjectile();
             attackCooldown = 0f;
         }
