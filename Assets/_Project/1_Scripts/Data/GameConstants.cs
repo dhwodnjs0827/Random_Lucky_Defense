@@ -54,8 +54,7 @@ public static class GameConstants
     public const int HERO_SPAWN_POINT_COST = 20;
 
     // 재능 선택 등장 웨이브 배수 값
-    //TODO: 테스트를 위해 1배수로 설정. 기존 7배수
-    public const int ABILITY_SELECTION_STAGE_INTERVAL = 1;
+    public const int ABILITY_SELECTION_STAGE_INTERVAL = 7;
     // 재능 레벨 최대치
     public const int ABILITY_MAX_LEVEL = 5;
     

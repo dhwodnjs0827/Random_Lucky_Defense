@@ -16,7 +16,7 @@ public class AbilityEffectFactory : IEventListener
     private readonly Dictionary<string, int> currentAbilityLevelDic = new();
 
     private Action<AbilitySelectEventData> onAbilitySelected;
-    
+
     private const string ABILITY_DATA_SO_PATH = "Data/SO/AbilityData";
     private const string ABILITY_LEVEL_DATA_SO_PATH = "Data/SO/AbilityLevelData";
 
@@ -49,7 +49,8 @@ public class AbilityEffectFactory : IEventListener
     public AbilityContainer[] GetRandomAbilities(int count = 3)
     {
         // 5레벨 미만 재능 필터링
-        var availableAbilities = abilityDatas.Where(ability => GetAbilityLevel(ability.ID) < GameConstants.ABILITY_MAX_LEVEL).ToList();
+        var availableAbilities = abilityDatas
+            .Where(ability => GetAbilityLevel(ability.ID) < GameConstants.ABILITY_MAX_LEVEL).ToList();
 
         // 가중치 기반 랜덤 선택(중복 없이 count 개수만큼)
         var selectedAbilities = new List<AbilityContainer>();
@@ -87,7 +88,7 @@ public class AbilityEffectFactory : IEventListener
             handlers.Remove(handler);
         }
     }
-    
+
     /// <summary>
     /// 재능 및 재능별 레벨 데이터 초기화
     /// </summary>
@@ -162,7 +163,7 @@ public class AbilityEffectFactory : IEventListener
         {
             currentAbilityLevelDic[data.SelectedAbility.AbilityData.ID]++;
         }
-        
+
         var effectType = data.SelectedAbility.AbilityData.AbilityEffectType;
         if (effectHandlers.TryGetValue(effectType, out var handlers))
         {
@@ -171,9 +172,64 @@ public class AbilityEffectFactory : IEventListener
                 handler.ApplyAbilityEffect(data.SelectedAbility);
             }
         }
-        
-        CDebug.Log($"[AbilityEffectFactory] 선택한 재능: {data.SelectedAbility.AbilityData.Name}, 재능 레벨: {currentAbilityLevelDic[data.SelectedAbility.AbilityData.ID]}");
+
+        CDebug.Log(
+            $"[AbilityEffectFactory] 선택한 재능: {data.SelectedAbility.AbilityData.Name}, 재능 레벨: {currentAbilityLevelDic[data.SelectedAbility.AbilityData.ID]}");
     }
+
+    #region Cheat
+
+#if UNITY_EDITOR
+    
+    /// <summary>
+    /// 선택 가능한 모든 재능 목록 반환 (치트용)
+    /// </summary>
+    public AbilityContainer[] CheatGetAvailableAbilities()
+    {
+        var availableAbilities = abilityDatas
+            .Where(ability => GetAbilityLevel(ability.ID) < GameConstants.ABILITY_MAX_LEVEL)
+            .ToList();
+
+        var containers = new List<AbilityContainer>();
+        foreach (var ability in availableAbilities)
+        {
+            var currentLevel = GetAbilityLevel(ability.ID);
+            containers.Add(CreateContainer(ability, currentLevel));
+        }
+
+        return containers.ToArray();
+    }
+
+    /// <summary>
+    /// 특정 재능 활성화 (치트용)
+    /// </summary>
+    public void CheatActivateAbility(AbilityContainer ability)
+    {
+        EventManager.Dispatch(GameEventType.AbilitySelected, new AbilitySelectEventData(ability));
+    }
+
+    /// <summary>
+    /// 현재 활성화된 재능 목록 반환 (치트용)
+    /// </summary>
+    public List<(AbilityDataSO Data, int Level)> CheatGetActivatedAbilities()
+    {
+        var activatedAbilities = new List<(AbilityDataSO Data, int Level)>();
+
+        foreach (var ability in abilityDatas)
+        {
+            var level = GetAbilityLevel(ability.ID);
+            if (level > 0)
+            {
+                activatedAbilities.Add((ability, level));
+            }
+        }
+
+        return activatedAbilities;
+    }
+
+#endif
+
+    #endregion
 }
 
 public struct AbilityContainer
