@@ -8,10 +8,7 @@ public class AncientStatue : MonoBehaviour
     private HeroStat baseStat;
     private float attackCooldown;
 
-    //TODO: 아직 애니메이터 없음
-    //[SerializeField] private Animator animator;
-    private static readonly int AttackAnimParam = Animator.StringToHash("2_Attack");
-
+    [SerializeField] private Transform projectilePoint;
     private BaseProjectile projectilePrefab;
 
     private int enemyLayerMask;
@@ -96,8 +93,6 @@ public class AncientStatue : MonoBehaviour
             AbilityEffectStat.AttackSpeedMultiplier);
         if (attackCooldown >= attackSpeed)
         {
-            //TODO: 아직 애니메이터 없음
-            //animator.SetTrigger(AttackAnimParam);
             CreateProjectile();
             attackCooldown = 0f;
         }
