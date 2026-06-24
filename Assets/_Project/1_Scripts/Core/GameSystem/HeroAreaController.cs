@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -7,20 +8,19 @@ using UnityEngine.InputSystem;
 /// </summary>
 public class HeroAreaController : MonoBehaviour
 {
-    [Header("영역 설정")]
-    [SerializeField] private HeroArea topArea; // 초기 영역: 전사
+    [Header("영역 설정")] [SerializeField] private HeroArea topArea; // 초기 영역: 전사
     [SerializeField] private HeroArea leftArea; // 초기 영역: 궁수
     [SerializeField] private HeroArea bottomArea; // 초기 영역: 마법사
     [SerializeField] private HeroArea rightArea; // 초기 영역: 빈 영역
     [SerializeField] private Transform spawnPoint; // 중앙 스폰 위치
-    
+
     private Camera mainCamera;
 
     private Dictionary<HeroAreaType, HeroArea> areas;
 
     private HeroArea selectedArea;
     private bool isDragging;
-    
+
     public Transform SpawnPoint => spawnPoint;
 
     #region Unity Methods
@@ -28,23 +28,17 @@ public class HeroAreaController : MonoBehaviour
     private void Awake()
     {
         mainCamera = Camera.main;
-        
+
         InitializeAreas();
     }
 
     private void Update()
     {
         HandleInput();
-        
-        //TODO: 임시 치트 코드
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            CheatRemoveHero();
-        }
     }
 
     #endregion
-    
+
     /// <summary>
     /// 영역 초기화
     /// </summary>
@@ -74,7 +68,7 @@ public class HeroAreaController : MonoBehaviour
                 return;
             }
         }
-        
+
         // 모든 영역에 영웅 존재하지 않으면 Fallback
         PlaceHeroFallback(hero);
     }
@@ -225,22 +219,60 @@ public class HeroAreaController : MonoBehaviour
                 return kvp.Value;
             }
         }
+
         return null;
     }
 
     #region Cheat
 
-    private void CheatRemoveHero()
+#if UNITY_EDITOR
+
+    /// <summary>
+    /// 현재 소환된 모든 영웅 반환 (치트용)
+    /// </summary>
+    public List<BaseHero> CheatGetAllSpawnedHeroes()
+    {
+        var allHeroes = new List<BaseHero>();
+        foreach (var area in areas)
+        {
+            allHeroes.AddRange(area.Value.Heroes);
+        }
+
+        return allHeroes;
+    }
+
+    /// <summary>
+    /// 특정 영웅 제거 (치트용)
+    /// </summary>
+    public void CheatRemoveHero(BaseHero hero)
     {
         foreach (var area in areas)
         {
-            var heros = area.Value.Heroes;
-            foreach (var hero in heros)
+            if (area.Value.Heroes.Contains(hero))
+            {
+                area.Value.RemoveSingleHero(hero);
+                Destroy(hero.gameObject);
+                return;
+            }
+        }
+    }
+
+    /// <summary>
+    /// 모든 영웅 제거 (치트용)
+    /// </summary>
+    public void CheatRemoveAllHeroes()
+    {
+        foreach (var area in areas)
+        {
+            var heroes = area.Value.RemoveAllHeroes();
+            foreach (var hero in heroes)
             {
                 Destroy(hero.gameObject);
             }
         }
     }
+
+#endif
 
     #endregion
 }
