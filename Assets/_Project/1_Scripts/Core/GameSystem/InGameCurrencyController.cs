@@ -113,4 +113,36 @@ public class InGameCurrencyController : IEventListener, IAbilityEffect
         currentSpawnPoint.Value -= data.LevelUpCost;
         CDebug.Log($"[InGameCurrencyController] LevelUp 이벤트, 비용: {data.LevelUpCost}");
     }
+
+    #region Cheat
+
+#if UNITY_EDITOR
+
+    /// <summary>
+    /// SP 추가 (치트용)
+    /// </summary>
+    public void CheatAddSP(int amount)
+    {
+        currentSpawnPoint.Value += amount;
+    }
+
+    /// <summary>
+    /// SP 설정 (치트용)
+    /// </summary>
+    public void CheatSetSP(int amount)
+    {
+        currentSpawnPoint.Value = amount;
+    }
+
+    /// <summary>
+    /// SP 획득률 정보 반환 (치트용)
+    /// </summary>
+    public (bool isActive, float interval, int amount) CheatGetSPGainRateInfo()
+    {
+        return (isActiveSPGainRateEffect, spGainInterval, spGainAmount);
+    }
+
+#endif
+
+    #endregion
 }

@@ -5,5 +5,8 @@ public enum CurrencyType
 {
     Gold, // 골드
     Gem, // 보석
-    Diamond // 다이아
+    Diamond, // 다이아
+    
+    SP, // 소환 포인트
+    LuckyStone, // 행운석
 }
