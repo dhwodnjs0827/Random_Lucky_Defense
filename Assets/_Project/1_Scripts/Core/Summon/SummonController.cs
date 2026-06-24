@@ -95,13 +95,14 @@ public class SummonController : MonoBehaviour, IAbilityEffect
     {
         var prefab = ResourceManager.Instance.Load<RedDragon>(RED_DRAGON_PREFAB_PATH);
         redDragon = Instantiate(prefab, redDragonSpawnPoint.position, redDragonSpawnPoint.rotation);
+        redDragon.transform.SetParent(redDragonSpawnPoint);
     }
 
     private void SpawnAncientStatue()
     {
         var prefab = ResourceManager.Instance.Load<AncientStatue>(ANCIENT_STATUE_PREFAB_PATH);
         ancientStatue = Instantiate(prefab, ancientStatueSpawnPoint.position, ancientStatueSpawnPoint.rotation);
-        
+        ancientStatue.transform.SetParent(ancientStatueSpawnPoint);
     }
     
     private void CreateLightning()

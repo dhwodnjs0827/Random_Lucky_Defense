@@ -35,6 +35,12 @@ public class HeroAreaController : MonoBehaviour
     private void Update()
     {
         HandleInput();
+        
+        //TODO: 임시 치트 코드
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            CheatRemoveHero();
+        }
     }
 
     #endregion
@@ -221,4 +227,20 @@ public class HeroAreaController : MonoBehaviour
         }
         return null;
     }
+
+    #region Cheat
+
+    private void CheatRemoveHero()
+    {
+        foreach (var area in areas)
+        {
+            var heros = area.Value.Heroes;
+            foreach (var hero in heros)
+            {
+                Destroy(hero.gameObject);
+            }
+        }
+    }
+
+    #endregion
 }

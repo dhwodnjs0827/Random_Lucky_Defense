@@ -47,7 +47,7 @@ public class BaseProjectile : MonoBehaviour, IPoolable
         isFired = true;
     }
 
-    private void FlyToTarget()
+    protected virtual void FlyToTarget()
     {
         // 타겟이 살아있으면 위치 갱신
         if (projectileData.Target != null && projectileData.Target.Transform != null && projectileData.Target.Transform.gameObject.activeSelf)
