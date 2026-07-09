@@ -12,13 +12,12 @@ public class RedDragon : MonoBehaviour
     private static readonly int AttackAnimParam = Animator.StringToHash("Attack");
 
     [SerializeField] private Transform projectilePoint;
-    private RedDragonProjectile projectilePrefab;
+    [SerializeField] private RedDragonProjectile projectilePrefab;
 
     private int enemyLayerMask;
     private BaseEnemy targetEnemy;
     
     private const string RED_DRAGON_DATA_SO_PATH = "Data/SO/SummonData/Red_Dragon";
-    private const string RED_DRAGON_PROJECTILE_PREFAB_PATH = "Prefabs/Projectile/RedDragonProjectile";
 
     private HeroStat LevelUpStat => InGameManager.Instance.HeroBuffController.LevelUpStats[classType];
     private HeroStat AbilityEffectStat => InGameManager.Instance.HeroBuffController.AbilityEffectStats[classType];
@@ -32,7 +31,6 @@ public class RedDragon : MonoBehaviour
         classType = redDragonData.ClassType;
         baseStat = new HeroStat(redDragonData);
         enemyLayerMask = LayerMask.GetMask("Enemy");
-        projectilePrefab = ResourceManager.Instance.Load<RedDragonProjectile>(RED_DRAGON_PROJECTILE_PREFAB_PATH);
     }
 
     private void Update()

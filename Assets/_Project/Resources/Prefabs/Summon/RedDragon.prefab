@@ -161,3 +161,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::RedDragon
   animator: {fileID: 4753875094760669930}
   projectilePoint: {fileID: 6659392696146629216}
+  projectilePrefab: {fileID: 1243861950715153873, guid: 2a53428a089534dd49bacb68a337dcc5, type: 3}

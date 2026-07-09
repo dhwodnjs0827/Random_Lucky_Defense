@@ -6,13 +6,13 @@ public class AncientStatue : MonoBehaviour
     private HeroClassType classType;
 
     private HeroStat baseStat;
-    private float attackCooldown;
 
-    [SerializeField] private Transform projectilePoint;
-    private BaseProjectile projectilePrefab;
+    [SerializeField] private Transform laserPoint;
+    [SerializeField] private AncientStatueLaser laser;
 
     private int enemyLayerMask;
     private BaseEnemy targetEnemy;
+    private bool isLaserActive;
     
     private const string ANCIENT_STATUE_DATA_SO_PATH = "Data/SO/SummonData/Ancient_Statue";
 
@@ -28,15 +28,13 @@ public class AncientStatue : MonoBehaviour
         classType = ancientStatueData.ClassType;
         baseStat = new HeroStat(ancientStatueData);
         enemyLayerMask = LayerMask.GetMask("Enemy");
-        projectilePrefab = ResourceManager.Instance.Load<BaseProjectile>("Prefabs/Projectile/BaseProjectile");
     }
 
     private void Update()
     {
-        attackCooldown += Time.deltaTime;
-
         if (targetEnemy == null)
         {
+            isLaserActive = false;
             FindTarget();
         }
         else
@@ -86,24 +84,20 @@ public class AncientStatue : MonoBehaviour
         if (!IsTargetValidity())
         {
             targetEnemy = null;
+            isLaserActive = false;
             return;
         }
 
-        var attackSpeed = DamageCalculator.CalculateMultipliers(baseStat.AttackSpeed, LevelUpStat.AttackSpeedMultiplier,
-            AbilityEffectStat.AttackSpeedMultiplier);
-        if (attackCooldown >= attackSpeed)
+        if (!isLaserActive)
         {
-            CreateProjectile();
-            attackCooldown = 0f;
+            InitializeLaser();
+            isLaserActive = true;
         }
     }
 
-    private void CreateProjectile()
+    private void InitializeLaser()
     {
-        var projectile = ObjectPoolManager.Instance.Get(projectilePrefab);
-        projectile.transform.position = transform.position;
-        var projectileData = new ProjectileData
-        (
+        var laserData = new LaserData(
             targetEnemy,
             baseStat,
             LevelUpStat,
@@ -111,8 +105,8 @@ public class AncientStatue : MonoBehaviour
             AcquiredHeroBonusDamage,
             classType
         );
-        projectile.Initialize(projectileData);
-        projectile.Fire();
+
+        laser.Initialize(laserData, laserPoint);
     }
 
     /// <summary>
