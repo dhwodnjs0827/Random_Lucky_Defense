@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,20 +11,18 @@ public class CloseButton : MonoBehaviour
     [SerializeField] private Button button;
     [SerializeField] private UIBase targetUI; // 닫을 UI (없으면 부모에서 찾음)
 
+    public event Action OnClick;
+
     private void Awake()
     {
         button ??= GetComponent<Button>();
         targetUI ??= GetComponentInParent<UIBase>();
-
-        button.onClick.AddListener(OnClick);
+        
+        OnClick += ClickButton;
+        button.onClick.AddListener(() => OnClick?.Invoke());
     }
 
-    private void OnDestroy()
-    {
-        button.onClick.RemoveListener(OnClick);
-    }
-
-    private void OnClick()
+    private void ClickButton()
     {
         // AudioManager.Instance.PlaySFX("UI_Click");
         UIManager.Instance.Close(targetUI);

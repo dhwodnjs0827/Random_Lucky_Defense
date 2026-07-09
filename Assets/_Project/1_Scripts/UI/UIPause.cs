@@ -21,11 +21,14 @@ public class UIPause : UIBase
 
     protected override void Closed(params object[] args)
     {
-        InGameManager.Instance.ResumeGame();
     }
 
     private void InitializeButtons()
     {
+        if (closeButton != null)
+        {
+            closeButton.OnClick += InGameManager.Instance.ResumeGame;
+        }
         if (exitGameButton != null)
         {
             exitGameButton.onClick.AddListener(OnClickExitGame);

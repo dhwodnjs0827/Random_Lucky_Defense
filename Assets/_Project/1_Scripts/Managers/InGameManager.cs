@@ -82,7 +82,7 @@ public class InGameManager : MonoSingleton<InGameManager>, IEventListener
         heroLevelUpController.SubscribeEvents();
         
         heroBuffController.SubscribeEvents();
-        heroBuffController.RegisterAbilityEffect(abilityEffectFactory);
+        heroBuffController?.RegisterAbilityEffect(abilityEffectFactory);
         
         currencyController.SubscribeEvents();
         currencyController.RegisterAbilityEffect(abilityEffectFactory);
@@ -90,15 +90,15 @@ public class InGameManager : MonoSingleton<InGameManager>, IEventListener
 
     public void UnsubscribeEvents()
     {
-        currencyController.UnregisterAbilityEffect(abilityEffectFactory);
-        currencyController.UnsubscribeEvents();
+        currencyController?.UnregisterAbilityEffect(abilityEffectFactory);
+        currencyController?.UnsubscribeEvents();
         
-        heroBuffController.UnregisterAbilityEffect(abilityEffectFactory);
-        heroBuffController.UnsubscribeEvents();
+        heroBuffController?.UnregisterAbilityEffect(abilityEffectFactory);
+        heroBuffController?.UnsubscribeEvents();
         
-        heroLevelUpController.UnsubscribeEvents();
+        heroLevelUpController?.UnsubscribeEvents();
         
-        abilityEffectFactory.UnsubscribeEvents();
+        abilityEffectFactory?.UnsubscribeEvents();
         
         EventManager.Unsubscribe(GameEventType.GameFinish, onGameFinish);
         onGameFinish -= GameFinish;
