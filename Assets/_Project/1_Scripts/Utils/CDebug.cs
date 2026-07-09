@@ -15,31 +15,31 @@ public static class CDebug
 
     #region Assert
 
-    [Conditional(DEBUG_SYMBOL)]
+    [HideInCallstack, Conditional(DEBUG_SYMBOL)]
     public static void Assert(bool condition)
     {
         Debug.Assert(condition);
     }
 
-    [Conditional(DEBUG_SYMBOL)]
+    [HideInCallstack, Conditional(DEBUG_SYMBOL)]
     public static void Assert(bool condition, object message)
     {
         Debug.Assert(condition, message);
     }
 
-    [Conditional(DEBUG_SYMBOL)]
+    [HideInCallstack, Conditional(DEBUG_SYMBOL)]
     public static void Assert(bool condition, object message, Object context)
     {
         Debug.Assert(condition, message, context);
     }
 
-    [Conditional(DEBUG_SYMBOL)]
+    [HideInCallstack, Conditional(DEBUG_SYMBOL)]
     public static void AssertFormat(bool condition, string format, params object[] args)
     {
         Debug.AssertFormat(condition, format, args);
     }
 
-    [Conditional(DEBUG_SYMBOL)]
+    [HideInCallstack, Conditional(DEBUG_SYMBOL)]
     public static void AssertFormat(bool condition, Object context, string format, params object[] args)
     {
         Debug.AssertFormat(condition, context, format, args);
@@ -49,25 +49,25 @@ public static class CDebug
 
     #region Log
 
-    [Conditional(DEBUG_SYMBOL)]
+    [HideInCallstack, Conditional(DEBUG_SYMBOL)]
     public static void Log(object message)
     {
         Debug.Log(message);
     }
 
-    [Conditional(DEBUG_SYMBOL)]
+    [HideInCallstack, Conditional(DEBUG_SYMBOL)]
     public static void Log(object message, Object context)
     {
         Debug.Log(message, context);
     }
 
-    [Conditional(DEBUG_SYMBOL)]
+    [HideInCallstack, Conditional(DEBUG_SYMBOL)]
     public static void LogFormat(string format, params object[] args)
     {
         Debug.LogFormat(format, args);
     }
 
-    [Conditional(DEBUG_SYMBOL)]
+    [HideInCallstack, Conditional(DEBUG_SYMBOL)]
     public static void LogFormat(Object context, string format, params object[] args)
     {
         Debug.LogFormat(context, format, args);
@@ -77,25 +77,25 @@ public static class CDebug
 
     #region LogWarning
 
-    [Conditional(DEBUG_SYMBOL)]
+    [HideInCallstack, Conditional(DEBUG_SYMBOL)]
     public static void LogWarning(object message)
     {
         Debug.LogWarning(message);
     }
 
-    [Conditional(DEBUG_SYMBOL)]
+    [HideInCallstack, Conditional(DEBUG_SYMBOL)]
     public static void LogWarning(object message, Object context)
     {
         Debug.LogWarning(message, context);
     }
 
-    [Conditional(DEBUG_SYMBOL)]
+    [HideInCallstack, Conditional(DEBUG_SYMBOL)]
     public static void LogWarningFormat(string format, params object[] args)
     {
         Debug.LogWarningFormat(format, args);
     }
 
-    [Conditional(DEBUG_SYMBOL)]
+    [HideInCallstack, Conditional(DEBUG_SYMBOL)]
     public static void LogWarningFormat(Object context, string format, params object[] args)
     {
         Debug.LogWarningFormat(context, format, args);
@@ -105,25 +105,25 @@ public static class CDebug
 
     #region LogError
 
-    [Conditional(DEBUG_SYMBOL)]
+    [HideInCallstack, Conditional(DEBUG_SYMBOL)]
     public static void LogError(object message)
     {
         Debug.LogError(message);
     }
 
-    [Conditional(DEBUG_SYMBOL)]
+    [HideInCallstack, Conditional(DEBUG_SYMBOL)]
     public static void LogError(object message, Object context)
     {
         Debug.LogError(message, context);
     }
 
-    [Conditional(DEBUG_SYMBOL)]
+    [HideInCallstack, Conditional(DEBUG_SYMBOL)]
     public static void LogErrorFormat(string format, params object[] args)
     {
         Debug.LogErrorFormat(format, args);
     }
 
-    [Conditional(DEBUG_SYMBOL)]
+    [HideInCallstack, Conditional(DEBUG_SYMBOL)]
     public static void LogErrorFormat(Object context, string format, params object[] args)
     {
         Debug.LogErrorFormat(context, format, args);
@@ -133,13 +133,13 @@ public static class CDebug
 
     #region LogException
 
-    [Conditional(DEBUG_SYMBOL)]
+    [HideInCallstack, Conditional(DEBUG_SYMBOL)]
     public static void LogException(Exception exception)
     {
         Debug.LogException(exception);
     }
 
-    [Conditional(DEBUG_SYMBOL)]
+    [HideInCallstack, Conditional(DEBUG_SYMBOL)]
     public static void LogException(Exception exception, Object context)
     {
         Debug.LogException(exception, context);
@@ -149,25 +149,25 @@ public static class CDebug
 
     #region LogAssertion
 
-    [Conditional(DEBUG_SYMBOL)]
+    [HideInCallstack, Conditional(DEBUG_SYMBOL)]
     public static void LogAssertion(object message)
     {
         Debug.LogAssertion(message);
     }
 
-    [Conditional(DEBUG_SYMBOL)]
+    [HideInCallstack, Conditional(DEBUG_SYMBOL)]
     public static void LogAssertion(object message, Object context)
     {
         Debug.LogAssertion(message, context);
     }
 
-    [Conditional(DEBUG_SYMBOL)]
+    [HideInCallstack, Conditional(DEBUG_SYMBOL)]
     public static void LogAssertionFormat(string format, params object[] args)
     {
         Debug.LogAssertionFormat(format, args);
     }
 
-    [Conditional(DEBUG_SYMBOL)]
+    [HideInCallstack, Conditional(DEBUG_SYMBOL)]
     public static void LogAssertionFormat(Object context, string format, params object[] args)
     {
         Debug.LogAssertionFormat(context, format, args);
