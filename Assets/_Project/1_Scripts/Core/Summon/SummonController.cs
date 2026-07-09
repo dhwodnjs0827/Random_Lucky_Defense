@@ -5,10 +5,11 @@ public class SummonController : MonoBehaviour, IAbilityEffect
 {
     [SerializeField] private Transform redDragonSpawnPoint;
     [SerializeField] private Transform ancientStatueSpawnPoint;
+    [SerializeField] private Transform lightningSpawnPoint;
 
     private RedDragon redDragon;
     private AncientStatue ancientStatue;
-    private Lightning lightning;
+    private LightningController lightning;
     
     private const string RED_DRAGON_PREFAB_PATH = "Prefabs/Summon/RedDragon";
     private const string ANCIENT_STATUE_PREFAB_PATH = "Prefabs/Summon/AncientStatue";
@@ -107,8 +108,8 @@ public class SummonController : MonoBehaviour, IAbilityEffect
     
     private void CreateLightning()
     {
-        var prefab = ResourceManager.Instance.Load<Lightning>(LIGHTNING_PREFAB_PATH);
-        lightning = Instantiate(prefab);
-        lightning.gameObject.SetActive(false);
+        var prefab = ResourceManager.Instance.Load<LightningController>(LIGHTNING_PREFAB_PATH);
+        lightning = Instantiate(prefab, lightningSpawnPoint.position, lightningSpawnPoint.rotation);
+        lightning.transform.SetParent(lightningSpawnPoint);
     }
 }

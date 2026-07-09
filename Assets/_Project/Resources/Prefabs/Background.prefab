@@ -18002,6 +18002,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 4702885047505324254}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &5708421870708669720
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6471180242527692405}
+  m_Layer: 0
+  m_Name: LightningSpawnPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6471180242527692405
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5708421870708669720}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2414652715099929437}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5715756056173242508
 GameObject:
   m_ObjectHideFlags: 0
@@ -18327,6 +18358,7 @@ Transform:
   m_Children:
   - {fileID: 2705706020737761653}
   - {fileID: 6961500177351113864}
+  - {fileID: 6471180242527692405}
   m_Father: {fileID: 3487666206399944835}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &4364930126442706950
@@ -18343,6 +18375,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SummonSpawner
   redDragonSpawnPoint: {fileID: 2705706020737761653}
   ancientStatueSpawnPoint: {fileID: 6961500177351113864}
+  lightningSpawnPoint: {fileID: 6471180242527692405}
 --- !u!1 &6009372479392785551
 GameObject:
   m_ObjectHideFlags: 0
