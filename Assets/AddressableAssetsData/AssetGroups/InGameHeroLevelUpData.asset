@@ -1,0 +1,743 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: InGameHeroLevelUpData
+  m_EditorClassIdentifier: Unity.Addressables.Editor::UnityEditor.AddressableAssets.Settings.AddressableAssetGroup
+  m_GroupName: InGameHeroLevelUpData
+  m_GUID: 6dccaba7db8ab4a38ac3674e0d6c8367
+  m_SerializeEntries:
+  - m_GUID: 010828befbe7747d9bc405ba3b3fb732
+    m_Address: Data/SO/InGameHeroLevelUpData/LevelUp_M39
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGameHeroLevelUpData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 02462c8f7eaf14f708f8ac4f38500c5f
+    m_Address: Data/SO/InGameHeroLevelUpData/LevelUp_K5
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGameHeroLevelUpData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 05b116c3349424fd3815475c619d64ce
+    m_Address: Data/SO/InGameHeroLevelUpData/LevelUp_M23
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGameHeroLevelUpData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 066c7edc519964587a5943c1ae695fd3
+    m_Address: Data/SO/InGameHeroLevelUpData/LevelUp_A19
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGameHeroLevelUpData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 08cb501d942d1440e952586e524040f0
+    m_Address: Data/SO/InGameHeroLevelUpData/LevelUp_A9
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGameHeroLevelUpData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 08eafe33b6ae14b01a0c087259ec3e52
+    m_Address: Data/SO/InGameHeroLevelUpData/LevelUp_A31
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGameHeroLevelUpData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 094f1d9c5c5e84cda84762e9ebe8bf6a
+    m_Address: Data/SO/InGameHeroLevelUpData/LevelUp_M16
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGameHeroLevelUpData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0af2a74a679e04d1fb55e54573b4ab74
+    m_Address: Data/SO/InGameHeroLevelUpData/LevelUp_A17
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGameHeroLevelUpData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0d27664a7d34c4f4ab6c52dc69ec64e3
+    m_Address: Data/SO/InGameHeroLevelUpData/LevelUp_K31
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGameHeroLevelUpData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 11b8dfe73e0d0432597e03091699c635
+    m_Address: Data/SO/InGameHeroLevelUpData/LevelUp_A1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGameHeroLevelUpData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 16508bfdae9684b28971566cc98986c4
+    m_Address: Data/SO/InGameHeroLevelUpData/LevelUp_M8
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGameHeroLevelUpData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 175330e858aca4f1f83663ab1c062138
+    m_Address: Data/SO/InGameHeroLevelUpData/LevelUp_K33
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGameHeroLevelUpData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1768e71e157c74191aab1d4f5a04bff8
+    m_Address: Data/SO/InGameHeroLevelUpData/LevelUp_A20
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGameHeroLevelUpData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 186a4b76e80d64dee8587c9435ff846d
+    m_Address: Data/SO/InGameHeroLevelUpData/LevelUp_K40
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGameHeroLevelUpData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 18dd16b0b613c4d3195d0cdfb0985c30
+    m_Address: Data/SO/InGameHeroLevelUpData/LevelUp_K3
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGameHeroLevelUpData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1a9c9f894e6cf4126ac52545fd94df57
+    m_Address: Data/SO/InGameHeroLevelUpData/LevelUp_K35
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGameHeroLevelUpData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1acbf78beb7fa414982831371bc2cd32
+    m_Address: Data/SO/InGameHeroLevelUpData/LevelUp_K23
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGameHeroLevelUpData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1c6227f27995e4a2e8a937b035a0766a
+    m_Address: Data/SO/InGameHeroLevelUpData/LevelUp_M17
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGameHeroLevelUpData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1c653ae7731814e4880c49a2e67d72d9
+    m_Address: Data/SO/InGameHeroLevelUpData/LevelUp_K15
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGameHeroLevelUpData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1f2f585f3ac7f4602aea10356b45cdb1
+    m_Address: Data/SO/InGameHeroLevelUpData/LevelUp_A4
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGameHeroLevelUpData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 216e478606bbc435dac455359f0a6aed
+    m_Address: Data/SO/InGameHeroLevelUpData/LevelUp_M5
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGameHeroLevelUpData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 235fcc9015e3f40979222ec16407690a
+    m_Address: Data/SO/InGameHeroLevelUpData/LevelUp_M24
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGameHeroLevelUpData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 23ad35afed1544f8d8147ef0aeb654e5
+    m_Address: Data/SO/InGameHeroLevelUpData/LevelUp_A15
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGameHeroLevelUpData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 26c28aef07911492db1552ab715fbc99
+    m_Address: Data/SO/InGameHeroLevelUpData/LevelUp_K11
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGameHeroLevelUpData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2b0058c56f055406089a9eab52d003d5
+    m_Address: Data/SO/InGameHeroLevelUpData/LevelUp_A32
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGameHeroLevelUpData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2cd6bc3aba0b94f37b80bef6d7d57e3f
+    m_Address: Data/SO/InGameHeroLevelUpData/LevelUp_M12
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGameHeroLevelUpData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2d8066830b0e6495c9002bdbf9d6c4fa
+    m_Address: Data/SO/InGameHeroLevelUpData/LevelUp_K8
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGameHeroLevelUpData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2f576655a752f41ae9c4d9c9c6c0dd40
+    m_Address: Data/SO/InGameHeroLevelUpData/LevelUp_A16
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGameHeroLevelUpData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 30fd8f33d863e447796c18fa7159154c
+    m_Address: Data/SO/InGameHeroLevelUpData/LevelUp_A6
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGameHeroLevelUpData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 324df84e9a6aa40e1b0fa50c1d8e6823
+    m_Address: Data/SO/InGameHeroLevelUpData/LevelUp_K6
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGameHeroLevelUpData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3a3abbd597a8a463db97d1a2e5310ab1
+    m_Address: Data/SO/InGameHeroLevelUpData/LevelUp_M2
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGameHeroLevelUpData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3c20a92537c2847a2918edcab0132fcc
+    m_Address: Data/SO/InGameHeroLevelUpData/LevelUp_K7
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGameHeroLevelUpData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 42cf217f82d5f4fa5992f7d8985fd8fd
+    m_Address: Data/SO/InGameHeroLevelUpData/LevelUp_M38
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGameHeroLevelUpData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 431134f40925346f3997b52bbdde4616
+    m_Address: Data/SO/InGameHeroLevelUpData/LevelUp_M4
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGameHeroLevelUpData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4362432381fd34d0a8b237688e7123d0
+    m_Address: Data/SO/InGameHeroLevelUpData/LevelUp_M37
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGameHeroLevelUpData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 437627183bbe8488da75b3028cede580
+    m_Address: Data/SO/InGameHeroLevelUpData/LevelUp_A18
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGameHeroLevelUpData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4426383f978ef40a2aeff11b65bfac1d
+    m_Address: Data/SO/InGameHeroLevelUpData/LevelUp_A13
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGameHeroLevelUpData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 44ce6e8793e6848bda4ae22ce69d8053
+    m_Address: Data/SO/InGameHeroLevelUpData/LevelUp_M18
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGameHeroLevelUpData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 47d78cb8dc39649878756611acf0c73a
+    m_Address: Data/SO/InGameHeroLevelUpData/LevelUp_K10
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGameHeroLevelUpData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4bb563e674edc42bf82c688b7d8b2b6c
+    m_Address: Data/SO/InGameHeroLevelUpData/LevelUp_A10
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGameHeroLevelUpData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4e88d55907ba94b6cb018d75a5a0245e
+    m_Address: Data/SO/InGameHeroLevelUpData/LevelUp_M34
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGameHeroLevelUpData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4f8a6af7338814a5b94edfd075fc3f57
+    m_Address: Data/SO/InGameHeroLevelUpData/LevelUp_M15
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGameHeroLevelUpData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 50a6c14a9c6b74e1ca964b9f7706ac04
+    m_Address: Data/SO/InGameHeroLevelUpData/LevelUp_A8
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGameHeroLevelUpData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 50a734f61804a4fe49d73e3cffded54c
+    m_Address: Data/SO/InGameHeroLevelUpData/LevelUp_M40
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGameHeroLevelUpData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5259e94a82a8245e9bb60134d71915f6
+    m_Address: Data/SO/InGameHeroLevelUpData/LevelUp_K39
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGameHeroLevelUpData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5509b4c3120804905a4c89f171253418
+    m_Address: Data/SO/InGameHeroLevelUpData/LevelUp_K38
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGameHeroLevelUpData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 57d5d7693cba346aa80de15eed96a975
+    m_Address: Data/SO/InGameHeroLevelUpData/LevelUp_K16
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGameHeroLevelUpData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5840e120e83d744e9878c88be627bba0
+    m_Address: Data/SO/InGameHeroLevelUpData/LevelUp_K24
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGameHeroLevelUpData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 59b41044372eb487c8a3a61e502a1fb3
+    m_Address: Data/SO/InGameHeroLevelUpData/LevelUp_K26
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGameHeroLevelUpData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 617eeabade99e4e108d4e2ab5aaf2af5
+    m_Address: Data/SO/InGameHeroLevelUpData/LevelUp_K36
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGameHeroLevelUpData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 629e9a21290154c248bc0d28ba18017a
+    m_Address: Data/SO/InGameHeroLevelUpData/LevelUp_M28
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGameHeroLevelUpData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 62d5933e0ecca4fee9e5db277a6f3da0
+    m_Address: Data/SO/InGameHeroLevelUpData/LevelUp_K37
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGameHeroLevelUpData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 642d6c872888c4a5a9e8a990cacc6476
+    m_Address: Data/SO/InGameHeroLevelUpData/LevelUp_K4
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGameHeroLevelUpData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 66d6ada7af6314eb1bd0f22bf3d1a335
+    m_Address: Data/SO/InGameHeroLevelUpData/LevelUp_M25
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGameHeroLevelUpData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6a5d3d886586c4009967fb3323d4ab6d
+    m_Address: Data/SO/InGameHeroLevelUpData/LevelUp_M30
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGameHeroLevelUpData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6b39d88e997cb43bb912c1a5017d0ebd
+    m_Address: Data/SO/InGameHeroLevelUpData/LevelUp_K12
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGameHeroLevelUpData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6d819df50c95c4bff88bf709092cef2b
+    m_Address: Data/SO/InGameHeroLevelUpData/LevelUp_M26
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGameHeroLevelUpData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6ff99f2772a1643619a7c887f555f685
+    m_Address: Data/SO/InGameHeroLevelUpData/LevelUp_A25
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGameHeroLevelUpData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 75c6cfd1c71734996b79589bba41aaeb
+    m_Address: Data/SO/InGameHeroLevelUpData/LevelUp_A26
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGameHeroLevelUpData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 75d1aa9e360144f0084e6878956f7f30
+    m_Address: Data/SO/InGameHeroLevelUpData/LevelUp_M14
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGameHeroLevelUpData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 783a6e3dcfe7c4c1aaeded2c4771001c
+    m_Address: Data/SO/InGameHeroLevelUpData/LevelUp_A14
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGameHeroLevelUpData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 78e21e2c5e7da4743aa4742015f4b618
+    m_Address: Data/SO/InGameHeroLevelUpData/LevelUp_K34
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGameHeroLevelUpData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7952c8f8ec6964c67878af5df181c686
+    m_Address: Data/SO/InGameHeroLevelUpData/LevelUp_M7
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGameHeroLevelUpData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7f2789a8a6c4b4b8b84844608872418e
+    m_Address: Data/SO/InGameHeroLevelUpData/LevelUp_M1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGameHeroLevelUpData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8494666272ec94a85964b482a010ad6f
+    m_Address: Data/SO/InGameHeroLevelUpData/LevelUp_A27
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGameHeroLevelUpData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 85f6998ee1316480a93d67d4895ee085
+    m_Address: Data/SO/InGameHeroLevelUpData/LevelUp_A28
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGameHeroLevelUpData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 871ca1503652e4a84852b15c9f405a37
+    m_Address: Data/SO/InGameHeroLevelUpData/LevelUp_K32
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGameHeroLevelUpData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 87c844673ce7c4e74956092ef8a3a18b
+    m_Address: Data/SO/InGameHeroLevelUpData/LevelUp_A23
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGameHeroLevelUpData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 87fd693ea1a444941a9582fb3baceb16
+    m_Address: Data/SO/InGameHeroLevelUpData/LevelUp_A34
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGameHeroLevelUpData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8abcd68b643f3473193adb1cbe0d4f5a
+    m_Address: Data/SO/InGameHeroLevelUpData/LevelUp_K22
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGameHeroLevelUpData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8c46366c4dcac45229dab53c43fe5ba2
+    m_Address: Data/SO/InGameHeroLevelUpData/LevelUp_A38
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGameHeroLevelUpData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9099ad599a15f417db2a0ef6abbf6e35
+    m_Address: Data/SO/InGameHeroLevelUpData/LevelUp_K27
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGameHeroLevelUpData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 90f62edb5b373470ba5b76c2ee37f944
+    m_Address: Data/SO/InGameHeroLevelUpData/LevelUp_M3
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGameHeroLevelUpData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 91b037f5a64f248dfae36d80b05cbb90
+    m_Address: Data/SO/InGameHeroLevelUpData/LevelUp_A22
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGameHeroLevelUpData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 93906d43f07d1431da7f897bd5d3a61c
+    m_Address: Data/SO/InGameHeroLevelUpData/LevelUp_A3
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGameHeroLevelUpData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 96c70698e78174a68abcfa270d061195
+    m_Address: Data/SO/InGameHeroLevelUpData/LevelUp_M35
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGameHeroLevelUpData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 981f1f237d992405395ab175266b0247
+    m_Address: Data/SO/InGameHeroLevelUpData/LevelUp_A35
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGameHeroLevelUpData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 988ffa1123b9a4d89985a94725cc2668
+    m_Address: Data/SO/InGameHeroLevelUpData/LevelUp_A21
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGameHeroLevelUpData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9bdb340c135084d629f28db3d5ff372b
+    m_Address: Data/SO/InGameHeroLevelUpData/LevelUp_M6
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGameHeroLevelUpData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9c9bc0dc7951a4c869d1fdc78d2cc7a7
+    m_Address: Data/SO/InGameHeroLevelUpData/LevelUp_A39
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGameHeroLevelUpData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9e242b5f6bc774be08d97ebdf994641f
+    m_Address: Data/SO/InGameHeroLevelUpData/LevelUp_K30
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGameHeroLevelUpData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9fd26414733a34426bb7ed02882ae7f3
+    m_Address: Data/SO/InGameHeroLevelUpData/LevelUp_K20
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGameHeroLevelUpData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a049a22342c5546abba7269d5facab98
+    m_Address: Data/SO/InGameHeroLevelUpData/LevelUp_K18
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGameHeroLevelUpData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a3422dc6e561c417d98ceaa65fef87c2
+    m_Address: Data/SO/InGameHeroLevelUpData/LevelUp_M20
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGameHeroLevelUpData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a3a7c0df30bbf40a8b6b27a75eb64def
+    m_Address: Data/SO/InGameHeroLevelUpData/LevelUp_K25
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGameHeroLevelUpData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a9e0587f242874f3ba5df6edf62122d0
+    m_Address: Data/SO/InGameHeroLevelUpData/LevelUp_M36
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGameHeroLevelUpData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: abe879b05d3fd4a229cfe02417bcf298
+    m_Address: Data/SO/InGameHeroLevelUpData/LevelUp_A7
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGameHeroLevelUpData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b40197722c20f4f22a5e451641520c6a
+    m_Address: Data/SO/InGameHeroLevelUpData/LevelUp_M31
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGameHeroLevelUpData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bad1389f273794fbc96e87d82d00b2cb
+    m_Address: Data/SO/InGameHeroLevelUpData/LevelUp_A11
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGameHeroLevelUpData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bbb983e8a4ccb48b6967d93365aa5aec
+    m_Address: Data/SO/InGameHeroLevelUpData/LevelUp_M21
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGameHeroLevelUpData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bd842f7f9cdf04f65a7974c2da56cb15
+    m_Address: Data/SO/InGameHeroLevelUpData/LevelUp_M22
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGameHeroLevelUpData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c3198b5a6da99457caaecd23ea1b2594
+    m_Address: Data/SO/InGameHeroLevelUpData/LevelUp_K19
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGameHeroLevelUpData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c42d5b52bf5864e46adb7ffc3411dc3e
+    m_Address: Data/SO/InGameHeroLevelUpData/LevelUp_A37
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGameHeroLevelUpData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c926332340d7d4c7991f304a8e5d7274
+    m_Address: Data/SO/InGameHeroLevelUpData/LevelUp_M33
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGameHeroLevelUpData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ca2711dfaa67949ba8730b318d206ec3
+    m_Address: Data/SO/InGameHeroLevelUpData/LevelUp_A2
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGameHeroLevelUpData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ca66748e142c54cacacf638b8b631a87
+    m_Address: Data/SO/InGameHeroLevelUpData/LevelUp_M13
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGameHeroLevelUpData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: caa4896532c784849822efe96199220c
+    m_Address: Data/SO/InGameHeroLevelUpData/LevelUp_M32
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGameHeroLevelUpData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: cb8844011046c409c89b0662e8e10bb6
+    m_Address: Data/SO/InGameHeroLevelUpData/LevelUp_A29
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGameHeroLevelUpData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d0cf4f85eb338484eb0a5618ff6ac09d
+    m_Address: Data/SO/InGameHeroLevelUpData/LevelUp_M19
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGameHeroLevelUpData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d128a0ffcd0e745b09e7a2ac0d27e6d4
+    m_Address: Data/SO/InGameHeroLevelUpData/LevelUp_M11
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGameHeroLevelUpData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d40b71b1cbaf8426cb3e611fcbb0f0f6
+    m_Address: Data/SO/InGameHeroLevelUpData/LevelUp_A40
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGameHeroLevelUpData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: dad3e58bca5354b808991e3187f507c1
+    m_Address: Data/SO/InGameHeroLevelUpData/LevelUp_K2
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGameHeroLevelUpData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e06df62f3aa6445839c8732320db4a53
+    m_Address: Data/SO/InGameHeroLevelUpData/LevelUp_K17
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGameHeroLevelUpData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e496300c4b2df4f6d99e1870e40cac29
+    m_Address: Data/SO/InGameHeroLevelUpData/LevelUp_A24
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGameHeroLevelUpData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e4c2213730f724f6c8c35e5daf299aee
+    m_Address: Data/SO/InGameHeroLevelUpData/LevelUp_K28
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGameHeroLevelUpData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e6cc5de362c6246e08c20925e9555d50
+    m_Address: Data/SO/InGameHeroLevelUpData/LevelUp_M10
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGameHeroLevelUpData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e6f66044cdf624ef6803464bdc942f9b
+    m_Address: Data/SO/InGameHeroLevelUpData/LevelUp_K13
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGameHeroLevelUpData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e9eaadb3a61604ea6bcbe0aa3306db2f
+    m_Address: Data/SO/InGameHeroLevelUpData/LevelUp_K9
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGameHeroLevelUpData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: eaf325936698043b18ac067862edeef7
+    m_Address: Data/SO/InGameHeroLevelUpData/LevelUp_A33
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGameHeroLevelUpData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: eafcdb0819ebf4c0c85d8de136a2dbdb
+    m_Address: Data/SO/InGameHeroLevelUpData/LevelUp_K29
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGameHeroLevelUpData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f28506bedcd7c47dfa46499cb1b91d18
+    m_Address: Data/SO/InGameHeroLevelUpData/LevelUp_M27
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGameHeroLevelUpData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f2ab37ebd7d824770b27f53ae2711bea
+    m_Address: Data/SO/InGameHeroLevelUpData/LevelUp_A12
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGameHeroLevelUpData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f3dfb2b919c8d4cea8cab38e965fc064
+    m_Address: Data/SO/InGameHeroLevelUpData/LevelUp_M29
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGameHeroLevelUpData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f449d436be6a9458791237d78a3f8231
+    m_Address: Data/SO/InGameHeroLevelUpData/LevelUp_K1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGameHeroLevelUpData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f6ca43d51cae0487bb0b5fcbf59e5da3
+    m_Address: Data/SO/InGameHeroLevelUpData/LevelUp_A5
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGameHeroLevelUpData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f6f949649273a4161b81ffff538933fd
+    m_Address: Data/SO/InGameHeroLevelUpData/LevelUp_K21
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGameHeroLevelUpData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f7dd60c9d4e0b4ab1ac5207caea990e0
+    m_Address: Data/SO/InGameHeroLevelUpData/LevelUp_M9
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGameHeroLevelUpData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fb8480b82eb4f43b1879cb993f4f0e27
+    m_Address: Data/SO/InGameHeroLevelUpData/LevelUp_A36
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGameHeroLevelUpData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fe62c7473067d4132ac50fea50443315
+    m_Address: Data/SO/InGameHeroLevelUpData/LevelUp_K14
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGameHeroLevelUpData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ffb9e64a1dbf844b8b4b411ed28a94ce
+    m_Address: Data/SO/InGameHeroLevelUpData/LevelUp_A30
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGameHeroLevelUpData
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: afc9af10e32f547b2a51550412362a7e, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 8f184a7186adf4bf59b3e072ab2c19c2, type: 2}
+    - {fileID: 11400000, guid: cf0e7a3c895e34f23b79be9bc50215e6, type: 2}

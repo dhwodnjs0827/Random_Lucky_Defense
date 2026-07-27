@@ -18,16 +18,21 @@ public class EnemyWaveController : MonoBehaviour, IEventListener
     private int currentWaveDataIndex;
     private float spawnInterval;
     private float spawnTimer;
-    
+
     private int spawnedEnemyCount;
-    
+
+#if ADDRESSABLE
+    private const string WAVE_DATA_SO_PATH = "WaveData";
+#else
     private const string WAVE_DATA_SO_PATH = "Data/SO/WaveData";
+#endif
     private const string ENEMY_DATA_SO_DIR_PATH = "Data/SO/EnemyData/";
     private const string ENEMY_PREFAB_DIR_PATH = "Prefabs/Enemy/";
-    
+
     private delegate void SpawnMethod();
+
     private SpawnMethod spawn;
-    
+
     public IReadOnlyReactiveProperty<float> CurrentWaveTime => currentWaveTime;
 
     #region Unity Methods
@@ -46,7 +51,7 @@ public class EnemyWaveController : MonoBehaviour, IEventListener
     {
         var waveInfoUI = UIManager.Instance.GetUI<UIInGame>().WaveInfoUI;
         waveInfoUI.SubscribeWaveTimer(currentWaveTime);
-        
+
         // 첫 웨이브 설정
         SetWaveData();
     }
@@ -61,10 +66,11 @@ public class EnemyWaveController : MonoBehaviour, IEventListener
             {
                 UIManager.Instance.Open<UIAbilitySelect>();
             }
-            
+
             // 다음 웨이브 설정
             SetWaveData();
         }
+
         spawn?.Invoke();
     }
 
@@ -90,7 +96,7 @@ public class EnemyWaveController : MonoBehaviour, IEventListener
     }
 
     #endregion
-    
+
     /// <summary>
     /// 일반 적 스폰 (주기적 스폰)
     /// </summary>
@@ -121,7 +127,7 @@ public class EnemyWaveController : MonoBehaviour, IEventListener
         EventManager.Dispatch(GameEventType.SpawnBossEnemy);
 
         CheckGameOver();
-        
+
         // 한 번만 스폰되게 null처리
         spawn = null;
     }
@@ -142,28 +148,30 @@ public class EnemyWaveController : MonoBehaviour, IEventListener
         {
             return;
         }
-        
-        currentWaveData =  waveDatas[currentWaveDataIndex];
-        
+
+        currentWaveData = waveDatas[currentWaveDataIndex];
+
         currentWaveTime.Value = currentWaveData.WaveTime;
         spawnInterval = currentWaveData.SpawnInterval;
         spawnTimer = 0f;
-        
-        currentSpawnEnemyData = ResourceManager.Instance.Load<EnemyDataSO>($"{ENEMY_DATA_SO_DIR_PATH}{currentWaveData.SpawnEnemyID}");
-        currentSpawnEnemyPrefab = ResourceManager.Instance.Load<BaseEnemy>($"{ENEMY_PREFAB_DIR_PATH}{currentSpawnEnemyData.MonsterType}_{currentSpawnEnemyData.EnemyType}");
+
+        currentSpawnEnemyData =
+            ResourceManager.Instance.Load<EnemyDataSO>($"{ENEMY_DATA_SO_DIR_PATH}{currentWaveData.SpawnEnemyID}");
+        currentSpawnEnemyPrefab = ResourceManager.Instance.Load<BaseEnemy>(
+            $"{ENEMY_PREFAB_DIR_PATH}{currentSpawnEnemyData.MonsterType}_{currentSpawnEnemyData.EnemyType}");
 
         spawn = currentWaveData.WaveType == WaveType.Normal ? SpawnNormalEnemy : SpawnBossEnemy;
-        
+
         currentWaveDataIndex++;
         EventManager.Dispatch(GameEventType.WaveStart, new WaveStartEventData(currentWaveData, currentSpawnEnemyData));
     }
-    
+
     private void DecreaseEnemyCount()
     {
         spawnedEnemyCount--;
         CheckGameVictory();
     }
-    
+
     private void CheckGameVictory()
     {
         if (currentWaveDataIndex >= waveDatas.Length && spawnedEnemyCount == 0)
@@ -172,12 +180,13 @@ public class EnemyWaveController : MonoBehaviour, IEventListener
             FirebaseManager.Instance.LogEvent(nameof(GameEventType.GameFinish), "isStageCleared", "true");
         }
     }
-    
+
     private void CheckGameOver()
     {
         if (spawnedEnemyCount == GameConstants.MAX_ENEMY_COUNT)
         {
-            EventManager.Dispatch(GameEventType.GameFinish, new InGameFinishEventData(false, currentWaveData.WaveIndex));
+            EventManager.Dispatch(GameEventType.GameFinish,
+                new InGameFinishEventData(false, currentWaveData.WaveIndex));
             FirebaseManager.Instance.LogEvent(nameof(GameEventType.GameFinish), "isStageCleared", "false");
         }
     }

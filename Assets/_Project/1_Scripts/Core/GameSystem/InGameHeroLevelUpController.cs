@@ -8,16 +8,22 @@ using UniRx;
 /// </summary>
 public class InGameHeroLevelUpController : IEventListener
 {
-    private readonly Dictionary<HeroClassType, Dictionary<int, ClassLevelUpData>> levelUpDataDict = new(); // 클래스 별 레벨 업 데이터
+    private readonly Dictionary<HeroClassType, Dictionary<int, ClassLevelUpData>>
+        levelUpDataDict = new(); // 클래스 별 레벨 업 데이터
+
     private readonly Dictionary<HeroClassType, ReactiveProperty<int>> currentLevelDict = new(); // 클래스 별 현재 레벨
-    
+
     private Action<HeroClassType> onLevelUp;
-    
+
+#if ADDRESSABLE
+    private const string IN_GAME_HERO_LEVEL_UP_DATA_SO_PATH = "InGameHeroLevelUpData";
+#else
     private const string IN_GAME_HERO_LEVEL_UP_DATA_SO_PATH = "Data/SO/InGameHeroLevelUpData";
-    
+#endif
+
     public IDictionary<HeroClassType, Dictionary<int, ClassLevelUpData>> LevelUpDataDict => levelUpDataDict;
     public IDictionary<HeroClassType, ReactiveProperty<int>> CurrentLevelDict => currentLevelDict;
-    
+
     public InGameHeroLevelUpController()
     {
         InitializeLevelUpData();
@@ -48,10 +54,11 @@ public class InGameHeroLevelUpController : IEventListener
 
         var newLevel = currentLevelDict[classType].Value;
         var newLevelData = levelUpDataDict[classType][newLevel];
-        EventManager.Dispatch(GameEventType.InGameHeroLevelUpCompleted, new InGameLevelUpEventData(classType, newLevelData.AttackPowerMultiplier, levelUpCost));
+        EventManager.Dispatch(GameEventType.InGameHeroLevelUpCompleted,
+            new InGameLevelUpEventData(classType, newLevelData.AttackPowerMultiplier, levelUpCost));
         CDebug.Log($"[InGameHeroLevelUpController] {classType} 레벨 업, 현재 레벨: {newLevel}");
     }
-    
+
     /// <summary>
     /// 인게임 영웅 레벨업 데이터 초기화
     /// </summary>
@@ -60,7 +67,7 @@ public class InGameHeroLevelUpController : IEventListener
         currentLevelDict.Add(HeroClassType.Magician, new ReactiveProperty<int>(1));
         currentLevelDict.Add(HeroClassType.Archer, new ReactiveProperty<int>(1));
         currentLevelDict.Add(HeroClassType.Knight, new ReactiveProperty<int>(1));
-        
+
         var datas = ResourceManager.Instance.LoadAll<InGameHeroLevelUpDataSO>(IN_GAME_HERO_LEVEL_UP_DATA_SO_PATH);
         levelUpDataDict.Add(HeroClassType.Magician, new Dictionary<int, ClassLevelUpData>());
         levelUpDataDict.Add(HeroClassType.Archer, new Dictionary<int, ClassLevelUpData>());

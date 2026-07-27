@@ -1,0 +1,563 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: AbilityLevelData
+  m_EditorClassIdentifier: Unity.Addressables.Editor::UnityEditor.AddressableAssets.Settings.AddressableAssetGroup
+  m_GroupName: AbilityLevelData
+  m_GUID: e336f056e1b674cd3a432421b8ffcc23
+  m_SerializeEntries:
+  - m_GUID: 04a244d1b8b904042aa63c589e95be8d
+    m_Address: Data/SO/AbilityLevelData/MagicianMoveSpeed_5
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - AbilityLevelData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0507cc9ea383f47379e8b34c35bb9497
+    m_Address: Data/SO/AbilityLevelData/Damage_3
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - AbilityLevelData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0978413ce60bd4750b5a03ecea6e4ba7
+    m_Address: Data/SO/AbilityLevelData/Penetration_2
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - AbilityLevelData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0e12cc3e586dc44e8bc7e70092892f7a
+    m_Address: Data/SO/AbilityLevelData/CriticalRate_4
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - AbilityLevelData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1012ba510b0354a65863576ad038bd00
+    m_Address: Data/SO/AbilityLevelData/CriticalDamage_4
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - AbilityLevelData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 127626292a50348fc8949484b815dac9
+    m_Address: Data/SO/AbilityLevelData/Damage_1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - AbilityLevelData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 12a399718726549729c5a25bb2fbaebb
+    m_Address: Data/SO/AbilityLevelData/ArcherAttackPower_2
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - AbilityLevelData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 147e78d6b65fc4c62a39cec9882576ca
+    m_Address: Data/SO/AbilityLevelData/RedDragon_1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - AbilityLevelData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 187e8c50bfc9740b2a7b93217bb519cd
+    m_Address: Data/SO/AbilityLevelData/CriticalDamage_5
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - AbilityLevelData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1cae92ff93c8249d48f52736c03e7831
+    m_Address: Data/SO/AbilityLevelData/MagicianAttackPower_2
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - AbilityLevelData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1dc171e4a98cc490c93fe351e8a154be
+    m_Address: Data/SO/AbilityLevelData/AttackRange_3
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - AbilityLevelData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1e2e830f688644301ad5efb2c8bc9d15
+    m_Address: Data/SO/AbilityLevelData/Lightning_4
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - AbilityLevelData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1f6404225c12542389d6e888410fac81
+    m_Address: Data/SO/AbilityLevelData/AncientStatue_2
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - AbilityLevelData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 21abfe3a7f9834258b49c84a3e9a8287
+    m_Address: Data/SO/AbilityLevelData/CriticalRate_1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - AbilityLevelData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2427f0a4b6f394f99bc77ca4bdd7877d
+    m_Address: Data/SO/AbilityLevelData/AttackRange_2
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - AbilityLevelData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2607997928d1f4fdda3ddb17554448b0
+    m_Address: Data/SO/AbilityLevelData/ArcherMoveSpeed_3
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - AbilityLevelData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 283845aa3660c467684a80ca6c52e90c
+    m_Address: Data/SO/AbilityLevelData/KnightAttackPower_1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - AbilityLevelData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2a52246aac4ae420ea61de85eecb7233
+    m_Address: Data/SO/AbilityLevelData/LuckyStone_4
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - AbilityLevelData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2a64099a68ff745d3836100be6b9b4ad
+    m_Address: Data/SO/AbilityLevelData/KnightAttackPower_5
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - AbilityLevelData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 34a1f49f1bc9d49f9b25f89dccd3ad8b
+    m_Address: Data/SO/AbilityLevelData/AncientStatue_4
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - AbilityLevelData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 35740f581e3c24014bdb03b0dbccf7fe
+    m_Address: Data/SO/AbilityLevelData/LuckyStone_1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - AbilityLevelData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3a241e487fc5242789eedb17e6a5f843
+    m_Address: Data/SO/AbilityLevelData/Luck_1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - AbilityLevelData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4460ea223c9714c6dae9daabc03e1b31
+    m_Address: Data/SO/AbilityLevelData/Greed_5
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - AbilityLevelData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 44d132fa085594de1a9ed7e43d601cf1
+    m_Address: Data/SO/AbilityLevelData/CriticalDamage_2
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - AbilityLevelData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4904b3ec36aa945af87ca0ac7b41c394
+    m_Address: Data/SO/AbilityLevelData/SplashRange_2
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - AbilityLevelData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4a57ceb14f0d14bfab012d4256b00dec
+    m_Address: Data/SO/AbilityLevelData/CriticalDamage_3
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - AbilityLevelData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5ec4bf346a89f42cfbe5a3a6c5cd1869
+    m_Address: Data/SO/AbilityLevelData/CriticalRate_5
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - AbilityLevelData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6841d8523a1304f33a771cb659728db8
+    m_Address: Data/SO/AbilityLevelData/ArcherAttackPower_1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - AbilityLevelData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6aa57891b970d4a558d0bc1905b6212a
+    m_Address: Data/SO/AbilityLevelData/ArcherAttackPower_3
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - AbilityLevelData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 766c80fff0301414398b18821701dac4
+    m_Address: Data/SO/AbilityLevelData/Greed_1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - AbilityLevelData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 78ddc8d2d7e35416fb860275518c5de7
+    m_Address: Data/SO/AbilityLevelData/Greed_3
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - AbilityLevelData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7931a06aa83f2478daf2d35737319165
+    m_Address: Data/SO/AbilityLevelData/RedDragon_2
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - AbilityLevelData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7dd98f7305d204891aa9562cee643c12
+    m_Address: Data/SO/AbilityLevelData/RedDragon_3
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - AbilityLevelData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 826307ff063dd47f2b5b48c5ecb26953
+    m_Address: Data/SO/AbilityLevelData/Luck_2
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - AbilityLevelData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8666ff28ac7d545f89ac26ae23810cd8
+    m_Address: Data/SO/AbilityLevelData/ArcherMoveSpeed_5
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - AbilityLevelData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 866a8e043c0a740348d1defc7b169987
+    m_Address: Data/SO/AbilityLevelData/RedDragon_5
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - AbilityLevelData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8a01f2b66318e4617b9e37a1be9c7723
+    m_Address: Data/SO/AbilityLevelData/KnightMoveSpeed_2
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - AbilityLevelData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8e903c7f526ee4cf6af4a2922a9892c7
+    m_Address: Data/SO/AbilityLevelData/CriticalDamage_1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - AbilityLevelData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 905e1c1c55a7442529463f571e6739d7
+    m_Address: Data/SO/AbilityLevelData/RedDragon_4
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - AbilityLevelData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 94680d0bc3340419e9b05bcd564c445a
+    m_Address: Data/SO/AbilityLevelData/MagicianMoveSpeed_3
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - AbilityLevelData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 953264c85e15040adaa44768a90021e4
+    m_Address: Data/SO/AbilityLevelData/KnightMoveSpeed_4
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - AbilityLevelData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9569c993fc1724037b7c07df95365753
+    m_Address: Data/SO/AbilityLevelData/MagicianMoveSpeed_1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - AbilityLevelData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 95af2c9f083d548549280b33808b52fc
+    m_Address: Data/SO/AbilityLevelData/AttackRange_1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - AbilityLevelData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 96487544a2ebd43fa9afce1a76cbe7f2
+    m_Address: Data/SO/AbilityLevelData/Lightning_5
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - AbilityLevelData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 96530b2acf71e4fa1af29a38defc754f
+    m_Address: Data/SO/AbilityLevelData/SplashRange_1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - AbilityLevelData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9af145497af6b4eeebe07f024f7b3743
+    m_Address: Data/SO/AbilityLevelData/Lightning_2
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - AbilityLevelData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9b986ad927b5c492da5a550b5b832dae
+    m_Address: Data/SO/AbilityLevelData/Damage_2
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - AbilityLevelData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9fb7808544a164412a9946dc0b990ed0
+    m_Address: Data/SO/AbilityLevelData/MagicianAttackPower_3
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - AbilityLevelData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a8a7f867ffa0f44c08792326857b5ff3
+    m_Address: Data/SO/AbilityLevelData/Lightning_3
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - AbilityLevelData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a8e75d2f43c704b7884e51710e54c8f2
+    m_Address: Data/SO/AbilityLevelData/CriticalRate_3
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - AbilityLevelData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ac9107d7a1bd04a468af8bb0be0180b6
+    m_Address: Data/SO/AbilityLevelData/MagicianMoveSpeed_4
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - AbilityLevelData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: acee0fdb75d4e4b80a278c6353652b50
+    m_Address: Data/SO/AbilityLevelData/MagicianAttackPower_5
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - AbilityLevelData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ae8cda9b33e0c4c39a180c0f66c92e38
+    m_Address: Data/SO/AbilityLevelData/ArcherMoveSpeed_2
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - AbilityLevelData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b1943051b50fe4176bc70c9b24d64a5e
+    m_Address: Data/SO/AbilityLevelData/MagicianAttackPower_4
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - AbilityLevelData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b272cf45ea7334d0ab71a1f4e146f9f3
+    m_Address: Data/SO/AbilityLevelData/LuckyStone_3
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - AbilityLevelData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b37f61ac808744599a53be5151979e7f
+    m_Address: Data/SO/AbilityLevelData/KnightMoveSpeed_1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - AbilityLevelData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b78ce455fd7c7443686f262e183bebad
+    m_Address: Data/SO/AbilityLevelData/ArcherMoveSpeed_1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - AbilityLevelData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b8441ab574d164516a5f2cbdc47ad19e
+    m_Address: Data/SO/AbilityLevelData/MagicianAttackPower_1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - AbilityLevelData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: be485208a0d63485c996b15637322ae4
+    m_Address: Data/SO/AbilityLevelData/AncientStatue_1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - AbilityLevelData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bf2d8969c6e2f4aa59c51929dc7b9085
+    m_Address: Data/SO/AbilityLevelData/ArcherMoveSpeed_4
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - AbilityLevelData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c0509a652efd24d93968a1b7fe8bc2fb
+    m_Address: Data/SO/AbilityLevelData/Penetration_3
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - AbilityLevelData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c0e9c82b802404d35a919fa283032357
+    m_Address: Data/SO/AbilityLevelData/Penetration_1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - AbilityLevelData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c40987fed1eeb4cbdbd229f750500394
+    m_Address: Data/SO/AbilityLevelData/SplashRange_4
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - AbilityLevelData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c83c834cff76c4917b33456f41612ad7
+    m_Address: Data/SO/AbilityLevelData/ArcherAttackPower_5
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - AbilityLevelData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ceab686b3073f459f8e6912b5ea4615f
+    m_Address: Data/SO/AbilityLevelData/Penetration_4
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - AbilityLevelData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: cf7048a290ba74a5babdc21c311a4feb
+    m_Address: Data/SO/AbilityLevelData/ArcherAttackPower_4
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - AbilityLevelData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d2fd8a1bc3bd3427984761505efc01bf
+    m_Address: Data/SO/AbilityLevelData/Luck_4
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - AbilityLevelData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d3d4cd6ecc9834b9cbc39a680794695e
+    m_Address: Data/SO/AbilityLevelData/KnightMoveSpeed_3
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - AbilityLevelData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d4c0e2e58c37c41b2bc7c6f8544a7a84
+    m_Address: Data/SO/AbilityLevelData/KnightAttackPower_2
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - AbilityLevelData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d5285559e778443929c653cf83177e5b
+    m_Address: Data/SO/AbilityLevelData/Greed_2
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - AbilityLevelData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d6310dfb3fb2744718a0ec11d1afbf78
+    m_Address: Data/SO/AbilityLevelData/KnightMoveSpeed_5
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - AbilityLevelData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: de025ab648fb84333b38239b6021d7fe
+    m_Address: Data/SO/AbilityLevelData/CriticalRate_2
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - AbilityLevelData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: dee43f9e3a4a84ab58810769908378fe
+    m_Address: Data/SO/AbilityLevelData/Damage_4
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - AbilityLevelData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: df5fcb00986514fada1d2bbd666bd126
+    m_Address: Data/SO/AbilityLevelData/MagicianMoveSpeed_2
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - AbilityLevelData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e02354e06f8394a3db5caf131686532e
+    m_Address: Data/SO/AbilityLevelData/Lightning_1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - AbilityLevelData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e10b7add040884be58bc51806f10080a
+    m_Address: Data/SO/AbilityLevelData/SplashRange_5
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - AbilityLevelData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e2c4e41f6221a4fb5962e5b75d0e980d
+    m_Address: Data/SO/AbilityLevelData/LuckyStone_2
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - AbilityLevelData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e3e643de2a0cf4b98ba3cb59abbeae15
+    m_Address: Data/SO/AbilityLevelData/Damage_5
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - AbilityLevelData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e417f3f00719647b49cddd76fc8dbd50
+    m_Address: Data/SO/AbilityLevelData/AncientStatue_5
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - AbilityLevelData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e9ab33f54dc6c490eaff19e9b2c5544e
+    m_Address: Data/SO/AbilityLevelData/Greed_4
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - AbilityLevelData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: eae4b7e28d34a4fecb116d305b5e1972
+    m_Address: Data/SO/AbilityLevelData/KnightAttackPower_4
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - AbilityLevelData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ec38a0da268544065b00ab82d6b67989
+    m_Address: Data/SO/AbilityLevelData/SplashRange_3
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - AbilityLevelData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: eeeac5cba7cb4436d9225b420f66db62
+    m_Address: Data/SO/AbilityLevelData/LuckyStone_5
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - AbilityLevelData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ef5cc176db7124eaebdd68c9bd93acf6
+    m_Address: Data/SO/AbilityLevelData/Penetration_5
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - AbilityLevelData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f4de26488b00f404bb18867c6eab16a5
+    m_Address: Data/SO/AbilityLevelData/KnightAttackPower_3
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - AbilityLevelData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f763f7ea8dbd84ccdb61615339edd2ff
+    m_Address: Data/SO/AbilityLevelData/AncientStatue_3
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - AbilityLevelData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f7dedeaf0516c405580d4e6fe8810534
+    m_Address: Data/SO/AbilityLevelData/AttackRange_5
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - AbilityLevelData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fb0f760d812c04ca6abef4452e88bf00
+    m_Address: Data/SO/AbilityLevelData/AttackRange_4
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - AbilityLevelData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fcea0f80ae05b42789ff136afc8e7ea5
+    m_Address: Data/SO/AbilityLevelData/Luck_5
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - AbilityLevelData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fe1c9356050cd4d18ae68e7a7c41f5a0
+    m_Address: Data/SO/AbilityLevelData/Luck_3
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - AbilityLevelData
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: afc9af10e32f547b2a51550412362a7e, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 0c25451edf6fe4ffcba66bbd63f75c80, type: 2}
+    - {fileID: 11400000, guid: 40708e178a5af4c2999c88a19bbce0f7, type: 2}

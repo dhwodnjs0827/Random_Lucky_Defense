@@ -139,7 +139,7 @@ public class HeroSpawnPool : MonoBehaviour
     /// </summary>
     private void CheckEmptyEquippedHeroes()
     {
-        var initialConfig = ResourceManager.Instance.Load<InitialGameConfig>("Data/SO/InitialGameConfig");
+        var initialConfig = Resources.Load<InitialGameConfig>("Data/SO/InitialGameConfig");
         var defaultHeroes = initialConfig.defaultHeroes;
         var allGrades = Enum.GetValues(typeof(HeroGradeType));
 

@@ -14,7 +14,332 @@ MonoBehaviour:
   m_EditorClassIdentifier: Unity.Addressables.Editor::UnityEditor.AddressableAssets.Settings.AddressableAssetGroup
   m_GroupName: Default Local Group
   m_GUID: 2e9b02f3aa8db430282e4df328eab01d
-  m_SerializeEntries: []
+  m_SerializeEntries:
+  - m_GUID: 00dee3965c5354b58b7db9a112ebac39
+    m_Address: UI/UIHeroManage
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 12805c69945fa4335b10759afd09ec4b
+    m_Address: Prefabs/Hero/Knight_God
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 135acf21a3f7441acb88eaa3449fddf9
+    m_Address: VFX/Magic_Sphere_normal
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 179cee29770844b1da1cf9491489955b
+    m_Address: UI/UIInGame
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 21a570ce1830a420fbe2072c0991ccf8
+    m_Address: UI/Canvas/@Loading
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 23c15ee0daa7647818660f0d41c47ed5
+    m_Address: Prefabs/Hero/Magician_Relic
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 29c80f8e74a69455e915517b28343988
+    m_Address: Prefabs/Hero/Knight_Epic
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2a53428a089534dd49bacb68a337dcc5
+    m_Address: Prefabs/Projectile/RedDragonProjectile
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2a8ac7f89cb0a454c842247130998b67
+    m_Address: UI/UILoading
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2b11dc4992aec423e9ef432f1fde1ff9
+    m_Address: UI/UIShop
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2ec8e00a19c814e6292a634abdd9dd15
+    m_Address: Prefabs/Hero/Knight_Superior
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3239fd48831854b77949807e500ea5cc
+    m_Address: UI/UIPause
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3549f44096acc4fc396648bb3b407fd5
+    m_Address: Prefabs/Hero/Magician_Rare
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 360b96a4a04414885bb5158eafdb6bc3
+    m_Address: Prefabs/Hero/Magician_Relic_Doombreak
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 364d5fcbc00f047178f17387d25c718d
+    m_Address: Prefabs/Hero/Archer_Legend
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3825a7fedacd14cae8461afa73515667
+    m_Address: UI/UIGameResult
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3cd25c5bf6871466fad8a8f5377753d5
+    m_Address: Prefabs/Hero/Knight_Ancient
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3ce5d52aed93543e0bcc93eed83b7103
+    m_Address: UI/UIAbilitySelect
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3ec10d58df5ec4a639f60ff1a0d67fd4
+    m_Address: Prefabs/Hero/Knight_Rare
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 432b1f71c69ad418f85e8b21c9894bf7
+    m_Address: UI/Canvas/@Tooltip
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 43db003a5f149428e92b41e210ef8ef7
+    m_Address: Prefabs/Hero/Archer_Epic
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 49381cd0d074d4d158d8c0bb7bdd9888
+    m_Address: Prefabs/Summon/Lightning
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4dbcf05a1c852409e90244ca2d80d230
+    m_Address: Prefabs/Hero/Archer_Myth
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4ff5f4d000bf74e54b15c19f7fb68f73
+    m_Address: VFX/Lazer_blue
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 51c1fb44c19cc497fa807fe1fa303dd6
+    m_Address: Prefabs/Hero/Magician_Normal
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 574f91f0855144d7b848ba38daf00d0d
+    m_Address: Prefabs/Hero/Magician_God
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 59311d5a9b071417faae99ae7e3ef87c
+    m_Address: UI/Canvas/@Popup
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 59e9b68b16e0f4aa083325dd1a71960d
+    m_Address: Prefabs/Enemy/Orc_Normal
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5b1885bbf0b1546a9b46c99467873213
+    m_Address: Prefabs/Enemy/Orc_Boss
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5db4c71f4114f49b6820d27bd84517c0
+    m_Address: Prefabs/Hero/Archer_Rare
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 61ab0b1b72a124bf9a1e245c7bf15bd4
+    m_Address: VFX/VFXInstance
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 61f586445341742b2afe96f45e62f6f5
+    m_Address: Prefabs/Hero/Archer_Ancinet_Slow
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 63b6fac1cbe6943c0b302b5f869bb39f
+    m_Address: Prefabs/Hero/Archer_Relic
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 63fae7d705c964a72992184275204a46
+    m_Address: UI/Canvas/@UI
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6c092763d245747fe81be4383f858a13
+    m_Address: UI/Canvas/@System
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 71ba0adf31dec4c20a70c323590b0f55
+    m_Address: Prefabs/Hero/Knight_Legend
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7936dc965b4e141f0a51ff8c4b3cc979
+    m_Address: Prefabs/Hero/Knight_Relic
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7bdef0937ccaf4b908957936ff666e58
+    m_Address: Prefabs/Hero/Archer_Normal
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7f17f47f8d55e4c35a6f10902a8793a9
+    m_Address: Prefabs/Hero/Knight_Myth
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 840afd2eea71247c1b53c598f568e9c0
+    m_Address: Prefabs/Enemy/Troll_Normal
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8dfc4ecc8010d457bb75531f7e368803
+    m_Address: Prefabs/Enemy/Undead_Normal
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8ec658299518b4c7cbdbe09b76cc427b
+    m_Address: UI/UIMainLobby
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 91eec7178a6a44d4fb07935cf432ab0f
+    m_Address: UI/UIHeroGacha
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 975eaeabee3e2450e89ce9c911764f1c
+    m_Address: Prefabs/Hero/Magician_Epic
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a45633488fd8f4642a58a898970e5def
+    m_Address: UI/UIHeroInfo
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a733c2b5e24274b3d80e87915afcaa46
+    m_Address: Prefabs/Hero/Knight_Ancient_FatalInjury
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a8852421d120644bfb72bfca907a6fd5
+    m_Address: Prefabs/Hero/Magician_Superior
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a8c3ef57428b5452293e461ee606ab94
+    m_Address: Prefabs/Hero/Magician_Ancient
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: aebfddd74b58b4d8ba9c2b5bb8d3934e
+    m_Address: Prefabs/Hero/Knight_Legend_Berserker
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: aecb6b13559f6477983afdc005a5374a
+    m_Address: Prefabs/Hero/Archer_Ancient
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b2325583bda47432e987b218736fb709
+    m_Address: UI/UIToast
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b3c59e89d166a4778b3065ba3d1639cd
+    m_Address: UI/Canvas/EventSystem
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b7c4bbc4072b64c97a32253f262ade4f
+    m_Address: Prefabs/Summon/RedDragon
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b9524b257e02a479a83e168f600216ff
+    m_Address: Prefabs/Hero/Archer_God
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bb81d78251696417e83f2ca623d01f6d
+    m_Address: UI/Canvas/@HUD
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c520655b28e6a4b1780da053a79f12c7
+    m_Address: Prefabs/Hero/Magician_Legend
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ca9e56c7bb66c4c1aa4076f7879510c2
+    m_Address: Prefabs/Enemy/Troll_Boss
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: cda7de054dff141f9b5b20fda00cd6c3
+    m_Address: Prefabs/Enemy/Undead_Boss
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: cf1adb8240b1348189c1a841c19ede8a
+    m_Address: Prefabs/Hero/Magician_Myth
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d536bd3ed7bcf4d35bcf39f17cfcaf99
+    m_Address: Prefabs/Summon/AncientStatue
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e71eea62559db4db3a7dc30449833e8a
+    m_Address: Prefabs/Hero/Archer_Superior
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f04a78fcdff914a3da4b37867e138880
+    m_Address: Prefabs/Projectile/BaseProjectile
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f0b738d4f7bec44209dd87eb7f81fb50
+    m_Address: Prefabs/Hero/Magician_Legend_FlameExplosion
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f7395688b11804e14b655e88af657a0a
+    m_Address: Prefabs/Hero/Knight_Normal
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fb1dfd56939e74deb95a7ae2ca6d8044
+    m_Address: Prefabs/Background
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: afc9af10e32f547b2a51550412362a7e, type: 2}
   m_SchemaSet:

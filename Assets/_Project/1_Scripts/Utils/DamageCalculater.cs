@@ -8,8 +8,12 @@ using UnityEngine;
 /// </summary>
 public static class DamageCalculator
 {
+#if ADDRESSABLE
+    private const string DAMAGE_RATE_BY_CLASS_DATA_SO_PATH = "DamageRateByClassData";
+#else
     private const string DAMAGE_RATE_BY_CLASS_DATA_SO_PATH = "Data/SO/DamageRateByClassData";
-    
+#endif
+
     private static Dictionary<(HeroClassType, MonsterType), DamageRateByClassDataSO> damageRateByClassData = new();
 
     public static IDictionary<(HeroClassType, MonsterType), DamageRateByClassDataSO> DamageRateByClassData =>
@@ -158,7 +162,8 @@ public readonly struct DamageContext
     public readonly float Penetration;
     public readonly HeroClassType HeroClass;
 
-    public DamageContext(float baseDamage, float criticalRate, float criticalDamage, float penetration, HeroClassType heroClass)
+    public DamageContext(float baseDamage, float criticalRate, float criticalDamage, float penetration,
+        HeroClassType heroClass)
     {
         BaseDamage = baseDamage;
         CriticalRate = criticalRate;

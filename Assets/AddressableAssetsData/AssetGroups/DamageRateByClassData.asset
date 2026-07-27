@@ -1,0 +1,77 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: DamageRateByClassData
+  m_EditorClassIdentifier: Unity.Addressables.Editor::UnityEditor.AddressableAssets.Settings.AddressableAssetGroup
+  m_GroupName: DamageRateByClassData
+  m_GUID: d6ea1cc5388ff4e0c9ea8480cb443da0
+  m_SerializeEntries:
+  - m_GUID: 42d417d11f40247a0b5853d8bcddb583
+    m_Address: Data/SO/DamageRateByClassData/Knight_Troll
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - DamageRateByClassData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 584d65c04be6e4dbcb291cae4c0db6fe
+    m_Address: Data/SO/DamageRateByClassData/Magician_Undead
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - DamageRateByClassData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5af20850d8fa84d4ca5acb9fec7c6c94
+    m_Address: Data/SO/DamageRateByClassData/Knight_Orc
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - DamageRateByClassData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9d712883baa174dd38a17e11b7f6c2c8
+    m_Address: Data/SO/DamageRateByClassData/Archer_Orc
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - DamageRateByClassData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bf1d31f68ff4a463e995cf03c0774bab
+    m_Address: Data/SO/DamageRateByClassData/Magician_Troll
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - DamageRateByClassData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c4ddef10ec59c4ce2b4c4a46b0026978
+    m_Address: Data/SO/DamageRateByClassData/Archer_Undead
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - DamageRateByClassData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d1ed8c4d4db5a4231a934e6cc968f958
+    m_Address: Data/SO/DamageRateByClassData/Archer_Troll
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - DamageRateByClassData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d2a7964588c9f44c190fa06f051c71d3
+    m_Address: Data/SO/DamageRateByClassData/Knight_Undead
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - DamageRateByClassData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f9b8424f89a7a4b7ba70c4e9fbac0818
+    m_Address: Data/SO/DamageRateByClassData/Magician_Orc
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - DamageRateByClassData
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: afc9af10e32f547b2a51550412362a7e, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 792ea530a53754d03b39ba0de5c829d5, type: 2}
+    - {fileID: 11400000, guid: b8c7b1e5497cf4e9cafaf61f98d675fe, type: 2}

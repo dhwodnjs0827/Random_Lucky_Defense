@@ -17,8 +17,14 @@ public class AbilityEffectFactory : IEventListener
 
     private Action<AbilitySelectEventData> onAbilitySelected;
 
-    private const string ABILITY_DATA_SO_PATH = "Data/SO/AbilityData";
+#if ADDRESSABLE
+    private const string ABILITY_DATA_SO_PATH = "AbilityData"; // Label
+    private const string ABILITY_LEVEL_DATA_SO_PATH = "AbilityLevelData"; // Label
+#else
+    private const string ABILITY_DATA_SO_PATH = "Data/SO/AbilityData";  // 폴더
     private const string ABILITY_LEVEL_DATA_SO_PATH = "Data/SO/AbilityLevelData";
+#endif
+
 
     public AbilityEffectFactory()
     {
@@ -180,7 +186,7 @@ public class AbilityEffectFactory : IEventListener
     #region Cheat
 
 #if UNITY_EDITOR
-    
+
     /// <summary>
     /// 선택 가능한 모든 재능 목록 반환 (치트용)
     /// </summary>

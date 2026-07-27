@@ -1,0 +1,629 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: WaveData
+  m_EditorClassIdentifier: Unity.Addressables.Editor::UnityEditor.AddressableAssets.Settings.AddressableAssetGroup
+  m_GroupName: WaveData
+  m_GUID: f5e6a0b40a6c8447096bb6bc85047efb
+  m_SerializeEntries:
+  - m_GUID: 005b7999c5211420d943b849ae71721a
+    m_Address: Data/SO/WaveData/72
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - WaveData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 00952dde2888c42d4bad5c18bf55d2d1
+    m_Address: Data/SO/WaveData/21
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - WaveData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0325ef2d0de7a42208ef0b0b4c97aefb
+    m_Address: Data/SO/WaveData/48
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - WaveData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 085ed3074054c4c059318ac5196aac3a
+    m_Address: Data/SO/WaveData/30
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - WaveData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0bc27f7c101db4126901efc56da2e9e7
+    m_Address: Data/SO/WaveData/31
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - WaveData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0effd456fb4564d6aa5bd25e2259e37d
+    m_Address: Data/SO/WaveData/52
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - WaveData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 101afc24302df406c83c553122ca6d5a
+    m_Address: Data/SO/WaveData/28
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - WaveData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 129e440ff430940639dc756879081ad5
+    m_Address: Data/SO/WaveData/99
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - WaveData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1354fad02a8a84f4fa490f00d79764d0
+    m_Address: Data/SO/WaveData/60
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - WaveData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1494f0ded428e4672922f50fc0284779
+    m_Address: Data/SO/WaveData/59
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - WaveData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 15a7c6621434c40e7ab04e212af56eef
+    m_Address: Data/SO/WaveData/57
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - WaveData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1b4b32f80858340b9b8a6997a5889a0a
+    m_Address: Data/SO/WaveData/68
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - WaveData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1c2c77673bbec4f9aa8e5a5426aafd08
+    m_Address: Data/SO/WaveData/41
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - WaveData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1e53ff57436ab4fc79ce0ce7bb506b60
+    m_Address: Data/SO/WaveData/36
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - WaveData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 21af72f3bbe9f43629735cecc3b350ce
+    m_Address: Data/SO/WaveData/100
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - WaveData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 21d8795678be544fbbe801b042221aa3
+    m_Address: Data/SO/WaveData/9
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - WaveData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2700f2ae398374af6a0a6592f4f3492b
+    m_Address: Data/SO/WaveData/10
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - WaveData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 28eeb7ce8f60840dcb019f2ea14024ac
+    m_Address: Data/SO/WaveData/62
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - WaveData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2c431213cd8594875963d384d6869ec9
+    m_Address: Data/SO/WaveData/27
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - WaveData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2ff3d75c978824acb88068ff46fa9b4e
+    m_Address: Data/SO/WaveData/17
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - WaveData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 32074028190714bb098f46bd0c4c6ef7
+    m_Address: Data/SO/WaveData/13
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - WaveData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 321ca31ea225f41baaefa822d3e362c4
+    m_Address: Data/SO/WaveData/45
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - WaveData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3361d7fe7183141c8a3b3c6e50aa176a
+    m_Address: Data/SO/WaveData/80
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - WaveData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3491abce22c374675afd8880354fbaab
+    m_Address: Data/SO/WaveData/91
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - WaveData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 36068d3b29cbd4dab9962400ce197498
+    m_Address: Data/SO/WaveData/70
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - WaveData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3651509f8667441a390857c4f74d255b
+    m_Address: Data/SO/WaveData/29
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - WaveData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3771368a0d0084e08934493c4a96e1b5
+    m_Address: Data/SO/WaveData/44
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - WaveData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3afae79e712004888b71fd9da63d4dd6
+    m_Address: Data/SO/WaveData/47
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - WaveData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3b5656609adb7439e97281ed98398f28
+    m_Address: Data/SO/WaveData/5
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - WaveData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 417bc1f90cca64ac3ac998e54a885237
+    m_Address: Data/SO/WaveData/82
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - WaveData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4344b8775144f4a6a8d618c54bda66c8
+    m_Address: Data/SO/WaveData/50
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - WaveData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4730985e213b84cebbce7e3cb077c6bb
+    m_Address: Data/SO/WaveData/56
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - WaveData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 476763326a50b4d1c8e4ceb57c7e0ea0
+    m_Address: Data/SO/WaveData/55
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - WaveData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 47e1e3cc5590c44859fc631535e6d120
+    m_Address: Data/SO/WaveData/32
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - WaveData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4d8352483f7214a4c8b7f195fc8011a5
+    m_Address: Data/SO/WaveData/26
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - WaveData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4dff27e3333804922bc34f9227618917
+    m_Address: Data/SO/WaveData/22
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - WaveData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 547446688f40f46d1b2a4e6c7200fcd2
+    m_Address: Data/SO/WaveData/11
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - WaveData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 57db77cb609bb4727926c6c4a2ed7676
+    m_Address: Data/SO/WaveData/19
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - WaveData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5928eb50007e84f3097b334e3598d99b
+    m_Address: Data/SO/WaveData/66
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - WaveData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 59706b9b6648249d795390ee640519a0
+    m_Address: Data/SO/WaveData/90
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - WaveData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6d94cda49fde04e5db54e45ad4e464ff
+    m_Address: Data/SO/WaveData/73
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - WaveData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 70fcea581dc9f4f0680f76b6bba939d1
+    m_Address: Data/SO/WaveData/51
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - WaveData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7556f1f2632444e038ed4b0f22b8344e
+    m_Address: Data/SO/WaveData/53
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - WaveData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 76e61b32c4671416fa6bd8307dc4013a
+    m_Address: Data/SO/WaveData/94
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - WaveData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7812220e9488545dda2a8a693717072a
+    m_Address: Data/SO/WaveData/76
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - WaveData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7919ac9fe6a9b4932b074b35642d4103
+    m_Address: Data/SO/WaveData/96
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - WaveData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7c71f6e00bc8547d996e756f6a2c6cbf
+    m_Address: Data/SO/WaveData/16
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - WaveData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7d2816a1f570f4fd182cfc3fc3b10d85
+    m_Address: Data/SO/WaveData/74
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - WaveData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7e8b85612087141e8989808c59083f12
+    m_Address: Data/SO/WaveData/14
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - WaveData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8033c0d1c95b94ef4a626b979aa566fb
+    m_Address: Data/SO/WaveData/61
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - WaveData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 87c24f22d39d049c6ae4874dc3ea2d7d
+    m_Address: Data/SO/WaveData/71
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - WaveData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 87d92355003cf4103a407c70a74b4fd8
+    m_Address: Data/SO/WaveData/2
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - WaveData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 87f272df67c1541a4b80a10576630448
+    m_Address: Data/SO/WaveData/67
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - WaveData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 89fba6c0362494a53af3ef0d27d4f29d
+    m_Address: Data/SO/WaveData/18
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - WaveData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9158e78df151f48ea9f145fc72c6237c
+    m_Address: Data/SO/WaveData/63
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - WaveData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 916e1e0691faa4972bc9b750b1606b0b
+    m_Address: Data/SO/WaveData/93
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - WaveData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9583255b47425421699717125681f556
+    m_Address: Data/SO/WaveData/92
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - WaveData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 966c99ec76f93475fb3924e01536c9d2
+    m_Address: Data/SO/WaveData/95
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - WaveData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9702df75dfa214afcb6f8c17df1004f3
+    m_Address: Data/SO/WaveData/65
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - WaveData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9a9287f13cddc42e0a8b1bceb7b7e2c4
+    m_Address: Data/SO/WaveData/46
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - WaveData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9c1535e7712134bd996c055d92a4abe6
+    m_Address: Data/SO/WaveData/23
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - WaveData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9cb182654dffc4190bd9ac41de095089
+    m_Address: Data/SO/WaveData/84
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - WaveData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9e94dd4b943f0424f80589d1ecbf57b9
+    m_Address: Data/SO/WaveData/6
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - WaveData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a05c756afdfd5463ea32de01532ce2bf
+    m_Address: Data/SO/WaveData/39
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - WaveData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a7763a0d7f0aa4d4b83649c469aad841
+    m_Address: Data/SO/WaveData/58
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - WaveData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: aa4dafd191893435fb325f8a7b7cc40b
+    m_Address: Data/SO/WaveData/8
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - WaveData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: aa73cfbda0c1d4f9c849b5d47be5f09e
+    m_Address: Data/SO/WaveData/69
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - WaveData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: af39e6ef20c4b4c76a570362eee52e25
+    m_Address: Data/SO/WaveData/15
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - WaveData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b24d6e4ecb421443db59bb066166881d
+    m_Address: Data/SO/WaveData/89
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - WaveData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b331fc8350b35422d82dd2cf07445e7c
+    m_Address: Data/SO/WaveData/77
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - WaveData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b33c7d3b5f744497891312fa17877633
+    m_Address: Data/SO/WaveData/34
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - WaveData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ba4297ac26cfa459793533b366177ae9
+    m_Address: Data/SO/WaveData/43
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - WaveData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bc92875e4486a40b197f7123dd3d9552
+    m_Address: Data/SO/WaveData/88
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - WaveData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c0938a2f20155405696f42f8aa119258
+    m_Address: Data/SO/WaveData/33
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - WaveData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c2665c12c3a1942b5a87b0761ecf0799
+    m_Address: Data/SO/WaveData/97
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - WaveData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c6d6c5a8e5ecc4565b98196abfd2d1d7
+    m_Address: Data/SO/WaveData/98
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - WaveData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c7ed011258b8a4d8da92b50bf7f93f7f
+    m_Address: Data/SO/WaveData/24
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - WaveData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c9871868a00f64ea9870d0cf05c168c2
+    m_Address: Data/SO/WaveData/12
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - WaveData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ca6e2c4a136d64c4db595f091de672f4
+    m_Address: Data/SO/WaveData/54
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - WaveData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: cb0d8fd8f92bc4f2d819b8a41e4402a4
+    m_Address: Data/SO/WaveData/4
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - WaveData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ccf6bb15484254c1e9ab41d1f78adfd4
+    m_Address: Data/SO/WaveData/86
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - WaveData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ce04a6c7b15f14cb1add950c1c1ecf4f
+    m_Address: Data/SO/WaveData/101
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - WaveData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d5a52e68e7f8743938fc4254993ec4aa
+    m_Address: Data/SO/WaveData/3
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - WaveData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d5bb00e9f5b1546d0889af67da25dec6
+    m_Address: Data/SO/WaveData/42
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - WaveData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: db6d8ce1aac044dd5907b79b9203f0eb
+    m_Address: Data/SO/WaveData/49
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - WaveData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: db795a89311284505a6c2d09e6244420
+    m_Address: Data/SO/WaveData/25
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - WaveData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: dc63d64f7ff0a492393acce5c397b689
+    m_Address: Data/SO/WaveData/38
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - WaveData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: dde6b1f13eb6f40638741e584ccc64b3
+    m_Address: Data/SO/WaveData/78
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - WaveData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: de5f4902272914a70b5802d7031118d6
+    m_Address: Data/SO/WaveData/20
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - WaveData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e13b2e6f83cd340f9b3584b2dce6758b
+    m_Address: Data/SO/WaveData/35
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - WaveData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e669db85b9686400b8c840fe6a677e5f
+    m_Address: Data/SO/WaveData/37
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - WaveData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e78e833058c3b4e82a84af93883ab9f5
+    m_Address: Data/SO/WaveData/64
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - WaveData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e7da42ab871494266b8e68e8f97f9015
+    m_Address: Data/SO/WaveData/81
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - WaveData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e9f5c6893cbc34bf88c53b33063d5ed8
+    m_Address: Data/SO/WaveData/85
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - WaveData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: eed2138ce9d3e44718d454af93762b1c
+    m_Address: Data/SO/WaveData/79
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - WaveData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f8307fe8ef3ad4836b5d8aa0315f5530
+    m_Address: Data/SO/WaveData/75
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - WaveData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f855281ba10fc409f8b4da8e0f05c83a
+    m_Address: Data/SO/WaveData/83
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - WaveData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f9a334851164349f89a6be37af4db5c6
+    m_Address: Data/SO/WaveData/87
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - WaveData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fab6a7df524764f65b73e421ed4249ea
+    m_Address: Data/SO/WaveData/7
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - WaveData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: facafdb4b2f784ac3aba81e54c9efb16
+    m_Address: Data/SO/WaveData/1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - WaveData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: feb58480f6c964b99898d69edd2214b7
+    m_Address: Data/SO/WaveData/40
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - WaveData
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: afc9af10e32f547b2a51550412362a7e, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 8533bd660ca6d40309781ea63517bd41, type: 2}
+    - {fileID: 11400000, guid: ca76d3ae6300f44afbf76402a22e6794, type: 2}

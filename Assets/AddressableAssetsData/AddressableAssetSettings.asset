@@ -15,7 +15,7 @@ MonoBehaviour:
   m_DefaultGroup: 2e9b02f3aa8db430282e4df328eab01d
   m_currentHash:
     serializedVersion: 2
-    Hash: 0e655a1c70883d2a8ca0ecfdfffd83d0
+    Hash: 00000000000000000000000000000000
   m_OptimizeCatalogSize: 0
   m_BuildRemoteCatalog: 0
   m_CatalogRequestsTimeout: 0
@@ -63,9 +63,17 @@ MonoBehaviour:
   m_GroupAssets:
   - {fileID: 11400000, guid: fecd88e6296654cba8a6a84d3ac079e5, type: 2}
   - {fileID: 11400000, guid: cbafbebb3ac5144ab8a6f2f7fd4ccd3a, type: 2}
+  - {fileID: 11400000, guid: c4b5411c32dcd4f30bdfdccbbd6f7edb, type: 2}
+  - {fileID: 11400000, guid: cb47d9fd00c0d400c90e0e6ffb954e39, type: 2}
+  - {fileID: 11400000, guid: b93d158f86afb401baa18f1ba832b055, type: 2}
+  - {fileID: 11400000, guid: 7afe93a4f708f452885e49af4442d5d3, type: 2}
   - {fileID: 11400000, guid: f50ec1caa7cd640028d04bb3c10c3cf2, type: 2}
   - {fileID: 11400000, guid: e1a23f2814fe94c7eb543b9dad41be44, type: 2}
+  - {fileID: 11400000, guid: ae6999778fe4c4f44a7ea6e7931e81ea, type: 2}
+  - {fileID: 11400000, guid: 73083105e119b4650ba81b37d1fbabe0, type: 2}
+  - {fileID: 11400000, guid: f01c44d1c04d741dbb8d764e56ded75a, type: 2}
   - {fileID: 11400000, guid: 475212b927b664e638cb1d376f5d48b7, type: 2}
+  - {fileID: 11400000, guid: 3b5a672693a394ad7bad896c2fab0814, type: 2}
   m_BuildSettings:
     m_LogResourceManagerExceptions: 1
     m_BundleBuildPath: Temp/com.unity.addressables/AssetBundles
@@ -108,6 +116,15 @@ MonoBehaviour:
     - Locale
     - Locale-en
     - Locale-ko
+    - AbilityData
+    - AbilityLevelData
+    - DamageRateByClassData
+    - EnemyData
+    - HeroData
+    - InGameHeroLevelUpData
+    - InGameHeroLevelData
+    - SummonData
+    - WaveData
   m_SchemaTemplates: []
   m_GroupTemplateObjects:
   - {fileID: 11400000, guid: e667cf50c00bb4762942a507d4515f90, type: 2}
