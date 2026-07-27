@@ -20,6 +20,26 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 02714396be6ae4c6b9eb280c5fd1f275
+    m_Address: Sprites/Hero/Magician_Rare
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 090d02fb488e44eb2a98f505e2ad7dbb
+    m_Address: Sprites/Hero/Archer_Ancient
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 093a4e56f80b64aa596be94c108a0eeb
+    m_Address: Sprites/Hero/Archer_Legend
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0cc4b5d8d6a8442cd835f43a0ed52e55
+    m_Address: Sprites/Hero/Knight_Epic
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 12805c69945fa4335b10759afd09ec4b
     m_Address: Prefabs/Hero/Knight_God
     m_ReadOnly: 0
@@ -30,8 +50,18 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 15f386cc12e704ac2a126215a229e8c6
+    m_Address: Sprites/Hero/Archer_Myth
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 179cee29770844b1da1cf9491489955b
     m_Address: UI/UIInGame
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 20997fef067ad4b148ee8d5e61a55f1b
+    m_Address: Sprites/Hero/Knight_Normal
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -75,6 +105,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 32fbec16cf4af414ab6ed89bfbda314d
+    m_Address: Sprites/Enemy/Troll_Normal
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 3549f44096acc4fc396648bb3b407fd5
     m_Address: Prefabs/Hero/Magician_Rare
     m_ReadOnly: 0
@@ -92,6 +127,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 3825a7fedacd14cae8461afa73515667
     m_Address: UI/UIGameResult
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 39613358d052840f89fe9fd5a059d1b4
+    m_Address: Sprites/Hero/Magician_Myth
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -120,6 +160,16 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 44c0bf58ed8b74c7db54b539e8a26b99
+    m_Address: Sprites/Hero/Archer_God
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 451548aea1b334f1a8c30a2b2a8b4379
+    m_Address: Sprites/Hero/Magician_Legend_FlameExplosion
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 49381cd0d074d4d158d8c0bb7bdd9888
     m_Address: Prefabs/Summon/Lightning
     m_ReadOnly: 0
@@ -130,13 +180,28 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4e7b1b831850041ef938a280750769b0
+    m_Address: Sprites/Hero/Archer_Rare
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 4ff5f4d000bf74e54b15c19f7fb68f73
     m_Address: VFX/Lazer_blue
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5101b698f312f47d0b8cdea02589de2c
+    m_Address: Sprites/Hero/Magician_Legend
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 51c1fb44c19cc497fa807fe1fa303dd6
     m_Address: Prefabs/Hero/Magician_Normal
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 51e4d06f312154c38965f26ca4c67307
+    m_Address: Sprites/Hero/Knight_Rare
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -150,6 +215,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5979dea5b81fb42ceaaeae58b5fdf8dc
+    m_Address: Sprites/Hero/Knight_Ancient
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 59e9b68b16e0f4aa083325dd1a71960d
     m_Address: Prefabs/Enemy/Orc_Normal
     m_ReadOnly: 0
@@ -157,6 +227,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 5b1885bbf0b1546a9b46c99467873213
     m_Address: Prefabs/Enemy/Orc_Boss
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5c9729d1481084d358352ed9fba19109
+    m_Address: Sprites/Enemy/Undead_Normal
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -185,8 +260,23 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 69a07c6ec799247b6a9b6c522a38c6f9
+    m_Address: Sprites/Hero/Magician_Normal
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 6c092763d245747fe81be4383f858a13
     m_Address: UI/Canvas/@System
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6c7fbbca9496643ac9b6e3a2b19bc9e4
+    m_Address: Sprites/Hero/Magician_Relic
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6ee6b34da5243456f932283629763ace
+    m_Address: Sprites/Hero/Archer_Relic
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -215,6 +305,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 88808afae976f46c1aad6c82a37c9099
+    m_Address: Sprites/Hero/Knight_Relic
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 8dfc4ecc8010d457bb75531f7e368803
     m_Address: Prefabs/Enemy/Undead_Normal
     m_ReadOnly: 0
@@ -225,8 +320,28 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8f06d2cdd602b4455b95ae93d044b8d6
+    m_Address: Sprites/Hero/Archer_Superior
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 919229242355b457f83e52ec8dc64cb2
+    m_Address: Sprites/Hero/Knight_God
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 91eec7178a6a44d4fb07935cf432ab0f
     m_Address: UI/UIHeroGacha
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 92ff95fcc739d48efab314daaac0269f
+    m_Address: Sprites/Hero/Magician_Superior
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 94fba3e9372dc4265819dacb1bf172f6
+    m_Address: Sprites/Hero/Knight_Legend_Berserker
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -290,6 +405,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bda080a67b98945509a1460348801ad7
+    m_Address: Sprites/Hero/Archer_Normal
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c520655b28e6a4b1780da053a79f12c7
     m_Address: Prefabs/Hero/Magician_Legend
     m_ReadOnly: 0
@@ -300,8 +420,23 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: cd3d02c5ab2a3434aa26ebbb3f0cfe29
+    m_Address: Sprites/Enemy/Orc_Boss
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: cda7de054dff141f9b5b20fda00cd6c3
     m_Address: Prefabs/Enemy/Undead_Boss
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ce1fca30895f240b892bec40bf89497c
+    m_Address: Sprites/Hero/Knight_Myth
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ce563a2b741464317820e0b49274d98c
+    m_Address: Sprites/Enemy/Undead_Boss
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -315,8 +450,43 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d5ea13386cad941a8a64d75c4d485ad5
+    m_Address: Sprites/Hero/Magician_Ancient
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: dad4510287e7f47b5b64b720ea1329d3
+    m_Address: Sprites/Hero/Archer_Epic
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e10272c0810ac4263b06c2c31896586b
+    m_Address: Sprites/Hero/Knight_Ancient_FatalInjury
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e623301ffe72d49df8e6ca421644baaf
+    m_Address: Sprites/Hero/Knight_Superior
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: e71eea62559db4db3a7dc30449833e8a
     m_Address: Prefabs/Hero/Archer_Superior
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e8eeda86e5d7b42eb95862ac85ea99ac
+    m_Address: Sprites/Hero/Archer_Ancinet_Slow
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e9c75085faffa44c781b7da741347b8c
+    m_Address: Sprites/Hero/Knight_Legend
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: eba3d8fe9722a4f7e86607b59d7adb0d
+    m_Address: Sprites/Hero/Magician_Relic_DoomBreak
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -330,8 +500,28 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f42c58aaef3904331be196d3a0f04d5d
+    m_Address: Sprites/Hero/Magician_Epic
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f534115ee6edf42d09573624a965e0a5
+    m_Address: Sprites/Hero/Magician_God
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f7395688b11804e14b655e88af657a0a
     m_Address: Prefabs/Hero/Knight_Normal
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f9a1f992466d64823acee096770cd02a
+    m_Address: Sprites/Enemy/Troll_Boss
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fa752d8bfd2f34b62b148a59e5b2d2a3
+    m_Address: Sprites/Enemy/Orc_Normal
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

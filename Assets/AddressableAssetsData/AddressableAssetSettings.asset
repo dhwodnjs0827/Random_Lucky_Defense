@@ -15,7 +15,7 @@ MonoBehaviour:
   m_DefaultGroup: 2e9b02f3aa8db430282e4df328eab01d
   m_currentHash:
     serializedVersion: 2
-    Hash: 00000000000000000000000000000000
+    Hash: 4ec4d93e34117d0f8c30dd5bc3203e78
   m_OptimizeCatalogSize: 0
   m_BuildRemoteCatalog: 0
   m_CatalogRequestsTimeout: 0
@@ -122,7 +122,6 @@ MonoBehaviour:
     - EnemyData
     - HeroData
     - InGameHeroLevelUpData
-    - InGameHeroLevelData
     - SummonData
     - WaveData
   m_SchemaTemplates: []
