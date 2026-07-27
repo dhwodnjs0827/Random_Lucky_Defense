@@ -16,6 +16,6 @@ MonoBehaviour:
   ClassType: 3
   AttackPower: 0
   AttackSpeed: 0
-  AttackRange: 200
+  AttackRange: 2000
   SplashRange: 10
   Penetration: 0
