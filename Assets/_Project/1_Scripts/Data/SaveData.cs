@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Cysharp.Threading.Tasks;
 using Generated;
 
 /// <summary>
@@ -51,11 +52,11 @@ public class PlayerHeroSaveData
     /// <summary>
     /// 런타임 용으로 변환
     /// </summary>
-    public HeroRuntimeData Convert()
+    public async UniTask<HeroRuntimeData> ConvertAsync()
     {
         HeroRuntimeData data = new()
         {
-            HeroData = ResourceManager.Instance.Load<HeroDataSO>($"Data/SO/HeroData/{ID}"),
+            HeroData = await AddressableManager.Instance.LoadAsync<HeroDataSO>($"Data/SO/HeroData/{ID}"),
             IsAcquiredHero = IsAcquiredHero,
             Level = Level,
             AcquiredStack = AcquiredStack,
