@@ -17,13 +17,13 @@ public class ToastManager : MonoSingleton<ToastManager>
             return;
         }
         
-        var systemCanvasPrefab = await ResourceManager.Instance.LoadAsync<Canvas>("UI/Canvas/@System");
+        var systemCanvasPrefab = await AddressableManager.Instance.LoadAsync<Canvas>("UI/Canvas/@System");
         var canvas = Instantiate(systemCanvasPrefab);
         canvas.sortingOrder = (int)UIType.System;
         canvas.name = $"@{nameof(UIType.System)}";
         DontDestroyOnLoad(canvas.gameObject);
         
-        var prefab = await ResourceManager.Instance.LoadAsync<UIToast>("UI/UIToast");
+        var prefab = await AddressableManager.Instance.LoadAsync<UIToast>("UI/UIToast");
         uiToast = Instantiate(prefab, canvas.transform);
         
         isInitialized = true;

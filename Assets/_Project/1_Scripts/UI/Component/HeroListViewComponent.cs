@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Cysharp.Threading.Tasks;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -80,7 +81,7 @@ public class HeroListViewComponent : MonoBehaviour, IEventListener
             }
             var heroView = ObjectPoolManager.Instance.Get(heroViewPrefab);
             heroView.transform.SetParent(scrollViewContent.transform, true);
-            heroView.UpdateHeroViewUIComponent(hero, hero.IsSelected);
+            heroView.UpdateHeroViewUIComponentAsync(hero, hero.IsSelected).Forget();
             currentHeroes.Add(heroView);
         }
         
@@ -133,20 +134,20 @@ public class HeroListViewComponent : MonoBehaviour, IEventListener
         if (eventData.UnequipHeroData != null)
         {
             var unequipHeroIndex = currentHeroes.FindIndex(heroView => heroView.CurrentHeroData == eventData.UnequipHeroData);
-            currentHeroes[unequipHeroIndex].UpdateHeroViewUIComponent(eventData.UnequipHeroData, eventData.UnequipHeroData.IsSelected);
+            currentHeroes[unequipHeroIndex].UpdateHeroViewUIComponentAsync(eventData.UnequipHeroData, eventData.UnequipHeroData.IsSelected).Forget();
         }
 
         if (eventData.EquipHeroData != null)
         {
             var equipHeroIndex = currentHeroes.FindIndex(heroView => heroView.CurrentHeroData == eventData.EquipHeroData);
-            currentHeroes[equipHeroIndex].UpdateHeroViewUIComponent(eventData.EquipHeroData, eventData.EquipHeroData.IsSelected);
+            currentHeroes[equipHeroIndex].UpdateHeroViewUIComponentAsync(eventData.EquipHeroData, eventData.EquipHeroData.IsSelected).Forget();
         }
     }
 
     private void LevelUpHero(LevelUpHeroEventData eventData)
     {
         var newHeroIndex = currentHeroes.FindIndex(heroView => heroView.CurrentHeroData == eventData.LevelUpHeroData);
-        currentHeroes[newHeroIndex].UpdateHeroViewUIComponent(eventData.LevelUpHeroData, eventData.LevelUpHeroData.IsSelected);
+        currentHeroes[newHeroIndex].UpdateHeroViewUIComponentAsync(eventData.LevelUpHeroData, eventData.LevelUpHeroData.IsSelected).Forget();
         
         heroCollectionDamageBonusText.text = $"영웅 보유 데미지 증가 : {PlayerDataManager.Instance.CalculateHeroAcquiredBonusDamage(currentHeroViewType) * 100:N1}%";
     }

@@ -1,25 +1,14 @@
 using Cysharp.Threading.Tasks;
-using UnityEngine;
 
 /// <summary>
 /// VFX 관리 담당 클래스
 /// </summary>
 public class EffectManager : MonoSingleton<EffectManager>
 {
-    private ResourceManager resourceManager;
-    private ObjectPoolManager objectPoolManager;
-
     private const string EFFECT_RESOURCE_PATH = "VFX/";
     private VFXInstance vfxInstance;
 
     protected override bool isInitialized { get; set; }
-
-    protected override void Awake()
-    {
-        base.Awake();
-        resourceManager = ResourceManager.Instance;
-        objectPoolManager = ObjectPoolManager.Instance;
-    }
 
     /// <summary>
     /// EffectManager 초기화
@@ -31,8 +20,8 @@ public class EffectManager : MonoSingleton<EffectManager>
             return;
         }
         
-        vfxInstance = await resourceManager.LoadAsync<VFXInstance>($"{EFFECT_RESOURCE_PATH}VFXInstance");
-        objectPoolManager.Preload(vfxInstance);
+        vfxInstance = await AddressableManager.Instance.LoadAsync<VFXInstance>($"{EFFECT_RESOURCE_PATH}VFXInstance");
+        ObjectPoolManager.Instance.Preload(vfxInstance);
         
         isInitialized = true;
         await UniTask.CompletedTask;

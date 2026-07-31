@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Cysharp.Threading.Tasks;
 using UnityEngine;
 
 /// <summary>
@@ -67,7 +68,7 @@ public class SelectedHeroListViewComponent : MonoBehaviour, IEventListener
             if (equippedHeroes.TryGetValue(gradeType, out var heroData)) // 영웅 데이터가 있으면 ViewComponent 활성화 및 데이터 세팅
             {
                 viewComponent.gameObject.SetActive(true);
-                viewComponent.UpdateHeroViewUIComponent(heroData, true);
+                viewComponent.UpdateHeroViewUIComponentAsync(heroData, true).Forget();
             }
             else // 영웅 데이터가 없으면 ViewComponent 비활성화
             {
@@ -85,7 +86,7 @@ public class SelectedHeroListViewComponent : MonoBehaviour, IEventListener
         if (eventData.EquipHeroData != null)
         {
             heroViewComponents[eventData.EquipHeroData.Grade].gameObject.SetActive(true);
-            heroViewComponents[eventData.EquipHeroData.Grade].UpdateHeroViewUIComponent(eventData.EquipHeroData, true);
+            heroViewComponents[eventData.EquipHeroData.Grade].UpdateHeroViewUIComponentAsync(eventData.EquipHeroData, true).Forget();
         }
         else
         {
@@ -99,7 +100,7 @@ public class SelectedHeroListViewComponent : MonoBehaviour, IEventListener
     /// <param name="eventData">레벨 업 할 영웅 데이터</param>
     private void LevelUpHero(LevelUpHeroEventData eventData)
     {
-        heroViewComponents[eventData.LevelUpHeroData.Grade].UpdateHeroViewUIComponent(eventData.LevelUpHeroData, true);
+        heroViewComponents[eventData.LevelUpHeroData.Grade].UpdateHeroViewUIComponentAsync(eventData.LevelUpHeroData, true).Forget();
     }
 
     public void SubscribeEvents()

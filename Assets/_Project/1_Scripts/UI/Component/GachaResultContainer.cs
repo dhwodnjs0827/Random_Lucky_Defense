@@ -12,10 +12,10 @@ public class GachaResultContainer : MonoBehaviour, IPoolable
     private HeroRuntimeData heroData;
     private Tween currentTween;
 
-    public void SetGachaResultInfo(HeroRuntimeData resultHeroData)
+    public async UniTask SetGachaResultInfoAsync(HeroRuntimeData resultHeroData)
     {
         heroData = resultHeroData;
-        resultImage.sprite = ResourceManager.Instance.Load<Sprite>($"Sprites/Hero/{resultHeroData.Name}");
+        resultImage.sprite = await AddressableManager.Instance.LoadAsync<Sprite>($"Sprites/Hero/{resultHeroData.Name}");
     }
 
     public async UniTask ResultAnimation()

@@ -35,7 +35,7 @@ public class HeroViewComponent : MonoBehaviour
     /// <summary>
     /// 영웅 정보에 맞게 UI 요소들 초기화
     /// </summary>
-    public void UpdateHeroViewUIComponent(HeroRuntimeData heroData, bool isSelected)
+    public async UniTask UpdateHeroViewUIComponentAsync(HeroRuntimeData heroData, bool isSelected)
     {
         currentHeroData = heroData;
 
@@ -55,7 +55,7 @@ public class HeroViewComponent : MonoBehaviour
         }
 
         heroGradeText.text = $"{heroData.Grade}";
-        heroImage.sprite = ResourceManager.Instance.Load<Sprite>($"Sprites/Hero/{heroData.Name}");
+        heroImage.sprite = await AddressableManager.Instance.LoadAsync<Sprite>($"Sprites/Hero/{heroData.Name}");
         heroRankText.text = $"{heroData.Rank}";
 
         isSelectedImage.gameObject.SetActive(isSelected);

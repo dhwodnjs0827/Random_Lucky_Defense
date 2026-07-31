@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using Cysharp.Threading.Tasks;
 using Generated;
 using UnityEngine;
 
@@ -22,9 +23,9 @@ public static class DamageCalculator
     /// <summary>
     /// 초기화
     /// </summary>
-    static DamageCalculator()
+    public static async UniTask InitializeAsync()
     {
-        var datas = ResourceManager.Instance.LoadAll<DamageRateByClassDataSO>(DAMAGE_RATE_BY_CLASS_DATA_SO_PATH);
+        var datas = await AddressableManager.Instance.LoadAllAsync<DamageRateByClassDataSO>(DAMAGE_RATE_BY_CLASS_DATA_SO_PATH);
         foreach (var data in datas)
         {
             if (!damageRateByClassData.ContainsKey((data.ClassType, data.MonsterType)))

@@ -1,4 +1,5 @@
 using System;
+using Cysharp.Threading.Tasks;
 using TMPro;
 using UniRx;
 using UnityEngine;
@@ -47,7 +48,12 @@ public class InGameWaveInfoUIComponent : MonoBehaviour, IEventListener
 
     private void SetWaveDate(WaveStartEventData data)
     {
-        enemyImage.sprite = ResourceManager.Instance.Load<Sprite>($"Sprites/Enemy/{data.CurrentEnemyData.MonsterType}_{data.CurrentEnemyData.EnemyType}");
+        LoadDataAsync(data).Forget();
+    }
+
+    private async UniTask LoadDataAsync(WaveStartEventData data)
+    {
+        enemyImage.sprite = await AddressableManager.Instance.LoadAsync<Sprite>($"Sprites/Enemy/{data.CurrentEnemyData.MonsterType}_{data.CurrentEnemyData.EnemyType}");
         currentWaveText.text = $"WAVE {data.CurrentWaveData.WaveIndex}/101";
         monsterTypeText.text = $"{data.CurrentEnemyData.MonsterType}";
         enemyTypeText.text = $"{data.CurrentEnemyData.EnemyType}";

@@ -1,4 +1,5 @@
 using System;
+using Cysharp.Threading.Tasks;
 using UnityEngine;
 
 public class SummonController : MonoBehaviour, IAbilityEffect
@@ -68,7 +69,7 @@ public class SummonController : MonoBehaviour, IAbilityEffect
     {
         if (redDragon == null)
         {
-            SpawnRedDragon();
+            SpawnRedDragonAsync().Forget();
         }
 
         redDragon.IncreaseStat(abilityContainer);
@@ -78,7 +79,7 @@ public class SummonController : MonoBehaviour, IAbilityEffect
     {
         if (ancientStatue == null)
         {
-            SpawnAncientStatue();
+            SpawnAncientStatueAsync().Forget();
         }
         ancientStatue.IncreaseStat(abilityContainer);
     }
@@ -87,28 +88,28 @@ public class SummonController : MonoBehaviour, IAbilityEffect
     {
         if (lightning == null)
         {
-            CreateLightning();
+            CreateLightningAsync().Forget();
         }
         lightning.IncreaseStat(abilityContainer);
     }
 
-    private void SpawnRedDragon()
+    private async UniTask SpawnRedDragonAsync()
     {
-        var prefab = ResourceManager.Instance.Load<RedDragon>(RED_DRAGON_PREFAB_PATH);
+        var prefab = await AddressableManager.Instance.LoadAsync<RedDragon>(RED_DRAGON_PREFAB_PATH);
         redDragon = Instantiate(prefab, redDragonSpawnPoint.position, redDragonSpawnPoint.rotation);
         redDragon.transform.SetParent(redDragonSpawnPoint);
     }
 
-    private void SpawnAncientStatue()
+    private async UniTask SpawnAncientStatueAsync()
     {
-        var prefab = ResourceManager.Instance.Load<AncientStatue>(ANCIENT_STATUE_PREFAB_PATH);
+        var prefab = await AddressableManager.Instance.LoadAsync<AncientStatue>(ANCIENT_STATUE_PREFAB_PATH);
         ancientStatue = Instantiate(prefab, ancientStatueSpawnPoint.position, ancientStatueSpawnPoint.rotation);
         ancientStatue.transform.SetParent(ancientStatueSpawnPoint);
     }
     
-    private void CreateLightning()
+    private async UniTask CreateLightningAsync()
     {
-        var prefab = ResourceManager.Instance.Load<LightningController>(LIGHTNING_PREFAB_PATH);
+        var prefab = await AddressableManager.Instance.LoadAsync<LightningController>(LIGHTNING_PREFAB_PATH);
         lightning = Instantiate(prefab, lightningSpawnPoint.position, lightningSpawnPoint.rotation);
         lightning.transform.SetParent(lightningSpawnPoint);
     }

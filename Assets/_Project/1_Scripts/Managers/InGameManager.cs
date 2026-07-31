@@ -46,11 +46,12 @@ public class InGameManager : MonoSingleton<InGameManager>, IEventListener
         currencyController = new InGameCurrencyController();
         rewardController = new InGameRewardController();
 
+        await DamageCalculator.InitializeAsync();
         await HeroAttackState.PreLoadProjectileAsync();
         
         await UIManager.Instance.OpenAsync<UIInGame>();
         
-        CreateBackground();
+        await CreateBackgroundAsync();
         
         SubscribeEvents();
         
@@ -166,9 +167,9 @@ public class InGameManager : MonoSingleton<InGameManager>, IEventListener
     /// <summary>
     /// 인게임 스테이지 백그라운드 오브젝트 생성
     /// </summary>
-    private void CreateBackground()
+    private async UniTask CreateBackgroundAsync()
     {
-        var backgroundPrefab = ResourceManager.Instance.Load<GameObject>("Prefabs/Background");
+        var backgroundPrefab = await AddressableManager.Instance.LoadAsync<GameObject>("Prefabs/Background");
         var background = Instantiate(backgroundPrefab);
         background.transform.position = Vector3.zero;
     }

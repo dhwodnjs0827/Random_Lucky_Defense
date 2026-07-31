@@ -58,7 +58,6 @@ public static class AppInitializer
             await AddressableManager.Instance.InitializeAsync();
             await SaveLoadManager.Instance.InitializeAsync();
             await PlayerDataManager.Instance.InitializeAsync();
-            await ResourceManager.Instance.InitializeAsync();
             await AudioManager.Instance.InitializeAsync();
             await UIManager.Instance.InitializeAsync();
             await SceneLoadManager.Instance.InitializeAsync();

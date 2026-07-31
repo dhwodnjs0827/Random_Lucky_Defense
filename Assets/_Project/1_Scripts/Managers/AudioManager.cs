@@ -424,7 +424,7 @@ public class AudioManager : MonoSingleton<AudioManager>
             return cached;
         }
 
-        var clip = await ResourceManager.Instance.LoadAsync<AudioClip>(path);
+        var clip = await AddressableManager.Instance.LoadAsync<AudioClip>(path);
         if (clip != null)
         {
             audioCache[path] = clip;

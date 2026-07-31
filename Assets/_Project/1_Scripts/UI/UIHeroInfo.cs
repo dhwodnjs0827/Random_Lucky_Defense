@@ -1,3 +1,4 @@
+using Cysharp.Threading.Tasks;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -44,7 +45,7 @@ public class UIHeroInfo : UIBase
     private void UpdateHeroInfoUI()
     {
         heroNameText.text = currentHeroData.Name;
-        heroView.UpdateHeroViewUIComponent(currentHeroData, currentHeroData.IsSelected);
+        heroView.UpdateHeroViewUIComponentAsync(currentHeroData, currentHeroData.IsSelected).Forget();
         heroInfoText.text =
             $"공격력 : {currentHeroData.HeroData.AttackPower}\n공격속도 : {currentHeroData.HeroData.AttackSpeed}\n공격범위 : {currentHeroData.HeroData.AttackRange}\n스플래쉬 범위 : {currentHeroData.HeroData.SplashRange}";
 
@@ -80,7 +81,7 @@ public class UIHeroInfo : UIBase
         PlayerDataManager.Instance.ChangeSelectedHero(selectedHero, currentHeroData);
 
         // 영웅 뷰 변경하기
-        heroView.UpdateHeroViewUIComponent(currentHeroData, currentHeroData.IsSelected);
+        heroView.UpdateHeroViewUIComponentAsync(currentHeroData, currentHeroData.IsSelected).Forget();
 
         equipButton.gameObject.SetActive(false);
         unequipButton.gameObject.SetActive(true);
@@ -98,7 +99,7 @@ public class UIHeroInfo : UIBase
     {
         PlayerDataManager.Instance.ChangeSelectedHero(currentHeroData, null);
 
-        heroView.UpdateHeroViewUIComponent(currentHeroData, currentHeroData.IsSelected);
+        heroView.UpdateHeroViewUIComponentAsync(currentHeroData, currentHeroData.IsSelected).Forget();
         
         equipButton.gameObject.SetActive(true);
         unequipButton.gameObject.SetActive(false);
@@ -125,7 +126,7 @@ public class UIHeroInfo : UIBase
         }
         currentHeroData.AcquiredStack -= currentHeroData.LevelUpRequiredStack;
         currentHeroData.Level++;
-        heroView.UpdateHeroViewUIComponent(currentHeroData, currentHeroData.IsSelected);
+        heroView.UpdateHeroViewUIComponentAsync(currentHeroData, currentHeroData.IsSelected).Forget();
         
         levelUpButton.interactable = PlayerDataManager.Instance.Currency[CurrencyType.Gold] >= currentHeroData.LevelUpRequiredGold;
         levelUpRequiredGoldText.text = $"레벨업\n골드: {currentHeroData.LevelUpRequiredGold}";

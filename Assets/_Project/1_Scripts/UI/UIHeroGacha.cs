@@ -72,7 +72,7 @@ public class UIHeroGacha : UIBase
         {
             var resultContainer = ObjectPoolManager.Instance.Get(gachaResultPrefab);
             resultContainer.transform.SetParent(resultContainerTransform.transform, true);
-            resultContainer.SetGachaResultInfo(result);
+            resultContainer.SetGachaResultInfoAsync(result).Forget();
             currentGachaResultContainers.Add(resultContainer);
         }
 
