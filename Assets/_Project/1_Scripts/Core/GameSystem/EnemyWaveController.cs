@@ -1,4 +1,6 @@
+using System;
 using System.Linq;
+using Cysharp.Threading.Tasks;
 using Generated;
 using UniRx;
 using UnityEngine;
@@ -21,11 +23,10 @@ public class EnemyWaveController : MonoBehaviour, IEventListener
 
     private int spawnedEnemyCount;
 
-#if ADDRESSABLE
+    private bool isInitialized;
+    private bool isWaveSetting;
+
     private const string WAVE_DATA_SO_PATH = "WaveData";
-#else
-    private const string WAVE_DATA_SO_PATH = "Data/SO/WaveData";
-#endif
     private const string ENEMY_DATA_SO_DIR_PATH = "Data/SO/EnemyData/";
     private const string ENEMY_PREFAB_DIR_PATH = "Prefabs/Enemy/";
 
@@ -37,27 +38,39 @@ public class EnemyWaveController : MonoBehaviour, IEventListener
 
     #region Unity Methods
 
-    private void Awake()
-    {
-        waveDatas = ResourceManager.Instance.LoadAll<WaveDataSO>(WAVE_DATA_SO_PATH).OrderBy(i => i.WaveIndex).ToArray();
-    }
-
     private void OnEnable()
     {
         SubscribeEvents();
     }
 
-    private void Start()
+    private async UniTaskVoid Start()
     {
-        var waveInfoUI = UIManager.Instance.GetUI<UIInGame>().WaveInfoUI;
-        waveInfoUI.SubscribeWaveTimer(currentWaveTime);
+        try
+        {
+            await LoadWaveDataAsync();
 
-        // 첫 웨이브 설정
-        SetWaveData();
+            var waveInfoUI = UIManager.Instance.GetUI<UIInGame>().WaveInfoUI;
+            waveInfoUI.SubscribeWaveTimer(currentWaveTime);
+
+            // 첫 웨이브 설정
+            await SetWaveDataAsync();
+        }
+        catch (Exception e)
+        {
+            CDebug.LogError($"[EnemyWaveController] 초기화 실패: {e}");
+            return;
+        }
+
+        isInitialized = true;
     }
 
     private void Update()
     {
+        if (!isInitialized || isWaveSetting)
+        {
+            return;
+        }
+
         currentWaveTime.Value -= Time.deltaTime;
         if (currentWaveTime.Value <= 0)
         {
@@ -68,7 +81,7 @@ public class EnemyWaveController : MonoBehaviour, IEventListener
             }
 
             // 다음 웨이브 설정
-            SetWaveData();
+            SetNextWaveAsync().Forget();
         }
 
         spawn?.Invoke();
@@ -96,6 +109,12 @@ public class EnemyWaveController : MonoBehaviour, IEventListener
     }
 
     #endregion
+
+    private async UniTask LoadWaveDataAsync()
+    {
+        var loadedData = await AddressableManager.Instance.LoadAllAsync<WaveDataSO>(WAVE_DATA_SO_PATH);
+        waveDatas = loadedData.OrderBy(i => i.WaveIndex).ToArray();
+    }
 
     /// <summary>
     /// 일반 적 스폰 (주기적 스폰)
@@ -132,10 +151,23 @@ public class EnemyWaveController : MonoBehaviour, IEventListener
         spawn = null;
     }
 
+    private async UniTask SetNextWaveAsync()
+    {
+        isWaveSetting = true;
+        try
+        {
+            await SetWaveDataAsync();
+        }
+        finally
+        {
+            isWaveSetting = false;
+        }
+    }
+
     /// <summary>
     /// 현재 WaveData 세팅
     /// </summary>
-    private void SetWaveData()
+    private async UniTask SetWaveDataAsync()
     {
         if (waveDatas == null)
         {
@@ -156,8 +188,9 @@ public class EnemyWaveController : MonoBehaviour, IEventListener
         spawnTimer = 0f;
 
         currentSpawnEnemyData =
-            ResourceManager.Instance.Load<EnemyDataSO>($"{ENEMY_DATA_SO_DIR_PATH}{currentWaveData.SpawnEnemyID}");
-        currentSpawnEnemyPrefab = ResourceManager.Instance.Load<BaseEnemy>(
+            await AddressableManager.Instance.LoadAsync<EnemyDataSO>(
+                $"{ENEMY_DATA_SO_DIR_PATH}{currentWaveData.SpawnEnemyID}");
+        currentSpawnEnemyPrefab = await AddressableManager.Instance.LoadAsync<BaseEnemy>(
             $"{ENEMY_PREFAB_DIR_PATH}{currentSpawnEnemyData.MonsterType}_{currentSpawnEnemyData.EnemyType}");
 
         spawn = currentWaveData.WaveType == WaveType.Normal ? SpawnNormalEnemy : SpawnBossEnemy;
