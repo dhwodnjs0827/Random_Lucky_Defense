@@ -39,6 +39,7 @@ public class InGameManager : MonoSingleton<InGameManager>, IEventListener
         ResetGameSpeed();
         
         abilityEffectFactory = new AbilityEffectFactory();
+        await abilityEffectFactory.InitializeDataAsync();
         heroLevelUpController =  new InGameHeroLevelUpController();
         heroBuffController = new InGameHeroBuffController();
         currencyController = new InGameCurrencyController();

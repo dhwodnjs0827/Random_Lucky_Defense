@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Cysharp.Threading.Tasks;
 using Generated;
 using Random = UnityEngine.Random;
 
@@ -20,12 +21,6 @@ public class AbilityEffectFactory : IEventListener
     private const string ABILITY_DATA_SO_PATH = "AbilityData";
     private const string ABILITY_LEVEL_DATA_SO_PATH = "AbilityLevelData";
 
-
-    public AbilityEffectFactory()
-    {
-        InitializeData();
-    }
-
     #region IEventListener implementation
 
     public void SubscribeEvents()
@@ -41,6 +36,29 @@ public class AbilityEffectFactory : IEventListener
     }
 
     #endregion
+    
+    /// <summary>
+    /// 재능 및 재능별 레벨 데이터 초기화
+    /// </summary>
+    public async UniTask InitializeDataAsync()
+    {
+        abilityDatas = await AddressableManager.Instance.LoadAllAsync<AbilityDataSO>(ABILITY_DATA_SO_PATH);
+        foreach (var abilityData in abilityDatas)
+        {
+            var list = new List<AbilityLevelDataSO>();
+            abilityLevelDataDic.TryAdd(abilityData.ID, list);
+            currentAbilityLevelDic.TryAdd(abilityData.ID, 0);
+        }
+
+        var abilityLevelDatas = await AddressableManager.Instance.LoadAllAsync<AbilityLevelDataSO>(ABILITY_LEVEL_DATA_SO_PATH);
+        foreach (var abilityLevelData in abilityLevelDatas)
+        {
+            if (abilityLevelDataDic.TryGetValue(abilityLevelData.AbilityID, out var list))
+            {
+                list.Add(abilityLevelData);
+            }
+        }
+    }
 
     /// <summary>
     /// 가중치 기반 랜덤 재능 불러오기
@@ -87,29 +105,6 @@ public class AbilityEffectFactory : IEventListener
         if (effectHandlers.TryGetValue(type, out var handlers))
         {
             handlers.Remove(handler);
-        }
-    }
-
-    /// <summary>
-    /// 재능 및 재능별 레벨 데이터 초기화
-    /// </summary>
-    private void InitializeData()
-    {
-        abilityDatas = ResourceManager.Instance.LoadAll<AbilityDataSO>(ABILITY_DATA_SO_PATH);
-        foreach (var abilityData in abilityDatas)
-        {
-            var list = new List<AbilityLevelDataSO>();
-            abilityLevelDataDic.TryAdd(abilityData.ID, list);
-            currentAbilityLevelDic.TryAdd(abilityData.ID, 0);
-        }
-
-        var abilityLevelDatas = ResourceManager.Instance.LoadAll<AbilityLevelDataSO>(ABILITY_LEVEL_DATA_SO_PATH);
-        foreach (var abilityLevelData in abilityLevelDatas)
-        {
-            if (abilityLevelDataDic.TryGetValue(abilityLevelData.AbilityID, out var list))
-            {
-                list.Add(abilityLevelData);
-            }
         }
     }
 
