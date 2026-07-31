@@ -48,7 +48,7 @@ public class InGameManager : MonoSingleton<InGameManager>, IEventListener
 
         await HeroAttackState.PreLoadProjectileAsync();
         
-        UIManager.Instance.Open<UIInGame>();
+        await UIManager.Instance.OpenAsync<UIInGame>();
         
         CreateBackground();
         
@@ -159,7 +159,7 @@ public class InGameManager : MonoSingleton<InGameManager>, IEventListener
     private void GameFinish(InGameFinishEventData eventData)
     {
         PauseGame();
-        UIManager.Instance.Open<UIGameResult>(eventData);
+        UIManager.Instance.OpenAsync<UIGameResult>(eventData).Forget();
         CDebug.Log(eventData.IsGameVictory ? "[InGameManager] 게임 승리" : "[InGameManager] 게임 패배");
     }
 

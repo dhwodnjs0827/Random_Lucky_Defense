@@ -1,3 +1,4 @@
+using Cysharp.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -47,12 +48,12 @@ public class LobbyBottomButtonGroups : MonoBehaviour
 
     private void OnClickShopButton()
     {
-        UIManager.Instance.Open<UIShop>();
+        UIManager.Instance.OpenAsync<UIShop>().Forget();
     }
 
     private void OnClickHeroButton()
     {
-        UIManager.Instance.Open<UIHeroManage>();
+        UIManager.Instance.OpenAsync<UIHeroManage>().Forget();
     }
 
     private void OnClickLockButton()

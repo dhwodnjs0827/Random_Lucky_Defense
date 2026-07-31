@@ -168,7 +168,7 @@ public class AddressableManager : MonoSingleton<AddressableManager>
     /// <summary>
     /// 모든 리소스 메모리 해제 및 캐시 정리
     /// </summary>
-    private void ReleaseAll()
+    public void ReleaseAll()
     {
         foreach (var handle in handleMap.Values)
         {

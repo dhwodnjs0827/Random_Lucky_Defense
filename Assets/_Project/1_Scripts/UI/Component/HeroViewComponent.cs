@@ -1,3 +1,4 @@
+using Cysharp.Threading.Tasks;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -67,6 +68,6 @@ public class HeroViewComponent : MonoBehaviour
 
     private void OnClickHeroInfoButton()
     {
-        UIManager.Instance.Open<UIHeroInfo>(currentHeroData);
+        UIManager.Instance.OpenAsync<UIHeroInfo>(currentHeroData).Forget();
     }
 }

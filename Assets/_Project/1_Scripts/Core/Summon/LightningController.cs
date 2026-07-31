@@ -1,5 +1,8 @@
+using System;
+using Cysharp.Threading.Tasks;
 using Generated;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class LightningController : MonoBehaviour
 {
@@ -10,6 +13,8 @@ public class LightningController : MonoBehaviour
     private float attackTimer;
 
     private int enemyLayerMask;
+    
+    private bool isInitialized;
 
     private const string LIGHTNING_DATA_SO_PATH = "Data/SO/SummonData/Lightning";
 
@@ -19,16 +24,30 @@ public class LightningController : MonoBehaviour
     private float AcquiredHeroBonusDamage =>
         InGameManager.Instance.HeroBuffController.AcquiredHeroBonusDamages[classType];
 
-    private void Awake()
+    private async UniTaskVoid Awake()
     {
-        var lightningData = ResourceManager.Instance.Load<SummonDataSO>(LIGHTNING_DATA_SO_PATH);
-        classType = lightningData.ClassType;
-        baseStat = new HeroStat(lightningData);
-        enemyLayerMask = LayerMask.GetMask("Enemy");
+        try
+        {
+            var lightningData = await AddressableManager.Instance.LoadAsync<SummonDataSO>(LIGHTNING_DATA_SO_PATH);
+            classType = lightningData.ClassType;
+            baseStat = new HeroStat(lightningData);
+            enemyLayerMask = LayerMask.GetMask("Enemy");
+            
+            isInitialized = true;
+        }
+        catch (Exception e)
+        {
+            CDebug.LogError($"[LightningController] 초기화 실패: {e}");
+        }
     }
 
     private void Update()
     {
+        if (!isInitialized)
+        {
+            return;
+        }
+        
         attackTimer -= Time.deltaTime;
 
         if (attackTimer <= 0f)

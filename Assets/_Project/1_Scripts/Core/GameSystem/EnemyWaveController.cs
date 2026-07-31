@@ -77,7 +77,7 @@ public class EnemyWaveController : MonoBehaviour, IEventListener
             // 7의 배수 스테이지 끝날 시, 재능 선택 UI 등장
             if (currentWaveData.WaveIndex % GameConstants.ABILITY_SELECTION_STAGE_INTERVAL == 0)
             {
-                UIManager.Instance.Open<UIAbilitySelect>();
+                UIManager.Instance.OpenAsync<UIAbilitySelect>().Forget();
             }
 
             // 다음 웨이브 설정

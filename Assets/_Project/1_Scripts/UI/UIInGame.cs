@@ -1,3 +1,4 @@
+using Cysharp.Threading.Tasks;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -54,7 +55,7 @@ public class UIInGame : UIBase
 
     private void OnClickPauseButton()
     {
-        UIManager.Instance.Open<UIPause>();
+        UIManager.Instance.OpenAsync<UIPause>().Forget();
     }
 
     private void OnClickGameSpeedButton()

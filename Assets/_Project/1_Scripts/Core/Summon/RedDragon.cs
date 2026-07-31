@@ -1,3 +1,5 @@
+using System;
+using Cysharp.Threading.Tasks;
 using Generated;
 using UnityEngine;
 
@@ -17,6 +19,8 @@ public class RedDragon : MonoBehaviour
     private int enemyLayerMask;
     private BaseEnemy targetEnemy;
     
+    private bool isInitialized;
+    
     private const string RED_DRAGON_DATA_SO_PATH = "Data/SO/SummonData/Red_Dragon";
 
     private HeroStat LevelUpStat => InGameManager.Instance.HeroBuffController.LevelUpStats[classType];
@@ -25,16 +29,30 @@ public class RedDragon : MonoBehaviour
     private float AcquiredHeroBonusDamage =>
         InGameManager.Instance.HeroBuffController.AcquiredHeroBonusDamages[classType];
 
-    private void Awake()
+    private async UniTaskVoid Awake()
     {
-        var redDragonData = ResourceManager.Instance.Load<SummonDataSO>(RED_DRAGON_DATA_SO_PATH);
-        classType = redDragonData.ClassType;
-        baseStat = new HeroStat(redDragonData);
-        enemyLayerMask = LayerMask.GetMask("Enemy");
+        try
+        {
+            var redDragonData = await AddressableManager.Instance.LoadAsync<SummonDataSO>(RED_DRAGON_DATA_SO_PATH);
+            classType = redDragonData.ClassType;
+            baseStat = new HeroStat(redDragonData);
+            enemyLayerMask = LayerMask.GetMask("Enemy");
+            
+            isInitialized = true;
+        }
+        catch (Exception e)
+        {
+            CDebug.LogError($"[RedDragon] 초기화 실패: {e}");
+        }
     }
 
     private void Update()
     {
+        if (!isInitialized)
+        {
+            return;
+        }
+        
         attackCooldown += Time.deltaTime;
 
         if (targetEnemy == null)

@@ -1,3 +1,5 @@
+using System;
+using Cysharp.Threading.Tasks;
 using Generated;
 using UnityEngine;
 
@@ -14,6 +16,8 @@ public class AncientStatue : MonoBehaviour
     private BaseEnemy targetEnemy;
     private bool isLaserActive;
     
+    private bool isInitialized;
+    
     private const string ANCIENT_STATUE_DATA_SO_PATH = "Data/SO/SummonData/Ancient_Statue";
 
     private HeroStat LevelUpStat => InGameManager.Instance.HeroBuffController.LevelUpStats[classType];
@@ -22,16 +26,30 @@ public class AncientStatue : MonoBehaviour
     private float AcquiredHeroBonusDamage =>
         InGameManager.Instance.HeroBuffController.AcquiredHeroBonusDamages[classType];
 
-    private void Awake()
+    private async UniTaskVoid Awake()
     {
-        var ancientStatueData = ResourceManager.Instance.Load<SummonDataSO>(ANCIENT_STATUE_DATA_SO_PATH);
-        classType = ancientStatueData.ClassType;
-        baseStat = new HeroStat(ancientStatueData);
-        enemyLayerMask = LayerMask.GetMask("Enemy");
+        try
+        {
+            var ancientStatueData = await AddressableManager.Instance.LoadAsync<SummonDataSO>(ANCIENT_STATUE_DATA_SO_PATH);
+            classType = ancientStatueData.ClassType;
+            baseStat = new HeroStat(ancientStatueData);
+            enemyLayerMask = LayerMask.GetMask("Enemy");
+            
+            isInitialized = true;
+        }
+        catch (Exception e)
+        {
+            CDebug.LogError($"[AncientStatue] 초기화 실패: {e}]");
+        }
     }
-
+    
     private void Update()
     {
+        if (!isInitialized)
+        {
+            return;
+        }
+        
         if (targetEnemy == null)
         {
             isLaserActive = false;

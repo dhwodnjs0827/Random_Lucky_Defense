@@ -1,3 +1,4 @@
+using Cysharp.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -33,6 +34,6 @@ public class UIShop : UIBase
 
     private void OnClickHeroGachaButton(int gachaCount)
     {
-        UIManager.Instance.Open<UIHeroGacha>(gachaCount);
+        UIManager.Instance.OpenAsync<UIHeroGacha>(gachaCount).Forget();
     }
 }
