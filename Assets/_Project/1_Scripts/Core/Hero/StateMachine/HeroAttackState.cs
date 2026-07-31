@@ -1,3 +1,4 @@
+using Cysharp.Threading.Tasks;
 using UnityEngine;
 
 /// <summary>
@@ -10,11 +11,12 @@ public class HeroAttackState : BaseHeroState
     private BaseEnemy targetEnemy;
     private float attackCooldown;
     
-    private BaseProjectile projectilePrefab;
+    private static BaseProjectile projectilePrefab;
+    private static bool isLoaded;
 
     public HeroAttackState(BaseHero hero, HeroStateMachine heroStateMachine) : base(hero, heroStateMachine)
     {
-        projectilePrefab = ResourceManager.Instance.Load<BaseProjectile>("Prefabs/Projectile/BaseProjectile");
+        
     }
 
     public override void Enter()
@@ -36,6 +38,13 @@ public class HeroAttackState : BaseHeroState
     public override void Exit()
     {
         targetEnemy = null;
+    }
+
+    public static async UniTask PreLoadProjectileAsync()
+    {
+        if(isLoaded) return;
+        projectilePrefab = await AddressableManager.Instance.LoadAsync<BaseProjectile>("Prefabs/Projectile/BaseProjectile");
+        isLoaded = true;
     }
 
     /// <summary>

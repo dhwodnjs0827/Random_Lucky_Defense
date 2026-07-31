@@ -45,6 +45,8 @@ public class InGameManager : MonoSingleton<InGameManager>, IEventListener
         heroBuffController = new InGameHeroBuffController();
         currencyController = new InGameCurrencyController();
         rewardController = new InGameRewardController();
+
+        await HeroAttackState.PreLoadProjectileAsync();
         
         UIManager.Instance.Open<UIInGame>();
         
