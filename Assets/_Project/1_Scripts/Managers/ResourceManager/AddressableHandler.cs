@@ -68,7 +68,7 @@ public class AddressableHandler : IResourceHandler
 
     public async UniTask<T[]> LoadAllAsync<T>(string label) where T : Object
     {
-        var handle = Addressables.LoadAssetsAsync<T>((object)label, null);
+        var handle = Addressables.LoadAssetsAsync<T>(label, null);
         var resources = await handle;
         if (resources == null || resources.Count == 0)
         {

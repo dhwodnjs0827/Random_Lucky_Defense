@@ -1,3 +1,4 @@
+using Cysharp.Threading.Tasks;
 using UnityEngine;
 
 /// <summary>
@@ -7,7 +8,9 @@ public abstract class MonoSingleton<T> : MonoBehaviour where T: Component
 {
     private static T instance;
     private static bool isApplicationQuitting = false;
-    
+
+    protected abstract bool isInitialized { get; set; }
+
     /// <summary>
     /// DontDestroyOnLoad 설정 (기본값: true)
     /// </summary>
@@ -50,6 +53,8 @@ public abstract class MonoSingleton<T> : MonoBehaviour where T: Component
     {
         instance = null;
     }
+    
+    public abstract UniTask InitializeAsync();
 
     /// <summary>
     /// 중복 인스턴스 제거 및 DontDestroyOnLoad 설정

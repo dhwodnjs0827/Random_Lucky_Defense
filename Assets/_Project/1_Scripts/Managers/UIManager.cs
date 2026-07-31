@@ -14,7 +14,7 @@ public class UIManager : MonoSingleton<UIManager>
     private Dictionary<string, UIBase> openedUI = new();
     private Dictionary<string, UIBase> closedUI = new();
 
-    private bool isInitialized = false;
+    protected override bool isInitialized { get; set; }
 
     protected override void OnDestroy()
     {
@@ -25,7 +25,7 @@ public class UIManager : MonoSingleton<UIManager>
     /// <summary>
     /// UIManager 초기화
     /// </summary>
-    public async UniTask InitializeAsync()
+    public override async UniTask InitializeAsync()
     {
         if (isInitialized)
         {

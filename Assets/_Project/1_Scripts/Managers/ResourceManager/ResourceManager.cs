@@ -10,10 +10,10 @@ using Object = UnityEngine.Object;
 /// </summary>
 public class ResourceManager : MonoSingleton<ResourceManager>, IResourceHandler
 {
-    private bool isInitialized = false;
-
     private IResourceHandler handler;
     private readonly IDictionary<string, Object> resourceCache = new Dictionary<string, Object>(); // 리소스 캐시
+
+    protected override bool isInitialized { get; set; }
 
     protected override void OnDestroy()
     {
@@ -24,7 +24,7 @@ public class ResourceManager : MonoSingleton<ResourceManager>, IResourceHandler
     /// <summary>
     /// ResourceManager 초기화
     /// </summary>
-    public async UniTask InitializeAsync()
+    public override async UniTask InitializeAsync()
     {
         if (isInitialized)
         {

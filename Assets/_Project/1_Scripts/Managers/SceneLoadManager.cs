@@ -9,17 +9,17 @@ using UnityEngine.SceneManagement;
 /// </summary>
 public class SceneLoadManager : MonoSingleton<SceneLoadManager>
 {
-    private bool isInitialized = false;
-    
     private Dictionary<SceneType, BaseScene> scenes;
 
     private BaseScene currentScene;
     private bool isLoading = false;
 
+    protected override bool isInitialized { get; set; }
+
     /// <summary>
     /// SceneLoadManager 초기화
     /// </summary>
-    public async UniTask InitializeAsync()
+    public override async UniTask InitializeAsync()
     {
         if (isInitialized)
         {

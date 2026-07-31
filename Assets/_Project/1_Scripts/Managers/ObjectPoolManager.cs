@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Cysharp.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.Pool;
 
@@ -11,6 +12,13 @@ public class ObjectPoolManager : MonoSingleton<ObjectPoolManager>
     private Dictionary<GameObject, IObjectPool<GameObject>> pools = new(); // 프리팹별 pool 관리
     private Dictionary<GameObject, GameObject> prefabLookup = new(); // 인스턴스 - 프리팹 매핑 (Release 시, 원본 프리팹 찾는 용도)
     private Dictionary<GameObject, Transform> poolParents = new(); // pool 부모
+
+    protected override bool isInitialized { get; set; }
+
+    public override UniTask InitializeAsync()
+    {
+        return default;
+    }
 
     /// <summary>
     /// 풀에서 오브젝트 가져오기

@@ -6,10 +6,11 @@ using UnityEngine;
 /// </summary>
 public class ToastManager : MonoSingleton<ToastManager>
 {
-    private bool isInitialized = false;
     private UIToast uiToast;
 
-    public async UniTask InitializeAsync()
+    protected override bool isInitialized { get; set; }
+
+    public override async UniTask InitializeAsync()
     {
         if (isInitialized)
         {

@@ -7,8 +7,8 @@ using UnityEngine;
 /// </summary>
 public class InGameManager : MonoSingleton<InGameManager>, IEventListener
 {
+    protected override bool isInitialized { get; set; }
     protected override bool IsDontDestroyOnLoad => false;
-    private bool isInitialized = false;
     
     private AbilityEffectFactory abilityEffectFactory;
     private InGameHeroLevelUpController heroLevelUpController;
@@ -29,7 +29,7 @@ public class InGameManager : MonoSingleton<InGameManager>, IEventListener
     public InGameCurrencyController CurrencyController => currencyController;
     public float CurrentGameSpeed => gameSpeeds[currentGameSpeedIndex];
 
-    public async UniTask InitializeAsync()
+    public override async UniTask InitializeAsync()
     {
         if (isInitialized)
         {

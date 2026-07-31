@@ -16,14 +16,9 @@ public class AbilityEffectFactory : IEventListener
     private readonly Dictionary<string, int> currentAbilityLevelDic = new();
 
     private Action<AbilitySelectEventData> onAbilitySelected;
-
-#if ADDRESSABLE
-    private const string ABILITY_DATA_SO_PATH = "AbilityData"; // Label
-    private const string ABILITY_LEVEL_DATA_SO_PATH = "AbilityLevelData"; // Label
-#else
-    private const string ABILITY_DATA_SO_PATH = "Data/SO/AbilityData";  // 폴더
-    private const string ABILITY_LEVEL_DATA_SO_PATH = "Data/SO/AbilityLevelData";
-#endif
+    
+    private const string ABILITY_DATA_SO_PATH = "AbilityData";
+    private const string ABILITY_LEVEL_DATA_SO_PATH = "AbilityLevelData";
 
 
     public AbilityEffectFactory()

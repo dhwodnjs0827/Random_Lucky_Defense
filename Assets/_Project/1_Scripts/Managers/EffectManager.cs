@@ -8,11 +8,11 @@ public class EffectManager : MonoSingleton<EffectManager>
 {
     private ResourceManager resourceManager;
     private ObjectPoolManager objectPoolManager;
-    
-    private bool isInitialized = false;
 
     private const string EFFECT_RESOURCE_PATH = "VFX/";
     private VFXInstance vfxInstance;
+
+    protected override bool isInitialized { get; set; }
 
     protected override void Awake()
     {
@@ -24,7 +24,7 @@ public class EffectManager : MonoSingleton<EffectManager>
     /// <summary>
     /// EffectManager 초기화
     /// </summary>
-    public async UniTask InitializeAsync()
+    public override async UniTask InitializeAsync()
     {
         if (isInitialized)
         {

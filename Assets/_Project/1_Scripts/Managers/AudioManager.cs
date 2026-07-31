@@ -8,8 +8,6 @@ using UnityEngine.Audio;
 /// </summary>
 public class AudioManager : MonoSingleton<AudioManager>
 {
-    private bool isInitialized = false;
-
     private const string MASTER_VOLUME = "MasterVolume";
     private const string BGM_VOLUME = "BGMVolume";
     private const string SFX_VOLUME = "SFXVolume";
@@ -43,10 +41,12 @@ public class AudioManager : MonoSingleton<AudioManager>
     public bool IsBgmMuted => isBgmMuted;
     public bool IsSfxMuted => isSfxMuted;
 
+    protected override bool isInitialized { get; set; }
+
     /// <summary>
     /// AudioManager 초기화 
     /// </summary>
-    public async UniTask InitializeAsync()
+    public override async UniTask InitializeAsync()
     {
         if (isInitialized)
         {
