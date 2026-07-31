@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Cysharp.Threading.Tasks;
 using Generated;
 using UniRx;
 
@@ -23,11 +24,6 @@ public class InGameHeroLevelUpController : IEventListener
 
     public IDictionary<HeroClassType, Dictionary<int, ClassLevelUpData>> LevelUpDataDict => levelUpDataDict;
     public IDictionary<HeroClassType, ReactiveProperty<int>> CurrentLevelDict => currentLevelDict;
-
-    public InGameHeroLevelUpController()
-    {
-        InitializeLevelUpData();
-    }
 
     #region IEventListener implementation
 
@@ -62,13 +58,13 @@ public class InGameHeroLevelUpController : IEventListener
     /// <summary>
     /// 인게임 영웅 레벨업 데이터 초기화
     /// </summary>
-    private void InitializeLevelUpData()
+    public async UniTask InitializeLevelUpDataAsync()
     {
         currentLevelDict.Add(HeroClassType.Magician, new ReactiveProperty<int>(1));
         currentLevelDict.Add(HeroClassType.Archer, new ReactiveProperty<int>(1));
         currentLevelDict.Add(HeroClassType.Knight, new ReactiveProperty<int>(1));
 
-        var datas = ResourceManager.Instance.LoadAll<InGameHeroLevelUpDataSO>(IN_GAME_HERO_LEVEL_UP_DATA_SO_PATH);
+        var datas = await AddressableManager.Instance.LoadAllAsync<InGameHeroLevelUpDataSO>(IN_GAME_HERO_LEVEL_UP_DATA_SO_PATH);
         levelUpDataDict.Add(HeroClassType.Magician, new Dictionary<int, ClassLevelUpData>());
         levelUpDataDict.Add(HeroClassType.Archer, new Dictionary<int, ClassLevelUpData>());
         levelUpDataDict.Add(HeroClassType.Knight, new Dictionary<int, ClassLevelUpData>());

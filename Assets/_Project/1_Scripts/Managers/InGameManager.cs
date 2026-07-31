@@ -41,6 +41,7 @@ public class InGameManager : MonoSingleton<InGameManager>, IEventListener
         abilityEffectFactory = new AbilityEffectFactory();
         await abilityEffectFactory.InitializeDataAsync();
         heroLevelUpController =  new InGameHeroLevelUpController();
+        await heroLevelUpController.InitializeLevelUpDataAsync();
         heroBuffController = new InGameHeroBuffController();
         currencyController = new InGameCurrencyController();
         rewardController = new InGameRewardController();
