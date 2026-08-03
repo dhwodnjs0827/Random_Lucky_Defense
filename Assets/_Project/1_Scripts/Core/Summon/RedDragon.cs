@@ -29,7 +29,7 @@ public class RedDragon : MonoBehaviour
     private float AcquiredHeroBonusDamage =>
         InGameManager.Instance.HeroBuffController.AcquiredHeroBonusDamages[classType];
 
-    private async UniTaskVoid Awake()
+    public async UniTask InitializeAsync()
     {
         try
         {
@@ -37,7 +37,7 @@ public class RedDragon : MonoBehaviour
             classType = redDragonData.ClassType;
             baseStat = new HeroStat(redDragonData);
             enemyLayerMask = LayerMask.GetMask("Enemy");
-            
+
             isInitialized = true;
         }
         catch (Exception e)

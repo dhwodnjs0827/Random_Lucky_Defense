@@ -24,7 +24,7 @@ public class LightningController : MonoBehaviour
     private float AcquiredHeroBonusDamage =>
         InGameManager.Instance.HeroBuffController.AcquiredHeroBonusDamages[classType];
 
-    private async UniTaskVoid Awake()
+    public async UniTask InitializeAsync()
     {
         try
         {
@@ -32,7 +32,7 @@ public class LightningController : MonoBehaviour
             classType = lightningData.ClassType;
             baseStat = new HeroStat(lightningData);
             enemyLayerMask = LayerMask.GetMask("Enemy");
-            
+
             isInitialized = true;
         }
         catch (Exception e)

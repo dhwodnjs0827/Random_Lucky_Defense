@@ -11,6 +11,10 @@ public class SummonController : MonoBehaviour, IAbilityEffect
     private RedDragon redDragon;
     private AncientStatue ancientStatue;
     private LightningController lightning;
+
+    private UniTask<RedDragon> redDragonSpawning;
+    private UniTask<AncientStatue> ancientStatueSpawning;
+    private UniTask<LightningController> lightningSpawning;
     
     private const string RED_DRAGON_PREFAB_PATH = "Prefabs/Summon/RedDragon";
     private const string ANCIENT_STATUE_PREFAB_PATH = "Prefabs/Summon/AncientStatue";
@@ -67,50 +71,85 @@ public class SummonController : MonoBehaviour, IAbilityEffect
     
     private void ApplyRedDragonAbility(AbilityContainer abilityContainer)
     {
+        ApplyRedDragonAbilityAsync(abilityContainer).Forget();
+    }
+
+    private async UniTaskVoid ApplyRedDragonAbilityAsync(AbilityContainer abilityContainer)
+    {
         if (redDragon == null)
         {
-            SpawnRedDragonAsync().Forget();
+            redDragonSpawning = redDragonSpawning.Status == UniTaskStatus.Pending
+                ? redDragonSpawning
+                : SpawnRedDragonAsync().Preserve();
+            
+            redDragon = await redDragonSpawning;
         }
-
+        
         redDragon.IncreaseStat(abilityContainer);
     }
 
     private void ApplyAncientStatueAbility(AbilityContainer abilityContainer)
     {
+        ApplyAncientStatueAsync(abilityContainer).Forget();
+    }
+    
+    private async UniTaskVoid ApplyAncientStatueAsync(AbilityContainer abilityContainer)
+    {
         if (ancientStatue == null)
         {
-            SpawnAncientStatueAsync().Forget();
+            ancientStatueSpawning = ancientStatueSpawning.Status == UniTaskStatus.Pending
+                ? ancientStatueSpawning
+                : SpawnAncientStatueAsync().Preserve();
+            
+            ancientStatue = await ancientStatueSpawning;
         }
+        
         ancientStatue.IncreaseStat(abilityContainer);
     }
     
     private void ApplyLightningAbility(AbilityContainer abilityContainer)
     {
+        ApplyLightningAsync(abilityContainer).Forget();
+    }
+    
+    private async UniTaskVoid ApplyLightningAsync(AbilityContainer abilityContainer)
+    {
         if (lightning == null)
         {
-            CreateLightningAsync().Forget();
+            lightningSpawning = lightningSpawning.Status == UniTaskStatus.Pending
+                ? lightningSpawning
+                : CreateLightningAsync().Preserve();
+            
+            lightning = await lightningSpawning;
         }
+        
         lightning.IncreaseStat(abilityContainer);
     }
 
-    private async UniTask SpawnRedDragonAsync()
+    private async UniTask<RedDragon> SpawnRedDragonAsync()
     {
         var prefab = await AddressableManager.Instance.LoadAsync<RedDragon>(RED_DRAGON_PREFAB_PATH);
         redDragon = Instantiate(prefab, redDragonSpawnPoint.position, redDragonSpawnPoint.rotation);
         redDragon.transform.SetParent(redDragonSpawnPoint);
+        await redDragon.InitializeAsync();
+        return redDragon;
     }
 
-    private async UniTask SpawnAncientStatueAsync()
+    private async UniTask<AncientStatue> SpawnAncientStatueAsync()
     {
         var prefab = await AddressableManager.Instance.LoadAsync<AncientStatue>(ANCIENT_STATUE_PREFAB_PATH);
         ancientStatue = Instantiate(prefab, ancientStatueSpawnPoint.position, ancientStatueSpawnPoint.rotation);
         ancientStatue.transform.SetParent(ancientStatueSpawnPoint);
+        await ancientStatue.InitializeAsync();
+        return ancientStatue;
     }
-    
-    private async UniTask CreateLightningAsync()
+
+    private async UniTask<LightningController> CreateLightningAsync()
     {
         var prefab = await AddressableManager.Instance.LoadAsync<LightningController>(LIGHTNING_PREFAB_PATH);
         lightning = Instantiate(prefab, lightningSpawnPoint.position, lightningSpawnPoint.rotation);
         lightning.transform.SetParent(lightningSpawnPoint);
+        await lightning.InitializeAsync();
+        return lightning;
     }
 }
