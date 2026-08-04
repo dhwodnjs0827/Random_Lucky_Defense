@@ -8,12 +8,12 @@ public partial class PlayerDataManager
     /// <summary>
     /// 초기 선택 영웅 데이터 초기화
     /// </summary>
-    private async UniTask InitializeHeroDataAsync(HeroSaveData data)
+    private void InitializeHeroData(HeroSaveData data)
     {
         var heroes = new List<HeroRuntimeData>();
         foreach (var hero in data.AllHeroes)
         {
-            var convertData = await hero.ConvertAsync();
+            var convertData = hero.Convert();
             heroes.Add(convertData);
         }
 

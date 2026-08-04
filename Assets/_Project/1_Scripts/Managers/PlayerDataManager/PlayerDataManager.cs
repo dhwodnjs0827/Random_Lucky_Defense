@@ -17,9 +17,11 @@ public partial class PlayerDataManager : MonoSingleton<PlayerDataManager>
         var saveData = SaveLoadManager.Instance.SaveData;
         InitializeCurrencyData(saveData.CurrencyData);
         InitializeProfileData(saveData.ProfileData);
-        await InitializeHeroDataAsync(saveData.HeroData);
+        InitializeHeroData(saveData.HeroData);
         
         isInitialized = true;
+
+        await UniTask.CompletedTask;
     }
 
     /// <summary>
