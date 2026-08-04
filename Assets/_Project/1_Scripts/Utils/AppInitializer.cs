@@ -1,7 +1,4 @@
-using System;
-using Cysharp.Threading.Tasks;
 using UnityEngine;
-using Object = UnityEngine.Object;
 
 /// <summary>
 /// Application 초기화 클래스
@@ -20,16 +17,6 @@ public static class AppInitializer
     private static void InitializeBeforeSceneLoad()
     {
         Application.targetFrameRate = FRAME_RATE;
-        
-        // Prefab에서 AudioManager 로드
-        var audioManagerPrefab = Resources.Load<AudioManager>("Audio/AudioManager");
-        if (audioManagerPrefab != null)
-        {
-            var audioManager = Object.Instantiate(audioManagerPrefab);
-            audioManager.name = "AudioManager";
-        }
-        
-        InitializeManagerAsync().Forget();
     }
     
     /// <summary>
@@ -42,31 +29,5 @@ public static class AppInitializer
     private static void InitializeAfterSceneLoad()
     {
         
-    }
-
-    /// <summary>
-    /// 초기 필수 Manager 초기화
-    /// </summary>
-    private static async UniTask InitializeManagerAsync()
-    {
-        try
-        {
-#if FIREBASE_ENABLED
-            await FirebaseManager.Instance.InitializeFirebaseAsync();
-            await FirebaseManager.Instance.AutoSignInAsync();
-#endif
-            await AddressableManager.Instance.InitializeAsync();
-            await SaveLoadManager.Instance.InitializeAsync();
-            await PlayerDataManager.Instance.InitializeAsync();
-            await AudioManager.Instance.InitializeAsync();
-            await UIManager.Instance.InitializeAsync();
-            await SceneLoadManager.Instance.InitializeAsync();
-            await ToastManager.Instance.InitializeAsync();
-        }
-        catch (Exception e)
-        {
-            CDebug.LogException(e);
-            Application.Quit();
-        }
     }
 }
