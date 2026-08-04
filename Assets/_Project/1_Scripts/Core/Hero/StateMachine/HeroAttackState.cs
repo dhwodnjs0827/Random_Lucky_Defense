@@ -10,13 +10,12 @@ public class HeroAttackState : BaseHeroState
 
     private BaseEnemy targetEnemy;
     private float attackCooldown;
-    
+
     private static BaseProjectile projectilePrefab;
     private static bool isLoaded;
 
     public HeroAttackState(BaseHero hero, HeroStateMachine heroStateMachine) : base(hero, heroStateMachine)
     {
-        
     }
 
     public override void Enter()
@@ -42,9 +41,26 @@ public class HeroAttackState : BaseHeroState
 
     public static async UniTask PreLoadProjectileAsync()
     {
-        if(isLoaded) return;
-        projectilePrefab = await AddressableManager.Instance.LoadAsync<BaseProjectile>("Prefabs/Projectile/BaseProjectile");
-        isLoaded = true;
+        if (isLoaded)
+        {
+            return;
+        }
+
+        projectilePrefab =
+            await AddressableManager.Instance.LoadAsync<BaseProjectile>("Prefabs/Projectile/BaseProjectile");
+        if (projectilePrefab != null)
+        {
+            isLoaded = true;
+        }
+        else
+        {
+            CDebug.LogError("[HeroAttackState] 영웅 투사체 로드 실패");
+        }
+    }
+
+    public void SetProjectile(BaseProjectile projectile)
+    {
+        projectilePrefab = projectile;
     }
 
     /// <summary>
@@ -63,7 +79,8 @@ public class HeroAttackState : BaseHeroState
     /// </summary>
     private void Attack()
     {
-        var attackSpeed = DamageCalculator.CalculateMultipliers(hero.BaseStat.AttackSpeed, hero.LevelUpStat.AttackSpeedMultiplier, hero.AbilityEffectStat.AttackSpeedMultiplier);
+        var attackSpeed = DamageCalculator.CalculateMultipliers(hero.BaseStat.AttackSpeed,
+            hero.LevelUpStat.AttackSpeedMultiplier, hero.AbilityEffectStat.AttackSpeedMultiplier);
         if (attackCooldown >= attackSpeed)
         {
             hero.Animator.SetTrigger(AttackAnimParam);
@@ -101,7 +118,8 @@ public class HeroAttackState : BaseHeroState
         }
 
         var distance = Vector2.Distance(hero.transform.position, targetEnemy.transform.position);
-        var attackRange = DamageCalculator.CalculateMultipliers(hero.BaseStat.AttackRange, hero.LevelUpStat.AttackRangeMultiplier, hero.AbilityEffectStat.AttackRangeMultiplier);
+        var attackRange = DamageCalculator.CalculateMultipliers(hero.BaseStat.AttackRange,
+            hero.LevelUpStat.AttackRangeMultiplier, hero.AbilityEffectStat.AttackRangeMultiplier);
         if (distance > attackRange)
         {
             stateMachine.ChangeState(stateMachine.IdleState);

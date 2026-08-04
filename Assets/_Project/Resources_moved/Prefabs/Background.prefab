@@ -2732,7 +2732,6 @@ GameObject:
   - component: {fileID: 8957575094903863156}
   - component: {fileID: 313901363638587927}
   - component: {fileID: 894002276123291279}
-  - component: {fileID: 198051534122344283}
   m_Layer: 20
   m_Name: HeroSpawner
   m_TagString: Untagged
@@ -2893,20 +2892,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e748ceb02b0d940e9aea2f3529b18141, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HeroSpawner
-  heroSpawnPool: {fileID: 198051534122344283}
   areaController: {fileID: 3918143095757140611}
---- !u!114 &198051534122344283
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3867521472363818489}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b84172e61b6174c188029400a9bd0edc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::HeroSpawnPool
 --- !u!1 &3873308120545102988
 GameObject:
   m_ObjectHideFlags: 0

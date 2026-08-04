@@ -10,11 +10,15 @@ public class InGameManager : MonoSingleton<InGameManager>, IEventListener
     protected override bool isInitialized { get; set; }
     protected override bool IsDontDestroyOnLoad => false;
     
+    private InGameDataFactory inGameDataFactory;
+    
     private AbilityEffectFactory abilityEffectFactory;
     private InGameHeroLevelUpController heroLevelUpController;
     private InGameHeroBuffController heroBuffController;
     private InGameCurrencyController currencyController;
     private InGameRewardController rewardController;
+    
+    private HeroSpawnPool heroSpawnPool;
 
     private readonly float[] gameSpeeds = { 1f, 2f, 3f };
     private int currentGameSpeedIndex;
@@ -23,10 +27,13 @@ public class InGameManager : MonoSingleton<InGameManager>, IEventListener
     
     private Action<InGameFinishEventData> onGameFinish;
     
+    public InGameDataFactory InGameDataFactory => inGameDataFactory;
+    
     public AbilityEffectFactory AbilityEffectFactory => abilityEffectFactory;
     public InGameHeroLevelUpController HeroLevelUpController => heroLevelUpController;
     public InGameHeroBuffController HeroBuffController => heroBuffController;
     public InGameCurrencyController CurrencyController => currencyController;
+    public HeroSpawnPool HeroSpawnPool => heroSpawnPool;
     public float CurrentGameSpeed => gameSpeeds[currentGameSpeedIndex];
 
     public override async UniTask InitializeAsync()
@@ -38,6 +45,9 @@ public class InGameManager : MonoSingleton<InGameManager>, IEventListener
 
         ResetGameSpeed();
         
+        inGameDataFactory = new InGameDataFactory();
+        await inGameDataFactory.InitializeAsync();
+        
         abilityEffectFactory = new AbilityEffectFactory();
         await abilityEffectFactory.InitializeDataAsync();
         heroLevelUpController =  new InGameHeroLevelUpController();
@@ -45,6 +55,9 @@ public class InGameManager : MonoSingleton<InGameManager>, IEventListener
         heroBuffController = new InGameHeroBuffController();
         currencyController = new InGameCurrencyController();
         rewardController = new InGameRewardController();
+        
+        heroSpawnPool = new HeroSpawnPool();
+        await heroSpawnPool.InitializeAsync();
 
         await DamageCalculator.InitializeAsync();
         await HeroAttackState.PreLoadProjectileAsync();
@@ -56,7 +69,6 @@ public class InGameManager : MonoSingleton<InGameManager>, IEventListener
         SubscribeEvents();
         
         isInitialized = true;
-        await UniTask.CompletedTask;
     }
 
     #region Unity Methods

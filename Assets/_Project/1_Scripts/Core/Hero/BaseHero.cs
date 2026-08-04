@@ -1,3 +1,4 @@
+using Cysharp.Threading.Tasks;
 using Generated;
 using UnityEngine;
 
@@ -43,6 +44,12 @@ public abstract class BaseHero : MonoBehaviour, IPoolable
     {
         heroData = data;
         baseStat = new HeroStat(data);
+    }
+
+    public async UniTask InitializeProjectileAsync()
+    {
+        var projectilePrefab = await AddressableManager.Instance.LoadAsync<BaseProjectile>("Prefabs/Projectile/BaseProjectile");
+        stateMachine.AttackState.SetProjectile(projectilePrefab);
     }
 
     /// <summary>

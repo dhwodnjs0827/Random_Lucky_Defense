@@ -11,11 +11,22 @@ public class EnemySpawner : MonoBehaviour
 
     private Vector3 spawnPoint;
 
+    #region Unity Methods
+
     private void Awake()
     {
-        Initialize();
+        if (splineContainer == null)
+        {
+            CDebug.LogError("[EnemySpawner] SplineContainer가 없습니다!");
+            return;
+        }
+        
+        // Spline 경로의 시작 지점을 SpawnPoint로 설정
+        spawnPoint = splineContainer.transform.TransformPoint(splineContainer.Spline[0].Position);
     }
 
+    #endregion
+    
     /// <summary>
     /// 적 생성 및 초기화
     /// </summary>
@@ -29,17 +40,5 @@ public class EnemySpawner : MonoBehaviour
         enemy.transform.position = spawnPoint;
         enemy.Initialize(spawnEnemyData, waveData, splineContainer);
         enemy.StartMove();
-    }
-
-    private void Initialize()
-    {
-        if (splineContainer == null)
-        {
-            CDebug.LogError("[EnemySpawner] SplineContainer가 없습니다!");
-            return;
-        }
-        
-        // Spline 경로의 시작 지점을 SpawnPoint로 설정
-        spawnPoint = splineContainer.transform.TransformPoint(splineContainer.Spline[0].Position);
     }
 }

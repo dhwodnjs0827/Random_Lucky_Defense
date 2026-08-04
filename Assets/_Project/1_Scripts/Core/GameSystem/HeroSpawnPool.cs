@@ -2,55 +2,44 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Cysharp.Threading.Tasks;
-using Generated;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
 /// <summary>
 /// 영웅 Pool 관리 클래스
 /// </summary>
-public class HeroSpawnPool : MonoBehaviour
+public class HeroSpawnPool
 {
     private Dictionary<HeroClassType, Dictionary<HeroGradeType, HeroRuntimeData>> heroDatas = new();
     private readonly Dictionary<HeroClassType, Dictionary<HeroGradeType, BaseHero>> heroPrefabs = new();
     private List<(HeroGradeType Grade, int Chance)> heroSpawnChance;
-    
-    private bool isInitialized;
 
-    private async UniTaskVoid Awake()
+    public async UniTask InitializeAsync()
     {
-        try
+        // PlayerDataManager에서 선택한 영웅 정보 갖고오기
+        var allHeroes = PlayerDataManager.Instance.HeroDB.AllHeroes;
+        heroDatas = new()
         {
-            // PlayerDataManager에서 선택한 영웅 정보 갖고오기
-            var allHeroes = PlayerDataManager.Instance.HeroDB.AllHeroes;
-            heroDatas = new()
-            {
-                { HeroClassType.Magician, new Dictionary<HeroGradeType, HeroRuntimeData>() },
-                { HeroClassType.Archer, new Dictionary<HeroGradeType, HeroRuntimeData>() },
-                { HeroClassType.Knight, new Dictionary<HeroGradeType, HeroRuntimeData>() },
-            };
+            { HeroClassType.Magician, new Dictionary<HeroGradeType, HeroRuntimeData>() },
+            { HeroClassType.Archer, new Dictionary<HeroGradeType, HeroRuntimeData>() },
+            { HeroClassType.Knight, new Dictionary<HeroGradeType, HeroRuntimeData>() },
+        };
 
-            foreach (var heroData in allHeroes)
-            {
-                if (!heroData.IsSelected) continue;
-                heroDatas[heroData.Class].Add(heroData.Grade, heroData);
-            }
-
-            CheckEmptyEquippedHeroes();
-            
-            await UniTask.WhenAll(
-                InitializeClassPoolAsync(HeroClassType.Magician),
-                InitializeClassPoolAsync(HeroClassType.Archer),
-                InitializeClassPoolAsync(HeroClassType.Knight)
-            );
-
-            InitializeSpawnChance();
-            isInitialized = true;
-        }
-        catch (Exception e)
+        foreach (var heroData in allHeroes)
         {
-            CDebug.LogError($"[HeroSpawnPool] 초기화 실패: {e}");
+            if (!heroData.IsSelected) continue;
+            heroDatas[heroData.Class].Add(heroData.Grade, heroData);
         }
+
+        CheckEmptyEquippedHeroes();
+
+        await UniTask.WhenAll(
+            InitializeClassPoolAsync(HeroClassType.Magician),
+            InitializeClassPoolAsync(HeroClassType.Archer),
+            InitializeClassPoolAsync(HeroClassType.Knight)
+        );
+
+        InitializeSpawnChance();
     }
 
     /// <summary>
@@ -58,12 +47,6 @@ public class HeroSpawnPool : MonoBehaviour
     /// </summary>
     public BaseHero GetHero()
     {
-        if (!isInitialized)
-        {
-            CDebug.LogError("[HeroSpawnPool] 아직 초기화되지 않음");
-            return null;
-
-        }
         var randomClass = GetRandomClass();
         var randomGrade = GetRandomGrade();
         var classPrefabDict = heroPrefabs[randomClass];
@@ -148,7 +131,7 @@ public class HeroSpawnPool : MonoBehaviour
 
         return HeroGradeType.Normal;
     }
-    
+
     /// <summary>
     /// 빈 슬롯 체크 후 기본 영웅으로 할당
     /// </summary>
@@ -167,7 +150,8 @@ public class HeroSpawnPool : MonoBehaviour
             {
                 if (!gradeDict.ContainsKey(grade))
                 {
-                    var defaultHeroData = defaultHeroes.FirstOrDefault(h => h.ClassType == classType && h.GradeType == grade);
+                    var defaultHeroData =
+                        defaultHeroes.FirstOrDefault(h => h.ClassType == classType && h.GradeType == grade);
                     if (defaultHeroData != null)
                     {
                         var heroRuntimeData = PlayerDataManager.Instance.HeroDB.GetByID(defaultHeroData.ID);

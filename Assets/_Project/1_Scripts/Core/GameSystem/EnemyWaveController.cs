@@ -1,5 +1,3 @@
-using System;
-using System.Linq;
 using Cysharp.Threading.Tasks;
 using Generated;
 using UniRx;
@@ -11,6 +9,7 @@ using UnityEngine;
 public class EnemyWaveController : MonoBehaviour, IEventListener
 {
     [SerializeField] private EnemySpawner spawner;
+    private InGameDataFactory inGameDataFactory;
     private WaveDataSO[] waveDatas;
 
     private WaveDataSO currentWaveData;
@@ -23,12 +22,7 @@ public class EnemyWaveController : MonoBehaviour, IEventListener
 
     private int spawnedEnemyCount;
 
-    private bool isInitialized;
     private bool isWaveSetting;
-
-    private const string WAVE_DATA_SO_PATH = "WaveData";
-    private const string ENEMY_DATA_SO_DIR_PATH = "Data/SO/EnemyData/";
-    private const string ENEMY_PREFAB_DIR_PATH = "Prefabs/Enemy/";
 
     private delegate void SpawnMethod();
 
@@ -43,30 +37,21 @@ public class EnemyWaveController : MonoBehaviour, IEventListener
         SubscribeEvents();
     }
 
-    private async UniTaskVoid Start()
+    private void Start()
     {
-        try
-        {
-            await LoadWaveDataAsync();
-
-            var waveInfoUI = UIManager.Instance.GetUI<UIInGame>().WaveInfoUI;
-            waveInfoUI.SubscribeWaveTimer(currentWaveTime);
-
-            // 첫 웨이브 설정
-            await SetWaveDataAsync();
-        }
-        catch (Exception e)
-        {
-            CDebug.LogError($"[EnemyWaveController] 초기화 실패: {e}");
-            return;
-        }
-
-        isInitialized = true;
+        inGameDataFactory = InGameManager.Instance.InGameDataFactory;
+        waveDatas = inGameDataFactory.WavesDatas;
+        
+        var waveInfoUI = UIManager.Instance.GetUI<UIInGame>().WaveInfoUI;
+        waveInfoUI.SubscribeWaveTimer(currentWaveTime);
+        
+        // 첫 웨이브 설정
+        SetWaveData();
     }
 
     private void Update()
     {
-        if (!isInitialized || isWaveSetting)
+        if (isWaveSetting)
         {
             return;
         }
@@ -81,7 +66,7 @@ public class EnemyWaveController : MonoBehaviour, IEventListener
             }
 
             // 다음 웨이브 설정
-            SetNextWaveAsync().Forget();
+            SetWaveData();
         }
 
         spawn?.Invoke();
@@ -109,12 +94,6 @@ public class EnemyWaveController : MonoBehaviour, IEventListener
     }
 
     #endregion
-
-    private async UniTask LoadWaveDataAsync()
-    {
-        var loadedData = await AddressableManager.Instance.LoadAllAsync<WaveDataSO>(WAVE_DATA_SO_PATH);
-        waveDatas = loadedData.OrderBy(i => i.WaveIndex).ToArray();
-    }
 
     /// <summary>
     /// 일반 적 스폰 (주기적 스폰)
@@ -151,23 +130,10 @@ public class EnemyWaveController : MonoBehaviour, IEventListener
         spawn = null;
     }
 
-    private async UniTask SetNextWaveAsync()
-    {
-        isWaveSetting = true;
-        try
-        {
-            await SetWaveDataAsync();
-        }
-        finally
-        {
-            isWaveSetting = false;
-        }
-    }
-
     /// <summary>
     /// 현재 WaveData 세팅
     /// </summary>
-    private async UniTask SetWaveDataAsync()
+    private void SetWaveData()
     {
         if (waveDatas == null)
         {
@@ -186,12 +152,9 @@ public class EnemyWaveController : MonoBehaviour, IEventListener
         currentWaveTime.Value = currentWaveData.WaveTime;
         spawnInterval = currentWaveData.SpawnInterval;
         spawnTimer = 0f;
-
-        currentSpawnEnemyData =
-            await AddressableManager.Instance.LoadAsync<EnemyDataSO>(
-                $"{ENEMY_DATA_SO_DIR_PATH}{currentWaveData.SpawnEnemyID}");
-        currentSpawnEnemyPrefab = await AddressableManager.Instance.LoadAsync<BaseEnemy>(
-            $"{ENEMY_PREFAB_DIR_PATH}{currentSpawnEnemyData.MonsterType}_{currentSpawnEnemyData.EnemyType}");
+        
+        currentSpawnEnemyData = inGameDataFactory.GetEnemyData(currentWaveData.SpawnEnemyID);
+        currentSpawnEnemyPrefab = inGameDataFactory.GetEnemyPrefab(currentSpawnEnemyData.MonsterType, currentSpawnEnemyData.EnemyType);
 
         spawn = currentWaveData.WaveType == WaveType.Normal ? SpawnNormalEnemy : SpawnBossEnemy;
 

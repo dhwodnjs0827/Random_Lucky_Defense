@@ -5,14 +5,19 @@ using UnityEngine;
 /// </summary>
 public class HeroSpawner : MonoBehaviour, IEventListener
 {
-    [SerializeField] private HeroSpawnPool heroSpawnPool;
     [SerializeField] private HeroAreaController areaController;
+    private HeroSpawnPool heroSpawnPool;
 
     #region Unity Methods
 
     private void Awake()
     {
         SubscribeEvents();
+    }
+
+    private void Start()
+    {
+        heroSpawnPool = InGameManager.Instance.HeroSpawnPool;
     }
 
     private void OnDestroy()
