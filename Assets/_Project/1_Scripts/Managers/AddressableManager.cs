@@ -24,7 +24,10 @@ public class AddressableManager : MonoSingleton<AddressableManager>
             return;
         }
 
-        await Addressables.InitializeAsync();
+        var handle =  Addressables.InitializeAsync();
+        await handle;
+        
+        Addressables.Release(handle);
 
         isInitialized = true;
     }
