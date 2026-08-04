@@ -61,3 +61,23 @@ public static class GameConstants
     // 인게임 최대 적 수
     public const int MAX_ENEMY_COUNT = 100;
 }
+
+/// <summary>
+/// 어드레서블 라벨
+/// </summary>
+public static class AddressableLabels
+{
+    public const string ABILITY_DATA = "AbilityData";
+    public const string ABILITY_LEVEL_DATA = "AbilityLevelData";
+    public const string DAMAGE_RATE_BY_CLASS_DATA = "DamageRateByClassData";
+    public const string ENEMY_DATA = "EnemyData";
+    public const string HERO_DATA = "HeroData";
+    public const string INGAME_HERO_LEVEL_UP_DATA = "InGameHeroLevelUpData";
+    public const string SUMMON_DATA = "SummonData";
+    public const string WAVE_DATA = "WaveData";
+}
+
+public static class ResDirPath
+{
+    public const string PREFAB_ENEMY = "Prefabs/Enemy/";
+}
