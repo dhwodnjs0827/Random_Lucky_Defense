@@ -12,14 +12,16 @@ public class AbilityEffectFactory : IEventListener
 {
     private readonly Dictionary<AbilityEffectType, List<IAbilityEffect>> effectHandlers = new();
 
-    private AbilityDataSO[] abilityDatas;
+    private IList<AbilityDataSO> abilityDatas;
     private readonly Dictionary<string, List<AbilityLevelDataSO>> abilityLevelDataDic = new();
     private readonly Dictionary<string, int> currentAbilityLevelDic = new();
 
     private Action<AbilitySelectEventData> onAbilitySelected;
-    
-    private const string ABILITY_DATA_SO_PATH = "AbilityData";
-    private const string ABILITY_LEVEL_DATA_SO_PATH = "AbilityLevelData";
+
+    public AbilityEffectFactory()
+    {
+        InitializeData();
+    }
 
     #region IEventListener implementation
 
@@ -40,9 +42,9 @@ public class AbilityEffectFactory : IEventListener
     /// <summary>
     /// 재능 및 재능별 레벨 데이터 초기화
     /// </summary>
-    public async UniTask InitializeDataAsync()
+    private void InitializeData()
     {
-        abilityDatas = await AddressableManager.Instance.LoadAllAsync<AbilityDataSO>(ABILITY_DATA_SO_PATH);
+        abilityDatas = DataManager.Instance.AbilityDataList;
         foreach (var abilityData in abilityDatas)
         {
             var list = new List<AbilityLevelDataSO>();
@@ -50,7 +52,7 @@ public class AbilityEffectFactory : IEventListener
             currentAbilityLevelDic.TryAdd(abilityData.ID, 0);
         }
 
-        var abilityLevelDatas = await AddressableManager.Instance.LoadAllAsync<AbilityLevelDataSO>(ABILITY_LEVEL_DATA_SO_PATH);
+        var abilityLevelDatas = DataManager.Instance.AbilityLevelDataList;
         foreach (var abilityLevelData in abilityLevelDatas)
         {
             if (abilityLevelDataDic.TryGetValue(abilityLevelData.AbilityID, out var list))
