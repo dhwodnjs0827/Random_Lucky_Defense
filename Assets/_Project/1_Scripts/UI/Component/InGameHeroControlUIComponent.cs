@@ -25,12 +25,7 @@ public class InGameHeroControlUIComponent : MonoBehaviour, IEventListener
     private void Awake()
     {
         spawnPointCostText.text = $"영웅 소환\n{GameConstants.HERO_SPAWN_POINT_COST}";
-    }
-
-    private void OnEnable()
-    {
         InitializeButtons();
-        SubscribeEvents();
     }
 
     private void Start()
@@ -38,10 +33,9 @@ public class InGameHeroControlUIComponent : MonoBehaviour, IEventListener
         SubscribeController(InGameManager.Instance.HeroLevelUpController, InGameManager.Instance.CurrencyController);
     }
 
-    private void OnDisable()
+    private void OnDestroy()
     {
         ClearButtons();
-        UnsubscribeEvents();
     }
 
     private void InitializeButtons()

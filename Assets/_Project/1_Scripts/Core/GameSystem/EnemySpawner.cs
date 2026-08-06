@@ -26,7 +26,6 @@ public class EnemySpawner : MonoBehaviour
         
         // Spline 경로의 시작 지점을 SpawnPoint로 설정
         spawnPoint = splineContainer.transform.TransformPoint(splineContainer.Spline[0].Position);
-        onSpawn += Spawn;
     }
 
     private void OnEnable()
