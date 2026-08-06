@@ -1,4 +1,4 @@
-using Generated;
+using System;
 using UnityEngine;
 using UnityEngine.Splines;
 
@@ -8,8 +8,11 @@ using UnityEngine.Splines;
 public class EnemySpawner : MonoBehaviour
 {
     [SerializeField] private SplineContainer splineContainer;
+    private EnemySpawnPool enemySpawnPool;
 
     private Vector3 spawnPoint;
+
+    private Action<EnemySpawnData> onSpawn;
 
     #region Unity Methods
 
@@ -23,6 +26,24 @@ public class EnemySpawner : MonoBehaviour
         
         // Spline 경로의 시작 지점을 SpawnPoint로 설정
         spawnPoint = splineContainer.transform.TransformPoint(splineContainer.Spline[0].Position);
+        onSpawn += Spawn;
+    }
+
+    private void OnEnable()
+    {
+        onSpawn += Spawn;
+        EventManager.Subscribe(GameEventType.SpawnEnemy, onSpawn);
+    }
+
+    private void Start()
+    {
+        enemySpawnPool = InGameManager.Instance.EnemySpawnPool;
+    }
+
+    private void OnDisable()
+    {
+        EventManager.Unsubscribe(GameEventType.SpawnEnemy, onSpawn);
+        onSpawn -= Spawn;
     }
 
     #endregion
@@ -30,15 +51,13 @@ public class EnemySpawner : MonoBehaviour
     /// <summary>
     /// 적 생성 및 초기화
     /// </summary>
-    /// <param name="spawnEnemy">생성할 적 Prefab</param>
-    /// <param name="spawnEnemyData">생성할 적 데이터</param>
-    /// <param name="waveData">웨이브 데이터</param>
-    public void Spawn(BaseEnemy spawnEnemy, EnemyDataSO spawnEnemyData, WaveDataSO waveData)
+    private void Spawn(EnemySpawnData data)
     {
+        var spawnEnemy = enemySpawnPool.GetEnemyPrefab(data.EnemyData.MonsterType, data.EnemyData.EnemyType);
         var enemy = ObjectPoolManager.Instance.Get(spawnEnemy);
         enemy.transform.SetParent(transform);
         enemy.transform.position = spawnPoint;
-        enemy.Initialize(spawnEnemyData, waveData, splineContainer);
+        enemy.Initialize(data.EnemyData, data.WaveData, splineContainer);
         enemy.StartMove();
     }
 }

@@ -7,7 +7,7 @@ using UnityEngine;
 /// </summary>
 public class InGameCurrencyController : IEventListener, IAbilityEffect
 {
-    private ReactiveProperty<int> currentSpawnPoint = new(); // 현재 영웅 소환 재화
+    private readonly ReactiveProperty<int> currentSpawnPoint = new(); // 현재 영웅 소환 재화
 
     private bool isActiveSPGainRateEffect = false;
     private float spGainInterval;

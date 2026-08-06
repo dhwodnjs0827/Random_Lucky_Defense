@@ -6,7 +6,7 @@ using UnityEngine.UI;
 /// <summary>
 /// 인게임 정보 표시용 HUD UI 클래스
 /// </summary>
-public class UIInGame : UIBase
+public class UIInGame : UIBase, IEventListener
 {
     [SerializeField] private Button pauseButton;
     [SerializeField] private Button gameSpeedButton;
@@ -25,6 +25,18 @@ public class UIInGame : UIBase
     protected override void Closed(params object[] args)
     {
         ClearButtons();
+    }
+    
+    public void SubscribeEvents()
+    {
+        waveInfo.SubscribeEvents();
+        heroControl.SubscribeEvents();
+    }
+
+    public void UnsubscribeEvents()
+    {
+        waveInfo.UnsubscribeEvents();
+        heroControl.UnsubscribeEvents();
     }
 
     private void InitializeButtons()

@@ -1,20 +1,16 @@
+using System.Collections.Generic;
+using System.Linq;
 using Cysharp.Threading.Tasks;
 using Generated;
 using UniRx;
 using UnityEngine;
 
-/// <summary>
-/// WaveData 기반 적 웨이브 관리
-/// </summary>
-public class EnemyWaveController : MonoBehaviour, IEventListener
+public class WaveController
 {
-    [SerializeField] private EnemySpawner spawner;
-    private InGameDataFactory inGameDataFactory;
-    private WaveDataSO[] waveDatas;
-
+    private IList<WaveDataSO> waveDataList;
+    
     private WaveDataSO currentWaveData;
     private readonly ReactiveProperty<float> currentWaveTime = new();
-    private BaseEnemy currentSpawnEnemyPrefab;
     private EnemyDataSO currentSpawnEnemyData;
     private int currentWaveDataIndex;
     private float spawnInterval;
@@ -22,36 +18,17 @@ public class EnemyWaveController : MonoBehaviour, IEventListener
 
     private int spawnedEnemyCount;
 
-    private bool isWaveSetting;
+    private bool isWaveStart;
 
     private delegate void SpawnMethod();
 
     private SpawnMethod spawn;
 
-    public IReadOnlyReactiveProperty<float> CurrentWaveTime => currentWaveTime;
+    public ReactiveProperty<float> CurrentWaveTime => currentWaveTime;
 
-    #region Unity Methods
-
-    private void OnEnable()
+    public void Update()
     {
-        SubscribeEvents();
-    }
-
-    private void Start()
-    {
-        inGameDataFactory = InGameManager.Instance.InGameDataFactory;
-        waveDatas = inGameDataFactory.WavesDatas;
-        
-        var waveInfoUI = UIManager.Instance.GetUI<UIInGame>().WaveInfoUI;
-        waveInfoUI.SubscribeWaveTimer(currentWaveTime);
-        
-        // 첫 웨이브 설정
-        SetWaveData();
-    }
-
-    private void Update()
-    {
-        if (isWaveSetting)
+        if (!isWaveStart)
         {
             return;
         }
@@ -72,17 +49,11 @@ public class EnemyWaveController : MonoBehaviour, IEventListener
         spawn?.Invoke();
     }
 
-    private void OnDisable()
-    {
-        UnsubscribeEvents();
-    }
-
-    #endregion
-
     #region IEventListener Implementation
 
     public void SubscribeEvents()
     {
+        EventManager.Subscribe(GameEventType.GameStart, WaveInit);
         EventManager.Subscribe(GameEventType.EnemyDie, DecreaseEnemyCount);
         EventManager.Subscribe(GameEventType.GameExit, GameExit);
     }
@@ -95,6 +66,15 @@ public class EnemyWaveController : MonoBehaviour, IEventListener
 
     #endregion
 
+    private void WaveInit()
+    {
+        waveDataList = DataManager.Instance.WaveDataList;
+        
+        // 첫 웨이브 설정
+        SetWaveData();
+        isWaveStart = true;
+    }
+
     /// <summary>
     /// 일반 적 스폰 (주기적 스폰)
     /// </summary>
@@ -103,10 +83,11 @@ public class EnemyWaveController : MonoBehaviour, IEventListener
         spawnTimer += Time.deltaTime;
         if (spawnTimer >= spawnInterval)
         {
-            spawner.Spawn(currentSpawnEnemyPrefab, currentSpawnEnemyData, currentWaveData);
+            EnemySpawnData data = new(currentSpawnEnemyData, currentWaveData);
+            EventManager.Dispatch(GameEventType.SpawnEnemy, data);
             spawnTimer = 0f;
             spawnedEnemyCount++;
-            EventManager.Dispatch(GameEventType.SpawnEnemy);
+            EventManager.Dispatch(GameEventType.EnemySpawned);
             EventManager.Dispatch(GameEventType.SpawnNormalEnemy);
 
             CheckGameOver();
@@ -118,10 +99,11 @@ public class EnemyWaveController : MonoBehaviour, IEventListener
     /// </summary>
     private void SpawnBossEnemy()
     {
-        spawner.Spawn(currentSpawnEnemyPrefab, currentSpawnEnemyData, currentWaveData);
+        EnemySpawnData data = new(currentSpawnEnemyData, currentWaveData);
+        EventManager.Dispatch(GameEventType.SpawnEnemy, data);
         spawnTimer = 0f;
         spawnedEnemyCount++;
-        EventManager.Dispatch(GameEventType.SpawnEnemy);
+        EventManager.Dispatch(GameEventType.EnemySpawned);
         EventManager.Dispatch(GameEventType.SpawnBossEnemy);
 
         CheckGameOver();
@@ -135,26 +117,26 @@ public class EnemyWaveController : MonoBehaviour, IEventListener
     /// </summary>
     private void SetWaveData()
     {
-        if (waveDatas == null)
+        if (waveDataList == null)
         {
             CDebug.LogError("[EnemyWaveController] WaveData가 없습니다!");
             return;
         }
 
         // 마지막 웨이브일 경우
-        if (currentWaveDataIndex >= waveDatas.Length)
+        if (currentWaveDataIndex >= waveDataList.Count)
         {
             return;
         }
 
-        currentWaveData = waveDatas[currentWaveDataIndex];
+        currentWaveData = waveDataList[currentWaveDataIndex];
 
         currentWaveTime.Value = currentWaveData.WaveTime;
         spawnInterval = currentWaveData.SpawnInterval;
         spawnTimer = 0f;
         
-        currentSpawnEnemyData = inGameDataFactory.GetEnemyData(currentWaveData.SpawnEnemyID);
-        currentSpawnEnemyPrefab = inGameDataFactory.GetEnemyPrefab(currentSpawnEnemyData.MonsterType, currentSpawnEnemyData.EnemyType);
+        currentSpawnEnemyData =
+            DataManager.Instance.EnemyDataList.FirstOrDefault(x => x.ID.Equals(currentWaveData.SpawnEnemyID));
 
         spawn = currentWaveData.WaveType == WaveType.Normal ? SpawnNormalEnemy : SpawnBossEnemy;
 
@@ -170,7 +152,7 @@ public class EnemyWaveController : MonoBehaviour, IEventListener
 
     private void CheckGameVictory()
     {
-        if (currentWaveDataIndex >= waveDatas.Length && spawnedEnemyCount == 0)
+        if (currentWaveDataIndex >= waveDataList.Count && spawnedEnemyCount == 0)
         {
             EventManager.Dispatch(GameEventType.GameFinish, new InGameFinishEventData(true, currentWaveData.WaveIndex));
             FirebaseManager.Instance.LogEvent(nameof(GameEventType.GameFinish), "isStageCleared", "true");

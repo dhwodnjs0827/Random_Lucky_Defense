@@ -26,12 +26,11 @@ public class SceneLoadManager : MonoSingleton<SceneLoadManager>
             // SceneLoadManager의 초기화는 한 번만 필요
             return;
         }
-        
-        // 초기화 플래그 설정
-        isInitialized = true;
-        
         InitializeSceneList();
+        
         await InitializeCurrentActiveScene();
+        
+        isInitialized = true;
     }
 
     /// <summary>
@@ -101,7 +100,7 @@ public class SceneLoadManager : MonoSingleton<SceneLoadManager>
 
                 await UniTask.Yield();
             }
-
+            
             // 4. 씬 활성화
             operation.allowSceneActivation = true;
             await operation.ToUniTask();
@@ -109,7 +108,7 @@ public class SceneLoadManager : MonoSingleton<SceneLoadManager>
             // 5. 새 씬의 초기화
             currentScene = scene;
             await currentScene.InitializeAsync();
-
+            
             // 6. UILoading 닫기
             // await FadeIn();
             UIManager.Instance.Close<UILoading>(loadingUI);

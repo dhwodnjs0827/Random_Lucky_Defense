@@ -389,7 +389,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1326775645767056066}
   - component: {fileID: 2009313082086332933}
-  - component: {fileID: 446197355894425923}
   - component: {fileID: 3550683302488154220}
   m_Layer: 0
   m_Name: EnemySpline
@@ -658,19 +657,6 @@ MonoBehaviour:
         Knot: 0
       - Spline: 0
         Knot: 10
---- !u!114 &446197355894425923
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 986298607275070201}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a0bc1a034a4b44bdb89a7dd0259f7a7e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::EnemyWaveController
-  spawner: {fileID: 3550683302488154220}
 --- !u!114 &3550683302488154220
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18321,7 +18307,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2414652715099929437}
-  - component: {fileID: 4364930126442706950}
+  - component: {fileID: 6148919558701176893}
   m_Layer: 0
   m_Name: SummonSpawner
   m_TagString: Untagged
@@ -18347,7 +18333,7 @@ Transform:
   - {fileID: 6471180242527692405}
   m_Father: {fileID: 3487666206399944835}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4364930126442706950
+--- !u!114 &6148919558701176893
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -18356,7 +18342,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 5951122748185056322}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 87bffbaa3e15148ae80ffd53e1c2486d, type: 3}
+  m_Script: {fileID: 11500000, guid: 8467372bcd1f4a068b9b4d178b5f685d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SummonSpawner
   redDragonSpawnPoint: {fileID: 2705706020737761653}

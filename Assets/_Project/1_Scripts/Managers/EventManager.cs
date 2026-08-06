@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEngine;
 
 /// <summary>
 /// 이벤트 매니저 - 전역 이벤트 시스템
@@ -15,6 +16,7 @@ public static class EventManager
     /// <summary>
     /// 이벤트 구독 (매개변수 없음)
     /// </summary>
+    [HideInCallstack]
     public static void Subscribe(GameEventType gameEventType, Action action)
     {
         if (events.TryGetValue(gameEventType, out var existingAction))
@@ -37,6 +39,7 @@ public static class EventManager
     /// <summary>
     /// 이벤트 구독 (매개변수 있음)
     /// </summary>
+    [HideInCallstack]
     public static void Subscribe<T>(GameEventType gameEventType, Action<T> action)
     {
         if (genericEvents.TryGetValue(gameEventType, out var existingAction))
@@ -63,6 +66,7 @@ public static class EventManager
     /// <summary>
     /// 이벤트 구독 해제 (매개변수 없음)
     /// </summary>
+    [HideInCallstack]
     public static void Unsubscribe(GameEventType gameEventType, Action action)
     {
         if (!events.TryGetValue(gameEventType, out var existingAction))
@@ -94,6 +98,7 @@ public static class EventManager
     /// <summary>
     /// 이벤트 구독 해제 (매개변수 있음)
     /// </summary>
+    [HideInCallstack]
     public static void Unsubscribe<T>(GameEventType gameEventType, Action<T> action)
     {
         if (!genericEvents.TryGetValue(gameEventType, out var existingAction))

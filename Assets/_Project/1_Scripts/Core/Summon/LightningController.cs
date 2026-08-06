@@ -9,51 +9,31 @@ public class LightningController : MonoBehaviour
     [SerializeField] private Lightning lightning;
 
     private HeroClassType classType;
-    private HeroStat baseStat;
     private float attackTimer;
 
     private int enemyLayerMask;
-    
-    private bool isInitialized;
 
-    private const string LIGHTNING_DATA_SO_PATH = "Data/SO/SummonData/Lightning";
-
+    private HeroStat BaseStat => InGameManager.Instance.SummonController.SummonBaseStat[classType];
     private HeroStat LevelUpStat => InGameManager.Instance.HeroBuffController.LevelUpStats[classType];
     private HeroStat AbilityEffectStat => InGameManager.Instance.HeroBuffController.AbilityEffectStats[classType];
 
     private float AcquiredHeroBonusDamage =>
         InGameManager.Instance.HeroBuffController.AcquiredHeroBonusDamages[classType];
 
-    public async UniTask InitializeAsync()
+    private void Awake()
     {
-        try
-        {
-            var lightningData = await AddressableManager.Instance.LoadAsync<SummonDataSO>(LIGHTNING_DATA_SO_PATH);
-            classType = lightningData.ClassType;
-            baseStat = new HeroStat(lightningData);
-            enemyLayerMask = LayerMask.GetMask("Enemy");
-
-            isInitialized = true;
-        }
-        catch (Exception e)
-        {
-            CDebug.LogError($"[LightningController] 초기화 실패: {e}");
-        }
+        enemyLayerMask = LayerMask.GetMask("Enemy");
+        classType = HeroClassType.Knight;
     }
 
     private void Update()
     {
-        if (!isInitialized)
-        {
-            return;
-        }
-        
         attackTimer -= Time.deltaTime;
 
         if (attackTimer <= 0f)
         {
             var attackSpeed = DamageCalculator.CalculateMultipliers(
-                baseStat.AttackSpeed,
+                BaseStat.AttackSpeed,
                 LevelUpStat.AttackSpeedMultiplier,
                 AbilityEffectStat.AttackSpeedMultiplier
             );
@@ -61,12 +41,6 @@ public class LightningController : MonoBehaviour
             attackTimer = attackSpeed;
             TryAttack();
         }
-    }
-
-    public void IncreaseStat(AbilityContainer abilityContainer)
-    {
-        baseStat.IncreaseAttackSpeed(abilityContainer.AbilityLevelData.value);
-        baseStat.IncreaseAttackPower(abilityContainer.AbilityLevelData.value1);
     }
 
     private void TryAttack()
@@ -86,7 +60,7 @@ public class LightningController : MonoBehaviour
     private BaseEnemy FindRandomTarget()
     {
         float attackRange = DamageCalculator.CalculateMultipliers(
-            baseStat.AttackRange,
+            BaseStat.AttackRange,
             LevelUpStat.AttackRangeMultiplier,
             AbilityEffectStat.AttackRangeMultiplier
         );
@@ -101,23 +75,23 @@ public class LightningController : MonoBehaviour
     private void HitTarget(IDamageable target, Vector3 targetPosition)
     {
         float attackPower = DamageCalculator.CalculateMultipliers(
-            baseStat.AttackPower,
+            BaseStat.AttackPower,
             LevelUpStat.AttackPowerMultiplier,
             AbilityEffectStat.AttackPowerMultiplier,
             AcquiredHeroBonusDamage
         );
         float criticalRate = DamageCalculator.CalculateAdditives(
-            baseStat.CriticalRate,
+            BaseStat.CriticalRate,
             LevelUpStat.CriticalRate,
             AbilityEffectStat.CriticalRate
         );
         float criticalDamage = DamageCalculator.CalculateAdditives(
-            baseStat.CriticalDamage,
+            BaseStat.CriticalDamage,
             LevelUpStat.CriticalDamage,
             AbilityEffectStat.CriticalDamage
         );
         float penetration = DamageCalculator.CalculateAdditives(
-            baseStat.Penetration,
+            BaseStat.Penetration,
             LevelUpStat.Penetration,
             AbilityEffectStat.Penetration
         );
@@ -133,7 +107,7 @@ public class LightningController : MonoBehaviour
 
         // 스플래시 데미지 (타겟 위치 기준)
         float splashRange = DamageCalculator.CalculateMultipliers(
-            baseStat.SplashRange,
+            BaseStat.SplashRange,
             LevelUpStat.SplashRangeMultiplier,
             AbilityEffectStat.SplashRangeMultiplier
         );

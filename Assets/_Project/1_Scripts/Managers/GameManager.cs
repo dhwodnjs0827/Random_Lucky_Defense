@@ -11,6 +11,7 @@ public class GameManager : MonoSingleton<GameManager>
         try
         {
             await InitializeAsync();
+            //TODO: 임시 코드
             await SceneLoadManager.Instance.LoadSceneAsync(SceneType.LobbyScene);
         }
         catch (Exception e)

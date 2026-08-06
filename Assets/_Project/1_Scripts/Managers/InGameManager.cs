@@ -10,30 +10,32 @@ public class InGameManager : MonoSingleton<InGameManager>, IEventListener
     protected override bool isInitialized { get; set; }
     protected override bool IsDontDestroyOnLoad => false;
     
-    private InGameDataFactory inGameDataFactory;
+    private InGameUIController uiController;
+
+    private WaveController waveController;
     
     private AbilityEffectFactory abilityEffectFactory;
     private InGameHeroLevelUpController heroLevelUpController;
     private InGameHeroBuffController heroBuffController;
     private InGameCurrencyController currencyController;
     private InGameRewardController rewardController;
+    private SummonController summonController;
     
     private HeroSpawnPool heroSpawnPool;
+    private EnemySpawnPool enemySpawnPool;
 
     private readonly float[] gameSpeeds = { 1f, 2f, 3f };
     private int currentGameSpeedIndex;
     
-    private GameDifficultyType gameDifficulty;
-    
     private Action<InGameFinishEventData> onGameFinish;
-    
-    public InGameDataFactory InGameDataFactory => inGameDataFactory;
     
     public AbilityEffectFactory AbilityEffectFactory => abilityEffectFactory;
     public InGameHeroLevelUpController HeroLevelUpController => heroLevelUpController;
     public InGameHeroBuffController HeroBuffController => heroBuffController;
     public InGameCurrencyController CurrencyController => currencyController;
+    public SummonController SummonController => summonController;
     public HeroSpawnPool HeroSpawnPool => heroSpawnPool;
+    public EnemySpawnPool EnemySpawnPool => enemySpawnPool;
     public float CurrentGameSpeed => gameSpeeds[currentGameSpeedIndex];
 
     public override async UniTask InitializeAsync()
@@ -45,28 +47,32 @@ public class InGameManager : MonoSingleton<InGameManager>, IEventListener
 
         ResetGameSpeed();
         
-        inGameDataFactory = new InGameDataFactory();
-        await inGameDataFactory.InitializeAsync();
+        uiController = new InGameUIController();
+        
+        waveController = new WaveController();
         
         abilityEffectFactory = new AbilityEffectFactory();
-        await abilityEffectFactory.InitializeDataAsync();
         heroLevelUpController =  new InGameHeroLevelUpController();
-        await heroLevelUpController.InitializeLevelUpDataAsync();
         heroBuffController = new InGameHeroBuffController();
         currencyController = new InGameCurrencyController();
         rewardController = new InGameRewardController();
+        summonController = new SummonController();
         
         heroSpawnPool = new HeroSpawnPool();
-        await heroSpawnPool.InitializeAsync();
+        enemySpawnPool = new EnemySpawnPool();
 
+        await uiController.InitializeAsync();
+
+        await summonController.InitializeAsync();
+        
+        await heroSpawnPool.InitializeAsync();
+        await enemySpawnPool.InitializeAsync();
         await DamageCalculator.InitializeAsync();
         await HeroAttackState.PreLoadProjectileAsync();
         
-        await UIManager.Instance.OpenAsync<UIInGame>();
-        
-        await CreateBackgroundAsync();
-        
         SubscribeEvents();
+        
+        EventManager.Dispatch(GameEventType.GameStart);
         
         isInitialized = true;
     }
@@ -75,6 +81,7 @@ public class InGameManager : MonoSingleton<InGameManager>, IEventListener
 
     private void Update()
     {
+        waveController?.Update();
         currencyController?.GainSpawnPointAbilityEffect();
     }
 
@@ -94,6 +101,11 @@ public class InGameManager : MonoSingleton<InGameManager>, IEventListener
         onGameFinish += GameFinish;
         EventManager.Subscribe(GameEventType.GameFinish, onGameFinish);
         
+        waveController.SubscribeEvents();
+        
+        uiController.SubscribeEvents();
+        uiController.UIInGame.WaveInfoUI.SubscribeWaveTimer(waveController.CurrentWaveTime);
+        
         abilityEffectFactory.SubscribeEvents();
         
         heroLevelUpController.SubscribeEvents();
@@ -103,10 +115,14 @@ public class InGameManager : MonoSingleton<InGameManager>, IEventListener
         
         currencyController.SubscribeEvents();
         currencyController.RegisterAbilityEffect(abilityEffectFactory);
+        
+        summonController.RegisterAbilityEffect(abilityEffectFactory);
     }
 
     public void UnsubscribeEvents()
     {
+        summonController?.UnregisterAbilityEffect(abilityEffectFactory);
+        
         currencyController?.UnregisterAbilityEffect(abilityEffectFactory);
         currencyController?.UnsubscribeEvents();
         
@@ -117,20 +133,15 @@ public class InGameManager : MonoSingleton<InGameManager>, IEventListener
         
         abilityEffectFactory?.UnsubscribeEvents();
         
+        uiController?.UnsubscribeEvents();
+        
+        waveController?.UnsubscribeEvents();
+        
         EventManager.Unsubscribe(GameEventType.GameFinish, onGameFinish);
         onGameFinish -= GameFinish;
     }
     
     #endregion
-
-    /// <summary>
-    /// 게임 난이도 설정
-    /// </summary>
-    public void SetGameDifficulty(GameDifficultyType difficulty)
-    {
-        gameDifficulty = difficulty;
-        CDebug.Log($"[InGameManager] 게임 난이도: {gameDifficulty}");
-    }
 
     /// <summary>
     /// 게임 속도 변경 (순회 변경)
@@ -174,15 +185,5 @@ public class InGameManager : MonoSingleton<InGameManager>, IEventListener
         PauseGame();
         UIManager.Instance.OpenAsync<UIGameResult>(eventData).Forget();
         CDebug.Log(eventData.IsGameVictory ? "[InGameManager] 게임 승리" : "[InGameManager] 게임 패배");
-    }
-
-    /// <summary>
-    /// 인게임 스테이지 백그라운드 오브젝트 생성
-    /// </summary>
-    private async UniTask CreateBackgroundAsync()
-    {
-        var backgroundPrefab = await AddressableManager.Instance.LoadAsync<GameObject>("Prefabs/Background");
-        var background = Instantiate(backgroundPrefab);
-        background.transform.position = Vector3.zero;
     }
 }

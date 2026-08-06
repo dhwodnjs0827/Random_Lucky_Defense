@@ -1,13 +1,9 @@
-using System;
-using Cysharp.Threading.Tasks;
-using Generated;
 using UnityEngine;
 
 public class RedDragon : MonoBehaviour
 {
     private HeroClassType classType;
-
-    private HeroStat baseStat;
+    
     private float attackCooldown;
     
     [SerializeField] private Animator animator;
@@ -19,40 +15,21 @@ public class RedDragon : MonoBehaviour
     private int enemyLayerMask;
     private BaseEnemy targetEnemy;
     
-    private bool isInitialized;
-    
-    private const string RED_DRAGON_DATA_SO_PATH = "Data/SO/SummonData/Red_Dragon";
-
+    private HeroStat BaseStat => InGameManager.Instance.SummonController.SummonBaseStat[classType];
     private HeroStat LevelUpStat => InGameManager.Instance.HeroBuffController.LevelUpStats[classType];
     private HeroStat AbilityEffectStat => InGameManager.Instance.HeroBuffController.AbilityEffectStats[classType];
 
     private float AcquiredHeroBonusDamage =>
         InGameManager.Instance.HeroBuffController.AcquiredHeroBonusDamages[classType];
 
-    public async UniTask InitializeAsync()
+    private void Awake()
     {
-        try
-        {
-            var redDragonData = await AddressableManager.Instance.LoadAsync<SummonDataSO>(RED_DRAGON_DATA_SO_PATH);
-            classType = redDragonData.ClassType;
-            baseStat = new HeroStat(redDragonData);
-            enemyLayerMask = LayerMask.GetMask("Enemy");
-
-            isInitialized = true;
-        }
-        catch (Exception e)
-        {
-            CDebug.LogError($"[RedDragon] 초기화 실패: {e}");
-        }
+        enemyLayerMask = LayerMask.GetMask("Enemy");
+        classType = HeroClassType.Magician;
     }
 
     private void Update()
     {
-        if (!isInitialized)
-        {
-            return;
-        }
-        
         attackCooldown += Time.deltaTime;
 
         if (targetEnemy == null)
@@ -65,18 +42,12 @@ public class RedDragon : MonoBehaviour
         }
     }
 
-    public void IncreaseStat(AbilityContainer abilityContainer)
-    {
-        baseStat.IncreaseAttackSpeed(abilityContainer.AbilityLevelData.value);
-        baseStat.IncreaseAttackPower(abilityContainer.AbilityLevelData.value1);
-    }
-
     /// <summary>
     /// 공격 범위 내 타겟 찾기
     /// </summary>
     private void FindTarget()
     {
-        var attackRange = DamageCalculator.CalculateMultipliers(baseStat.AttackRange,
+        var attackRange = DamageCalculator.CalculateMultipliers(BaseStat.AttackRange,
             LevelUpStat.AttackRangeMultiplier, AbilityEffectStat.AttackRangeMultiplier);
         var hits = Physics2D.OverlapCircleAll(transform.position, attackRange, enemyLayerMask);
 
@@ -109,7 +80,7 @@ public class RedDragon : MonoBehaviour
             return;
         }
 
-        var attackSpeed = DamageCalculator.CalculateMultipliers(baseStat.AttackSpeed, LevelUpStat.AttackSpeedMultiplier,
+        var attackSpeed = DamageCalculator.CalculateMultipliers(BaseStat.AttackSpeed, LevelUpStat.AttackSpeedMultiplier,
             AbilityEffectStat.AttackSpeedMultiplier);
         if (attackCooldown >= attackSpeed)
         {
@@ -126,7 +97,7 @@ public class RedDragon : MonoBehaviour
         var projectileData = new ProjectileData
         (
             targetEnemy,
-            baseStat,
+            BaseStat,
             LevelUpStat,
             AbilityEffectStat,
             AcquiredHeroBonusDamage,
@@ -147,7 +118,7 @@ public class RedDragon : MonoBehaviour
         }
 
         var distance = Vector2.Distance(transform.position, targetEnemy.transform.position);
-        var attackRange = DamageCalculator.CalculateMultipliers(baseStat.AttackRange, LevelUpStat.AttackRangeMultiplier,
+        var attackRange = DamageCalculator.CalculateMultipliers(BaseStat.AttackRange, LevelUpStat.AttackRangeMultiplier,
             AbilityEffectStat.AttackRangeMultiplier);
         if (distance > attackRange)
         {

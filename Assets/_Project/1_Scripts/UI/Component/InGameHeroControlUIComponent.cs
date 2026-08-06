@@ -97,13 +97,13 @@ public class InGameHeroControlUIComponent : MonoBehaviour, IEventListener
 
     public void SubscribeEvents()
     {
-        EventManager.Subscribe(GameEventType.SpawnEnemy, IncreaseEnemyCount);
+        EventManager.Subscribe(GameEventType.EnemySpawned, IncreaseEnemyCount);
         EventManager.Subscribe(GameEventType.EnemyDie, DecreaseEnemyCount);
     }
 
     public void UnsubscribeEvents()
     {
-        EventManager.Unsubscribe(GameEventType.SpawnEnemy, IncreaseEnemyCount);
+        EventManager.Unsubscribe(GameEventType.EnemySpawned, IncreaseEnemyCount);
         EventManager.Unsubscribe(GameEventType.EnemyDie, DecreaseEnemyCount);
     }
 

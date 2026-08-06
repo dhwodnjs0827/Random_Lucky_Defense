@@ -1,34 +1,17 @@
 using System;
+using System.Collections.Generic;
 using Cysharp.Threading.Tasks;
-using UnityEngine;
+using Generated;
 
-public class SummonController : MonoBehaviour, IAbilityEffect
+public class SummonController : IAbilityEffect
 {
-    [SerializeField] private Transform redDragonSpawnPoint;
-    [SerializeField] private Transform ancientStatueSpawnPoint;
-    [SerializeField] private Transform lightningSpawnPoint;
-
-    private RedDragon redDragon;
-    private AncientStatue ancientStatue;
-    private LightningController lightning;
-
-    private UniTask<RedDragon> redDragonSpawning;
-    private UniTask<AncientStatue> ancientStatueSpawning;
-    private UniTask<LightningController> lightningSpawning;
+    private readonly Dictionary<HeroClassType, HeroStat> summonBaseStat = new();
     
-    private const string RED_DRAGON_PREFAB_PATH = "Prefabs/Summon/RedDragon";
-    private const string ANCIENT_STATUE_PREFAB_PATH = "Prefabs/Summon/AncientStatue";
-    private const string LIGHTNING_PREFAB_PATH = "Prefabs/Summon/Lightning";
-
-    private void OnEnable()
-    {
-        RegisterAbilityEffect(InGameManager.Instance.AbilityEffectFactory);
-    }
-
-    private void OnDisable()
-    {
-        UnregisterAbilityEffect(InGameManager.Instance?.AbilityEffectFactory);
-    }
+    private const string RED_DRAGON_DATA_SO_PATH = "Data/SO/SummonData/Red_Dragon";
+    private const string ANCIENT_STATUE_DATA_SO_PATH = "Data/SO/SummonData/Ancient_Statue";
+    private const string LIGHTNING_DATA_SO_PATH = "Data/SO/SummonData/Lightning";
+    
+    public Dictionary<HeroClassType, HeroStat> SummonBaseStat => summonBaseStat;
 
     #region IAbilityEffect implementation
     
@@ -44,6 +27,21 @@ public class SummonController : MonoBehaviour, IAbilityEffect
         abilityEffectFactory?.UnregisterAbilityEffectHandler(AbilityEffectType.MagicianSummonRedDragon, this);
         abilityEffectFactory?.UnregisterAbilityEffectHandler(AbilityEffectType.ArcherSummonAncientStatue, this);
         abilityEffectFactory?.UnregisterAbilityEffectHandler(AbilityEffectType.KnightLightning, this);
+    }
+
+    public async UniTask InitializeAsync()
+    {
+        var redDragonData = await AddressableManager.Instance.LoadAsync<SummonDataSO>(RED_DRAGON_DATA_SO_PATH);
+        var redDragonStat = new HeroStat(redDragonData);
+        summonBaseStat[HeroClassType.Magician] = redDragonStat;
+        
+        var ancientStatueData = await AddressableManager.Instance.LoadAsync<SummonDataSO>(ANCIENT_STATUE_DATA_SO_PATH);
+        var ancientStatueStat = new HeroStat(ancientStatueData);
+        summonBaseStat[HeroClassType.Archer] = ancientStatueStat;
+        
+        var lightningData = await AddressableManager.Instance.LoadAsync<SummonDataSO>(LIGHTNING_DATA_SO_PATH);
+        var lightningStat = new HeroStat(lightningData);
+        summonBaseStat[HeroClassType.Knight] = lightningStat;
     }
 
     public void ApplyAbilityEffect(AbilityContainer abilityContainer)
@@ -71,85 +69,22 @@ public class SummonController : MonoBehaviour, IAbilityEffect
     
     private void ApplyRedDragonAbility(AbilityContainer abilityContainer)
     {
-        ApplyRedDragonAbilityAsync(abilityContainer).Forget();
-    }
-
-    private async UniTaskVoid ApplyRedDragonAbilityAsync(AbilityContainer abilityContainer)
-    {
-        if (redDragon == null)
-        {
-            redDragonSpawning = redDragonSpawning.Status == UniTaskStatus.Pending
-                ? redDragonSpawning
-                : SpawnRedDragonAsync().Preserve();
-            
-            redDragon = await redDragonSpawning;
-        }
-        
-        redDragon.IncreaseStat(abilityContainer);
+        EventManager.Dispatch(GameEventType.SpawnRedDragon);
+        summonBaseStat[HeroClassType.Magician].IncreaseAttackSpeed(abilityContainer.AbilityLevelData.value);
+        summonBaseStat[HeroClassType.Magician].IncreaseAttackPower(abilityContainer.AbilityLevelData.value1);
     }
 
     private void ApplyAncientStatueAbility(AbilityContainer abilityContainer)
     {
-        ApplyAncientStatueAsync(abilityContainer).Forget();
-    }
-    
-    private async UniTaskVoid ApplyAncientStatueAsync(AbilityContainer abilityContainer)
-    {
-        if (ancientStatue == null)
-        {
-            ancientStatueSpawning = ancientStatueSpawning.Status == UniTaskStatus.Pending
-                ? ancientStatueSpawning
-                : SpawnAncientStatueAsync().Preserve();
-            
-            ancientStatue = await ancientStatueSpawning;
-        }
-        
-        ancientStatue.IncreaseStat(abilityContainer);
+        EventManager.Dispatch(GameEventType.SpawnAncientStatue);
+        summonBaseStat[HeroClassType.Archer].IncreaseAttackSpeed(abilityContainer.AbilityLevelData.value);
+        summonBaseStat[HeroClassType.Archer].IncreaseAttackPower(abilityContainer.AbilityLevelData.value1);
     }
     
     private void ApplyLightningAbility(AbilityContainer abilityContainer)
     {
-        ApplyLightningAsync(abilityContainer).Forget();
-    }
-    
-    private async UniTaskVoid ApplyLightningAsync(AbilityContainer abilityContainer)
-    {
-        if (lightning == null)
-        {
-            lightningSpawning = lightningSpawning.Status == UniTaskStatus.Pending
-                ? lightningSpawning
-                : CreateLightningAsync().Preserve();
-            
-            lightning = await lightningSpawning;
-        }
-        
-        lightning.IncreaseStat(abilityContainer);
-    }
-
-    private async UniTask<RedDragon> SpawnRedDragonAsync()
-    {
-        var prefab = await AddressableManager.Instance.LoadAsync<RedDragon>(RED_DRAGON_PREFAB_PATH);
-        redDragon = Instantiate(prefab, redDragonSpawnPoint.position, redDragonSpawnPoint.rotation);
-        redDragon.transform.SetParent(redDragonSpawnPoint);
-        await redDragon.InitializeAsync();
-        return redDragon;
-    }
-
-    private async UniTask<AncientStatue> SpawnAncientStatueAsync()
-    {
-        var prefab = await AddressableManager.Instance.LoadAsync<AncientStatue>(ANCIENT_STATUE_PREFAB_PATH);
-        ancientStatue = Instantiate(prefab, ancientStatueSpawnPoint.position, ancientStatueSpawnPoint.rotation);
-        ancientStatue.transform.SetParent(ancientStatueSpawnPoint);
-        await ancientStatue.InitializeAsync();
-        return ancientStatue;
-    }
-
-    private async UniTask<LightningController> CreateLightningAsync()
-    {
-        var prefab = await AddressableManager.Instance.LoadAsync<LightningController>(LIGHTNING_PREFAB_PATH);
-        lightning = Instantiate(prefab, lightningSpawnPoint.position, lightningSpawnPoint.rotation);
-        lightning.transform.SetParent(lightningSpawnPoint);
-        await lightning.InitializeAsync();
-        return lightning;
+        EventManager.Dispatch(GameEventType.SpawnLightning);
+        summonBaseStat[HeroClassType.Knight].IncreaseAttackSpeed(abilityContainer.AbilityLevelData.value);
+        summonBaseStat[HeroClassType.Knight].IncreaseAttackPower(abilityContainer.AbilityLevelData.value1);
     }
 }

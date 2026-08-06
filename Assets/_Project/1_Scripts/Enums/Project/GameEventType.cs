@@ -16,8 +16,12 @@ public enum GameEventType
     WaveStart, // 웨이브 시작
     
     SpawnHero, // 영웅 소환
+    SpawnRedDragon,
+    SpawnAncientStatue,
+    SpawnLightning,
     
     SpawnEnemy, // 적 소환
+    EnemySpawned,
     EnemyDie, // 적 사망
     SpawnNormalEnemy, // 일반 적 소환
     NormalEnemyDie, // 일반 적 사망

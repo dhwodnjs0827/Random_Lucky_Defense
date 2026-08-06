@@ -81,3 +81,15 @@ public struct AbilitySelectEventData
         SelectedAbility = selectedAbility;
     }
 }
+
+public struct EnemySpawnData
+{
+    public readonly EnemyDataSO EnemyData;
+    public readonly WaveDataSO WaveData;
+
+    public EnemySpawnData(EnemyDataSO enemyData, WaveDataSO waveData)
+    {
+        EnemyData = enemyData;
+        WaveData = waveData;
+    }
+}

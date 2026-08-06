@@ -24,16 +24,6 @@ public class InGameWaveInfoUIComponent : MonoBehaviour, IEventListener
             .AddTo(this);
     }
 
-    private void OnEnable()
-    {
-        SubscribeEvents();
-    }
-
-    private void OnDisable()
-    {
-        UnsubscribeEvents();
-    }
-
     public void SubscribeEvents()
     {
         onWaveStart += SetWaveDate;
@@ -53,9 +43,9 @@ public class InGameWaveInfoUIComponent : MonoBehaviour, IEventListener
 
     private async UniTask LoadDataAsync(WaveStartEventData data)
     {
-        enemyImage.sprite = await AddressableManager.Instance.LoadAsync<Sprite>($"Sprites/Enemy/{data.CurrentEnemyData.MonsterType}_{data.CurrentEnemyData.EnemyType}");
         currentWaveText.text = $"WAVE {data.CurrentWaveData.WaveIndex}/101";
         monsterTypeText.text = $"{data.CurrentEnemyData.MonsterType}";
         enemyTypeText.text = $"{data.CurrentEnemyData.EnemyType}";
+        enemyImage.sprite = await AddressableManager.Instance.LoadAsync<Sprite>($"Sprites/Enemy/{data.CurrentEnemyData.MonsterType}_{data.CurrentEnemyData.EnemyType}");
     }
 }
