@@ -1,17 +1,19 @@
 using System;
+using System.Collections.Generic;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
 
 public class GameManager : MonoSingleton<GameManager>
 {
     protected override bool isInitialized { get; set; }
+    
+    private readonly List<Func<UniTask>> tasks = new();
 
     private async void Start()
     {
         try
         {
             await InitializeAsync();
-            //TODO: 임시 코드
             await SceneLoadManager.Instance.LoadSceneAsync(SceneType.LobbyScene);
         }
         catch (Exception e)
@@ -31,7 +33,6 @@ public class GameManager : MonoSingleton<GameManager>
         await InitializeManagerAsync();
         
         isInitialized = true;
-        await UniTask.CompletedTask;
     }
     
     /// <summary>
@@ -42,33 +43,23 @@ public class GameManager : MonoSingleton<GameManager>
         try
         {
 #if FIREBASE_ENABLED
-            const int totalSteps = 9;
-#else
-            const int totalSteps = 8;
+            tasks.Add(async () => await FirebaseManager.Instance.InitializeFirebaseAsync());
+            tasks.Add(async () => await FirebaseManager.Instance.AutoSignInAsync());
 #endif
-            int currentStep = 0;
+            tasks.Add(AddressableManager.Instance.InitializeAsync);
+            tasks.Add(DataManager.Instance.InitializeAsync);
+            tasks.Add(SaveLoadManager.Instance.InitializeAsync);
+            tasks.Add(PlayerDataManager.Instance.InitializeAsync);
+            tasks.Add(AudioManager.Instance.InitializeAsync);
+            tasks.Add(UIManager.Instance.InitializeAsync);
+            tasks.Add(SceneLoadManager.Instance.InitializeAsync);
+            tasks.Add(ToastManager.Instance.InitializeAsync);
 
-#if FIREBASE_ENABLED
-            await FirebaseManager.Instance.InitializeFirebaseAsync();
-            await FirebaseManager.Instance.AutoSignInAsync();
-            EventManager.Dispatch(GameEventType.GameInitializeProgress, ++currentStep / (float)totalSteps);
-#endif
-            await AddressableManager.Instance.InitializeAsync();
-            EventManager.Dispatch(GameEventType.GameInitializeProgress, ++currentStep / (float)totalSteps);
-            await DataManager.Instance.InitializeAsync();
-            EventManager.Dispatch(GameEventType.GameInitializeProgress, ++currentStep / (float)totalSteps);
-            await SaveLoadManager.Instance.InitializeAsync();
-            EventManager.Dispatch(GameEventType.GameInitializeProgress, ++currentStep / (float)totalSteps);
-            await PlayerDataManager.Instance.InitializeAsync();
-            EventManager.Dispatch(GameEventType.GameInitializeProgress, ++currentStep / (float)totalSteps);
-            await AudioManager.Instance.InitializeAsync();
-            EventManager.Dispatch(GameEventType.GameInitializeProgress, ++currentStep / (float)totalSteps);
-            await UIManager.Instance.InitializeAsync();
-            EventManager.Dispatch(GameEventType.GameInitializeProgress, ++currentStep / (float)totalSteps);
-            await SceneLoadManager.Instance.InitializeAsync();
-            EventManager.Dispatch(GameEventType.GameInitializeProgress, ++currentStep / (float)totalSteps);
-            await ToastManager.Instance.InitializeAsync();
-            EventManager.Dispatch(GameEventType.GameInitializeProgress, ++currentStep / (float)totalSteps);
+            for (int i = 0; i < tasks.Count; i++)
+            {
+                await tasks[i]();
+                EventManager.Dispatch(GameEventType.GameInitializeProgress, (i + 1) / (float)tasks.Count);
+            }
         }
         catch (Exception e)
         {
