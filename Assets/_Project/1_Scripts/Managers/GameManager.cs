@@ -42,17 +42,33 @@ public class GameManager : MonoSingleton<GameManager>
         try
         {
 #if FIREBASE_ENABLED
+            const int totalSteps = 9;
+#else
+            const int totalSteps = 8;
+#endif
+            int currentStep = 0;
+
+#if FIREBASE_ENABLED
             await FirebaseManager.Instance.InitializeFirebaseAsync();
             await FirebaseManager.Instance.AutoSignInAsync();
+            EventManager.Dispatch(GameEventType.GameInitializeProgress, ++currentStep / (float)totalSteps);
 #endif
             await AddressableManager.Instance.InitializeAsync();
+            EventManager.Dispatch(GameEventType.GameInitializeProgress, ++currentStep / (float)totalSteps);
             await DataManager.Instance.InitializeAsync();
+            EventManager.Dispatch(GameEventType.GameInitializeProgress, ++currentStep / (float)totalSteps);
             await SaveLoadManager.Instance.InitializeAsync();
+            EventManager.Dispatch(GameEventType.GameInitializeProgress, ++currentStep / (float)totalSteps);
             await PlayerDataManager.Instance.InitializeAsync();
+            EventManager.Dispatch(GameEventType.GameInitializeProgress, ++currentStep / (float)totalSteps);
             await AudioManager.Instance.InitializeAsync();
+            EventManager.Dispatch(GameEventType.GameInitializeProgress, ++currentStep / (float)totalSteps);
             await UIManager.Instance.InitializeAsync();
+            EventManager.Dispatch(GameEventType.GameInitializeProgress, ++currentStep / (float)totalSteps);
             await SceneLoadManager.Instance.InitializeAsync();
+            EventManager.Dispatch(GameEventType.GameInitializeProgress, ++currentStep / (float)totalSteps);
             await ToastManager.Instance.InitializeAsync();
+            EventManager.Dispatch(GameEventType.GameInitializeProgress, ++currentStep / (float)totalSteps);
         }
         catch (Exception e)
         {

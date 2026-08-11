@@ -5,6 +5,7 @@ public enum GameEventType
 {
     ApplicationStart, // 앱 시작
     ApplicationQuit, // 앱 종료
+    GameInitializeProgress, // 게임 초기화 진행률
     
     ChangeSelectedHero, // 선택 영웅 변경
     LevelUpHero, // 영웅 레벨 업
