@@ -9,8 +9,8 @@ using UnityEngine;
 
 public static class JsonToSOParser
 {
-    private const string JSON_PATH = "Assets/_Project/Resources/Data/JSON";
-    private const string SO_PATH = "Assets/_Project/Resources/Data/SO";
+    private const string JSON_PATH = "Assets/_Project/AddressableResources/Data/JSON";
+    private const string SO_PATH = "Assets/_Project/AddressableResources/Data/SO";
 
     [MenuItem("Tools/Data/Parse JSON To SO All")]
     public static void ParseAll()

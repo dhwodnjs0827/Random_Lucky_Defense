@@ -204,7 +204,7 @@ def main():
     # 환경 변수에서 설정 읽기
     credentials_path = os.environ.get('GOOGLE_CREDENTIALS_PATH', 'credentials.json')
     spreadsheet_id = os.environ.get('SPREADSHEET_ID')
-    json_output_dir = 'Assets/_Project/Resources/Data/JSON'
+    json_output_dir = 'Assets/_Project/AddressableResources/Data/JSON'
     cs_output_dir = 'Assets/_Project/1_Scripts/Data/Generated'
 
     if not spreadsheet_id:
