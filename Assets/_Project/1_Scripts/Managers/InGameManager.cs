@@ -29,6 +29,8 @@ public class InGameManager : MonoSingleton<InGameManager>, IEventListener
     
     private Action<InGameFinishEventData> onGameFinish;
     
+    public InGameUIController UIController => uiController;
+    public WaveController WaveController => waveController;
     public AbilityEffectFactory AbilityEffectFactory => abilityEffectFactory;
     public InGameHeroLevelUpController HeroLevelUpController => heroLevelUpController;
     public InGameHeroBuffController HeroBuffController => heroBuffController;

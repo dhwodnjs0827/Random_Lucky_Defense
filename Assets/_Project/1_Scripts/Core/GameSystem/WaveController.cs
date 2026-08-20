@@ -8,7 +8,7 @@ using UnityEngine;
 public class WaveController
 {
     private IList<WaveDataSO> waveDataList;
-    
+
     private WaveDataSO currentWaveData;
     private readonly ReactiveProperty<float> currentWaveTime = new();
     private EnemyDataSO currentSpawnEnemyData;
@@ -25,6 +25,7 @@ public class WaveController
     private SpawnMethod spawn;
 
     public ReactiveProperty<float> CurrentWaveTime => currentWaveTime;
+    public int CurrentWaveDataIndex => currentWaveDataIndex;
 
     public void Update()
     {
@@ -69,7 +70,7 @@ public class WaveController
     private void WaveInit()
     {
         waveDataList = DataManager.Instance.WaveDataList;
-        
+
         // 첫 웨이브 설정
         SetWaveData();
         isWaveStart = true;
@@ -134,7 +135,7 @@ public class WaveController
         currentWaveTime.Value = currentWaveData.WaveTime;
         spawnInterval = currentWaveData.SpawnInterval;
         spawnTimer = 0f;
-        
+
         currentSpawnEnemyData =
             DataManager.Instance.EnemyDataList.FirstOrDefault(x => x.ID.Equals(currentWaveData.SpawnEnemyID));
 
@@ -175,4 +176,39 @@ public class WaveController
         FirebaseManager.Instance.LogEvent(nameof(GameEventType.GameFinish), "isStageCleared", "false");
         CDebug.Log("[EnemyWaveController] 게임 나가기");
     }
+
+    #region Cheat
+
+#if UNITY_EDITOR
+    public void CheatChangeWave(int waveIndex)
+    {
+        if (waveDataList == null)
+        {
+            CDebug.LogError("[EnemyWaveController] WaveData가 없습니다!");
+            return;
+        }
+
+        // 마지막 웨이브일 경우
+        if (currentWaveDataIndex >= waveDataList.Count)
+        {
+            return;
+        }
+
+        currentWaveData = waveDataList[waveIndex];
+
+        currentWaveTime.Value = currentWaveData.WaveTime;
+        spawnInterval = currentWaveData.SpawnInterval;
+        spawnTimer = 0f;
+
+        currentSpawnEnemyData =
+            DataManager.Instance.EnemyDataList.FirstOrDefault(x => x.ID.Equals(currentWaveData.SpawnEnemyID));
+
+        spawn = currentWaveData.WaveType == WaveType.Normal ? SpawnNormalEnemy : SpawnBossEnemy;
+
+        currentWaveDataIndex = waveIndex + 1;
+        EventManager.Dispatch(GameEventType.WaveStart, new WaveStartEventData(currentWaveData, currentSpawnEnemyData));
+    }
+#endif
+
+    #endregion
 }

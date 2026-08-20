@@ -51,7 +51,7 @@ public class CheatEditor : EditorWindow
         // 게임 씬 탭
         gameTabs = new ICheatTab[]
         {
-            new StageCheatTab(),
+            new InGameWaveCheatTab(),
             new InGameCurrencyCheatTab(),
             new InGameHeroCheatTab(),
             new AbilityCheatTab()
