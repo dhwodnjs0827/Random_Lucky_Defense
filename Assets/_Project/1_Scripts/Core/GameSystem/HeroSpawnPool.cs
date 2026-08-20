@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Cysharp.Threading.Tasks;
+using Generated;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -164,4 +165,18 @@ public class HeroSpawnPool
             }
         }
     }
+    
+    #region Cheat
+
+#if UNITY_EDITOR
+    public BaseHero CheatGetHero(HeroDataSO heroData)
+    {
+        var classPrefabDict = heroPrefabs[heroData.ClassType];
+        var hero = ObjectPoolManager.Instance.Get(classPrefabDict[heroData.GradeType]);
+        hero.Initialize(heroDatas[heroData.ClassType][heroData.GradeType].HeroData);
+        return hero;
+    }
+#endif
+
+    #endregion
 }

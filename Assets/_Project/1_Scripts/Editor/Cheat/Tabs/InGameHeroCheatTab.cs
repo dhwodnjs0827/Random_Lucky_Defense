@@ -130,12 +130,12 @@ public class InGameHeroCheatTab : ICheatTab
     private void LoadHeroDataList()
     {
         if (heroDataList != null) return;
-
-        heroDataList = Resources.LoadAll<HeroDataSO>("Data/SO/HeroData");
+        
+        heroDataList = DataManager.Instance.HeroDataList.ToArray();
 
         if (heroDataList == null || heroDataList.Length == 0)
         {
-            CDebug.LogWarning("[HeroCheatTab] HeroDataSO를 찾을 수 없습니다. 경로: Resources/Data/SO/HeroData");
+            CDebug.LogWarning("[HeroCheatTab] HeroDataSO가 없습니다.");
             return;
         }
 
@@ -154,26 +154,17 @@ public class InGameHeroCheatTab : ICheatTab
     private void SpawnSelectedHero()
     {
         if (heroDataList == null || selectedHeroDataIndex >= heroDataList.Length) return;
-
-        var areaController = Object.FindFirstObjectByType<HeroAreaController>();
-        if (areaController == null)
+        
+        var heroSpawner = Object.FindFirstObjectByType<HeroSpawner>();
+        if (heroSpawner == null)
         {
-            CDebug.LogError("[HeroCheatTab] HeroAreaController를 찾을 수 없습니다.");
+            CDebug.LogError("[HeroCheatTab] HeroSpawner를 찾을 수 없습니다.");
             return;
         }
-
+        
         var heroData = heroDataList[selectedHeroDataIndex];
-        var prefab = Resources.Load<BaseHero>($"Prefabs/Hero/{heroData.Name}");
-
-        if (prefab == null)
-        {
-            CDebug.LogError($"[HeroCheatTab] {heroData.Name} 프리팹을 찾을 수 없습니다.");
-            return;
-        }
-
-        var hero = Object.Instantiate(prefab, areaController.SpawnPoint.position, Quaternion.identity);
-        hero.Initialize(heroData);
-        areaController.PlaceHero(hero);
+        
+        heroSpawner.CheatSpawnHero(heroData);
     }
 }
 

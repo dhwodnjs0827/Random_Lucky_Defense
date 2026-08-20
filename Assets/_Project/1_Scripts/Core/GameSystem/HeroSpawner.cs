@@ -1,3 +1,4 @@
+using Generated;
 using UnityEngine;
 
 /// <summary>
@@ -68,4 +69,35 @@ public class HeroSpawner : MonoBehaviour, IEventListener
         // 클래스에 맞는 영역으로 배치
         areaController.PlaceHero(hero);
     }
+
+    #region Cheat
+
+#if UNITY_EDITOR
+    public void CheatSpawnHero(HeroDataSO heroData)
+    {
+        if (areaController == null)
+        {
+            CDebug.LogError("[HeroSpawner] AreaController가 null입니다.");
+            return;
+        }
+
+        // 중앙에서 스폰
+        var spawnPosition = areaController.SpawnPoint;
+        var hero = heroSpawnPool.CheatGetHero(heroData);
+        if (hero == null)
+        {
+            CDebug.LogWarning("[HeroSpawner] hero가 없습니다.");
+            return;
+        }
+        
+        EventManager.Dispatch(GameEventType.SpawnHero, new HeroSpawnEventData(hero));
+
+        hero.transform.position = spawnPosition.position;
+
+        // 클래스에 맞는 영역으로 배치
+        areaController.PlaceHero(hero);
+    }
+#endif
+
+    #endregion
 }
