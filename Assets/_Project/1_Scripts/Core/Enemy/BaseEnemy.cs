@@ -54,7 +54,7 @@ public abstract class BaseEnemy : MonoBehaviour, IPoolable, IDetectable, IDamage
     /// <summary>
     /// 적 초기화
     /// </summary>
-    public void Initialize(EnemyDataSO data, WaveDataSO waveData, SplineContainer splineContainer)
+    public virtual void Initialize(EnemyDataSO data, WaveDataSO waveData, SplineContainer splineContainer)
     {
         InitializeSpline(splineContainer);
         InitializeEnemyData(data, waveData);
@@ -177,7 +177,7 @@ public abstract class BaseEnemy : MonoBehaviour, IPoolable, IDetectable, IDamage
         }
     }
 
-    public void TakeDamage(DamageContext damageContext)
+    public virtual void TakeDamage(DamageContext damageContext)
     {
         if (currentHealth <= 0)
         {
@@ -200,13 +200,13 @@ public abstract class BaseEnemy : MonoBehaviour, IPoolable, IDetectable, IDamage
 
     public void HitEffect()
     {
-        HitFlash().Forget();
+        HitFlashAsync().Forget();
     }
 
     /// <summary>
     /// 피격 시, 빨간색으로 변경 효과
     /// </summary>
-    private async UniTask HitFlash()
+    private async UniTask HitFlashAsync()
     {
         // 기존 플래시 취소
         flashCts?.Cancel();
