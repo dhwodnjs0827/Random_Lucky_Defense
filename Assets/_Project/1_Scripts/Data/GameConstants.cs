@@ -63,6 +63,14 @@ public static class GameConstants
 }
 
 /// <summary>
+/// Resources 경로
+/// </summary>
+public static class ResourcesPath
+{
+    public const string INITIAL_GAME_CONFIG = "Data/SO/InitialGameConfig";
+}
+
+/// <summary>
 /// 어드레서블 라벨
 /// </summary>
 public static class AddressableLabels

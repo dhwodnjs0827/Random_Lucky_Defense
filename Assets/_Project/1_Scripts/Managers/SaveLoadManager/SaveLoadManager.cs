@@ -63,7 +63,7 @@ public class SaveLoadManager : Singleton<SaveLoadManager>
 
     private SaveData InitializeSaveData()
     {
-        var config = Resources.Load<InitialGameConfig>("Data/SO/InitialGameConfig");
+        var config = Resources.Load<InitialGameConfig>(ResourcesPath.INITIAL_GAME_CONFIG);
         var playerName = GetPlayerName();
 
         return SaveDataFactory.CreateNewSaveData(config, playerName);
