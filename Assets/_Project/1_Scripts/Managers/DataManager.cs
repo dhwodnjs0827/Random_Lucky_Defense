@@ -53,7 +53,7 @@ public class DataManager : MonoSingleton<DataManager>
     private async UniTask LoadAbilityLevelDataAsync()
     {
         var loadedData = await AddressableManager.Instance.LoadAllAsync<AbilityLevelDataSO>(AddressableLabels.ABILITY_LEVEL_DATA);
-        abilityLevelDataList = loadedData.ToList();
+        abilityLevelDataList = loadedData.OrderBy(data => data.Level).ToList();
     }
     
     private async UniTask LoadDamageRateByClassDataAsync()
