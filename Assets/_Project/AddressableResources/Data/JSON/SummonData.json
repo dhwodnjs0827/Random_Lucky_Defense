@@ -1,0 +1,29 @@
+[
+  {
+    "ID": "Red_Dragon",
+    "ClassType": "Magician",
+    "AttackPower": 0.0,
+    "AttackSpeed": 0.0,
+    "AttackRange": 200.0,
+    "SplashRange": 10.0,
+    "Penetration": 0.0
+  },
+  {
+    "ID": "Ancient_Statue",
+    "ClassType": "Archer",
+    "AttackPower": 0.0,
+    "AttackSpeed": 0.0,
+    "AttackRange": 200.0,
+    "SplashRange": 0.0,
+    "Penetration": 100.0
+  },
+  {
+    "ID": "Lightning",
+    "ClassType": "Knight",
+    "AttackPower": 0.0,
+    "AttackSpeed": 0.0,
+    "AttackRange": 2000.0,
+    "SplashRange": 10.0,
+    "Penetration": 0.0
+  }
+]

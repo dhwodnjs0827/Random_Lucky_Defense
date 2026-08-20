@@ -1,0 +1,1012 @@
+[
+  {
+    "WaveIndex": 1,
+    "WaveType": "Normal",
+    "SpawnEnemyID": 20000,
+    "SpawnInterval": 0.5,
+    "WaveTime": 30.0,
+    "WaveHpCoefficients": 1.0,
+    "WaveSpeedCoefficients": 1.0,
+    "WaveDefenseCoefficients": 1.0
+  },
+  {
+    "WaveIndex": 2,
+    "WaveType": "Normal",
+    "SpawnEnemyID": 20001,
+    "SpawnInterval": 0.5,
+    "WaveTime": 30.0,
+    "WaveHpCoefficients": 1.0,
+    "WaveSpeedCoefficients": 1.0,
+    "WaveDefenseCoefficients": 1.0
+  },
+  {
+    "WaveIndex": 3,
+    "WaveType": "Normal",
+    "SpawnEnemyID": 20002,
+    "SpawnInterval": 0.5,
+    "WaveTime": 30.0,
+    "WaveHpCoefficients": 1.0,
+    "WaveSpeedCoefficients": 1.0,
+    "WaveDefenseCoefficients": 1.0
+  },
+  {
+    "WaveIndex": 4,
+    "WaveType": "Normal",
+    "SpawnEnemyID": 20003,
+    "SpawnInterval": 0.5,
+    "WaveTime": 30.0,
+    "WaveHpCoefficients": 1.0,
+    "WaveSpeedCoefficients": 1.0,
+    "WaveDefenseCoefficients": 1.0
+  },
+  {
+    "WaveIndex": 5,
+    "WaveType": "Normal",
+    "SpawnEnemyID": 20004,
+    "SpawnInterval": 0.5,
+    "WaveTime": 30.0,
+    "WaveHpCoefficients": 1.0,
+    "WaveSpeedCoefficients": 1.0,
+    "WaveDefenseCoefficients": 1.0
+  },
+  {
+    "WaveIndex": 6,
+    "WaveType": "Normal",
+    "SpawnEnemyID": 20005,
+    "SpawnInterval": 0.5,
+    "WaveTime": 30.0,
+    "WaveHpCoefficients": 1.0,
+    "WaveSpeedCoefficients": 1.0,
+    "WaveDefenseCoefficients": 1.0
+  },
+  {
+    "WaveIndex": 7,
+    "WaveType": "Normal",
+    "SpawnEnemyID": 20006,
+    "SpawnInterval": 0.5,
+    "WaveTime": 30.0,
+    "WaveHpCoefficients": 1.0,
+    "WaveSpeedCoefficients": 1.0,
+    "WaveDefenseCoefficients": 1.0
+  },
+  {
+    "WaveIndex": 8,
+    "WaveType": "Normal",
+    "SpawnEnemyID": 20007,
+    "SpawnInterval": 0.5,
+    "WaveTime": 30.0,
+    "WaveHpCoefficients": 1.0,
+    "WaveSpeedCoefficients": 1.0,
+    "WaveDefenseCoefficients": 1.0
+  },
+  {
+    "WaveIndex": 9,
+    "WaveType": "Normal",
+    "SpawnEnemyID": 20008,
+    "SpawnInterval": 0.5,
+    "WaveTime": 30.0,
+    "WaveHpCoefficients": 1.0,
+    "WaveSpeedCoefficients": 1.0,
+    "WaveDefenseCoefficients": 1.0
+  },
+  {
+    "WaveIndex": 10,
+    "WaveType": "Boss",
+    "SpawnEnemyID": 20009,
+    "SpawnInterval": 0.0,
+    "WaveTime": 30.0,
+    "WaveHpCoefficients": 1.0,
+    "WaveSpeedCoefficients": 1.0,
+    "WaveDefenseCoefficients": 1.0
+  },
+  {
+    "WaveIndex": 11,
+    "WaveType": "Normal",
+    "SpawnEnemyID": 20010,
+    "SpawnInterval": 0.5,
+    "WaveTime": 30.0,
+    "WaveHpCoefficients": 2.0,
+    "WaveSpeedCoefficients": 1.0,
+    "WaveDefenseCoefficients": 1.0
+  },
+  {
+    "WaveIndex": 12,
+    "WaveType": "Normal",
+    "SpawnEnemyID": 20011,
+    "SpawnInterval": 0.5,
+    "WaveTime": 30.0,
+    "WaveHpCoefficients": 2.0,
+    "WaveSpeedCoefficients": 1.0,
+    "WaveDefenseCoefficients": 1.0
+  },
+  {
+    "WaveIndex": 13,
+    "WaveType": "Normal",
+    "SpawnEnemyID": 20012,
+    "SpawnInterval": 0.5,
+    "WaveTime": 30.0,
+    "WaveHpCoefficients": 2.0,
+    "WaveSpeedCoefficients": 1.0,
+    "WaveDefenseCoefficients": 1.0
+  },
+  {
+    "WaveIndex": 14,
+    "WaveType": "Normal",
+    "SpawnEnemyID": 20013,
+    "SpawnInterval": 0.5,
+    "WaveTime": 30.0,
+    "WaveHpCoefficients": 2.0,
+    "WaveSpeedCoefficients": 1.0,
+    "WaveDefenseCoefficients": 1.0
+  },
+  {
+    "WaveIndex": 15,
+    "WaveType": "Normal",
+    "SpawnEnemyID": 20014,
+    "SpawnInterval": 0.5,
+    "WaveTime": 30.0,
+    "WaveHpCoefficients": 2.0,
+    "WaveSpeedCoefficients": 1.0,
+    "WaveDefenseCoefficients": 1.0
+  },
+  {
+    "WaveIndex": 16,
+    "WaveType": "Normal",
+    "SpawnEnemyID": 20015,
+    "SpawnInterval": 0.5,
+    "WaveTime": 30.0,
+    "WaveHpCoefficients": 2.0,
+    "WaveSpeedCoefficients": 1.0,
+    "WaveDefenseCoefficients": 1.0
+  },
+  {
+    "WaveIndex": 17,
+    "WaveType": "Normal",
+    "SpawnEnemyID": 20016,
+    "SpawnInterval": 0.5,
+    "WaveTime": 30.0,
+    "WaveHpCoefficients": 2.0,
+    "WaveSpeedCoefficients": 1.0,
+    "WaveDefenseCoefficients": 1.0
+  },
+  {
+    "WaveIndex": 18,
+    "WaveType": "Normal",
+    "SpawnEnemyID": 20017,
+    "SpawnInterval": 0.5,
+    "WaveTime": 30.0,
+    "WaveHpCoefficients": 2.0,
+    "WaveSpeedCoefficients": 1.0,
+    "WaveDefenseCoefficients": 1.0
+  },
+  {
+    "WaveIndex": 19,
+    "WaveType": "Normal",
+    "SpawnEnemyID": 20018,
+    "SpawnInterval": 0.5,
+    "WaveTime": 30.0,
+    "WaveHpCoefficients": 2.0,
+    "WaveSpeedCoefficients": 1.0,
+    "WaveDefenseCoefficients": 1.0
+  },
+  {
+    "WaveIndex": 20,
+    "WaveType": "Boss",
+    "SpawnEnemyID": 20019,
+    "SpawnInterval": 0.0,
+    "WaveTime": 30.0,
+    "WaveHpCoefficients": 2.0,
+    "WaveSpeedCoefficients": 1.0,
+    "WaveDefenseCoefficients": 1.0
+  },
+  {
+    "WaveIndex": 21,
+    "WaveType": "Normal",
+    "SpawnEnemyID": 20020,
+    "SpawnInterval": 0.5,
+    "WaveTime": 30.0,
+    "WaveHpCoefficients": 3.0,
+    "WaveSpeedCoefficients": 1.0,
+    "WaveDefenseCoefficients": 1.0
+  },
+  {
+    "WaveIndex": 22,
+    "WaveType": "Normal",
+    "SpawnEnemyID": 20021,
+    "SpawnInterval": 0.5,
+    "WaveTime": 30.0,
+    "WaveHpCoefficients": 3.0,
+    "WaveSpeedCoefficients": 1.0,
+    "WaveDefenseCoefficients": 1.0
+  },
+  {
+    "WaveIndex": 23,
+    "WaveType": "Normal",
+    "SpawnEnemyID": 20022,
+    "SpawnInterval": 0.5,
+    "WaveTime": 30.0,
+    "WaveHpCoefficients": 3.0,
+    "WaveSpeedCoefficients": 1.0,
+    "WaveDefenseCoefficients": 1.0
+  },
+  {
+    "WaveIndex": 24,
+    "WaveType": "Normal",
+    "SpawnEnemyID": 20023,
+    "SpawnInterval": 0.5,
+    "WaveTime": 30.0,
+    "WaveHpCoefficients": 3.0,
+    "WaveSpeedCoefficients": 1.0,
+    "WaveDefenseCoefficients": 1.0
+  },
+  {
+    "WaveIndex": 25,
+    "WaveType": "Normal",
+    "SpawnEnemyID": 20024,
+    "SpawnInterval": 0.5,
+    "WaveTime": 30.0,
+    "WaveHpCoefficients": 3.0,
+    "WaveSpeedCoefficients": 1.0,
+    "WaveDefenseCoefficients": 1.0
+  },
+  {
+    "WaveIndex": 26,
+    "WaveType": "Normal",
+    "SpawnEnemyID": 20025,
+    "SpawnInterval": 0.5,
+    "WaveTime": 30.0,
+    "WaveHpCoefficients": 3.0,
+    "WaveSpeedCoefficients": 1.0,
+    "WaveDefenseCoefficients": 1.0
+  },
+  {
+    "WaveIndex": 27,
+    "WaveType": "Normal",
+    "SpawnEnemyID": 20026,
+    "SpawnInterval": 0.5,
+    "WaveTime": 30.0,
+    "WaveHpCoefficients": 3.0,
+    "WaveSpeedCoefficients": 1.0,
+    "WaveDefenseCoefficients": 1.0
+  },
+  {
+    "WaveIndex": 28,
+    "WaveType": "Normal",
+    "SpawnEnemyID": 20027,
+    "SpawnInterval": 0.5,
+    "WaveTime": 30.0,
+    "WaveHpCoefficients": 3.0,
+    "WaveSpeedCoefficients": 1.0,
+    "WaveDefenseCoefficients": 1.0
+  },
+  {
+    "WaveIndex": 29,
+    "WaveType": "Normal",
+    "SpawnEnemyID": 20028,
+    "SpawnInterval": 0.5,
+    "WaveTime": 30.0,
+    "WaveHpCoefficients": 3.0,
+    "WaveSpeedCoefficients": 1.0,
+    "WaveDefenseCoefficients": 1.0
+  },
+  {
+    "WaveIndex": 30,
+    "WaveType": "Boss",
+    "SpawnEnemyID": 20029,
+    "SpawnInterval": 0.0,
+    "WaveTime": 30.0,
+    "WaveHpCoefficients": 3.0,
+    "WaveSpeedCoefficients": 1.0,
+    "WaveDefenseCoefficients": 1.0
+  },
+  {
+    "WaveIndex": 31,
+    "WaveType": "Normal",
+    "SpawnEnemyID": 20030,
+    "SpawnInterval": 0.5,
+    "WaveTime": 30.0,
+    "WaveHpCoefficients": 4.0,
+    "WaveSpeedCoefficients": 1.0,
+    "WaveDefenseCoefficients": 1.0
+  },
+  {
+    "WaveIndex": 32,
+    "WaveType": "Normal",
+    "SpawnEnemyID": 20031,
+    "SpawnInterval": 0.5,
+    "WaveTime": 30.0,
+    "WaveHpCoefficients": 4.0,
+    "WaveSpeedCoefficients": 1.0,
+    "WaveDefenseCoefficients": 1.0
+  },
+  {
+    "WaveIndex": 33,
+    "WaveType": "Normal",
+    "SpawnEnemyID": 20032,
+    "SpawnInterval": 0.5,
+    "WaveTime": 30.0,
+    "WaveHpCoefficients": 4.0,
+    "WaveSpeedCoefficients": 1.0,
+    "WaveDefenseCoefficients": 1.0
+  },
+  {
+    "WaveIndex": 34,
+    "WaveType": "Normal",
+    "SpawnEnemyID": 20033,
+    "SpawnInterval": 0.5,
+    "WaveTime": 30.0,
+    "WaveHpCoefficients": 4.0,
+    "WaveSpeedCoefficients": 1.0,
+    "WaveDefenseCoefficients": 1.0
+  },
+  {
+    "WaveIndex": 35,
+    "WaveType": "Normal",
+    "SpawnEnemyID": 20034,
+    "SpawnInterval": 0.5,
+    "WaveTime": 30.0,
+    "WaveHpCoefficients": 4.0,
+    "WaveSpeedCoefficients": 1.0,
+    "WaveDefenseCoefficients": 1.0
+  },
+  {
+    "WaveIndex": 36,
+    "WaveType": "Normal",
+    "SpawnEnemyID": 20035,
+    "SpawnInterval": 0.5,
+    "WaveTime": 30.0,
+    "WaveHpCoefficients": 4.0,
+    "WaveSpeedCoefficients": 1.0,
+    "WaveDefenseCoefficients": 1.0
+  },
+  {
+    "WaveIndex": 37,
+    "WaveType": "Normal",
+    "SpawnEnemyID": 20036,
+    "SpawnInterval": 0.5,
+    "WaveTime": 30.0,
+    "WaveHpCoefficients": 4.0,
+    "WaveSpeedCoefficients": 1.0,
+    "WaveDefenseCoefficients": 1.0
+  },
+  {
+    "WaveIndex": 38,
+    "WaveType": "Normal",
+    "SpawnEnemyID": 20037,
+    "SpawnInterval": 0.5,
+    "WaveTime": 30.0,
+    "WaveHpCoefficients": 4.0,
+    "WaveSpeedCoefficients": 1.0,
+    "WaveDefenseCoefficients": 1.0
+  },
+  {
+    "WaveIndex": 39,
+    "WaveType": "Normal",
+    "SpawnEnemyID": 20038,
+    "SpawnInterval": 0.5,
+    "WaveTime": 30.0,
+    "WaveHpCoefficients": 4.0,
+    "WaveSpeedCoefficients": 1.0,
+    "WaveDefenseCoefficients": 1.0
+  },
+  {
+    "WaveIndex": 40,
+    "WaveType": "Boss",
+    "SpawnEnemyID": 20039,
+    "SpawnInterval": 0.0,
+    "WaveTime": 30.0,
+    "WaveHpCoefficients": 4.0,
+    "WaveSpeedCoefficients": 1.0,
+    "WaveDefenseCoefficients": 1.0
+  },
+  {
+    "WaveIndex": 41,
+    "WaveType": "Normal",
+    "SpawnEnemyID": 20040,
+    "SpawnInterval": 0.5,
+    "WaveTime": 30.0,
+    "WaveHpCoefficients": 5.0,
+    "WaveSpeedCoefficients": 1.0,
+    "WaveDefenseCoefficients": 1.0
+  },
+  {
+    "WaveIndex": 42,
+    "WaveType": "Normal",
+    "SpawnEnemyID": 20041,
+    "SpawnInterval": 0.5,
+    "WaveTime": 30.0,
+    "WaveHpCoefficients": 5.0,
+    "WaveSpeedCoefficients": 1.0,
+    "WaveDefenseCoefficients": 1.0
+  },
+  {
+    "WaveIndex": 43,
+    "WaveType": "Normal",
+    "SpawnEnemyID": 20042,
+    "SpawnInterval": 0.5,
+    "WaveTime": 30.0,
+    "WaveHpCoefficients": 5.0,
+    "WaveSpeedCoefficients": 1.0,
+    "WaveDefenseCoefficients": 1.0
+  },
+  {
+    "WaveIndex": 44,
+    "WaveType": "Normal",
+    "SpawnEnemyID": 20043,
+    "SpawnInterval": 0.5,
+    "WaveTime": 30.0,
+    "WaveHpCoefficients": 5.0,
+    "WaveSpeedCoefficients": 1.0,
+    "WaveDefenseCoefficients": 1.0
+  },
+  {
+    "WaveIndex": 45,
+    "WaveType": "Normal",
+    "SpawnEnemyID": 20044,
+    "SpawnInterval": 0.5,
+    "WaveTime": 30.0,
+    "WaveHpCoefficients": 5.0,
+    "WaveSpeedCoefficients": 1.0,
+    "WaveDefenseCoefficients": 1.0
+  },
+  {
+    "WaveIndex": 46,
+    "WaveType": "Normal",
+    "SpawnEnemyID": 20045,
+    "SpawnInterval": 0.5,
+    "WaveTime": 30.0,
+    "WaveHpCoefficients": 5.0,
+    "WaveSpeedCoefficients": 1.0,
+    "WaveDefenseCoefficients": 1.0
+  },
+  {
+    "WaveIndex": 47,
+    "WaveType": "Normal",
+    "SpawnEnemyID": 20046,
+    "SpawnInterval": 0.5,
+    "WaveTime": 30.0,
+    "WaveHpCoefficients": 5.0,
+    "WaveSpeedCoefficients": 1.0,
+    "WaveDefenseCoefficients": 1.0
+  },
+  {
+    "WaveIndex": 48,
+    "WaveType": "Normal",
+    "SpawnEnemyID": 20047,
+    "SpawnInterval": 0.5,
+    "WaveTime": 30.0,
+    "WaveHpCoefficients": 5.0,
+    "WaveSpeedCoefficients": 1.0,
+    "WaveDefenseCoefficients": 1.0
+  },
+  {
+    "WaveIndex": 49,
+    "WaveType": "Normal",
+    "SpawnEnemyID": 20048,
+    "SpawnInterval": 0.5,
+    "WaveTime": 30.0,
+    "WaveHpCoefficients": 5.0,
+    "WaveSpeedCoefficients": 1.0,
+    "WaveDefenseCoefficients": 1.0
+  },
+  {
+    "WaveIndex": 50,
+    "WaveType": "Boss",
+    "SpawnEnemyID": 20049,
+    "SpawnInterval": 0.0,
+    "WaveTime": 30.0,
+    "WaveHpCoefficients": 5.0,
+    "WaveSpeedCoefficients": 1.0,
+    "WaveDefenseCoefficients": 1.0
+  },
+  {
+    "WaveIndex": 51,
+    "WaveType": "Normal",
+    "SpawnEnemyID": 20050,
+    "SpawnInterval": 0.5,
+    "WaveTime": 30.0,
+    "WaveHpCoefficients": 6.0,
+    "WaveSpeedCoefficients": 1.0,
+    "WaveDefenseCoefficients": 1.0
+  },
+  {
+    "WaveIndex": 52,
+    "WaveType": "Normal",
+    "SpawnEnemyID": 20051,
+    "SpawnInterval": 0.5,
+    "WaveTime": 30.0,
+    "WaveHpCoefficients": 6.0,
+    "WaveSpeedCoefficients": 1.0,
+    "WaveDefenseCoefficients": 1.0
+  },
+  {
+    "WaveIndex": 53,
+    "WaveType": "Normal",
+    "SpawnEnemyID": 20052,
+    "SpawnInterval": 0.5,
+    "WaveTime": 30.0,
+    "WaveHpCoefficients": 6.0,
+    "WaveSpeedCoefficients": 1.0,
+    "WaveDefenseCoefficients": 1.0
+  },
+  {
+    "WaveIndex": 54,
+    "WaveType": "Normal",
+    "SpawnEnemyID": 20053,
+    "SpawnInterval": 0.5,
+    "WaveTime": 30.0,
+    "WaveHpCoefficients": 6.0,
+    "WaveSpeedCoefficients": 1.0,
+    "WaveDefenseCoefficients": 1.0
+  },
+  {
+    "WaveIndex": 55,
+    "WaveType": "Normal",
+    "SpawnEnemyID": 20054,
+    "SpawnInterval": 0.5,
+    "WaveTime": 30.0,
+    "WaveHpCoefficients": 6.0,
+    "WaveSpeedCoefficients": 1.0,
+    "WaveDefenseCoefficients": 1.0
+  },
+  {
+    "WaveIndex": 56,
+    "WaveType": "Normal",
+    "SpawnEnemyID": 20055,
+    "SpawnInterval": 0.5,
+    "WaveTime": 30.0,
+    "WaveHpCoefficients": 6.0,
+    "WaveSpeedCoefficients": 1.0,
+    "WaveDefenseCoefficients": 1.0
+  },
+  {
+    "WaveIndex": 57,
+    "WaveType": "Normal",
+    "SpawnEnemyID": 20056,
+    "SpawnInterval": 0.5,
+    "WaveTime": 30.0,
+    "WaveHpCoefficients": 6.0,
+    "WaveSpeedCoefficients": 1.0,
+    "WaveDefenseCoefficients": 1.0
+  },
+  {
+    "WaveIndex": 58,
+    "WaveType": "Normal",
+    "SpawnEnemyID": 20057,
+    "SpawnInterval": 0.5,
+    "WaveTime": 30.0,
+    "WaveHpCoefficients": 6.0,
+    "WaveSpeedCoefficients": 1.0,
+    "WaveDefenseCoefficients": 1.0
+  },
+  {
+    "WaveIndex": 59,
+    "WaveType": "Normal",
+    "SpawnEnemyID": 20058,
+    "SpawnInterval": 0.5,
+    "WaveTime": 30.0,
+    "WaveHpCoefficients": 6.0,
+    "WaveSpeedCoefficients": 1.0,
+    "WaveDefenseCoefficients": 1.0
+  },
+  {
+    "WaveIndex": 60,
+    "WaveType": "Boss",
+    "SpawnEnemyID": 20059,
+    "SpawnInterval": 0.0,
+    "WaveTime": 30.0,
+    "WaveHpCoefficients": 6.0,
+    "WaveSpeedCoefficients": 1.0,
+    "WaveDefenseCoefficients": 1.0
+  },
+  {
+    "WaveIndex": 61,
+    "WaveType": "Normal",
+    "SpawnEnemyID": 20060,
+    "SpawnInterval": 0.5,
+    "WaveTime": 30.0,
+    "WaveHpCoefficients": 7.0,
+    "WaveSpeedCoefficients": 1.0,
+    "WaveDefenseCoefficients": 1.0
+  },
+  {
+    "WaveIndex": 62,
+    "WaveType": "Normal",
+    "SpawnEnemyID": 20061,
+    "SpawnInterval": 0.5,
+    "WaveTime": 30.0,
+    "WaveHpCoefficients": 7.0,
+    "WaveSpeedCoefficients": 1.0,
+    "WaveDefenseCoefficients": 1.0
+  },
+  {
+    "WaveIndex": 63,
+    "WaveType": "Normal",
+    "SpawnEnemyID": 20062,
+    "SpawnInterval": 0.5,
+    "WaveTime": 30.0,
+    "WaveHpCoefficients": 7.0,
+    "WaveSpeedCoefficients": 1.0,
+    "WaveDefenseCoefficients": 1.0
+  },
+  {
+    "WaveIndex": 64,
+    "WaveType": "Normal",
+    "SpawnEnemyID": 20063,
+    "SpawnInterval": 0.5,
+    "WaveTime": 30.0,
+    "WaveHpCoefficients": 7.0,
+    "WaveSpeedCoefficients": 1.0,
+    "WaveDefenseCoefficients": 1.0
+  },
+  {
+    "WaveIndex": 65,
+    "WaveType": "Normal",
+    "SpawnEnemyID": 20064,
+    "SpawnInterval": 0.5,
+    "WaveTime": 30.0,
+    "WaveHpCoefficients": 7.0,
+    "WaveSpeedCoefficients": 1.0,
+    "WaveDefenseCoefficients": 1.0
+  },
+  {
+    "WaveIndex": 66,
+    "WaveType": "Normal",
+    "SpawnEnemyID": 20065,
+    "SpawnInterval": 0.5,
+    "WaveTime": 30.0,
+    "WaveHpCoefficients": 7.0,
+    "WaveSpeedCoefficients": 1.0,
+    "WaveDefenseCoefficients": 1.0
+  },
+  {
+    "WaveIndex": 67,
+    "WaveType": "Normal",
+    "SpawnEnemyID": 20066,
+    "SpawnInterval": 0.5,
+    "WaveTime": 30.0,
+    "WaveHpCoefficients": 7.0,
+    "WaveSpeedCoefficients": 1.0,
+    "WaveDefenseCoefficients": 1.0
+  },
+  {
+    "WaveIndex": 68,
+    "WaveType": "Normal",
+    "SpawnEnemyID": 20067,
+    "SpawnInterval": 0.5,
+    "WaveTime": 30.0,
+    "WaveHpCoefficients": 7.0,
+    "WaveSpeedCoefficients": 1.0,
+    "WaveDefenseCoefficients": 1.0
+  },
+  {
+    "WaveIndex": 69,
+    "WaveType": "Normal",
+    "SpawnEnemyID": 20068,
+    "SpawnInterval": 0.5,
+    "WaveTime": 30.0,
+    "WaveHpCoefficients": 7.0,
+    "WaveSpeedCoefficients": 1.0,
+    "WaveDefenseCoefficients": 1.0
+  },
+  {
+    "WaveIndex": 70,
+    "WaveType": "Boss",
+    "SpawnEnemyID": 20069,
+    "SpawnInterval": 0.0,
+    "WaveTime": 30.0,
+    "WaveHpCoefficients": 7.0,
+    "WaveSpeedCoefficients": 1.0,
+    "WaveDefenseCoefficients": 1.0
+  },
+  {
+    "WaveIndex": 71,
+    "WaveType": "Normal",
+    "SpawnEnemyID": 20070,
+    "SpawnInterval": 0.5,
+    "WaveTime": 30.0,
+    "WaveHpCoefficients": 8.0,
+    "WaveSpeedCoefficients": 1.0,
+    "WaveDefenseCoefficients": 1.0
+  },
+  {
+    "WaveIndex": 72,
+    "WaveType": "Normal",
+    "SpawnEnemyID": 20071,
+    "SpawnInterval": 0.5,
+    "WaveTime": 30.0,
+    "WaveHpCoefficients": 8.0,
+    "WaveSpeedCoefficients": 1.0,
+    "WaveDefenseCoefficients": 1.0
+  },
+  {
+    "WaveIndex": 73,
+    "WaveType": "Normal",
+    "SpawnEnemyID": 20072,
+    "SpawnInterval": 0.5,
+    "WaveTime": 30.0,
+    "WaveHpCoefficients": 8.0,
+    "WaveSpeedCoefficients": 1.0,
+    "WaveDefenseCoefficients": 1.0
+  },
+  {
+    "WaveIndex": 74,
+    "WaveType": "Normal",
+    "SpawnEnemyID": 20073,
+    "SpawnInterval": 0.5,
+    "WaveTime": 30.0,
+    "WaveHpCoefficients": 8.0,
+    "WaveSpeedCoefficients": 1.0,
+    "WaveDefenseCoefficients": 1.0
+  },
+  {
+    "WaveIndex": 75,
+    "WaveType": "Normal",
+    "SpawnEnemyID": 20074,
+    "SpawnInterval": 0.5,
+    "WaveTime": 30.0,
+    "WaveHpCoefficients": 8.0,
+    "WaveSpeedCoefficients": 1.0,
+    "WaveDefenseCoefficients": 1.0
+  },
+  {
+    "WaveIndex": 76,
+    "WaveType": "Normal",
+    "SpawnEnemyID": 20075,
+    "SpawnInterval": 0.5,
+    "WaveTime": 30.0,
+    "WaveHpCoefficients": 8.0,
+    "WaveSpeedCoefficients": 1.0,
+    "WaveDefenseCoefficients": 1.0
+  },
+  {
+    "WaveIndex": 77,
+    "WaveType": "Normal",
+    "SpawnEnemyID": 20076,
+    "SpawnInterval": 0.5,
+    "WaveTime": 30.0,
+    "WaveHpCoefficients": 8.0,
+    "WaveSpeedCoefficients": 1.0,
+    "WaveDefenseCoefficients": 1.0
+  },
+  {
+    "WaveIndex": 78,
+    "WaveType": "Normal",
+    "SpawnEnemyID": 20077,
+    "SpawnInterval": 0.5,
+    "WaveTime": 30.0,
+    "WaveHpCoefficients": 8.0,
+    "WaveSpeedCoefficients": 1.0,
+    "WaveDefenseCoefficients": 1.0
+  },
+  {
+    "WaveIndex": 79,
+    "WaveType": "Normal",
+    "SpawnEnemyID": 20078,
+    "SpawnInterval": 0.5,
+    "WaveTime": 30.0,
+    "WaveHpCoefficients": 8.0,
+    "WaveSpeedCoefficients": 1.0,
+    "WaveDefenseCoefficients": 1.0
+  },
+  {
+    "WaveIndex": 80,
+    "WaveType": "Boss",
+    "SpawnEnemyID": 20079,
+    "SpawnInterval": 0.0,
+    "WaveTime": 30.0,
+    "WaveHpCoefficients": 8.0,
+    "WaveSpeedCoefficients": 1.0,
+    "WaveDefenseCoefficients": 1.0
+  },
+  {
+    "WaveIndex": 81,
+    "WaveType": "Normal",
+    "SpawnEnemyID": 20080,
+    "SpawnInterval": 0.5,
+    "WaveTime": 30.0,
+    "WaveHpCoefficients": 9.0,
+    "WaveSpeedCoefficients": 1.0,
+    "WaveDefenseCoefficients": 1.0
+  },
+  {
+    "WaveIndex": 82,
+    "WaveType": "Normal",
+    "SpawnEnemyID": 20081,
+    "SpawnInterval": 0.5,
+    "WaveTime": 30.0,
+    "WaveHpCoefficients": 9.0,
+    "WaveSpeedCoefficients": 1.0,
+    "WaveDefenseCoefficients": 1.0
+  },
+  {
+    "WaveIndex": 83,
+    "WaveType": "Normal",
+    "SpawnEnemyID": 20082,
+    "SpawnInterval": 0.5,
+    "WaveTime": 30.0,
+    "WaveHpCoefficients": 9.0,
+    "WaveSpeedCoefficients": 1.0,
+    "WaveDefenseCoefficients": 1.0
+  },
+  {
+    "WaveIndex": 84,
+    "WaveType": "Normal",
+    "SpawnEnemyID": 20083,
+    "SpawnInterval": 0.5,
+    "WaveTime": 30.0,
+    "WaveHpCoefficients": 9.0,
+    "WaveSpeedCoefficients": 1.0,
+    "WaveDefenseCoefficients": 1.0
+  },
+  {
+    "WaveIndex": 85,
+    "WaveType": "Normal",
+    "SpawnEnemyID": 20084,
+    "SpawnInterval": 0.5,
+    "WaveTime": 30.0,
+    "WaveHpCoefficients": 9.0,
+    "WaveSpeedCoefficients": 1.0,
+    "WaveDefenseCoefficients": 1.0
+  },
+  {
+    "WaveIndex": 86,
+    "WaveType": "Normal",
+    "SpawnEnemyID": 20085,
+    "SpawnInterval": 0.5,
+    "WaveTime": 30.0,
+    "WaveHpCoefficients": 9.0,
+    "WaveSpeedCoefficients": 1.0,
+    "WaveDefenseCoefficients": 1.0
+  },
+  {
+    "WaveIndex": 87,
+    "WaveType": "Normal",
+    "SpawnEnemyID": 20086,
+    "SpawnInterval": 0.5,
+    "WaveTime": 30.0,
+    "WaveHpCoefficients": 9.0,
+    "WaveSpeedCoefficients": 1.0,
+    "WaveDefenseCoefficients": 1.0
+  },
+  {
+    "WaveIndex": 88,
+    "WaveType": "Normal",
+    "SpawnEnemyID": 20087,
+    "SpawnInterval": 0.5,
+    "WaveTime": 30.0,
+    "WaveHpCoefficients": 9.0,
+    "WaveSpeedCoefficients": 1.0,
+    "WaveDefenseCoefficients": 1.0
+  },
+  {
+    "WaveIndex": 89,
+    "WaveType": "Normal",
+    "SpawnEnemyID": 20088,
+    "SpawnInterval": 0.5,
+    "WaveTime": 30.0,
+    "WaveHpCoefficients": 9.0,
+    "WaveSpeedCoefficients": 1.0,
+    "WaveDefenseCoefficients": 1.0
+  },
+  {
+    "WaveIndex": 90,
+    "WaveType": "Boss",
+    "SpawnEnemyID": 20089,
+    "SpawnInterval": 0.0,
+    "WaveTime": 30.0,
+    "WaveHpCoefficients": 9.0,
+    "WaveSpeedCoefficients": 1.0,
+    "WaveDefenseCoefficients": 1.0
+  },
+  {
+    "WaveIndex": 91,
+    "WaveType": "Normal",
+    "SpawnEnemyID": 20090,
+    "SpawnInterval": 0.5,
+    "WaveTime": 30.0,
+    "WaveHpCoefficients": 10.0,
+    "WaveSpeedCoefficients": 1.0,
+    "WaveDefenseCoefficients": 1.0
+  },
+  {
+    "WaveIndex": 92,
+    "WaveType": "Normal",
+    "SpawnEnemyID": 20091,
+    "SpawnInterval": 0.5,
+    "WaveTime": 30.0,
+    "WaveHpCoefficients": 10.0,
+    "WaveSpeedCoefficients": 1.0,
+    "WaveDefenseCoefficients": 1.0
+  },
+  {
+    "WaveIndex": 93,
+    "WaveType": "Normal",
+    "SpawnEnemyID": 20092,
+    "SpawnInterval": 0.5,
+    "WaveTime": 30.0,
+    "WaveHpCoefficients": 10.0,
+    "WaveSpeedCoefficients": 1.0,
+    "WaveDefenseCoefficients": 1.0
+  },
+  {
+    "WaveIndex": 94,
+    "WaveType": "Normal",
+    "SpawnEnemyID": 20093,
+    "SpawnInterval": 0.5,
+    "WaveTime": 30.0,
+    "WaveHpCoefficients": 10.0,
+    "WaveSpeedCoefficients": 1.0,
+    "WaveDefenseCoefficients": 1.0
+  },
+  {
+    "WaveIndex": 95,
+    "WaveType": "Normal",
+    "SpawnEnemyID": 20094,
+    "SpawnInterval": 0.5,
+    "WaveTime": 30.0,
+    "WaveHpCoefficients": 10.0,
+    "WaveSpeedCoefficients": 1.0,
+    "WaveDefenseCoefficients": 1.0
+  },
+  {
+    "WaveIndex": 96,
+    "WaveType": "Normal",
+    "SpawnEnemyID": 20095,
+    "SpawnInterval": 0.5,
+    "WaveTime": 30.0,
+    "WaveHpCoefficients": 10.0,
+    "WaveSpeedCoefficients": 1.0,
+    "WaveDefenseCoefficients": 1.0
+  },
+  {
+    "WaveIndex": 97,
+    "WaveType": "Normal",
+    "SpawnEnemyID": 20096,
+    "SpawnInterval": 0.5,
+    "WaveTime": 30.0,
+    "WaveHpCoefficients": 10.0,
+    "WaveSpeedCoefficients": 1.0,
+    "WaveDefenseCoefficients": 1.0
+  },
+  {
+    "WaveIndex": 98,
+    "WaveType": "Normal",
+    "SpawnEnemyID": 20097,
+    "SpawnInterval": 0.5,
+    "WaveTime": 30.0,
+    "WaveHpCoefficients": 10.0,
+    "WaveSpeedCoefficients": 1.0,
+    "WaveDefenseCoefficients": 1.0
+  },
+  {
+    "WaveIndex": 99,
+    "WaveType": "Normal",
+    "SpawnEnemyID": 20098,
+    "SpawnInterval": 0.5,
+    "WaveTime": 30.0,
+    "WaveHpCoefficients": 10.0,
+    "WaveSpeedCoefficients": 1.0,
+    "WaveDefenseCoefficients": 1.0
+  },
+  {
+    "WaveIndex": 100,
+    "WaveType": "Boss",
+    "SpawnEnemyID": 20099,
+    "SpawnInterval": 0.0,
+    "WaveTime": 30.0,
+    "WaveHpCoefficients": 10.0,
+    "WaveSpeedCoefficients": 1.0,
+    "WaveDefenseCoefficients": 1.0
+  },
+  {
+    "WaveIndex": 101,
+    "WaveType": "Boss",
+    "SpawnEnemyID": 20100,
+    "SpawnInterval": 0.0,
+    "WaveTime": 30.0,
+    "WaveHpCoefficients": 11.0,
+    "WaveSpeedCoefficients": 1.0,
+    "WaveDefenseCoefficients": 1.0
+  }
+]
