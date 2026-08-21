@@ -9,10 +9,10 @@
 |------|------|
 | **장르** | 타워 디펜스 |
 | **플랫폼** | 모바일 (Android) |
-| **개발 엔진** | Unity 6000.3.2f1 LTS |
+| **개발 엔진** | Unity 6000.3.17f1 |
 | **개발 언어** | C# |
 | **개발 인원** | 1인 개발 |
-| **코드 규모** | 131개 C# 스크립트 |
+| **코드 규모** | 155개 C# 스크립트 |
 
 ---
 
@@ -27,16 +27,21 @@
 ┌─────────────────────────────────────────────────────────────┐
 │                      Game Architecture                       │
 ├─────────────────────────────────────────────────────────────┤
-│  AppInitializer     │  앱 부트스트랩 및 초기화              │
+│  AppInitializer     │  프레임레이트 등 앱 부트스트랩         │
+│  GameManager        │  게임 전체 초기화, 시작 씬 로드       │
+│  SceneLoadManager   │  씬 전환 관리                          │
 │  InGameManager      │  게임 진행, 속도, 일시정지 관리       │
+│  DataManager        │  JSON 기반 게임 데이터(SO) 로드/보관   │
 │  EventManager       │  전역 이벤트 발행/구독 시스템         │
 │  UIManager          │  UI 계층 관리 및 풀링                 │
-│  ResourceManager    │  리소스 로드 및 캐싱                  │
+│  AddressableManager │  Addressables 기반 리소스 로드/캐싱   │
 │  ObjectPoolManager  │  오브젝트 풀링 관리                   │
 │  SaveLoadManager    │  데이터 저장/로드 (로컬 & 클라우드)   │
 │  PlayerDataManager  │  플레이어 재화/프로필/영웅 관리       │
+│  FirebaseManager    │  Firebase 인증/애널리틱스/Firestore   │
 │  AudioManager       │  BGM/SFX 재생 관리                    │
 │  EffectManager      │  파티클 이펙트 관리                   │
+│  ToastManager       │  토스트 메시지 관리                   │
 └─────────────────────────────────────────────────────────────┘
 ```
 
@@ -121,14 +126,19 @@ ObjectPoolManager.Instance.Release(enemy);
 게임 내 시스템 간 **느슨한 결합(Loose Coupling)**을 위해 이벤트 기반 통신을 구현했습니다.
 
 ```csharp
-// 이벤트 정의
+// 이벤트 정의 (일부 발췌)
 public enum GameEventType
 {
-    ApplicationStart, GameStart, GameFinish,
-    WaveStart, WaveFinish,
-    EnemyDie, NormalEnemyDie, BossEnemyDie,
-    SpawnHero, SpawnEnemy,
-    BuffCardSelected, InGameLevelUp
+    ApplicationStart, ApplicationQuit, GameInitializeProgress,
+    ChangeSelectedHero, LevelUpHero,
+    GameStart, GameFinish, GameExit,
+    WaveStart,
+    SpawnHero, SpawnRedDragon, SpawnAncientStatue, SpawnLightning,
+    SpawnEnemy, EnemySpawned, EnemyDie,
+    SpawnNormalEnemy, NormalEnemyDie, SpawnBossEnemy, BossEnemyDie,
+    InGameHeroLevelUpRequest, InGameHeroLevelUpCompleted,
+    AbilitySelected,
+    // ...
 }
 
 // 구독
@@ -136,10 +146,6 @@ EventManager.Subscribe(GameEventType.EnemyDie, OnEnemyDie);
 
 // 발행
 EventManager.Dispatch(GameEventType.EnemyDie);
-
-// 제네릭 매개변수 포함
-EventManager.Subscribe<GameWaveStartEventData>(GameEventType.WaveStart, OnWaveStart);
-EventManager.Dispatch(GameEventType.WaveStart, new GameWaveStartEventData { ... });
 ```
 
 **장점**:
@@ -149,18 +155,11 @@ EventManager.Dispatch(GameEventType.WaveStart, new GameWaveStartEventData { ... 
 
 ---
 
-#### Strategy Pattern - 리소스 로딩 & 저장 시스템
+#### Strategy Pattern - 로컬/서버 저장 시스템
 
-Resources, Addressables, PlayerPrefs, Firebase를 **전략 패턴**으로 추상화하여 유연하게 전환할 수 있도록 구현했습니다.
+PlayerPrefs/Firebase를 **전략 패턴**으로 추상화하여 유연하게 전환할 수 있도록 구현했습니다.
 
 ```csharp
-// 리소스 로딩 전략
-public interface IResourceHandler
-{
-    T Load<T>(string path) where T : Object;
-    UniTask<T> LoadAsync<T>(string path) where T : Object;
-}
-
 // 저장 전략
 public interface IDataSaveLoadHandler
 {
@@ -170,18 +169,15 @@ public interface IDataSaveLoadHandler
 }
 
 // 조건부 컴파일로 전략 선택
-#if ADDRESSABLE
-    resourceHandler = new AddressableHandler();
-#else
-    resourceHandler = new ResourcesHandler();
-#endif
-
 #if USE_FIRESTORE
-    saveHandler = new FirestoreSaveLoadHandler();
+    saveHandler = new FirestoreHandler();
 #else
-    saveHandler = new LocalSaveLoadHandler();
+    saveHandler = new PlayerPrefsHandler();
 #endif
 ```
+
+**장점**:
+- 프로토타입 개발 시 로컬 저장 사용 후, 이후 서버(Firestore) 저장으로 전환
 
 ---
 
@@ -197,13 +193,13 @@ public static class SaveDataFactory
     public static SaveData MergeWithNewData(SaveData existingData) { ... }
 }
 
-// 버프 카드 효과 팩토리
-public class CardEffectFactory
+// 재능 효과 팩토리
+public class AbilityEffectFactory
 {
-    public List<BuffCardContainer> CreateRandomCards(int count)
+    public List<AbilityContainer> CreateRandomAbilities(int count)
     {
-        // 가중치 기반 랜덤 카드 선택
-        var totalWeight = cardDataList.Sum(c => c.Weight);
+        // 가중치 기반 랜덤 재능 선택
+        var totalWeight = abilityDataList.Sum(c => c.Weight);
         // ...
     }
 }
@@ -235,7 +231,7 @@ public partial class PlayerDataManager
     public string PlayerName => saveData.ProfileSaveData.PlayerName;
 }
 
-// PlayerDataManager.Heroes.cs - 영웅 관리
+// PlayerDataManager.Hero.cs - 영웅 관리
 public partial class PlayerDataManager
 {
     public List<HeroRuntimeData> Heroes { get; private set; }
@@ -251,14 +247,12 @@ public partial class PlayerDataManager
 
 ```csharp
 // 앱 초기화
-public class AppInitializer
+public class GameManager : MonoSingleton<GameManager>
 {
-    [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
-    private static async void Initialize()
+    private async void Start()
     {
-        await AudioManager.Instance.InitializeAsync();
-        await SaveLoadManager.Instance.LoadAsync();
-        await FirebaseManager.Instance.InitializeAsync();
+        await InitializeAsync();
+        await SceneLoadManager.Instance.LoadSceneAsync(SceneType.LobbyScene);
     }
 }
 
@@ -281,10 +275,11 @@ private async UniTask PlayHitFlashAsync(CancellationToken token)
 
 **적용 사례**:
 - 앱 부트스트랩 및 씬 로딩
+- Addressables 리소스 비동기 로드/해제
 - Firebase 데이터 저장/로드
-- 리소스 비동기 로드
 - BGM 페이드 인/아웃
 - 피격 이펙트 (취소 가능)
+- 웨이브 스폰, 영웅 스폰 풀, 영웅 레벨업 로직 등 핵심 게임 로직 전반
 
 ---
 
@@ -305,7 +300,10 @@ private async UniTask PlayHitFlashAsync(CancellationToken token)
 - **HeroDataSO**: 영웅 ID, 이름, 클래스, 등급, 랭크, 스탯, 가중치
 - **EnemyDataSO**: 적 타입, 스탯, 몬스터 타입
 - **WaveDataSO**: 웨이브 구성, HP/방어력 계수
-- **BuffCardDataSO**: 카드 효과, 가중치, 레벨별 수치
+- **AbilityDataSO / AbilityLevelDataSO**: 재능 효과 종류 및 레벨별 수치
+- **DamageRateByClassDataSO**: 클래스-몬스터 타입 상성 데미지 배율
+- **InGameHeroLevelUpDataSO**: 영웅 레벨업 비용/증가량
+- **SummonDataSO**: 특수 소환물(고대 석상/레드 드래곤/번개) 스탯
 
 ---
 
@@ -314,7 +312,7 @@ private async UniTask PlayHitFlashAsync(CancellationToken token)
 ```csharp
 public class SaveData
 {
-    public CurrencySaveData CurrencySaveData;    // Gold, Gem, Diamond
+    public CurrencySaveData CurrencySaveData;    // Gold, Gem, Diamond, SP, 행운석
     public ProfileSaveData ProfileSaveData;      // PlayerName, Level, Exp
     public HeroSaveData HeroSaveData;            // 보유 영웅 목록
 }
@@ -340,14 +338,14 @@ public class PlayerHeroSaveData
 
 #### 데미지 계산 시스템
 
-클래스-몬스터 타입 상성과 크리티컬 시스템을 구현했습니다.
+클래스-몬스터 타입 상성과 크리티컬 시스템을 구현했습니다. 상성 배율은 `DamageRateByClassDataSO`로 데이터화되어 코드 수정 없이 밸런스 조정이 가능합니다.
 
 ```csharp
 public static class DamageCalculator
 {
     public static DamageResult CalculateDamage(DamageContext context, IDamageable target)
     {
-        // 1. 클래스-몬스터 타입 데미지 배율 적용
+        // 1. 클래스-몬스터 타입 데미지 배율 적용 (DamageRateByClassDataSO 참조)
         float classRate = GetClassMonsterDamageRate(context.HeroClass, target.MonsterType);
         float damage = context.BaseDamage * classRate;
 
@@ -367,30 +365,30 @@ public static class DamageCalculator
 
 ---
 
-#### 버프 카드 시스템
+#### 재능 시스템
 
-7웨이브마다 가중치 기반 랜덤 버프 카드를 제공합니다.
+7웨이브마다 가중치 기반 랜덤 재능 중 하나를 선택합니다.
 
 ```csharp
-public enum BuffEffectType
+public enum AbilityEffectType
 {
-    IncreaseCriticalRate,       // 크리티컬 확률 증가
-    IncreaseCriticalDamage,     // 크리티컬 데미지 증가
-    IncreaseSpawnPointGainRate, // 스폰 포인트 획득량 증가
-    MagicianIncreaseMoveSpeed,  // 마법사 이동속도 증가
-    ArcherIncreaseMoveSpeed,    // 궁수 이동속도 증가
-    WarriorIncreaseMoveSpeed,   // 전사 이동속도 증가
-    ArcherSummonAncientStatue   // 특수 효과
+    IncreaseCriticalRate, IncreaseCriticalDamage, IncreaseDamage,
+    IncreaseAttackRange, IncreaseSplashRange, IncreasePenetratingPower,
+    AcquireLuckyStone, IncreaseSummonRate, IncreaseSpawnPointGainRate,
+
+    MagicianIncreaseAttackPower, MagicianIncreaseMoveSpeed, MagicianSummonRedDragon,
+    ArcherIncreaseAttackPower, ArcherIncreaseMoveSpeed, ArcherSummonAncientStatue,
+    KnightIncreaseAttackPower, KnightIncreaseMoveSpeed, KnightLightning
 }
 
-public class InGameHeroBuffController : IBuffCardEffect
+public class InGameHeroBuffController : IEventListener, IAbilityEffect
 {
-    public void ApplyCardEffect(BuffCardContainer card)
+    public void ApplyAbilityEffect(AbilityContainer abilityContainer)
     {
-        switch (card.CardData.BuffEffectType)
+        switch (abilityContainer.AbilityData.AbilityEffectType)
         {
-            case BuffEffectType.IncreaseCriticalRate:
-                hero.Stat.IncreaseCriticalRateMultiplier(card.CardLevelData.Value);
+            case AbilityEffectType.IncreaseCriticalRate:
+                hero.Stat.IncreaseCriticalRateMultiplier(abilityContainer.AbilityLevelData.Value);
                 break;
             // ...
         }
@@ -400,9 +398,21 @@ public class InGameHeroBuffController : IBuffCardEffect
 
 ---
 
+#### 특수 소환 시스템
+
+클래스별 전용 재능을 선택하면 필드에 고유한 소환물이 등장해 자동으로 전투를 보조합니다.
+
+- **고대 석상 (궁수)**: 방어력을 무시하는 레이저로 지속 공격
+- **레드 드래곤 (마법사)**: 주기적으로 스플래시 데미지 투사체 발사
+- **번개 (전사)**: 무작위 적에게 스플래시 낙뢰
+
+`SummonController`와 소환물별 클래스(`AncientStatue`/`AncientStatueLaser`, `RedDragon`/`RedDragonProjectile`, `Lightning`/`LightningController`)로 구현했으며, `SummonDataSO`로 데이터 기반 관리됩니다.
+
+---
+
 #### 영웅 뽑기 (가챠) 시스템
 
-가중치 기반 확률로 영웅을 획득하는 시스템입니다.
+가중치 기반 확률로 영웅을 획득하는 시스템입니다. 재능으로 획득하는 **행운석** 재화를 소모해 뽑기를 진행합니다.
 
 ```csharp
 public class HeroRuntimeData
@@ -429,14 +439,22 @@ public enum HeroGradeType
 
 ---
 
+#### 영웅 배치 영역 시스템
+
+`HeroAreaController`가 4개의 배치 영역과 클래스 매핑을 관리하며, 드래그 앤 드롭으로 영웅을 배치/스왑할 수 있습니다.
+
+---
+
 ### 6. UI 시스템
 
 #### 계층 기반 UI 관리
 
-5단계의 UI 계층을 정의하여 UI 간 깊이 충돌을 방지하고 체계적으로 관리합니다.
+토스트 메시지 레이어가 추가되어 6단계의 UI 계층으로 UI 간 깊이 충돌을 방지하고 체계적으로 관리합니다.
 
 ```
 ┌─────────────────────────────────────┐
+│  @System (500)   │ 시스템/토스트 메시지│
+├──────────────────┼──────────────────┤
 │  @Loading (400)  │ 로딩 화면        │
 ├──────────────────┼──────────────────┤
 │  @Tooltip (300)  │ 툴팁             │
@@ -465,8 +483,8 @@ public async UniTask<T> OpenAsync<T>(UIType uiType) where T : BaseUI
         return ui as T;
     }
 
-    // 새로 로드
-    var prefab = await ResourceManager.Instance.LoadAsync<T>(path);
+    // 새로 로드 (Addressables)
+    var prefab = await AddressableManager.Instance.LoadAsync<T>(path);
     // ...
 }
 ```
@@ -483,10 +501,58 @@ public async UniTask<T> OpenAsync<T>(UIType uiType) where T : BaseUI
 | `IDamageable` | 데미지 처리 (TakeDamage, HitEffect, Die) |
 | `IDetectable` | 탐지/타겟팅 가능 여부 |
 | `IEventListener` | 이벤트 구독 관리 (Subscribe, Unsubscribe) |
-| `IBuffCardEffect` | 버프 카드 효과 적용 |
+| `IAbilityEffect` | 재능 효과 적용 |
 | `IDataSaveLoadHandler` | 저장/로드 추상화 |
-| `IResourceHandler` | 리소스 로드 추상화 |
 | `IHeroSkill` | 영웅 스킬 인터페이스 |
+
+---
+
+### 8. 다국어 지원 (Localization)
+
+Unity Localization 패키지를 도입하여 한국어/영어 다국어를 지원합니다.
+
+**구성 방식**:
+- Google Sheets에서 `Key`, `Korean(ko)`, `English(en)` 컬럼으로 번역 데이터 관리
+- CSV로 export 후 Unity Localization 패키지로 import
+- String Table Collection으로 구성 (Addressables로 로드)
+- `{value}`, `{value1}` 파라미터를 활용한 동적 텍스트 처리
+
+```
+┌─────────────────────┐     CSV Export     ┌──────────────────────────┐
+│   Google Sheets     │ ─────────────────► │  Unity Localization      │
+│  Key / ko / en      │                    │  String Table Collection │
+└─────────────────────┘                    └──────────────────────────┘
+```
+
+**키 구성 예시**:
+```
+hero_class_wizard       → 마법사        / Wizard
+hero_grade_legend       → 전설          / Legend
+ability_critical_rate   → 크리티컬 확률 / Critical Rate
+ability_damage_desc     → 피해량 {value}% 증가 / Damage Increased by {value}%
+```
+
+---
+
+### 9. 데이터 파이프라인 자동화 (CI)
+
+Google Sheets에 정리된 기획 데이터(밸런스 수치, 번역 텍스트 등)를 **Jenkins**로 자동 동기화하는 파이프라인을 구축했습니다.
+
+```
+┌─────────────────┐  Jenkins Job 트리거  ┌──────────────────┐  Export/Commit  ┌──────────────────┐
+│  Google Sheets   │ ───────────────────► │   Jenkins (CI)    │ ───────────────► │  JSON (Repo)     │
+│  (기획 데이터)     │  Unity 에디터 메뉴   │  Sheets → JSON    │                  │                  │
+└─────────────────┘                      └──────────────────┘                  └──────────────────┘
+                                                                                          │ JsonToSOParser
+                                                                                          ▼
+                                                                                 ScriptableObject
+```
+
+**구현 방식**:
+- Unity 에디터 메뉴(`Tools > Data > Google Sheets Sync`)에서 `GoogleSheetsSync` 창을 열고 Jenkins Job을 트리거
+- Jenkins가 Google Sheets 데이터를 JSON으로 export하여 리포지토리에 커밋 (`sync data from Google Sheets`)
+- `JsonToSOParser` 에디터 도구가 JSON을 ScriptableObject로 자동 파싱
+- 기획 데이터와 로컬라이제이션 텍스트 모두 이 파이프라인으로 관리 → 코드 수정 없이 시트 편집만으로 밸런스/텍스트 반영
 
 ---
 
@@ -509,7 +575,7 @@ Assets/_Project/
 │   │   │   ├── BaseHero.cs
 │   │   │   ├── ArcherHero.cs
 │   │   │   ├── MagicianHero.cs
-│   │   │   ├── WarriorHero.cs
+│   │   │   ├── KnightHero.cs
 │   │   │   ├── HeroStat.cs
 │   │   │   ├── StateMachine/
 │   │   │   │   ├── HeroStateMachine.cs
@@ -518,82 +584,99 @@ Assets/_Project/
 │   │   │   │   ├── HeroMoveState.cs
 │   │   │   │   └── HeroAttackState.cs
 │   │   │   └── Projectile/
+│   │   ├── Summon/               # 특수 소환 오브젝트
+│   │   │   ├── SummonController.cs
+│   │   │   ├── AncientStatue.cs / AncientStatueLaser.cs
+│   │   │   ├── RedDragon.cs / RedDragonProjectile.cs
+│   │   │   └── Lightning.cs / LightningController.cs
 │   │   └── GameSystem/
-│   │       ├── EnemyWaveController.cs
-│   │       ├── HeroSpawner.cs
-│   │       ├── HeroAreaController.cs
-│   │       ├── CardEffectFactory.cs
+│   │       ├── WaveController.cs
+│   │       ├── EnemySpawner.cs / EnemySpawnPool.cs
+│   │       ├── HeroSpawner.cs / HeroSpawnPool.cs
+│   │       ├── HeroArea.cs / HeroAreaController.cs
+│   │       ├── AbilityEffectFactory.cs
 │   │       ├── InGameHeroBuffController.cs
 │   │       ├── InGameHeroLevelUpController.cs
+│   │       ├── InGameCurrencyController.cs
+│   │       ├── InGameRewardController.cs
+│   │       ├── InGameUIController.cs
+│   │       ├── SummonSpawner.cs
 │   │       └── DamageCalculator.cs
 │   │
 │   ├── Managers/
-│   │   ├── AppInitializer.cs
+│   │   ├── GameManager.cs
+│   │   ├── SceneLoadManager.cs
 │   │   ├── InGameManager.cs
+│   │   ├── DataManager.cs
 │   │   ├── EventManager.cs
 │   │   ├── UIManager.cs
-│   │   ├── ResourceManager/
-│   │   │   ├── ResourceManager.cs
-│   │   │   ├── IResourceHandler.cs
-│   │   │   ├── ResourcesHandler.cs
-│   │   │   └── AddressableHandler.cs
+│   │   ├── AddressableManager.cs
+│   │   ├── ObjectPoolManager.cs
 │   │   ├── SaveLoadManager/
 │   │   │   ├── SaveLoadManager.cs
 │   │   │   ├── SaveDataFactory.cs
 │   │   │   ├── IDataSaveLoadHandler.cs
-│   │   │   ├── LocalSaveLoadHandler.cs
-│   │   │   └── FirestoreSaveLoadHandler.cs
+│   │   │   ├── PlayerPrefsHandler.cs
+│   │   │   └── FirestoreHandler.cs
 │   │   ├── PlayerDataManager/
 │   │   │   ├── PlayerDataManager.cs
 │   │   │   ├── PlayerDataManager.Currency.cs
 │   │   │   ├── PlayerDataManager.Profile.cs
-│   │   │   └── PlayerDataManager.Heroes.cs
+│   │   │   └── PlayerDataManager.Hero.cs
 │   │   ├── FirebaseManager/
-│   │   ├── ObjectPoolManager.cs
-│   │   └── AudioManager.cs
+│   │   │   ├── FirebaseManager.cs
+│   │   │   ├── FirebaseManager.Auth.cs
+│   │   │   ├── FirebaseManager.Firestore.cs
+│   │   │   └── FirebaseManager.Analytics.cs
+│   │   ├── AudioManager.cs
+│   │   ├── EffectManager.cs
+│   │   └── ToastManager.cs
 │   │
 │   ├── Data/
 │   │   ├── SaveData.cs
 │   │   ├── HeroRuntimeData.cs
-│   │   ├── HeroRuntimeDB.cs
+│   │   ├── HeroRuntimeDB.cs          # O(1) 조회용 Dictionary DB
 │   │   ├── GameEventDataDefinitions.cs
 │   │   ├── GameConstants.cs
-│   │   ├── Generated/
+│   │   ├── Generated/                # JSON → SO 자동 생성 (직접 수정 금지)
 │   │   └── SO/
 │   │
 │   ├── UI/
 │   │   ├── Base/BaseUI.cs
 │   │   ├── InGame/
 │   │   ├── Lobby/
+│   │   ├── Title/
 │   │   └── Common/
+│   │
+│   ├── Editor/
+│   │   ├── GoogleSheetsSync.cs       # Jenkins 데이터 동기화 트리거
+│   │   ├── JsonToSOParser.cs         # JSON → SO 파싱
+│   │   └── Cheat/                    # 인게임 치트 툴 (재화/영웅/웨이브/재능)
 │   │
 │   ├── Interfaces/
 │   │   ├── IPoolable.cs
 │   │   ├── IDamageable.cs
 │   │   ├── IDetectable.cs
 │   │   ├── IEventListener.cs
-│   │   └── IBuffCardEffect.cs
+│   │   ├── IAbilityEffect.cs
+│   │   ├── IDataSaveLoadHandler.cs
+│   │   └── IHeroSkill.cs
 │   │
 │   ├── Enums/
-│   │   ├── GameEventType.cs
-│   │   ├── HeroClassType.cs
-│   │   ├── HeroGradeType.cs
-│   │   ├── BuffEffectType.cs
-│   │   └── ...
+│   │   ├── Hero/      # HeroClassType, HeroGradeType, HeroRankType, HeroAreaType, HeroSkillType
+│   │   ├── Enemy/      # EnemyType, MonsterType
+│   │   ├── InGame/      # AbilityEffectType, WaveType, GameDifficultyType
+│   │   ├── Project/      # GameEventType, SceneType, UIType
+│   │   ├── CurrencyType.cs
+│   │   └── SaveDataType.cs
 │   │
 │   └── Utils/
+│       ├── AppInitializer.cs
 │       ├── MonoSingleton.cs
-│       ├── Singleton.cs
 │       └── Extensions/
 │
+├── 2_Prefabs/
 └── Resources/
-    ├── Data/SO/
-    │   ├── HeroData/
-    │   ├── EnemyData/
-    │   ├── WaveData/
-    │   └── BuffCardData/
-    ├── Prefabs/
-    └── UI/
 ```
 
 ---
@@ -641,7 +724,7 @@ Assets/_Project/
 **문제**: PlayerDataManager가 재화, 프로필, 영웅 등 다양한 책임을 가져 코드 비대화
 
 **해결**: Partial Class 분리
-- 기능별로 파일 분리 (Currency, Profile, Heroes)
+- 기능별로 파일 분리 (Currency, Profile, Hero)
 - 단일 클래스의 논리적 분리로 유지보수성 향상
 
 ### 6. 영웅 데이터 조회 성능 최적화
@@ -692,18 +775,30 @@ var acquiredHeroes = PlayerDataManager.Instance.HeroDB.GetAcquiredHeroesByClass(
 | 클래스별 조회 | O(n) | O(1) |
 | 선택된 영웅 조회 | O(n) | O(1) |
 
+### 7. Resources → Addressables 전면 마이그레이션
+
+**문제**: 동기식 `Resources.Load` 방식은 메모리 관리가 어렵고, 빌드 사이즈 최적화(에셋 번들 분리) 및 원격 콘텐츠 업데이트가 불가능함
+
+**해결**: `AddressableManager` 도입 및 관련 로직의 `UniTask` 비동기 전환
+- `ResourceManager` / `IResourceHandler` 전략을 완전히 제거하고 Addressables로 일원화
+- `EnemyWaveController`(현 `WaveController`), `HeroSpawnPool`, `InGameHeroLevelUpController`, `HeroAttackState` 등 리소스를 사용하는 핵심 로직을 동기 → `UniTask` 비동기로 전환
+- 어드레서블 핸들 해제(Release) 로직을 추가해 메모리 누수 방지
+
 ---
 
 ## 사용 기술 및 라이브러리
 
 | 기술/라이브러리 | 용도 |
 |----------------|------|
-| Unity 6000.3.2f1 LTS | 게임 엔진 |
+| Unity 6000.3.17f1 | 게임 엔진 |
 | C# | 개발 언어 |
 | UniTask | 비동기 프로그래밍 |
 | Unity Splines | 적 경로 이동 |
-| Firebase | 인증 및 클라우드 저장 |
-| Addressables | 리소스 관리 (선택적) |
+| Firebase | 인증, 애널리틱스, 클라우드 저장(Firestore) |
+| Addressables | 리소스 관리 (전면 도입) |
+| Unity Localization | 다국어 지원 (한국어/영어) |
+| Google Sheets | 기획 데이터 및 로컬라이제이션 원본 관리 |
+| Jenkins | Google Sheets → JSON 자동 동기화(CI) |
 | TextMeshPro | UI 텍스트 |
 
 ---
@@ -712,24 +807,27 @@ var acquiredHeroes = PlayerDataManager.Instance.HeroDB.GetAcquiredHeroesByClass(
 
 - [x] 영웅 3클래스 시스템 (궁수, 마법사, 전사)
 - [x] 영웅 상태 머신 (Idle, Move, Attack)
-- [x] 적 웨이브 시스템
+- [x] 적 웨이브 시스템 (일반/보스)
 - [x] 투사체 및 스플래시 데미지
-- [x] 버프 카드 시스템 (7웨이브마다)
+- [x] 재능 시스템 (7웨이브마다, 18종 효과)
+- [x] 특수 소환 시스템 (고대 석상 / 레드 드래곤 / 번개)
+- [x] 영웅 배치 영역 시스템 (4영역, 드래그 스왑)
 - [x] 영웅 뽑기 (가챠) 시스템
 - [x] 데이터 저장/로드 (로컬 & Firebase)
-- [x] 플레이어 재화 시스템
-- [x] UI 계층 관리 및 풀링
+- [x] 플레이어 재화 시스템 (Gold/Gem/Diamond/SP/행운석)
+- [x] UI 계층 관리(6단계) 및 풀링
 - [x] 오브젝트 풀링
+- [x] 다국어 지원 (한국어 / 영어)
+- [x] Resources → Addressables 전면 마이그레이션
+- [x] Google Sheets ↔ Jenkins 데이터 자동 동기화 파이프라인
+- [x] 인게임 치트 툴 (재화/영웅/웨이브/재능)
+- [x] 타이틀 씬 UI 및 BGM
 
 ## 향후 개발 계획
 
 - [ ] VFX 관리 시스템: EffectManager를 통한 VFX 관리 및 최적화
-- [ ] 영웅 합성 시스템: 동일 영웅 합성으로 상위 등급 획득
-- [ ] 스테이지 시스템: 다양한 맵과 난이도
 - [ ] 업적 시스템: 게임 진행도에 따른 보상
 - [ ] 상점 시스템: 재화로 아이템 구매
 - [ ] 랭킹 시스템: 스테이지 플레이로 획득한 점수 기반 랭킹 리더보드
 
 ---
-
-*이 문서는 AI로 작성된 Random Lucky Defense 프로젝트의 기술적 내용을 요약한 임시 포트폴리오입니다.*
