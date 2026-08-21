@@ -116,7 +116,7 @@ public class UIHeroInfo : UIBase
     {
         if (currentHeroData.LevelUpRequiredStack > currentHeroData.AcquiredStack)
         {
-            ToastManager.Instance.Show("요구량이 부족합니다");
+            ToastManager.Instance.Show(LocalizationKeys.UI_INSUFFICIENT_AMOUNT);
             return;
         }
 

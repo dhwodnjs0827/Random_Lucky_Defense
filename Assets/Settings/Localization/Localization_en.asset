@@ -22,16 +22,12 @@ MonoBehaviour:
     m_Localized: Game Start
     m_Metadata:
       m_Items: []
-  - m_Id: 343273183895552
-    m_Localized: Loading...
-    m_Metadata:
-      m_Items: []
   - m_Id: 343273183895553
     m_Localized: Heroes on the battlefield
     m_Metadata:
       m_Items: []
   - m_Id: 343273183895554
-    m_Localized: Noraml
+    m_Localized: Normal
     m_Metadata:
       m_Items: []
   - m_Id: 343273183895555
@@ -171,10 +167,6 @@ MonoBehaviour:
     m_Localized: Knight basic attack power increased by {value}%
     m_Metadata:
       m_Items: []
-  - m_Id: 343273188089871
-    m_Localized: Summon
-    m_Metadata:
-      m_Items: []
   - m_Id: 343273188089872
     m_Localized: Exchange
     m_Metadata:
@@ -196,7 +188,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 343273188089877
-    m_Localized: Puase
+    m_Localized: Pause
     m_Metadata:
       m_Items: []
   - m_Id: 343273188089878
@@ -336,6 +328,30 @@ MonoBehaviour:
   - m_Id: 378084820770838
     m_Localized: Strikes a random enemy with lightning every {value} seconds, dealing
       {value1} splash damage (Knight upgrades apply)
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36604951663730688
+    m_Localized: Random Lucky Defense
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36608013627285504
+    m_Localized: Summon
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36608013631479809
+    m_Localized: Hero Gacha
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36615869520928768
+    m_Localized: Preraring...
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36615869520928769
+    m_Localized: Not enough required amount
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36620210722037760
+    m_Localized: Loading
     m_Metadata:
       m_Items: []
   references:

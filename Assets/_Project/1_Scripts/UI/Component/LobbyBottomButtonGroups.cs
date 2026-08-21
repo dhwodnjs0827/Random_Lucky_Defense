@@ -1,5 +1,6 @@
 using Cysharp.Threading.Tasks;
 using UnityEngine;
+using UnityEngine.Localization.Tables;
 using UnityEngine.UI;
 
 /// <summary>
@@ -58,7 +59,7 @@ public class LobbyBottomButtonGroups : MonoBehaviour
 
     private void OnClickLockButton()
     {
-        ToastManager.Instance.Show("준비 중입니다.");
+        ToastManager.Instance.Show(LocalizationKeys.UI_PREPARING);
     }
 
     private void OnClickRankButton()

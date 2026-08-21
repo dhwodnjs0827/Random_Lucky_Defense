@@ -534,9 +534,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Unity.Localization::UnityEngine.Localization.Components.LocalizeStringEvent
   m_StringReference:
     m_TableReference:
-      m_TableCollectionName: 
+      m_TableCollectionName: GUID:10de03729c0fc4ace91635554bdd9ed9
     m_TableEntryReference:
-      m_KeyId: 0
+      m_KeyId: 343273183895553
       m_Key: 
     m_FallbackState: 0
     m_WaitForCompletion: 0
@@ -2668,9 +2668,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Unity.Localization::UnityEngine.Localization.Components.LocalizeStringEvent
   m_StringReference:
     m_TableReference:
-      m_TableCollectionName: 
+      m_TableCollectionName: GUID:10de03729c0fc4ace91635554bdd9ed9
     m_TableEntryReference:
-      m_KeyId: 0
+      m_KeyId: 343273183895563
       m_Key: 
     m_FallbackState: 0
     m_WaitForCompletion: 0
@@ -3089,9 +3089,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Unity.Localization::UnityEngine.Localization.Components.LocalizeStringEvent
   m_StringReference:
     m_TableReference:
-      m_TableCollectionName: 
+      m_TableCollectionName: GUID:10de03729c0fc4ace91635554bdd9ed9
     m_TableEntryReference:
-      m_KeyId: 0
+      m_KeyId: 343273183895564
       m_Key: 
     m_FallbackState: 0
     m_WaitForCompletion: 0

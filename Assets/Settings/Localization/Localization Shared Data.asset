@@ -223,8 +223,8 @@ MonoBehaviour:
     m_Key: game_start
     m_Metadata:
       m_Items: []
-  - m_Id: 343273183895552
-    m_Key: loading
+  - m_Id: 36620210722037760
+    m_Key: ui_loading
     m_Metadata:
       m_Items: []
   - m_Id: 343273183895553
@@ -271,8 +271,8 @@ MonoBehaviour:
     m_Key: refresh
     m_Metadata:
       m_Items: []
-  - m_Id: 343273188089871
-    m_Key: ui_summon
+  - m_Id: 36608013627285504
+    m_Key: summon
     m_Metadata:
       m_Items: []
   - m_Id: 343273188089872
@@ -329,6 +329,22 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 343273188089889
     m_Key: previous_best_record
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36604951663730688
+    m_Key: ui_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36615869520928768
+    m_Key: ui_preparing
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36608013631479809
+    m_Key: hero_gacha
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36615869520928769
+    m_Key: ui_insufficient_amount
     m_Metadata:
       m_Items: []
   m_Metadata:

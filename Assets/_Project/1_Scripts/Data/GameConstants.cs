@@ -6,6 +6,8 @@ public static class GameConstants
     // 게임 시작 씬
     public const SceneType START_SCENE = SceneType.TitleScene;
     
+    public const string LOCALIZATION_TABLE_NAME = "Localization";
+    
     // 영웅 보유 효과
     public const float RANK_B_ACQUIRED_BONUS_DAMAGE = 0.002f;
     public const float RANK_A_ACQUIRED_BONUS_DAMAGE = 0.006f;
@@ -88,4 +90,25 @@ public static class AddressableLabels
 public static class ResDirPath
 {
     public const string PREFAB_ENEMY = "Prefabs/Enemy/";
+}
+
+public static class LocalizationKeys
+{
+    /// <summary>
+    /// ko: 준비 중입니다.
+    /// <para>en: Preparing...</para>
+    /// </summary>
+    public const string UI_PREPARING = "ui_preparing";
+    
+    /// <summary>
+    /// ko: 요구량이 부족합니다.
+    /// <para>en: Not enough required amount</para>
+    /// </summary>
+    public const string UI_INSUFFICIENT_AMOUNT = "ui_insufficient_amount";
+    
+    /// <summary>
+    /// ko: 로딩 중
+    /// <para>en: Loading</para>
+    /// </summary>
+    public const string UI_LOADING = "ui_loading";
 }

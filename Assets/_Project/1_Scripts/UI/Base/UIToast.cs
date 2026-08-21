@@ -4,6 +4,7 @@ using Cysharp.Threading.Tasks;
 using DG.Tweening;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Localization.Settings;
 
 /// <summary>
 /// 토스트 UI 전용 클래스
@@ -31,17 +32,19 @@ public class UIToast : MonoBehaviour
         Cancel();
     }
 
-    public void Show(string message, float duration)
+    public void Show(string key, float duration)
     {
         Cancel();
         cts = new CancellationTokenSource();
-        ShowAsync(message, duration, cts.Token).Forget();
+        ShowAsync(key, duration, cts.Token).Forget();
     }
 
-    private async UniTaskVoid ShowAsync(string message, float duration, CancellationToken token)
+    private async UniTaskVoid ShowAsync(string key, float duration, CancellationToken token)
     {
         try
         {
+            var message = await LocalizationSettings.StringDatabase.GetLocalizedStringAsync(GameConstants.LOCALIZATION_TABLE_NAME, key);
+            
             toastText.text = message;
             gameObject.SetActive(true);
 

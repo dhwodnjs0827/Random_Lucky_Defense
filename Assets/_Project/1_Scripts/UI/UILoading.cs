@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.Localization.Settings;
 using UnityEngine.UI;
 
 /// <summary>
@@ -11,7 +12,8 @@ public class UILoading : UIBase
     [SerializeField] private TextMeshProUGUI progressText;
     [SerializeField] private TextMeshProUGUI loadingText;
 
-    private static readonly string[] LoadingTexts = { "로딩 중.", "로딩 중..", "로딩 중..." };
+    private string baseText;
+    private static readonly string[] LoadingTexts = { ".", "..", "..." };
     private int loadingTextIndex;
     private readonly float textUpdateInterval = 0.3f;
     private float textUpdateTimer;
@@ -19,6 +21,7 @@ public class UILoading : UIBase
     private void Awake()
     {
         Initialize();
+        baseText = LocalizationSettings.StringDatabase.GetLocalizedString(GameConstants.LOCALIZATION_TABLE_NAME, LocalizationKeys.UI_LOADING);
     }
 
     protected override void Opened(params object[] args)
@@ -52,7 +55,7 @@ public class UILoading : UIBase
 
     private void UpdateLoadingText()
     {
-        loadingText.text = LoadingTexts[loadingTextIndex];
+        loadingText.text = $"{baseText}{LoadingTexts[loadingTextIndex]}";
         loadingTextIndex = (loadingTextIndex + 1) % LoadingTexts.Length;
     }
 }

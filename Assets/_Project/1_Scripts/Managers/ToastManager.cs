@@ -29,9 +29,9 @@ public class ToastManager : MonoSingleton<ToastManager>
         isInitialized = true;
     }
 
-    public void Show(string message, float duration = 2f)
+    public void Show(string key, float duration = 2f)
     {
-        uiToast.Show(message, duration);
+        uiToast.Show(key, duration);
     }
 
     public void Clear()
