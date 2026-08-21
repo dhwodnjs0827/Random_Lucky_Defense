@@ -74,6 +74,8 @@ public class InGameManager : MonoSingleton<InGameManager>, IEventListener
         
         SubscribeEvents();
         
+        await AudioManager.Instance.PlayBgmAsync(AudioResources.INGAME_BGM);
+
         EventManager.Dispatch(GameEventType.GameStart);
         
         isInitialized = true;

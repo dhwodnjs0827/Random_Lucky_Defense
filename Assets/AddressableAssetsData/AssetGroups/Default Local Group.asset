@@ -40,6 +40,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1063cf196c3064d67a9fffc47cb86d45
+    m_Address: Audio/InGame_BGM
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 12805c69945fa4335b10759afd09ec4b
     m_Address: Prefabs/Hero/Knight_God
     m_ReadOnly: 0
@@ -107,6 +112,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 32fbec16cf4af414ab6ed89bfbda314d
     m_Address: Sprites/Enemy/Troll_Normal
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3548466dc851048d7835419bf79b0d22
+    m_Address: Audio/Title_BGM
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

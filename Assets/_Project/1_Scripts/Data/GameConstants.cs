@@ -112,3 +112,9 @@ public static class LocalizationKeys
     /// </summary>
     public const string UI_LOADING = "ui_loading";
 }
+
+public static class AudioResources
+{
+    public const string TITLE_BGM = "Audio/Tilte_BGM";
+    public const string INGAME_BGM = "Audio/InGame_BGM";
+}
