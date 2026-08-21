@@ -22,6 +22,7 @@ public class UILoading : UIBase
     {
         Initialize();
         baseText = LocalizationSettings.StringDatabase.GetLocalizedString(GameConstants.LOCALIZATION_TABLE_NAME, LocalizationKeys.UI_LOADING);
+        loadingText.text = baseText;
     }
 
     protected override void Opened(params object[] args)
