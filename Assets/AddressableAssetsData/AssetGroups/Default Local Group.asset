@@ -430,6 +430,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: cbace137240614cb2a3cb4ac97b4abfc
+    m_Address: UI/UISetting
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: cd3d02c5ab2a3434aa26ebbb3f0cfe29
     m_Address: Sprites/Enemy/Orc_Boss
     m_ReadOnly: 0

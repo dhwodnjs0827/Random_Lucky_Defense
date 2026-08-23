@@ -69,6 +69,6 @@ public class LobbyBottomButtonGroups : MonoBehaviour
 
     private void OnClickSettingButton()
     {
-        //UIManager.Instance.Open<SettingUI>();
+        UIManager.Instance.OpenAsync<UISetting>().Forget();
     }
 }

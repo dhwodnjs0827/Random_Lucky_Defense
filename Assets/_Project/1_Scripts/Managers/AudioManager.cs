@@ -40,6 +40,10 @@ public class AudioManager : MonoSingleton<AudioManager>
     public bool IsMasterMuted => isMasterMuted;
     public bool IsBgmMuted => isBgmMuted;
     public bool IsSfxMuted => isSfxMuted;
+    
+    public float MasterVolume => isMasterMuted ? 0f : lastBgmVolume;
+    public float BgmVolume => isBgmMuted ? 0f : lastSfxVolume;
+    public float SfxVolume => isSfxMuted ? 0f : lastSfxVolume;
 
     protected override bool isInitialized { get; set; }
 
