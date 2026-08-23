@@ -11,6 +11,7 @@ public class UISetting : UIBase
     [SerializeField] private Button accountButton;
 
     [SerializeField] private SoundSettingComponent soundSettingComponent;
+    [SerializeField] private LanguageSettingComponent languageSettingComponent;
 
     private void Awake()
     {
@@ -20,6 +21,7 @@ public class UISetting : UIBase
     protected override void Opened(params object[] args)
     {
         soundSettingComponent.gameObject.SetActive(false);
+        languageSettingComponent.gameObject.SetActive(false);
     }
 
     protected override void Closed(params object[] args)
@@ -29,5 +31,6 @@ public class UISetting : UIBase
     private void InitializeButtons()
     {
         soundButton.onClick.AddListener(() => soundSettingComponent.gameObject.SetActive(true));
+        languageButton.onClick.AddListener(() => languageSettingComponent.gameObject.SetActive(true));
     }
 }
