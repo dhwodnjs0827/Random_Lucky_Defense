@@ -41,9 +41,9 @@ public class AudioManager : MonoSingleton<AudioManager>
     public bool IsBgmMuted => isBgmMuted;
     public bool IsSfxMuted => isSfxMuted;
     
-    public float MasterVolume => isMasterMuted ? 0f : lastBgmVolume;
-    public float BgmVolume => isBgmMuted ? 0f : lastSfxVolume;
-    public float SfxVolume => isSfxMuted ? 0f : lastSfxVolume;
+    public float MasterVolume => GetMixerVolume(MASTER_VOLUME);
+    public float BgmVolume => GetMixerVolume(BGM_VOLUME);
+    public float SfxVolume => GetMixerVolume(SFX_VOLUME);
 
     protected override bool isInitialized { get; set; }
 
@@ -75,6 +75,15 @@ public class AudioManager : MonoSingleton<AudioManager>
             sfxSource.playOnAwake = false;
             if (sfxMixerGroup != null) sfxSource.outputAudioMixerGroup = sfxMixerGroup;
         }
+
+        lastMasterVolume = PlayerPrefs.GetFloat(MASTER_VOLUME, 0.5f);
+        lastBgmVolume = PlayerPrefs.GetFloat(BGM_VOLUME, 0.5f);
+        lastSfxVolume = PlayerPrefs.GetFloat(SFX_VOLUME, 0.5f);
+        SetMasterVolume(lastMasterVolume);
+        SetBgmVolume(lastBgmVolume);
+        SetSfxVolume(lastSfxVolume);
+
+        await PlayBgmAsync(AudioResources.TITLE_BGM);
 
         isInitialized = true;
 
@@ -125,12 +134,18 @@ public class AudioManager : MonoSingleton<AudioManager>
     /// <summary>
     /// BGM 일시정지
     /// </summary>
-    public void PauseBgm() => bgmSource.Pause();
+    public void PauseBgm()
+    {
+        bgmSource.Pause();
+    }
 
     /// <summary>
     /// BGM 재개
     /// </summary>
-    public void ResumeBgm() => bgmSource.UnPause();
+    public void ResumeBgm()
+    {
+        bgmSource.UnPause();
+    }
 
     #endregion
 
@@ -227,6 +242,8 @@ public class AudioManager : MonoSingleton<AudioManager>
         }
 
         SetMixerVolume(MASTER_VOLUME, volume);
+        
+        PlayerPrefs.SetFloat(MASTER_VOLUME, volume);
     }
 
     /// <summary>
@@ -241,6 +258,8 @@ public class AudioManager : MonoSingleton<AudioManager>
         }
 
         SetMixerVolume(BGM_VOLUME, volume);
+        
+        PlayerPrefs.SetFloat(BGM_VOLUME, volume);
     }
 
     /// <summary>
@@ -255,22 +274,9 @@ public class AudioManager : MonoSingleton<AudioManager>
         }
 
         SetMixerVolume(SFX_VOLUME, volume);
+        
+        PlayerPrefs.SetFloat(SFX_VOLUME, volume);
     }
-
-    /// <summary>
-    /// 마스터 볼륨 가져오기
-    /// </summary>
-    public float GetMasterVolume() => GetMixerVolume(MASTER_VOLUME);
-
-    /// <summary>
-    /// BGM 볼륨 가져오기
-    /// </summary>
-    public float GetBgmVolume() => GetMixerVolume(BGM_VOLUME);
-
-    /// <summary>
-    /// SFX 볼륨 가져오기
-    /// </summary>
-    public float GetSfxVolume() => GetMixerVolume(SFX_VOLUME);
 
     private void SetMixerVolume(string parameter, float volume)
     {
@@ -320,7 +326,7 @@ public class AudioManager : MonoSingleton<AudioManager>
         isMasterMuted = mute;
         if (mute)
         {
-            lastMasterVolume = GetMasterVolume();
+            lastMasterVolume = MasterVolume;
             SetMixerVolume(MASTER_VOLUME, 0f);
         }
         else
@@ -347,7 +353,7 @@ public class AudioManager : MonoSingleton<AudioManager>
         isBgmMuted = mute;
         if (mute)
         {
-            lastBgmVolume = GetBgmVolume();
+            lastBgmVolume = BgmVolume;
             SetMixerVolume(BGM_VOLUME, 0f);
         }
         else
@@ -374,7 +380,7 @@ public class AudioManager : MonoSingleton<AudioManager>
         isSfxMuted = mute;
         if (mute)
         {
-            lastSfxVolume = GetSfxVolume();
+            lastSfxVolume = SfxVolume;
             SetMixerVolume(SFX_VOLUME, 0f);
         }
         else

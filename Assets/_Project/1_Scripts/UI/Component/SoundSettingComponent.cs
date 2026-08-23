@@ -32,9 +32,9 @@ public class SoundSettingComponent : MonoBehaviour
         isBgmMuted = AudioManager.Instance.IsBgmMuted;
         isSfxMuted = AudioManager.Instance.IsSfxMuted;
 
-        masterVolume = AudioManager.Instance.GetMasterVolume();
-        bgmVolume = AudioManager.Instance.GetBgmVolume();
-        sfxVolume = AudioManager.Instance.GetSfxVolume();
+        masterVolume = AudioManager.Instance.MasterVolume;
+        bgmVolume = AudioManager.Instance.BgmVolume;
+        sfxVolume = AudioManager.Instance.SfxVolume;
         
         masterMuteToggle.isOn = isMasterMuted;
         bgmMuteToggle.isOn = isBgmMuted;

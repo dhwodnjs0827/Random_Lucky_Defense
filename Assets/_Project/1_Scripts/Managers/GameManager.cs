@@ -47,10 +47,10 @@ public class GameManager : MonoSingleton<GameManager>
             tasks.Add(async () => await FirebaseManager.Instance.AutoSignInAsync());
 #endif
             tasks.Add(AddressableManager.Instance.InitializeAsync);
+            tasks.Add(AudioManager.Instance.InitializeAsync);
             tasks.Add(DataManager.Instance.InitializeAsync);
             tasks.Add(SaveLoadManager.Instance.InitializeAsync);
             tasks.Add(PlayerDataManager.Instance.InitializeAsync);
-            tasks.Add(AudioManager.Instance.InitializeAsync);
             tasks.Add(UIManager.Instance.InitializeAsync);
             tasks.Add(SceneLoadManager.Instance.InitializeAsync);
             tasks.Add(ToastManager.Instance.InitializeAsync);

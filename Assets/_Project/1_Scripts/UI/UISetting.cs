@@ -19,6 +19,7 @@ public class UISetting : UIBase
 
     protected override void Opened(params object[] args)
     {
+        soundSettingComponent.gameObject.SetActive(false);
     }
 
     protected override void Closed(params object[] args)

@@ -115,6 +115,6 @@ public static class LocalizationKeys
 
 public static class AudioResources
 {
-    public const string TITLE_BGM = "Audio/Tilte_BGM";
+    public const string TITLE_BGM = "Audio/Title_BGM";
     public const string INGAME_BGM = "Audio/InGame_BGM";
 }
