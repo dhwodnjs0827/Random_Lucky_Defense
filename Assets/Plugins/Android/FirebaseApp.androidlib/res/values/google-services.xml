@@ -1,10 +1,11 @@
 <?xml version='1.0' encoding='utf-8'?>
-<resources xmlns:tools="http://schemas.android.com/tools" tools:keep="@string/gcm_defaultSenderId,@string/google_storage_bucket,@string/project_id,@string/google_api_key,@string/google_crash_reporting_api_key,@string/google_app_id,@string/default_web_client_id">
+<resources xmlns:tools="http://schemas.android.com/tools" tools:keep="@string/gcm_defaultSenderId,@string/google_storage_bucket,@string/project_id,@string/google_api_key,@string/google_crash_reporting_api_key,@string/google_app_id,@string/default_android_client_id,@string/default_web_client_id">
   <string name="gcm_defaultSenderId" translatable="false">323160557358</string>
   <string name="google_storage_bucket" translatable="false">random-lucky-defense-52d32.firebasestorage.app</string>
   <string name="project_id" translatable="false">random-lucky-defense-52d32</string>
   <string name="google_api_key" translatable="false">AIzaSyCX2WPxvGcojIUQC4rs3vl9hfAQr7o5ztM</string>
   <string name="google_crash_reporting_api_key" translatable="false">AIzaSyCX2WPxvGcojIUQC4rs3vl9hfAQr7o5ztM</string>
   <string name="google_app_id" translatable="false">1:323160557358:android:28538a5829af477b195cbf</string>
+  <string name="default_android_client_id" translatable="false">323160557358-09u9ph66bf516kqm0rjq5rv4l3es0g4v.apps.googleusercontent.com</string>
   <string name="default_web_client_id" translatable="false">323160557358-8ltjjh7iovr59j77idgsk97iurrtnota.apps.googleusercontent.com</string>
 </resources>
