@@ -111,6 +111,24 @@ public static class LocalizationKeys
     /// <para>en: Loading</para>
     /// </summary>
     public const string UI_LOADING = "ui_loading";
+    //
+    // /// <summary>
+    // /// ko: 구글 계정이 연동되었습니다
+    // /// <para>en: Google account linked</para>
+    // /// </summary>
+    // public const string UI_GOOGLE_LINK_SUCCESS = "ui_google_link_success";
+    //
+    // /// <summary>
+    // /// ko: 이미 다른 계정에 연동된 구글 계정입니다
+    // /// <para>en: This Google account is already linked to another account</para>
+    // /// </summary>
+    // public const string UI_GOOGLE_LINK_ALREADY_IN_USE = "ui_google_link_already_in_use";
+    //
+    // /// <summary>
+    // /// ko: 구글 계정 연동에 실패했습니다
+    // /// <para>en: Failed to link Google account</para>
+    // /// </summary>
+    // public const string UI_GOOGLE_LINK_FAILED = "ui_google_link_failed";
 }
 
 public static class AudioResources

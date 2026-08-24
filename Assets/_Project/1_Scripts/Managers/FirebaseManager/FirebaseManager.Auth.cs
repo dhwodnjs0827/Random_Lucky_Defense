@@ -114,7 +114,7 @@ public partial class FirebaseManager
         CDebug.Log("[FirebaseManager] 유저 정보가 없습니다. 익명(게스트) 로그인 중...");
         return await SignInAnonymouslyAsync();
     }
-
+    
     /// <summary>
     /// 로그아웃
     /// </summary>
