@@ -1,9 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Cysharp.Threading.Tasks;
 using Generated;
-using Random = UnityEngine.Random;
 
 /// <summary>
 /// 재능 시스템의 핵심 중개 클래스
@@ -139,7 +137,7 @@ public class AbilityEffectFactory : IEventListener
     private AbilityDataSO SelectByWeight(List<AbilityDataSO> abilities)
     {
         var totalWeight = abilities.Sum(c => c.Weight);
-        var random = Random.Range(0, totalWeight);
+        var random = UnityEngine.Random.Range(0, totalWeight);
 
         var cumulative = 0;
         foreach (var ability in abilities)
