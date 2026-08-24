@@ -1,8 +1,6 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Cysharp.Threading.Tasks;
-using Generated;
 
 /// <summary>
 /// 게임 저장 데이터

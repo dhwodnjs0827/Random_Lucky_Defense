@@ -118,3 +118,12 @@ public static class AudioResources
     public const string TITLE_BGM = "Audio/Title_BGM";
     public const string INGAME_BGM = "Audio/InGame_BGM";
 }
+
+public static class PlayerPrefsKeys
+{
+    public const string LANGUAGE_KEY = "Language";
+    
+    public const string MASTER_VOLUME = "MasterVolume";
+    public const string BGM_VOLUME = "BGMVolume";
+    public const string SFX_VOLUME = "SFXVolume";
+}

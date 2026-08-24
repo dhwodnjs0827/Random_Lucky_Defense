@@ -65,6 +65,7 @@ public class LobbyBottomButtonGroups : MonoBehaviour
     private void OnClickRankButton()
     {
         //UIManager.Instance.Open<RankingUI>();
+        ToastManager.Instance.Show(LocalizationKeys.UI_PREPARING);
     }
 
     private void OnClickSettingButton()

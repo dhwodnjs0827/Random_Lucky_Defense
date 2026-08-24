@@ -8,9 +8,9 @@ using UnityEngine.Audio;
 /// </summary>
 public class AudioManager : MonoSingleton<AudioManager>
 {
-    private const string MASTER_VOLUME = "MasterVolume";
-    private const string BGM_VOLUME = "BGMVolume";
-    private const string SFX_VOLUME = "SFXVolume";
+    private const string MIXER_MASTER_VOLUME = "MasterVolume";
+    private const string MIXER_BGM_VOLUME = "BGMVolume";
+    private const string MIXER_SFX_VOLUME = "SFXVolume";
 
     private bool isMasterMuted = false;
     private bool isBgmMuted = false;
@@ -41,9 +41,9 @@ public class AudioManager : MonoSingleton<AudioManager>
     public bool IsBgmMuted => isBgmMuted;
     public bool IsSfxMuted => isSfxMuted;
     
-    public float MasterVolume => GetMixerVolume(MASTER_VOLUME);
-    public float BgmVolume => GetMixerVolume(BGM_VOLUME);
-    public float SfxVolume => GetMixerVolume(SFX_VOLUME);
+    public float MasterVolume => GetMixerVolume(MIXER_MASTER_VOLUME);
+    public float BgmVolume => GetMixerVolume(MIXER_BGM_VOLUME);
+    public float SfxVolume => GetMixerVolume(MIXER_SFX_VOLUME);
 
     protected override bool isInitialized { get; set; }
 
@@ -76,9 +76,9 @@ public class AudioManager : MonoSingleton<AudioManager>
             if (sfxMixerGroup != null) sfxSource.outputAudioMixerGroup = sfxMixerGroup;
         }
 
-        lastMasterVolume = PlayerPrefs.GetFloat(MASTER_VOLUME, 0.5f);
-        lastBgmVolume = PlayerPrefs.GetFloat(BGM_VOLUME, 0.5f);
-        lastSfxVolume = PlayerPrefs.GetFloat(SFX_VOLUME, 0.5f);
+        lastMasterVolume = PlayerPrefs.GetFloat(PlayerPrefsKeys.MASTER_VOLUME, 0.5f);
+        lastBgmVolume = PlayerPrefs.GetFloat(PlayerPrefsKeys.BGM_VOLUME, 0.5f);
+        lastSfxVolume = PlayerPrefs.GetFloat(PlayerPrefsKeys.SFX_VOLUME, 0.5f);
         SetMasterVolume(lastMasterVolume);
         SetBgmVolume(lastBgmVolume);
         SetSfxVolume(lastSfxVolume);
@@ -241,9 +241,9 @@ public class AudioManager : MonoSingleton<AudioManager>
             return;
         }
 
-        SetMixerVolume(MASTER_VOLUME, volume);
+        SetMixerVolume(MIXER_MASTER_VOLUME, volume);
         
-        PlayerPrefs.SetFloat(MASTER_VOLUME, volume);
+        PlayerPrefs.SetFloat(PlayerPrefsKeys.MASTER_VOLUME, volume);
     }
 
     /// <summary>
@@ -257,9 +257,9 @@ public class AudioManager : MonoSingleton<AudioManager>
             return;
         }
 
-        SetMixerVolume(BGM_VOLUME, volume);
+        SetMixerVolume(MIXER_BGM_VOLUME, volume);
         
-        PlayerPrefs.SetFloat(BGM_VOLUME, volume);
+        PlayerPrefs.SetFloat(PlayerPrefsKeys.BGM_VOLUME, volume);
     }
 
     /// <summary>
@@ -273,9 +273,9 @@ public class AudioManager : MonoSingleton<AudioManager>
             return;
         }
 
-        SetMixerVolume(SFX_VOLUME, volume);
+        SetMixerVolume(MIXER_SFX_VOLUME, volume);
         
-        PlayerPrefs.SetFloat(SFX_VOLUME, volume);
+        PlayerPrefs.SetFloat(PlayerPrefsKeys.SFX_VOLUME, volume);
     }
 
     private void SetMixerVolume(string parameter, float volume)
@@ -327,11 +327,11 @@ public class AudioManager : MonoSingleton<AudioManager>
         if (mute)
         {
             lastMasterVolume = MasterVolume;
-            SetMixerVolume(MASTER_VOLUME, 0f);
+            SetMixerVolume(MIXER_MASTER_VOLUME, 0f);
         }
         else
         {
-            SetMixerVolume(MASTER_VOLUME, lastMasterVolume);
+            SetMixerVolume(MIXER_MASTER_VOLUME, lastMasterVolume);
         }
     }
 
@@ -354,11 +354,11 @@ public class AudioManager : MonoSingleton<AudioManager>
         if (mute)
         {
             lastBgmVolume = BgmVolume;
-            SetMixerVolume(BGM_VOLUME, 0f);
+            SetMixerVolume(MIXER_BGM_VOLUME, 0f);
         }
         else
         {
-            SetMixerVolume(BGM_VOLUME, lastBgmVolume);
+            SetMixerVolume(MIXER_BGM_VOLUME, lastBgmVolume);
         }
     }
 
@@ -381,11 +381,11 @@ public class AudioManager : MonoSingleton<AudioManager>
         if (mute)
         {
             lastSfxVolume = SfxVolume;
-            SetMixerVolume(SFX_VOLUME, 0f);
+            SetMixerVolume(MIXER_SFX_VOLUME, 0f);
         }
         else
         {
-            SetMixerVolume(SFX_VOLUME, lastSfxVolume);
+            SetMixerVolume(MIXER_SFX_VOLUME, lastSfxVolume);
         }
     }
 

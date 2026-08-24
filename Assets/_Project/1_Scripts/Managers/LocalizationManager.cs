@@ -45,6 +45,6 @@ public class LocalizationManager : MonoSingleton<LocalizationManager>
         }
 
         LocalizationSettings.SelectedLocale = locale;
-        PlayerPrefs.SetInt(LANGUAGE_KEY, (int)language);
+        PlayerPrefs.SetInt(PlayerPrefsKeys.LANGUAGE_KEY, (int)language);
     }
 }

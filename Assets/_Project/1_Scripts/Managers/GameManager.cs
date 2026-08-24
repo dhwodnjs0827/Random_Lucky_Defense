@@ -9,12 +9,6 @@ public class GameManager : MonoSingleton<GameManager>
     
     private readonly List<Func<UniTask>> tasks = new();
 
-    protected override void Awake()
-    {
-        base.Awake();
-        
-    }
-
     private async void Start()
     {
         try
@@ -52,8 +46,8 @@ public class GameManager : MonoSingleton<GameManager>
             tasks.Add(async () => await FirebaseManager.Instance.InitializeFirebaseAsync());
             tasks.Add(async () => await FirebaseManager.Instance.AutoSignInAsync());
 #endif
-            tasks.Add(AddressableManager.Instance.InitializeAsync);
             tasks.Add(LocalizationManager.Instance.InitializeAsync);
+            tasks.Add(AddressableManager.Instance.InitializeAsync);
             tasks.Add(AudioManager.Instance.InitializeAsync);
             tasks.Add(DataManager.Instance.InitializeAsync);
             tasks.Add(SaveLoadManager.Instance.InitializeAsync);
