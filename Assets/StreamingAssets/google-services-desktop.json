@@ -12,7 +12,20 @@
           "package_name": "com.Jaewon.Random_Lucky_Defense"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "323160557358-nb1ub5qobgbqvrtcllfguqdcet0jr5im.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.Jaewon.Random_Lucky_Defense",
+            "certificate_hash": "e0c5b5030bc3c4738c526772feb5c8883ba612e3"
+          }
+        },
+        {
+          "client_id": "323160557358-8ltjjh7iovr59j77idgsk97iurrtnota.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyCX2WPxvGcojIUQC4rs3vl9hfAQr7o5ztM"
@@ -20,7 +33,12 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "323160557358-8ltjjh7iovr59j77idgsk97iurrtnota.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         }
       }
     }
