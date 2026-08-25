@@ -13,8 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-#import <GoogleSignIn/GIDSignIn.h>
-@interface GoogleSignInHandler
-    : NSObject <GIDSignInDelegate, GIDSignInUIDelegate>
-
-@end
+// GoogleSignIn 6.0+ removed the delegate-based API (GIDSignInDelegate /
+// GIDSignInUIDelegate) in favor of completion-handler based methods, so this
+// header now only needs to pull in the public SDK umbrella.
+#import <GoogleSignIn/GoogleSignIn.h>

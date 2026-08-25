@@ -14,10 +14,6 @@
  * limitations under the License.
  */
 #import "GoogleSignIn.h"
-#import <GoogleSignIn/GIDAuthentication.h>
-#import <GoogleSignIn/GIDGoogleUser.h>
-#import <GoogleSignIn/GIDProfileData.h>
-#import <GoogleSignIn/GIDSignIn.h>
 
 #import <memory>
 
@@ -34,6 +30,17 @@ static const int kStatusCodeDeveloperError = 6;
 static const int kStatusCodeInternalError = 7;
 static const int kStatusCodeNetworkError = 8;
 static const int kStatusCodeError = 9;
+
+// Sign-in options captured by GoogleSignIn_Configure(), applied when a
+// sign-in flow is actually started (the GoogleSignIn 6.0+ API takes the hint
+// and additional scopes as parameters instead of properties on GIDSignIn).
+static NSString *gsiLoginHint = nil;
+static NSArray<NSString *> *gsiAdditionalScopes = nil;
+
+// The server auth code is returned on the GIDSignInResult (not on
+// GIDGoogleUser as in the old SDK), so cache the value from the last
+// successful interactive sign-in for GoogleSignIn_GetServerAuthCode().
+static NSString *gsiServerAuthCode = nil;
 
 /**
  * Helper method to pause the Unity player.  This is done when showing any UI.
@@ -57,89 +64,45 @@ std::unique_ptr<SignInResult> currentResult_;
 
 NSRecursiveLock *resultLock = [NSRecursiveLock alloc];
 
-@implementation GoogleSignInHandler
-
 /**
- * Overload the presenting of the UI so we can pause the Unity player.
+ * Maps a GoogleSignIn SDK error onto the pending result and marks it finished.
+ * A nil error means the flow completed successfully.  Must be called from the
+ * SDK completion handler.
  */
-- (void)signIn:(GIDSignIn *)signIn
-    presentViewController:(UIViewController *)viewController {
-  UnityPause(true);
-  [UnityGetGLViewController() presentViewController:viewController
-                                           animated:YES
-                                         completion:nil];
-}
-
-/**
- * Overload the dismissing so we can resume the Unity player.
- */
-- (void)signIn:(GIDSignIn *)signIn
-    dismissViewController:(UIViewController *)viewController {
-  UnityPause(false);
-  [UnityGetGLViewController() dismissViewControllerAnimated:YES completion:nil];
-}
-
-/**
- * The sign-in flow has finished and was successful if |error| is |nil|.
- * Map the errors from the iOS SDK back to the Android values for consistency's
- * sake in the Unity layer.
- */
-- (void)signIn:(GIDSignIn *)signIn
-    didSignInForUser:(GIDGoogleUser *)user
-           withError:(NSError *)_error {
-  if (_error == nil) {
-    if (currentResult_) {
+static void CompleteSignIn(NSError *error, NSString *serverAuthCode) {
+  [resultLock lock];
+  if (currentResult_) {
+    if (error == nil) {
       currentResult_->result_code = kStatusCodeSuccess;
-      currentResult_->finished = true;
+      gsiServerAuthCode = serverAuthCode;
+      NSLog(@"GoogleSignIn: sign-in SUCCESS");
     } else {
-      NSLog(@"No currentResult to set status on!");
-    }
-    NSLog(@"didSignInForUser: SUCCESS");
-  } else {
-    NSLog(@"didSignInForUser: %@", _error.localizedDescription);
-    if (currentResult_) {
-      switch (_error.code) {
-      case kGIDSignInErrorCodeUnknown:
-        currentResult_->result_code = kStatusCodeError;
-        break;
+      NSLog(@"GoogleSignIn: sign-in failed: %@", error.localizedDescription);
+      switch (error.code) {
       case kGIDSignInErrorCodeKeychain:
         currentResult_->result_code = kStatusCodeInternalError;
-        break;
-      case kGIDSignInErrorCodeNoSignInHandlersInstalled:
-        currentResult_->result_code = kStatusCodeDeveloperError;
-        break;
-      case kGIDSignInErrorCodeHasNoAuthInKeychain:
-        currentResult_->result_code = kStatusCodeError;
         break;
       case kGIDSignInErrorCodeCanceled:
         currentResult_->result_code = kStatusCodeCanceled;
         break;
+      case kGIDSignInErrorCodeHasNoAuthInKeychain:
+        currentResult_->result_code = kStatusCodeError;
+        break;
+      case kGIDSignInErrorCodeUnknown:
+        currentResult_->result_code = kStatusCodeError;
+        break;
       default:
         NSLog(@"Unmapped error code: %ld, returning Error",
-              static_cast<long>(_error.code));
+              static_cast<long>(error.code));
         currentResult_->result_code = kStatusCodeError;
       }
-
-      currentResult_->finished = true;
-      UnpauseUnityPlayer();
-    } else {
-      NSLog(@"No currentResult to set status on!");
     }
-  }
-}
-
-// Finished disconnecting |user| from the app successfully if |error| is |nil|.
-- (void)signIn:(GIDSignIn *)signIn
-    didDisconnectWithUser:(GIDGoogleUser *)user
-                withError:(NSError *)_error {
-  if (_error == nil) {
-    NSLog(@"didDisconnectWithUser: SUCCESS");
+    currentResult_->finished = true;
   } else {
-    NSLog(@"didDisconnectWithUser: %@", _error);
+    NSLog(@"No currentResult to set status on!");
   }
+  [resultLock unlock];
 }
-
-@end
 
 /**
  * These are the external "C" methods that are imported by the Unity C# code.
@@ -168,29 +131,34 @@ bool GoogleSignIn_Configure(void *unused, bool useGameSignIn,
                             bool requestIdToken, bool hidePopups,
                             const char **additionalScopes, int scopeCount,
                             const char *accountName) {
-  if (webClientId) {
-    [GIDSignIn sharedInstance].serverClientID =
-        [NSString stringWithUTF8String:webClientId];
+  NSString *serverClientID =
+      webClientId ? [NSString stringWithUTF8String:webClientId] : nil;
+
+  // The client id comes from GoogleService-Info.plist; combine it with the
+  // (optional) server client id into a GIDConfiguration.
+  NSString *path = [[NSBundle mainBundle] pathForResource:@"GoogleService-Info"
+                                                   ofType:@"plist"];
+  NSDictionary *dict = [NSDictionary dictionaryWithContentsOfFile:path];
+  NSString *clientId = [dict objectForKey:@"CLIENT_ID"];
+  if (clientId) {
+    [GIDSignIn sharedInstance].configuration =
+        [[GIDConfiguration alloc] initWithClientID:clientId
+                                    serverClientID:serverClientID];
   }
 
-  [GIDSignIn sharedInstance].shouldFetchBasicProfile = true;
-
   int scopeSize = scopeCount;
-
   if (scopeSize) {
     NSMutableArray *tmpary =
         [[NSMutableArray alloc] initWithCapacity:scopeSize];
     for (int i = 0; i < scopeCount; i++) {
       [tmpary addObject:[NSString stringWithUTF8String:additionalScopes[i]]];
     }
-
-    [GIDSignIn sharedInstance].scopes = tmpary;
+    gsiAdditionalScopes = tmpary;
+  } else {
+    gsiAdditionalScopes = nil;
   }
 
-  if (accountName) {
-    [GIDSignIn sharedInstance].loginHint =
-        [NSString stringWithUTF8String:accountName];
-  }
+  gsiLoginHint = accountName ? [NSString stringWithUTF8String:accountName] : nil;
 
   return !useGameSignIn;
 }
@@ -226,7 +194,21 @@ static SignInResult *startSignIn() {
 void *GoogleSignIn_SignIn() {
   SignInResult *result = startSignIn();
   if (!result) {
-    [[GIDSignIn sharedInstance] signIn];
+    // Presenting UI and starting the interactive flow must happen on the main
+    // thread.
+    dispatch_async(dispatch_get_main_queue(), ^{
+      UnityPause(true);
+      UIViewController *presenter = UnityGetGLViewController();
+      [[GIDSignIn sharedInstance]
+          signInWithPresentingViewController:presenter
+                                        hint:gsiLoginHint
+                            additionalScopes:gsiAdditionalScopes
+                                  completion:^(GIDSignInResult *signInResult,
+                                               NSError *error) {
+            CompleteSignIn(error, signInResult.serverAuthCode);
+            UnpauseUnityPlayer();
+          }];
+    });
     result = currentResult_.get();
   }
   return result;
@@ -239,7 +221,14 @@ void *GoogleSignIn_SignIn() {
 void *GoogleSignIn_SignInSilently() {
   SignInResult *result = startSignIn();
   if (!result) {
-    [[GIDSignIn sharedInstance] signInSilently];
+    dispatch_async(dispatch_get_main_queue(), ^{
+      [[GIDSignIn sharedInstance]
+          restorePreviousSignInWithCompletion:^(GIDGoogleUser *user,
+                                                NSError *error) {
+            // A restored session has no fresh server auth code.
+            CompleteSignIn(error, nil);
+          }];
+    });
     result = currentResult_.get();
   }
   return result;
@@ -252,7 +241,7 @@ void GoogleSignIn_Signout() {
 
 void GoogleSignIn_Disconnect() {
   GIDSignIn *signIn = [GIDSignIn sharedInstance];
-  [signIn disconnect];
+  [signIn disconnectWithCompletion:nil];
 }
 
 bool GoogleSignIn_Pending(SignInResult *result) {
@@ -302,8 +291,7 @@ static size_t CopyNSString(NSString *src, char *dest, size_t len) {
 
 size_t GoogleSignIn_GetServerAuthCode(GIDGoogleUser *guser, char *buf,
                                       size_t len) {
-  NSString *val = [guser serverAuthCode];
-  return CopyNSString(val, buf, len);
+  return CopyNSString(gsiServerAuthCode, buf, len);
 }
 
 size_t GoogleSignIn_GetDisplayName(GIDGoogleUser *guser, char *buf,
@@ -328,7 +316,7 @@ size_t GoogleSignIn_GetGivenName(GIDGoogleUser *guser, char *buf, size_t len) {
 }
 
 size_t GoogleSignIn_GetIdToken(GIDGoogleUser *guser, char *buf, size_t len) {
-  NSString *val = [guser.authentication idToken];
+  NSString *val = [guser.idToken tokenString];
   return CopyNSString(val, buf, len);
 }
 
