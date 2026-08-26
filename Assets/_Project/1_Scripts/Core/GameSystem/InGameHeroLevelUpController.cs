@@ -15,12 +15,8 @@ public class InGameHeroLevelUpController : IEventListener
     private readonly Dictionary<HeroClassType, ReactiveProperty<int>> currentLevelDict = new(); // 클래스 별 현재 레벨
 
     private Action<HeroClassType> onLevelUp;
-
-#if ADDRESSABLE
+    
     private const string IN_GAME_HERO_LEVEL_UP_DATA_SO_PATH = "InGameHeroLevelUpData";
-#else
-    private const string IN_GAME_HERO_LEVEL_UP_DATA_SO_PATH = "Data/SO/InGameHeroLevelUpData";
-#endif
 
     public IDictionary<HeroClassType, Dictionary<int, ClassLevelUpData>> LevelUpDataDict => levelUpDataDict;
     public IDictionary<HeroClassType, ReactiveProperty<int>> CurrentLevelDict => currentLevelDict;
