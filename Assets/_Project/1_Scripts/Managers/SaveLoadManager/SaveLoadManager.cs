@@ -15,11 +15,7 @@ public class SaveLoadManager : Singleton<SaveLoadManager>
 
     public SaveLoadManager()
     {
-#if FIREBASE_ENABLED
         handler = new FirestoreHandler();
-#else
-        handler = new PlayerPrefsHandler();
-#endif
     }
 
     public async UniTask InitializeAsync()
@@ -64,17 +60,8 @@ public class SaveLoadManager : Singleton<SaveLoadManager>
     private SaveData InitializeSaveData()
     {
         var config = Resources.Load<InitialGameConfig>(ResourcesPath.INITIAL_GAME_CONFIG);
-        var playerName = GetPlayerName();
+        var playerName = FirebaseManager.Instance.CurrentUser?.UserId ?? "Guest";
 
         return SaveDataFactory.CreateNewSaveData(config, playerName);
-    }
-
-    private string GetPlayerName()
-    {
-#if FIREBASE_ENABLED
-        return FirebaseManager.Instance.CurrentUser?.UserId ?? "Guest";
-#else
-        return "Guest";
-#endif
     }
 }

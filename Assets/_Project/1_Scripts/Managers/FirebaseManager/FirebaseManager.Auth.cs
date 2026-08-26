@@ -1,4 +1,3 @@
-#if FIREBASE_ENABLED
 using System;
 using Cysharp.Threading.Tasks;
 using Firebase.Auth;
@@ -161,4 +160,3 @@ public partial class FirebaseManager
         }
     }
 }
-#endif

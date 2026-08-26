@@ -1,4 +1,3 @@
-#if FIREBASE_ENABLED
 using Firebase.Firestore;
 
 public partial class FirebaseManager
@@ -7,4 +6,3 @@ public partial class FirebaseManager
 
     public FirebaseFirestore Firestore => firestore;
 }
-#endif

@@ -1,4 +1,3 @@
-#if FIREBASE_ENABLED
 using System;
 using Cysharp.Threading.Tasks;
 using Firebase;
@@ -54,4 +53,3 @@ public partial class FirebaseManager : Singleton<FirebaseManager>
         }
     }
 }
-#endif

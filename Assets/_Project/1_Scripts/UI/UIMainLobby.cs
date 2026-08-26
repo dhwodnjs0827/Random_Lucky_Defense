@@ -30,10 +30,6 @@ public class UIMainLobby : UIBase
     //TODO: 임시로 작성
     public void TmpDeleteData()
     {
-#if FIREBASE_ENABLED
         FirebaseManager.Instance.DeleteUserAsync().Forget();
-#else
-        SaveLoadManager.Instance.DeleteAsync().Forget();
-#endif
     }
 }

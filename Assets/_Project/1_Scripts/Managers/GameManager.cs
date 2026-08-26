@@ -42,10 +42,8 @@ public class GameManager : MonoSingleton<GameManager>
     {
         try
         {
-#if FIREBASE_ENABLED
             tasks.Add(async () => await FirebaseManager.Instance.InitializeFirebaseAsync());
             tasks.Add(async () => await FirebaseManager.Instance.AutoSignInAsync());
-#endif
             tasks.Add(LocalizationManager.Instance.InitializeAsync);
             tasks.Add(AddressableManager.Instance.InitializeAsync);
             tasks.Add(AudioManager.Instance.InitializeAsync);

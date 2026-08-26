@@ -1,4 +1,3 @@
-#if FIREBASE_ENABLED
 using System.Collections.Generic;
 using Cysharp.Threading.Tasks;
 using Firebase.Firestore;
@@ -94,4 +93,3 @@ public class FirestoreHandler : IDataSaveLoadHandler
         }
     }
 }
-#endif
