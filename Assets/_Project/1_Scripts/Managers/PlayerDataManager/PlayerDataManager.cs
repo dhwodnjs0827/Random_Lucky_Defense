@@ -9,17 +9,10 @@ public partial class PlayerDataManager : MonoSingleton<PlayerDataManager>
     
     public override async UniTask InitializeAsync()
     {
-        if (isInitialized)
-        {
-            return;
-        }
-        
         var saveData = SaveLoadManager.Instance.SaveData;
         InitializeCurrencyData(saveData.CurrencyData);
         InitializeProfileData(saveData.ProfileData);
         InitializeHeroData(saveData.HeroData);
-        
-        isInitialized = true;
 
         await UniTask.CompletedTask;
     }
