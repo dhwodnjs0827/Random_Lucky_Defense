@@ -9,8 +9,6 @@ using UnityEngine;
 /// </summary>
 public static class DamageCalculator
 {
-    private const string DAMAGE_RATE_BY_CLASS_DATA_SO_PATH = "DamageRateByClassData";
-
     private static Dictionary<(HeroClassType, MonsterType), DamageRateByClassDataSO> damageRateByClassData = new();
 
     public static IDictionary<(HeroClassType, MonsterType), DamageRateByClassDataSO> DamageRateByClassData =>
@@ -21,7 +19,7 @@ public static class DamageCalculator
     /// </summary>
     public static async UniTask InitializeAsync()
     {
-        var datas = await AddressableManager.Instance.LoadAllAsync<DamageRateByClassDataSO>(DAMAGE_RATE_BY_CLASS_DATA_SO_PATH);
+        var datas = await AddressableManager.Instance.LoadAllAsync<DamageRateByClassDataSO>(AddressableLabels.DAMAGE_RATE_BY_CLASS_DATA);
         foreach (var data in datas)
         {
             if (!damageRateByClassData.ContainsKey((data.ClassType, data.MonsterType)))
