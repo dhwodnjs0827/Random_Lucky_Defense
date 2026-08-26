@@ -50,11 +50,6 @@ public class SaveLoadManager : Singleton<SaveLoadManager>
     public async UniTask DeleteAsync()
     {
         await handler.DeleteAsync();
-#if UNITY_EDITOR
-        EditorApplication.isPlaying = false;
-#else
-        Application.Quit();
-#endif
     }
 
     private SaveData InitializeSaveData()

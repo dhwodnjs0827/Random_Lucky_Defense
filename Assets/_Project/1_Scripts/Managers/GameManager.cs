@@ -1,12 +1,14 @@
 using System;
 using System.Collections.Generic;
 using Cysharp.Threading.Tasks;
+using UnityEditor;
 using UnityEngine;
 
-public class GameManager : MonoSingleton<GameManager>, IEventListener
+public class GameManager : MonoSingleton<GameManager>
 {
     protected override bool isInitialized { get; set; }
-    
+    public bool IsInitialized => isInitialized;
+
     private readonly List<Func<UniTask>> tasks = new();
 
     private async void Start()
@@ -29,27 +31,11 @@ public class GameManager : MonoSingleton<GameManager>, IEventListener
             return;
         }
 
-        SubscribeEvents();
+        EventManager.Subscribe(GameEventType.SignIn, InitializeUserData);
 
         await InitializeManagerAsync();
 
         isInitialized = true;
-    }
-
-    protected override void OnDestroy()
-    {
-        UnsubscribeEvents();
-        base.OnDestroy();
-    }
-
-    public void SubscribeEvents()
-    {
-        EventManager.Subscribe(GameEventType.SignIn, InitializeUserData);
-    }
-
-    public void UnsubscribeEvents()
-    {
-        EventManager.Unsubscribe(GameEventType.SignIn, InitializeUserData);
     }
     
     /// <summary>
@@ -98,5 +84,14 @@ public class GameManager : MonoSingleton<GameManager>, IEventListener
             EventManager.Dispatch(GameEventType.GameInitializeProgress, (i + 1) / (float)tasks.Count);
         }
         EventManager.Dispatch(GameEventType.UserDataInitializeCompleted);
+    }
+
+    public void QuitGame()
+    {
+#if UNITY_EDITOR
+        EditorApplication.isPlaying = false;
+#else
+        Application.Quit();
+#endif
     }
 }

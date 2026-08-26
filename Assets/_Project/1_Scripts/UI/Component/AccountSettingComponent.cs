@@ -8,6 +8,9 @@ public class AccountSettingComponent : MonoBehaviour
     [Space]
     [SerializeField] private Button googleButton;
     [SerializeField] private Button appleButton;
+    [Space]
+    [SerializeField] private Button signOutButton;
+    [SerializeField] private Button deleteUserDataButton;
 
     private void Awake()
     {
@@ -15,6 +18,11 @@ public class AccountSettingComponent : MonoBehaviour
 
         googleButton.onClick.AddListener(() => ConnectGoogleAsync().Forget());
         appleButton.onClick.AddListener(() => ToastManager.Instance.Show(LocalizationKeys.UI_PREPARING));
+        signOutButton.onClick.AddListener(SignOut);
+        deleteUserDataButton.onClick.AddListener(() => DeleteUserDataAsync().Forget());
+#if !UNITY_IOS
+        appleButton.gameObject.SetActive(false);
+#endif
     }
 
     private void OnEnable()
@@ -47,6 +55,21 @@ public class AccountSettingComponent : MonoBehaviour
                 CDebug.Log("[AccountSettingComponent] 구글 계정 연동에 실패했습니다");
                 googleButton.interactable = true;
                 break;
+        }
+    }
+
+    private void SignOut()
+    {
+        FirebaseManager.Instance.SignOut();
+        SceneLoadManager.Instance.LoadSceneAsync(SceneType.TitleScene).Forget();
+    }
+
+    private async UniTask DeleteUserDataAsync()
+    {
+        var isSucceed = await FirebaseManager.Instance.DeleteUserAsync();
+        if (isSucceed)
+        {
+            await SceneLoadManager.Instance.LoadSceneAsync(SceneType.TitleScene);
         }
     }
 }

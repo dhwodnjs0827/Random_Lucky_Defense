@@ -1,4 +1,3 @@
-using Cysharp.Threading.Tasks;
 using TMPro;
 using UnityEngine;
 
@@ -25,11 +24,5 @@ public class UIMainLobby : UIBase
 
     protected override void Closed(params object[] args)
     {
-    }
-
-    //TODO: 임시로 작성
-    public void TmpDeleteData()
-    {
-        FirebaseManager.Instance.DeleteUserAsync().Forget();
     }
 }

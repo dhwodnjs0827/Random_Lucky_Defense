@@ -24,6 +24,11 @@ public class UITitle : MonoBehaviour, IEventListener
 
         loginButtonGroup.SetActive(false);
         gameStartButton.gameObject.SetActive(false);
+
+        if (GameManager.Instance.IsInitialized)
+        {
+            CheckUserState();
+        }
     }
 
     private void OnDestroy()
@@ -100,6 +105,7 @@ public class UITitle : MonoBehaviour, IEventListener
 
     private async UniTask OnClickAppleSignInButtonAsync()
     {
+        ToastManager.Instance.Show(LocalizationKeys.UI_PREPARING);
         await UniTask.CompletedTask;
     }
 
