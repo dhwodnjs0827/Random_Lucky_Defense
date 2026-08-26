@@ -1,13 +1,29 @@
+using Cysharp.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class UITitle : MonoBehaviour, IEventListener
 {
-    [SerializeField] private Slider loadingBar;
+    [SerializeField] private GameObject loginButtonGroup;
+    [SerializeField] private Button guestLoginButton;
+    [SerializeField] private Button googleLoginButton;
+    [SerializeField] private Button appleLoginButton;
+    [Space] [SerializeField] private Slider loadingBar;
+
+    [Space] [SerializeField] private Button gameStartButton;
 
     private void Awake()
     {
         SubscribeEvents();
+        
+        gameStartButton.onClick.AddListener(LoadLobbyScene);
+
+        guestLoginButton.onClick.AddListener(() => OnClickGuestLoginButtonAsync().Forget());
+        googleLoginButton.onClick.AddListener(() => OnClickGoogleLoginButtonAsync().Forget());
+        appleLoginButton.onClick.AddListener(() => OnClickAppleLoginButtonAsync().Forget());
+
+        loginButtonGroup.SetActive(false);
+        gameStartButton.gameObject.SetActive(false);
     }
 
     private void OnDestroy()
@@ -18,11 +34,73 @@ public class UITitle : MonoBehaviour, IEventListener
     public void SubscribeEvents()
     {
         EventManager.Subscribe<float>(GameEventType.GameInitializeProgress, UpdateLoadingBar);
+        EventManager.Subscribe(GameEventType.GameInitializeCompleted, CheckUserState);
+        EventManager.Subscribe(GameEventType.UserDataInitializeCompleted, ShowGameStartButton);
     }
 
     public void UnsubscribeEvents()
     {
+        EventManager.Unsubscribe(GameEventType.UserDataInitializeCompleted, ShowGameStartButton);
+        EventManager.Unsubscribe(GameEventType.GameInitializeCompleted, CheckUserState);
         EventManager.Unsubscribe<float>(GameEventType.GameInitializeProgress, UpdateLoadingBar);
+    }
+
+    private void CheckUserState()
+    {
+        if (FirebaseManager.Instance.IsSignedIn)
+        {
+            loadingBar.value = 0f;
+            EventManager.Dispatch(GameEventType.SignIn);
+        }
+        else
+        {
+            loadingBar.gameObject.SetActive(false);
+            loginButtonGroup.SetActive(true);
+#if !UNITY_IOS
+            appleLoginButton.gameObject.SetActive(false);
+#endif
+        }
+    }
+
+    private void ShowGameStartButton()
+    {
+        loadingBar.gameObject.SetActive(false);
+        gameStartButton.gameObject.SetActive(true);
+        loginButtonGroup.SetActive(false);
+    }
+
+    private void LoadLobbyScene()
+    {
+        SceneLoadManager.Instance.LoadSceneAsync(SceneType.LobbyScene).Forget();
+    }
+
+    private async UniTask OnClickGuestLoginButtonAsync()
+    {
+        var user = await FirebaseManager.Instance.SignInAnonymouslyAsync();
+        if (user != null)
+        {
+            loginButtonGroup.SetActive(false);
+            loadingBar.value = 0f;
+            loadingBar.gameObject.SetActive(true);
+            EventManager.Dispatch(GameEventType.SignIn);
+        }
+    }
+
+    private async UniTask OnClickGoogleLoginButtonAsync()
+    {
+        var user = await FirebaseManager.Instance.SignInGoogleAsync();
+        if (user != null)
+        {
+            loginButtonGroup.SetActive(false);
+            loadingBar.value = 0f;
+            loadingBar.gameObject.SetActive(true);
+            EventManager.Dispatch(GameEventType.SignIn);
+        }
+    }
+
+    private async UniTask OnClickAppleLoginButtonAsync()
+    {
+        await UniTask.CompletedTask;
     }
 
     private void UpdateLoadingBar(float progress)

@@ -1,10 +1,15 @@
 using System;
 using Cysharp.Threading.Tasks;
 using Firebase.Auth;
+using Google;
 
 public partial class FirebaseManager
 {
     private FirebaseAuth auth;
+    
+    private const string GOOGLE_WEB_CLIENT_ID = "323160557358-8ltjjh7iovr59j77idgsk97iurrtnota.apps.googleusercontent.com"; // 웹 클라이언트 ID
+
+    private bool googleSignInConfigured = false;
 
     public FirebaseUser CurrentUser => auth?.CurrentUser;
 
@@ -40,6 +45,16 @@ public partial class FirebaseManager
             CDebug.LogError($"[FirebaseManager] 익명(게스트) 로그인 실패: {e.Message}");
             return null;
         }
+    }
+    
+    /// <summary>
+    /// 구글 계정 로그인
+    /// </summary>
+    public async UniTask<FirebaseUser> SignInGoogleAsync()
+    {
+        //TODO: 아직 미구현
+        await UniTask.CompletedTask;
+        return null;
     }
 
     /// <summary>
@@ -89,29 +104,67 @@ public partial class FirebaseManager
             return null;
         }
     }
-
-    /// <summary>
-    /// 자동 로그인 처리
-    /// Firebase 초기화 후 호출하여 기존 계정이 있으면 자동 로그인, 없으면 익명 로그인
+    
+        /// <summary>
+    /// 익명 계정에 구글 계정 연동
     /// </summary>
-    public async UniTask<FirebaseUser> AutoSignInAsync()
+    public async UniTask<GoogleLinkResult> LinkWithGoogleAsync()
     {
-        if (!isInitialized)
+        if (!isInitialized || CurrentUser == null)
         {
-            CDebug.LogError("[FirebaseManager] Firebase 초기화가 되지 않았습니다!");
-            return null;
+            CDebug.LogError("[FirebaseManager] Firebase 초기화가 되지 않았거나 로그인된 유저가 없습니다!");
+            return GoogleLinkResult.Failed;
         }
 
-        // 이미 로그인된 유저가 있는지 확인
-        if (CurrentUser != null)
+        if (!googleSignInConfigured)
         {
-            CDebug.Log($"[FirebaseManager] 자동 로그인 성공: {CurrentUser.UserId} (익명(게스트) 로그인: {CurrentUser.IsAnonymous})");
-            return CurrentUser;
+            GoogleSignIn.Configuration = new GoogleSignInConfiguration
+            {
+                WebClientId = GOOGLE_WEB_CLIENT_ID,
+                RequestIdToken = true,
+            };
+            googleSignInConfigured = true;
         }
 
-        // 로그인된 유저가 없으면 익명 로그인
-        CDebug.Log("[FirebaseManager] 유저 정보가 없습니다. 익명(게스트) 로그인 중...");
-        return await SignInAnonymouslyAsync();
+        GoogleSignInUser googleUser;
+        try
+        {
+            googleUser = await GoogleSignIn.DefaultInstance.SignIn();
+        }
+        catch (GoogleSignIn.SignInException e)
+        {
+            if (e.Status == GoogleSignInStatusCode.Canceled)
+            {
+                CDebug.Log("[FirebaseManager] 구글 로그인 취소");
+                return GoogleLinkResult.Canceled;
+            }
+
+            CDebug.LogError($"[FirebaseManager] 구글 로그인 실패: {e.Message}");
+            return GoogleLinkResult.Failed;
+        }
+        catch (Exception e)
+        {
+            CDebug.LogError($"[FirebaseManager] 구글 로그인 실패: {e.Message}");
+            return GoogleLinkResult.Failed;
+        }
+
+        try
+        {
+            var credential = GoogleAuthProvider.GetCredential(googleUser.IdToken, null);
+            var result = await CurrentUser.LinkWithCredentialAsync(credential);
+            CDebug.Log($"[FirebaseManager] 구글 계정 연동 성공: {result.User.UserId}");
+            return GoogleLinkResult.Success;
+        }
+        catch (Firebase.FirebaseException e) when (e.ErrorCode == (int)AuthError.CredentialAlreadyInUse)
+        {
+            CDebug.LogError("[FirebaseManager] 이미 다른 계정에 연동된 구글 계정입니다");
+            return GoogleLinkResult.AlreadyInUse;
+        }
+        catch (Exception e)
+        {
+            CDebug.LogError($"[FirebaseManager] 구글 계정 연동 실패: {e.Message}");
+            return GoogleLinkResult.Failed;
+        }
     }
     
     /// <summary>

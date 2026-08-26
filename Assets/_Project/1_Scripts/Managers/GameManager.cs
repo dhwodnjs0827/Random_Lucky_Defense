@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
 
-public class GameManager : MonoSingleton<GameManager>
+public class GameManager : MonoSingleton<GameManager>, IEventListener
 {
     protected override bool isInitialized { get; set; }
     
@@ -14,7 +14,6 @@ public class GameManager : MonoSingleton<GameManager>
         try
         {
             await InitializeAsync();
-            await SceneLoadManager.Instance.LoadSceneAsync(SceneType.LobbyScene);
         }
         catch (Exception e)
         {
@@ -30,9 +29,27 @@ public class GameManager : MonoSingleton<GameManager>
             return;
         }
 
+        SubscribeEvents();
+
         await InitializeManagerAsync();
-        
+
         isInitialized = true;
+    }
+
+    protected override void OnDestroy()
+    {
+        UnsubscribeEvents();
+        base.OnDestroy();
+    }
+
+    public void SubscribeEvents()
+    {
+        EventManager.Subscribe(GameEventType.SignIn, InitializeUserData);
+    }
+
+    public void UnsubscribeEvents()
+    {
+        EventManager.Unsubscribe(GameEventType.SignIn, InitializeUserData);
     }
     
     /// <summary>
@@ -43,13 +60,10 @@ public class GameManager : MonoSingleton<GameManager>
         try
         {
             tasks.Add(async () => await FirebaseManager.Instance.InitializeFirebaseAsync());
-            tasks.Add(async () => await FirebaseManager.Instance.AutoSignInAsync());
             tasks.Add(LocalizationManager.Instance.InitializeAsync);
             tasks.Add(AddressableManager.Instance.InitializeAsync);
             tasks.Add(AudioManager.Instance.InitializeAsync);
             tasks.Add(DataManager.Instance.InitializeAsync);
-            tasks.Add(SaveLoadManager.Instance.InitializeAsync);
-            tasks.Add(PlayerDataManager.Instance.InitializeAsync);
             tasks.Add(UIManager.Instance.InitializeAsync);
             tasks.Add(SceneLoadManager.Instance.InitializeAsync);
             tasks.Add(ToastManager.Instance.InitializeAsync);
@@ -59,11 +73,30 @@ public class GameManager : MonoSingleton<GameManager>
                 await tasks[i]();
                 EventManager.Dispatch(GameEventType.GameInitializeProgress, (i + 1) / (float)tasks.Count);
             }
+            EventManager.Dispatch(GameEventType.GameInitializeCompleted);
         }
         catch (Exception e)
         {
             CDebug.LogException(e);
             throw;
         }
+    }
+
+    private void InitializeUserData()
+    {
+        InitializeUserDataAsync().Forget();
+    }
+
+    private async UniTask InitializeUserDataAsync()
+    {
+        tasks.Clear();
+        tasks.Add(SaveLoadManager.Instance.InitializeAsync);
+        tasks.Add(PlayerDataManager.Instance.InitializeAsync);
+        for (int i = 0; i < tasks.Count; i++)
+        {
+            await tasks[i]();
+            EventManager.Dispatch(GameEventType.GameInitializeProgress, (i + 1) / (float)tasks.Count);
+        }
+        EventManager.Dispatch(GameEventType.UserDataInitializeCompleted);
     }
 }
