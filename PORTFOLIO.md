@@ -784,6 +784,29 @@ var acquiredHeroes = PlayerDataManager.Instance.HeroDB.GetAcquiredHeroesByClass(
 - `EnemyWaveController`(현 `WaveController`), `HeroSpawnPool`, `InGameHeroLevelUpController`, `HeroAttackState` 등 리소스를 사용하는 핵심 로직을 동기 → `UniTask` 비동기로 전환
 - 어드레서블 핸들 해제(Release) 로직을 추가해 메모리 누수 방지
 
+### 8. GoogleSignIn 플러그인 iOS 빌드 실패
+
+**문제**: GoogleSignIn iOS SDK 6.0+ 환경에서 기존 delegate 기반 API(`GIDSignInDelegate`/`GIDSignInUIDelegate`, `GIDSignIn.clientID`/`.scopes`/`.loginHint`, `guser.authentication.idToken` 등)가 SDK에서 완전히 제거되어 있어 컴파일 실패
+
+**해결**: iOS 네이티브 코드(`GoogleSignIn.mm`/`.h`, `GoogleSignInAppController.mm`)를 6.0+ completion-handler 기반 API로 전면 재작성
+```objc
+// 변경 전: delegate 기반 (GoogleSignIn 4.x)
+[[GIDSignIn sharedInstance] signIn];
+// signIn:didSignInForUser:withError: 콜백에서 결과 처리
+
+// 변경 후: completion-handler 기반 (GoogleSignIn 6.0+)
+[[GIDSignIn sharedInstance]
+    signInWithPresentingViewController:presenter
+                                  hint:gsiLoginHint
+                      additionalScopes:gsiAdditionalScopes
+                            completion:^(GIDSignInResult *result, NSError *error) {
+    CompleteSignIn(error, result.serverAuthCode);
+}];
+```
+- `GIDConfiguration`으로 clientID/serverClientID 구성, `restorePreviousSignInWithCompletion:`으로 자동 로그인 대체
+- `serverAuthCode`가 `GIDGoogleUser`가 아닌 `GIDSignInResult`에서만 제공되도록 변경되어 static 변수로 캐싱 후 재사용
+- iosPod 버전 제약을 실제 사용 중인 SDK 버전(`>= 6.2.4`)과 일치하도록 재확인해 코드-의존성 정합성 확보
+
 ---
 
 ## 사용 기술 및 라이브러리
@@ -794,7 +817,8 @@ var acquiredHeroes = PlayerDataManager.Instance.HeroDB.GetAcquiredHeroesByClass(
 | C# | 개발 언어 |
 | UniTask | 비동기 프로그래밍 |
 | Unity Splines | 적 경로 이동 |
-| Firebase | 인증, 애널리틱스, 클라우드 저장(Firestore) |
+| Firebase SDK | 인증, 애널리틱스, 클라우드 저장(Firestore) |
+| Google Sign-In Plugin | 소셜 로그인 (Android/iOS, Firebase Authentication 연동) |
 | Addressables | 리소스 관리 (전면 도입) |
 | Unity Localization | 다국어 지원 (한국어/영어) |
 | Google Sheets | 기획 데이터 및 로컬라이제이션 원본 관리 |
