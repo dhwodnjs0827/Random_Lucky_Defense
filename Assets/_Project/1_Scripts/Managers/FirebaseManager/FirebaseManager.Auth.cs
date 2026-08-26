@@ -6,10 +6,12 @@ using Google;
 public partial class FirebaseManager
 {
     private FirebaseAuth auth;
-    
-    private const string GOOGLE_WEB_CLIENT_ID = "323160557358-8ltjjh7iovr59j77idgsk97iurrtnota.apps.googleusercontent.com"; // 웹 클라이언트 ID
 
+    private const string GOOGLE_WEB_CLIENT_ID = "323160557358-8ltjjh7iovr59j77idgsk97iurrtnota.apps.googleusercontent.com";
+
+#if !UNITY_EDITOR
     private bool googleSignInConfigured = false;
+#endif
 
     public FirebaseUser CurrentUser => auth?.CurrentUser;
 
@@ -46,15 +48,69 @@ public partial class FirebaseManager
             return null;
         }
     }
-    
+
     /// <summary>
     /// 구글 계정 로그인
     /// </summary>
     public async UniTask<FirebaseUser> SignInGoogleAsync()
     {
-        //TODO: 아직 미구현
+        if (!isInitialized)
+        {
+            CDebug.LogError("[FirebaseManager] Firebase 초기화가 되지 않았습니다!");
+            return null;
+        }
+
+#if UNITY_EDITOR
+        CDebug.Log("[FirebaseManager] 유니티 에디터에서는 테스트 불가");
         await UniTask.CompletedTask;
         return null;
+#else
+        if (!googleSignInConfigured)
+        {
+            GoogleSignIn.Configuration = new GoogleSignInConfiguration
+            {
+                WebClientId = GOOGLE_WEB_CLIENT_ID,
+                RequestIdToken = true,
+            };
+            googleSignInConfigured = true;
+        }
+
+        GoogleSignInUser googleUser;
+        try
+        {
+            googleUser = await GoogleSignIn.DefaultInstance.SignIn();
+        }
+        catch (GoogleSignIn.SignInException e)
+        {
+            if (e.Status == GoogleSignInStatusCode.Canceled)
+            {
+                CDebug.Log("[FirebaseManager] 구글 로그인 취소");
+                return null;
+            }
+
+            CDebug.LogError($"[FirebaseManager] 구글 로그인 실패: {e.Message}");
+            return null;
+        }
+        catch (Exception e)
+        {
+            CDebug.LogError($"[FirebaseManager] 구글 로그인 실패: {e.Message}");
+            return null;
+        }
+
+        Credential credential = GoogleAuthProvider.GetCredential(googleUser.IdToken, null);
+
+        try
+        {
+            var result = await auth.SignInAndRetrieveDataWithCredentialAsync(credential);
+            CDebug.Log($"[FirebaseManager] 구글 로그인 성공 유저 이름: {result.User.DisplayName} 유저 ID: {result.User.UserId}");
+            return result.User;
+        }
+        catch (Exception e)
+        {
+            CDebug.LogError($"[FirebaseManager] {e.Message}");
+            return null;
+        }
+#endif
     }
 
     /// <summary>
@@ -104,8 +160,8 @@ public partial class FirebaseManager
             return null;
         }
     }
-    
-        /// <summary>
+
+    /// <summary>
     /// 익명 계정에 구글 계정 연동
     /// </summary>
     public async UniTask<GoogleLinkResult> LinkWithGoogleAsync()
@@ -116,6 +172,11 @@ public partial class FirebaseManager
             return GoogleLinkResult.Failed;
         }
 
+#if UNITY_EDITOR
+        CDebug.Log("[FirebaseManager] 유니티 에디터에서는 테스트 불가");
+        await UniTask.CompletedTask;
+        return GoogleLinkResult.Success;
+#else
         if (!googleSignInConfigured)
         {
             GoogleSignIn.Configuration = new GoogleSignInConfiguration
@@ -165,8 +226,9 @@ public partial class FirebaseManager
             CDebug.LogError($"[FirebaseManager] 구글 계정 연동 실패: {e.Message}");
             return GoogleLinkResult.Failed;
         }
+#endif
     }
-    
+
     /// <summary>
     /// 로그아웃
     /// </summary>

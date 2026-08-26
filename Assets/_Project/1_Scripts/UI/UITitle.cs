@@ -18,9 +18,9 @@ public class UITitle : MonoBehaviour, IEventListener
         
         gameStartButton.onClick.AddListener(LoadLobbyScene);
 
-        guestLoginButton.onClick.AddListener(() => OnClickGuestLoginButtonAsync().Forget());
-        googleLoginButton.onClick.AddListener(() => OnClickGoogleLoginButtonAsync().Forget());
-        appleLoginButton.onClick.AddListener(() => OnClickAppleLoginButtonAsync().Forget());
+        guestLoginButton.onClick.AddListener(() => OnClickGuestSignInButtonAsync().Forget());
+        googleLoginButton.onClick.AddListener(() => OnClickGoogleSignInButtonAsync().Forget());
+        appleLoginButton.onClick.AddListener(() => OnClickAppleSignInButtonAsync().Forget());
 
         loginButtonGroup.SetActive(false);
         gameStartButton.gameObject.SetActive(false);
@@ -74,7 +74,7 @@ public class UITitle : MonoBehaviour, IEventListener
         SceneLoadManager.Instance.LoadSceneAsync(SceneType.LobbyScene).Forget();
     }
 
-    private async UniTask OnClickGuestLoginButtonAsync()
+    private async UniTask OnClickGuestSignInButtonAsync()
     {
         var user = await FirebaseManager.Instance.SignInAnonymouslyAsync();
         if (user != null)
@@ -86,7 +86,7 @@ public class UITitle : MonoBehaviour, IEventListener
         }
     }
 
-    private async UniTask OnClickGoogleLoginButtonAsync()
+    private async UniTask OnClickGoogleSignInButtonAsync()
     {
         var user = await FirebaseManager.Instance.SignInGoogleAsync();
         if (user != null)
@@ -98,7 +98,7 @@ public class UITitle : MonoBehaviour, IEventListener
         }
     }
 
-    private async UniTask OnClickAppleLoginButtonAsync()
+    private async UniTask OnClickAppleSignInButtonAsync()
     {
         await UniTask.CompletedTask;
     }
